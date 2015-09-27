@@ -1,0 +1,621 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		FA02108C1B638333005693F0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA02108B1B638333005693F0 /* AppDelegate.swift */; };
+		FA0210911B638333005693F0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA02108F1B638333005693F0 /* Main.storyboard */; };
+		FA0210931B638333005693F0 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA0210921B638333005693F0 /* Images.xcassets */; };
+		FA0210961B638333005693F0 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA0210941B638333005693F0 /* LaunchScreen.xib */; };
+		FA0210A21B638333005693F0 /* cariocaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0210A11B638333005693F0 /* cariocaTests.swift */; };
+		FA0210B41B6387C4005693F0 /* CariocaMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0210B21B6387C4005693F0 /* CariocaMenu.swift */; };
+		FA108FFD1BA46D8F00D37078 /* MyMenuContentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA108FFC1BA46D8F00D37078 /* MyMenuContentController.swift */; };
+		FA108FFF1BA46E6800D37078 /* MyMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA108FFE1BA46E6800D37078 /* MyMenuTableViewCell.swift */; };
+		FA109A6B1BA7EA4600D4688A /* COSTouchVisualizerWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = FA109A6A1BA7EA4600D4688A /* COSTouchVisualizerWindow.m */; };
+		FA29F58A1BA5814200D01F47 /* DemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA29F5881BA5814200D01F47 /* DemoViewController.swift */; };
+		FA29F58C1BA588F700D01F47 /* DemoIntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA29F58B1BA588F700D01F47 /* DemoIntroViewController.swift */; };
+		FA29F5911BA5A38300D01F47 /* DemoWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA29F5901BA5A38300D01F47 /* DemoWebViewController.swift */; };
+		FA29F5941BA6905C00D01F47 /* whiteGradientBottom.png in Resources */ = {isa = PBXBuildFile; fileRef = FA29F5921BA6905C00D01F47 /* whiteGradientBottom.png */; };
+		FA29F5951BA6905C00D01F47 /* whiteGradientTop.png in Resources */ = {isa = PBXBuildFile; fileRef = FA29F5931BA6905C00D01F47 /* whiteGradientTop.png */; };
+		FA68F8A41BB694DF0061A2D6 /* about_indicator.png in Resources */ = {isa = PBXBuildFile; fileRef = FA68F8991BB694DF0061A2D6 /* about_indicator.png */; };
+		FA68F8A51BB694DF0061A2D6 /* hamburger_indicator.png in Resources */ = {isa = PBXBuildFile; fileRef = FA68F89A1BB694DF0061A2D6 /* hamburger_indicator.png */; };
+		FA68F8A61BB694DF0061A2D6 /* hello_indicator.png in Resources */ = {isa = PBXBuildFile; fileRef = FA68F89B1BB694DF0061A2D6 /* hello_indicator.png */; };
+		FA68F8A71BB694DF0061A2D6 /* map_indicator.png in Resources */ = {isa = PBXBuildFile; fileRef = FA68F89C1BB694DF0061A2D6 /* map_indicator.png */; };
+		FA68F8A81BB694DF0061A2D6 /* settings_indicator.png in Resources */ = {isa = PBXBuildFile; fileRef = FA68F89D1BB694DF0061A2D6 /* settings_indicator.png */; };
+		FA68F8A91BB694DF0061A2D6 /* about_menu.png in Resources */ = {isa = PBXBuildFile; fileRef = FA68F89F1BB694DF0061A2D6 /* about_menu.png */; };
+		FA68F8AA1BB694DF0061A2D6 /* hamburger_menu.png in Resources */ = {isa = PBXBuildFile; fileRef = FA68F8A01BB694DF0061A2D6 /* hamburger_menu.png */; };
+		FA68F8AB1BB694DF0061A2D6 /* hello_menu.png in Resources */ = {isa = PBXBuildFile; fileRef = FA68F8A11BB694DF0061A2D6 /* hello_menu.png */; };
+		FA68F8AC1BB694DF0061A2D6 /* map_menu.png in Resources */ = {isa = PBXBuildFile; fileRef = FA68F8A21BB694DF0061A2D6 /* map_menu.png */; };
+		FA68F8AD1BB694DF0061A2D6 /* settings_menu.png in Resources */ = {isa = PBXBuildFile; fileRef = FA68F8A31BB694DF0061A2D6 /* settings_menu.png */; };
+		FA68F8AF1BB6956B0061A2D6 /* DemoAboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA68F8AE1BB6956B0061A2D6 /* DemoAboutViewController.swift */; };
+		FA68F8B11BB7EF3F0061A2D6 /* icon-small.png in Resources */ = {isa = PBXBuildFile; fileRef = FA68F8B01BB7EF3F0061A2D6 /* icon-small.png */; };
+		FA68F8B31BB7F0630061A2D6 /* arnaud.schloune.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FA68F8B21BB7F0630061A2D6 /* arnaud.schloune.jpg */; };
+		FAC48D221BB513F70072AC0A /* DemoSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC48D211BB513F70072AC0A /* DemoSettingsViewController.swift */; };
+		FAC48D241BB51BD70072AC0A /* DemoMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC48D231BB51BD70072AC0A /* DemoMapViewController.swift */; };
+		FAC48D261BB51CEC0072AC0A /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAC48D251BB51CEC0072AC0A /* MapKit.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		FA02109C1B638333005693F0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FA02107E1B638333005693F0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FA0210851B638333005693F0;
+			remoteInfo = carioca;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		FA0210861B638333005693F0 /* carioca.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = carioca.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA02108A1B638333005693F0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FA02108B1B638333005693F0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		FA0210901B638333005693F0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		FA0210921B638333005693F0 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		FA0210951B638333005693F0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		FA02109B1B638333005693F0 /* cariocaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = cariocaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA0210A01B638333005693F0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FA0210A11B638333005693F0 /* cariocaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cariocaTests.swift; sourceTree = "<group>"; };
+		FA0210B21B6387C4005693F0 /* CariocaMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CariocaMenu.swift; sourceTree = "<group>"; };
+		FA108FFC1BA46D8F00D37078 /* MyMenuContentController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyMenuContentController.swift; sourceTree = "<group>"; };
+		FA108FFE1BA46E6800D37078 /* MyMenuTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyMenuTableViewCell.swift; sourceTree = "<group>"; };
+		FA109A681BA7EA4500D4688A /* carioca-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "carioca-Bridging-Header.h"; sourceTree = "<group>"; };
+		FA109A691BA7EA4600D4688A /* COSTouchVisualizerWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = COSTouchVisualizerWindow.h; sourceTree = "<group>"; };
+		FA109A6A1BA7EA4600D4688A /* COSTouchVisualizerWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = COSTouchVisualizerWindow.m; sourceTree = "<group>"; };
+		FA29F5881BA5814200D01F47 /* DemoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoViewController.swift; sourceTree = "<group>"; };
+		FA29F58B1BA588F700D01F47 /* DemoIntroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoIntroViewController.swift; sourceTree = "<group>"; };
+		FA29F5901BA5A38300D01F47 /* DemoWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoWebViewController.swift; sourceTree = "<group>"; };
+		FA29F5921BA6905C00D01F47 /* whiteGradientBottom.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = whiteGradientBottom.png; sourceTree = "<group>"; };
+		FA29F5931BA6905C00D01F47 /* whiteGradientTop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = whiteGradientTop.png; sourceTree = "<group>"; };
+		FA68F8991BB694DF0061A2D6 /* about_indicator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = about_indicator.png; sourceTree = "<group>"; };
+		FA68F89A1BB694DF0061A2D6 /* hamburger_indicator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hamburger_indicator.png; sourceTree = "<group>"; };
+		FA68F89B1BB694DF0061A2D6 /* hello_indicator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hello_indicator.png; sourceTree = "<group>"; };
+		FA68F89C1BB694DF0061A2D6 /* map_indicator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = map_indicator.png; sourceTree = "<group>"; };
+		FA68F89D1BB694DF0061A2D6 /* settings_indicator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings_indicator.png; sourceTree = "<group>"; };
+		FA68F89F1BB694DF0061A2D6 /* about_menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = about_menu.png; sourceTree = "<group>"; };
+		FA68F8A01BB694DF0061A2D6 /* hamburger_menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hamburger_menu.png; sourceTree = "<group>"; };
+		FA68F8A11BB694DF0061A2D6 /* hello_menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hello_menu.png; sourceTree = "<group>"; };
+		FA68F8A21BB694DF0061A2D6 /* map_menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = map_menu.png; sourceTree = "<group>"; };
+		FA68F8A31BB694DF0061A2D6 /* settings_menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings_menu.png; sourceTree = "<group>"; };
+		FA68F8AE1BB6956B0061A2D6 /* DemoAboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoAboutViewController.swift; sourceTree = "<group>"; };
+		FA68F8B01BB7EF3F0061A2D6 /* icon-small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-small.png"; sourceTree = "<group>"; };
+		FA68F8B21BB7F0630061A2D6 /* arnaud.schloune.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = arnaud.schloune.jpg; sourceTree = "<group>"; };
+		FAC48D211BB513F70072AC0A /* DemoSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoSettingsViewController.swift; sourceTree = "<group>"; };
+		FAC48D231BB51BD70072AC0A /* DemoMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoMapViewController.swift; sourceTree = "<group>"; };
+		FAC48D251BB51CEC0072AC0A /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FA0210831B638333005693F0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FAC48D261BB51CEC0072AC0A /* MapKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FA0210981B638333005693F0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		FA02107D1B638333005693F0 = {
+			isa = PBXGroup;
+			children = (
+				FAC48D251BB51CEC0072AC0A /* MapKit.framework */,
+				FA0210881B638333005693F0 /* carioca */,
+				FA02109E1B638333005693F0 /* cariocaTests */,
+				FA0210871B638333005693F0 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		FA0210871B638333005693F0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FA0210861B638333005693F0 /* carioca.app */,
+				FA02109B1B638333005693F0 /* cariocaTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FA0210881B638333005693F0 /* carioca */ = {
+			isa = PBXGroup;
+			children = (
+				FA02108B1B638333005693F0 /* AppDelegate.swift */,
+				FA0210B11B6387C4005693F0 /* Library */,
+				FA108FFC1BA46D8F00D37078 /* MyMenuContentController.swift */,
+				FA108FFE1BA46E6800D37078 /* MyMenuTableViewCell.swift */,
+				FA02108F1B638333005693F0 /* Main.storyboard */,
+				FA109A691BA7EA4600D4688A /* COSTouchVisualizerWindow.h */,
+				FA109A6A1BA7EA4600D4688A /* COSTouchVisualizerWindow.m */,
+				FA29F5691BA5636100D01F47 /* DemoControllers */,
+				FA29F56C1BA5636A00D01F47 /* Ressources */,
+				FA0210921B638333005693F0 /* Images.xcassets */,
+				FA0210941B638333005693F0 /* LaunchScreen.xib */,
+				FA0210891B638333005693F0 /* Supporting Files */,
+				FA109A681BA7EA4500D4688A /* carioca-Bridging-Header.h */,
+			);
+			path = carioca;
+			sourceTree = "<group>";
+		};
+		FA0210891B638333005693F0 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				FA02108A1B638333005693F0 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		FA02109E1B638333005693F0 /* cariocaTests */ = {
+			isa = PBXGroup;
+			children = (
+				FA0210A11B638333005693F0 /* cariocaTests.swift */,
+				FA02109F1B638333005693F0 /* Supporting Files */,
+			);
+			path = cariocaTests;
+			sourceTree = "<group>";
+		};
+		FA02109F1B638333005693F0 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				FA0210A01B638333005693F0 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		FA0210B11B6387C4005693F0 /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				FA0210B21B6387C4005693F0 /* CariocaMenu.swift */,
+			);
+			path = Library;
+			sourceTree = "<group>";
+		};
+		FA29F5691BA5636100D01F47 /* DemoControllers */ = {
+			isa = PBXGroup;
+			children = (
+				FA29F5881BA5814200D01F47 /* DemoViewController.swift */,
+				FA29F58B1BA588F700D01F47 /* DemoIntroViewController.swift */,
+				FA29F5901BA5A38300D01F47 /* DemoWebViewController.swift */,
+				FAC48D211BB513F70072AC0A /* DemoSettingsViewController.swift */,
+				FAC48D231BB51BD70072AC0A /* DemoMapViewController.swift */,
+				FA68F8AE1BB6956B0061A2D6 /* DemoAboutViewController.swift */,
+			);
+			path = DemoControllers;
+			sourceTree = "<group>";
+		};
+		FA29F56C1BA5636A00D01F47 /* Ressources */ = {
+			isa = PBXGroup;
+			children = (
+				FA29F56D1BA5636A00D01F47 /* Images */,
+			);
+			path = Ressources;
+			sourceTree = "<group>";
+		};
+		FA29F56D1BA5636A00D01F47 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				FA29F58D1BA593E700D01F47 /* demoContent */,
+				FA29F56E1BA5636A00D01F47 /* icons */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+		FA29F56E1BA5636A00D01F47 /* icons */ = {
+			isa = PBXGroup;
+			children = (
+				FA68F8981BB694DF0061A2D6 /* indicator */,
+				FA68F89E1BB694DF0061A2D6 /* menu */,
+			);
+			path = icons;
+			sourceTree = "<group>";
+		};
+		FA29F58D1BA593E700D01F47 /* demoContent */ = {
+			isa = PBXGroup;
+			children = (
+				FA68F8B01BB7EF3F0061A2D6 /* icon-small.png */,
+				FA29F5921BA6905C00D01F47 /* whiteGradientBottom.png */,
+				FA29F5931BA6905C00D01F47 /* whiteGradientTop.png */,
+				FA68F8B21BB7F0630061A2D6 /* arnaud.schloune.jpg */,
+			);
+			path = demoContent;
+			sourceTree = "<group>";
+		};
+		FA68F8981BB694DF0061A2D6 /* indicator */ = {
+			isa = PBXGroup;
+			children = (
+				FA68F8991BB694DF0061A2D6 /* about_indicator.png */,
+				FA68F89A1BB694DF0061A2D6 /* hamburger_indicator.png */,
+				FA68F89B1BB694DF0061A2D6 /* hello_indicator.png */,
+				FA68F89C1BB694DF0061A2D6 /* map_indicator.png */,
+				FA68F89D1BB694DF0061A2D6 /* settings_indicator.png */,
+			);
+			path = indicator;
+			sourceTree = "<group>";
+		};
+		FA68F89E1BB694DF0061A2D6 /* menu */ = {
+			isa = PBXGroup;
+			children = (
+				FA68F89F1BB694DF0061A2D6 /* about_menu.png */,
+				FA68F8A01BB694DF0061A2D6 /* hamburger_menu.png */,
+				FA68F8A11BB694DF0061A2D6 /* hello_menu.png */,
+				FA68F8A21BB694DF0061A2D6 /* map_menu.png */,
+				FA68F8A31BB694DF0061A2D6 /* settings_menu.png */,
+			);
+			path = menu;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		FA0210851B638333005693F0 /* carioca */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FA0210A51B638333005693F0 /* Build configuration list for PBXNativeTarget "carioca" */;
+			buildPhases = (
+				FA0210821B638333005693F0 /* Sources */,
+				FA0210831B638333005693F0 /* Frameworks */,
+				FA0210841B638333005693F0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = carioca;
+			productName = carioca;
+			productReference = FA0210861B638333005693F0 /* carioca.app */;
+			productType = "com.apple.product-type.application";
+		};
+		FA02109A1B638333005693F0 /* cariocaTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FA0210A81B638333005693F0 /* Build configuration list for PBXNativeTarget "cariocaTests" */;
+			buildPhases = (
+				FA0210971B638333005693F0 /* Sources */,
+				FA0210981B638333005693F0 /* Frameworks */,
+				FA0210991B638333005693F0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FA02109D1B638333005693F0 /* PBXTargetDependency */,
+			);
+			name = cariocaTests;
+			productName = cariocaTests;
+			productReference = FA02109B1B638333005693F0 /* cariocaTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FA02107E1B638333005693F0 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftMigration = 0700;
+				LastSwiftUpdateCheck = 0700;
+				LastUpgradeCheck = 0700;
+				ORGANIZATIONNAME = "Arnaud Schloune";
+				TargetAttributes = {
+					FA0210851B638333005693F0 = {
+						CreatedOnToolsVersion = 6.4;
+						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+						};
+					};
+					FA02109A1B638333005693F0 = {
+						CreatedOnToolsVersion = 6.4;
+						TestTargetID = FA0210851B638333005693F0;
+					};
+				};
+			};
+			buildConfigurationList = FA0210811B638333005693F0 /* Build configuration list for PBXProject "carioca" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = FA02107D1B638333005693F0;
+			productRefGroup = FA0210871B638333005693F0 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FA0210851B638333005693F0 /* carioca */,
+				FA02109A1B638333005693F0 /* cariocaTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		FA0210841B638333005693F0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FA68F8AD1BB694DF0061A2D6 /* settings_menu.png in Resources */,
+				FA0210911B638333005693F0 /* Main.storyboard in Resources */,
+				FA68F8AA1BB694DF0061A2D6 /* hamburger_menu.png in Resources */,
+				FA68F8A51BB694DF0061A2D6 /* hamburger_indicator.png in Resources */,
+				FA29F5941BA6905C00D01F47 /* whiteGradientBottom.png in Resources */,
+				FA0210961B638333005693F0 /* LaunchScreen.xib in Resources */,
+				FA29F5951BA6905C00D01F47 /* whiteGradientTop.png in Resources */,
+				FA68F8A61BB694DF0061A2D6 /* hello_indicator.png in Resources */,
+				FA0210931B638333005693F0 /* Images.xcassets in Resources */,
+				FA68F8B11BB7EF3F0061A2D6 /* icon-small.png in Resources */,
+				FA68F8AB1BB694DF0061A2D6 /* hello_menu.png in Resources */,
+				FA68F8A91BB694DF0061A2D6 /* about_menu.png in Resources */,
+				FA68F8A71BB694DF0061A2D6 /* map_indicator.png in Resources */,
+				FA68F8B31BB7F0630061A2D6 /* arnaud.schloune.jpg in Resources */,
+				FA68F8A41BB694DF0061A2D6 /* about_indicator.png in Resources */,
+				FA68F8A81BB694DF0061A2D6 /* settings_indicator.png in Resources */,
+				FA68F8AC1BB694DF0061A2D6 /* map_menu.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FA0210991B638333005693F0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FA0210821B638333005693F0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FAC48D241BB51BD70072AC0A /* DemoMapViewController.swift in Sources */,
+				FAC48D221BB513F70072AC0A /* DemoSettingsViewController.swift in Sources */,
+				FA109A6B1BA7EA4600D4688A /* COSTouchVisualizerWindow.m in Sources */,
+				FA29F5911BA5A38300D01F47 /* DemoWebViewController.swift in Sources */,
+				FA02108C1B638333005693F0 /* AppDelegate.swift in Sources */,
+				FA29F58C1BA588F700D01F47 /* DemoIntroViewController.swift in Sources */,
+				FA0210B41B6387C4005693F0 /* CariocaMenu.swift in Sources */,
+				FA68F8AF1BB6956B0061A2D6 /* DemoAboutViewController.swift in Sources */,
+				FA108FFD1BA46D8F00D37078 /* MyMenuContentController.swift in Sources */,
+				FA108FFF1BA46E6800D37078 /* MyMenuTableViewCell.swift in Sources */,
+				FA29F58A1BA5814200D01F47 /* DemoViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FA0210971B638333005693F0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FA0210A21B638333005693F0 /* cariocaTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		FA02109D1B638333005693F0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FA0210851B638333005693F0 /* carioca */;
+			targetProxy = FA02109C1B638333005693F0 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		FA02108F1B638333005693F0 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FA0210901B638333005693F0 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		FA0210941B638333005693F0 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FA0210951B638333005693F0 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		FA0210A31B638333005693F0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_INSTALL_OBJC_HEADER = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		FA0210A41B638333005693F0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_INSTALL_OBJC_HEADER = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		FA0210A61B638333005693F0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = carioca/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.cariocamenu;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SWIFT_INSTALL_OBJC_HEADER = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "carioca/carioca-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		FA0210A71B638333005693F0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = carioca/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.cariocamenu;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SWIFT_INSTALL_OBJC_HEADER = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "carioca/carioca-Bridging-Header.h";
+			};
+			name = Release;
+		};
+		FA0210A91B638333005693F0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = cariocaTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "mmmommmo.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/carioca.app/carioca";
+			};
+			name = Debug;
+		};
+		FA0210AA1B638333005693F0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = cariocaTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "mmmommmo.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/carioca.app/carioca";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FA0210811B638333005693F0 /* Build configuration list for PBXProject "carioca" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FA0210A31B638333005693F0 /* Debug */,
+				FA0210A41B638333005693F0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FA0210A51B638333005693F0 /* Build configuration list for PBXNativeTarget "carioca" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FA0210A61B638333005693F0 /* Debug */,
+				FA0210A71B638333005693F0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FA0210A81B638333005693F0 /* Build configuration list for PBXNativeTarget "cariocaTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FA0210A91B638333005693F0 /* Debug */,
+				FA0210AA1B638333005693F0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = FA02107E1B638333005693F0 /* Project object */;
+}
