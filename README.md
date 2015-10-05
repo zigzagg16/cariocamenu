@@ -34,8 +34,14 @@ CariocaMenu is a simple, elegant, fast, modern, innovative, ..., navigation menu
 ## Installation
 
 ### CocoaPods
+CariocaMenu is now available on [CocoaPods](http://cocoapods.org). 
+Simply add the following to your project Podfile, and you'll be good to go.
 
-Coming soon 
+```ruby
+use_frameworks!
+
+pod 'CariocaMenu'
+```
 
 ### Manually
 
@@ -111,8 +117,8 @@ A `Carioca` is someone who lives in Rio de Janeiro. I lived there for two months
 
 ## Contact
 
+- LinkedIn ([Arnaud Schloune](https://lu.linkedin.com/in/arnaudschloune))
 - Twitter ([@arnaud_momo](https://twitter.com/arnaud_momo))
-- LinkedIn ([@arnaud Schloune](https://lu.linkedin.com/in/arnaud.schloune))
 
 ### Creator
 
