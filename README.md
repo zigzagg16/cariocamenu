@@ -1,6 +1,9 @@
 CariocaMenu
 ===============
 
+[![Cocoapods Compatible](https://img.shields.io/cocoapods/v/CariocaMenu.svg)](https://img.shields.io/cocoapods/v/CariocaMenu.svg)
+[![Carthage Compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
+
 The fastest zero-tap iOS menu
 
 ![](https://raw.githubusercontent.com/arn00s/cariocamenu/master/cariocamenu.gif)
@@ -42,6 +45,25 @@ use_frameworks!
 
 pod 'CariocaMenu'
 ```
+
+### Carthage
+
+[Carthage](https://github.com/Carthage/Carthage) is a decentralized dependency manager that builds your dependencies and provides you with binary frameworks.
+
+You can install Carthage with [Homebrew](http://brew.sh/) using the following command:
+
+```bash
+$ brew update
+$ brew install carthage
+```
+
+To integrate CariocaMenu into your Xcode project using Carthage, specify it in your `Cartfile`:
+
+```ogdl
+github "arn00s/cariocamenu"
+```
+
+Run `carthage` to build the framework and drag the built `cariocaframework.framework` into your Xcode project.
 
 ### Manually
 
