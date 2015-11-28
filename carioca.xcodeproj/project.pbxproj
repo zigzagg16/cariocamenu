@@ -36,6 +36,7 @@
 		FAAAAA1C1C09F9C700CB2F14 /* cariocaframework.h in Headers */ = {isa = PBXBuildFile; fileRef = FAAAAA1B1C09F9C700CB2F14 /* cariocaframework.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FAAAAA201C09F9C700CB2F14 /* cariocaframework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAAAAA191C09F9C700CB2F14 /* cariocaframework.framework */; };
 		FAAAAA211C09F9C700CB2F14 /* cariocaframework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FAAAAA191C09F9C700CB2F14 /* cariocaframework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FAAAAA5A1C0A00BA00CB2F14 /* CariocaMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0210B21B6387C4005693F0 /* CariocaMenu.swift */; };
 		FAC48D221BB513F70072AC0A /* DemoSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC48D211BB513F70072AC0A /* DemoSettingsViewController.swift */; };
 		FAC48D241BB51BD70072AC0A /* DemoMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC48D231BB51BD70072AC0A /* DemoMapViewController.swift */; };
 		FAC48D261BB51CEC0072AC0A /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAC48D251BB51CEC0072AC0A /* MapKit.framework */; };
@@ -469,6 +470,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAAAAA5A1C0A00BA00CB2F14 /* CariocaMenu.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -700,6 +702,7 @@
 				FAAAAA241C09F9C700CB2F14 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
