@@ -143,10 +143,10 @@ private let CariocaMenuUserDefaultsBoomerangHorizontalKey = "com.cariocamenu.boo
 public class CariocaMenu : NSObject, UIGestureRecognizerDelegate {
     
     /**
-    Initializes an instance of a `CariocaMenu` object.
-    - parameters:
-      - dataSource: `CariocaMenuDataSource` The controller presenting your menu
-    - returns: An initialized `CariocaMenu` object
+        Initializes an instance of a `CariocaMenu` object.
+        - parameters:
+          - dataSource: `CariocaMenuDataSource` The controller presenting your menu
+        - returns: An initialized `CariocaMenu` object
     */
     public init(dataSource:CariocaMenuDataSource) {
         self.dataSource = dataSource
@@ -205,9 +205,9 @@ public class CariocaMenu : NSObject, UIGestureRecognizerDelegate {
 //MARK: - Menu methods
     
     /**
-    Adds the menu in the selected view
-    - parameters:
-      - view: The view in which the menu will be shown, with indicators on top
+        Adds the menu in the selected view
+        - parameters:
+            - view: The view in which the menu will be shown, with indicators on top
     */
     public func addInView(view:UIView) {
         
@@ -267,9 +267,9 @@ public class CariocaMenu : NSObject, UIGestureRecognizerDelegate {
     }
     
     /**
-    Manages the menu dragging vertically
-    - parameters:
-      - gesture: The long press gesture
+        Manages the menu dragging vertically
+        - parameters:
+            - gesture: The long press gesture
     */
     func longPressedForDrag(gesture: UIGestureRecognizer) {
         let location = gesture.locationInView(containerView)
@@ -291,9 +291,9 @@ public class CariocaMenu : NSObject, UIGestureRecognizerDelegate {
     }
     
     /**
-    Manages the menu position depending on the gesture (UIScreenEdgePanGestureRecognizer and UIPanGestureRecognizer)
-    - parameters:
-      - gesture: The gesture (EdgePan or Pan)
+        Manages the menu position depending on the gesture (UIScreenEdgePanGestureRecognizer and UIPanGestureRecognizer)
+        - parameters:
+            - gesture: The gesture (EdgePan or Pan)
     */
     func gestureTouched(gesture: UIGestureRecognizer) {
     
@@ -380,10 +380,10 @@ public class CariocaMenu : NSObject, UIGestureRecognizerDelegate {
     }
     
     /**
-    Calls the delegate actions for row selection
-    - parameters:
-      - indexPath: The selected index path
-      - fromContentController: Bool value precising the source of selection
+        Calls the delegate actions for row selection
+        - parameters:
+            - indexPath: The selected index path
+            - fromContentController: Bool value precising the source of selection
     */
     public func didSelectRowAtIndexPath(indexPath:NSIndexPath, fromContentController:Bool){
         if preSelectedIndexPath != nil {
@@ -483,12 +483,11 @@ public class CariocaMenu : NSObject, UIGestureRecognizerDelegate {
     
 //MARK: - Gesture helper views
     
-    ///
     /**
-    Adds Gesture helper views in the container view. Recommended when the whole view scrolls (`UIWebView`,`MKMapView`,...)
-    - parameters:
-      - edges: An array of `CariocaMenuEdge` on which to show the helpers
-      - width: The width of the helper view. Maximum value should be `40`, but you're free to put what you want.
+        Adds Gesture helper views in the container view. Recommended when the whole view scrolls (`UIWebView`,`MKMapView`,...)
+        - parameters:
+            - edges: An array of `CariocaMenuEdge` on which to show the helpers
+            - width: The width of the helper view. Maximum value should be `40`, but you're free to put what you want.
     */
     public func addGestureHelperViews(edges:Array<CariocaMenuEdge>, width:CGFloat) {
         
@@ -511,11 +510,11 @@ public class CariocaMenu : NSObject, UIGestureRecognizerDelegate {
     }
     
     /**
-    Generates a gesture helper view with autolayout constraints
-    - parameters:
-      - edgeAttribute: `.Leading` or `.Trailing`
-      - width: The width of the helper view.
-    - returns: `UIView` The helper view constrained to the hostView edge
+        Generates a gesture helper view with autolayout constraints
+        - parameters:
+            - edgeAttribute: `.Leading` or `.Trailing`
+            - width: The width of the helper view.
+        - returns: `UIView` The helper view constrained to the hostView edge
     */
     private func prepareGestureHelperView(edgeAttribute:NSLayoutAttribute, width:CGFloat)->UIView{
         
@@ -538,9 +537,9 @@ public class CariocaMenu : NSObject, UIGestureRecognizerDelegate {
 //MARK: - Indicators
     
     /**
-    Adds an indicator on a specific edge of the screen
-    - parameters:
-      - edge: LeftEdge or RightEdge
+        Adds an indicator on a specific edge of the screen
+        - parameters:
+            - edge: LeftEdge or RightEdge
     */
     private func addIndicator(edge:CariocaMenuEdge){
         
@@ -571,10 +570,10 @@ public class CariocaMenu : NSObject, UIGestureRecognizerDelegate {
     }
     
     /**
-    Adapts the menu Y position depending on the position of the indicator (takes care to not move the menu off screen)
-    - parameters:
-      - indicator: The indicator to adapt
-      - afterDragging: Bool indicating if the new vertical value must be saved for the boomerangs
+        Adapts the menu Y position depending on the position of the indicator (takes care to not move the menu off screen)
+        - parameters:
+            - indicator: The indicator to adapt
+            - afterDragging: Bool indicating if the new vertical value must be saved for the boomerangs
     */
     private func adaptMenuYForIndicatorY(indicator:CariocaMenuIndicatorView, afterDragging:Bool){
         //preset the menu Y
@@ -603,11 +602,11 @@ public class CariocaMenu : NSObject, UIGestureRecognizerDelegate {
     }
     
     /**
-    Shows the indicator on a precise position
-    - parameters:
-      - edge: Left or right edge
-      - position: Top, Center or Bottom
-      - offset: A random offset value. Should be negative when position is equal to `.Bottom`
+        Shows the indicator on a precise position
+        - parameters:
+            - edge: Left or right edge
+            - position: Top, Center or Bottom
+            - offset: A random offset value. Should be negative when position is equal to `.Bottom`
     */
     func showIndicator(edge:CariocaMenuEdge, position:CariocaMenuIndicatorViewPosition, offset:CGFloat){
         indicatorOffset = getIndicatorForEdge(edge).showAt(position, offset: offset)
@@ -624,19 +623,19 @@ public class CariocaMenu : NSObject, UIGestureRecognizerDelegate {
     }
     
     /**
-    Returns the right indicator for the asked edge
-    - parameters:
-      - edge: Left or Right edge
-    - returns: `CariocaMenuIndicatorView` The matching indicator
+        Returns the right indicator for the asked edge
+        - parameters:
+            - edge: Left or Right edge
+        - returns: `CariocaMenuIndicatorView` The matching indicator
     */
     private func getIndicatorForEdge(edge:CariocaMenuEdge)->CariocaMenuIndicatorView {
         return (edge == .RightEdge) ? rightIndicatorView : leftIndicatorView
     }
     
     /**
-    Updates the image inside the indicator, to match the menu item
-    - parameters:
-      - image: The UIImage to display in the indicator
+        Updates the image inside the indicator, to match the menu item
+        - parameters:
+            - image: The UIImage to display in the indicator
     */
     func updateIndicatorsImage(image:UIImage){
         leftIndicatorView.updateImage(image)
@@ -644,9 +643,9 @@ public class CariocaMenu : NSObject, UIGestureRecognizerDelegate {
     }
     
     /**
-    Updates the indicator position to match the position of a specific indexPath in the menu
-    - parameters:
-      - indexPath: The concerned indexPath
+        Updates the indicator position to match the position of a specific indexPath in the menu
+        - parameters:
+            - indexPath: The concerned indexPath
     */
     private func updateIndicatorsForIndexPath(indexPath:NSIndexPath){
         let indicator = getIndicatorForEdge(openingEdge)
@@ -658,9 +657,9 @@ public class CariocaMenu : NSObject, UIGestureRecognizerDelegate {
     
 //MARK: - Edges
     /**
-    Disables a specific edge for the menu (Both edges are active by default)
-    - parameters:
-      - edge: The edge to disable (Left or Right)
+        Disables a specific edge for the menu (Both edges are active by default)
+        - parameters:
+            - edge: The edge to disable (Left or Right)
     */
     public func disableEdge(edge:CariocaMenuEdge){
         if (hostView != nil){
@@ -670,8 +669,8 @@ public class CariocaMenu : NSObject, UIGestureRecognizerDelegate {
     
 //MARK: - Constraints
     /**
-    Generates an Equal constraint
-    - returns: `NSlayoutConstraint` an equal constraint for the specified parameters
+        Generates an Equal constraint
+        - returns: `NSlayoutConstraint` an equal constraint for the specified parameters
     */
     private func getEqualConstraint(item: AnyObject, toItem: AnyObject, attribute: NSLayoutAttribute) -> NSLayoutConstraint{
         return NSLayoutConstraint(item: item, attribute: attribute, relatedBy: .Equal, toItem: toItem, attribute: attribute, multiplier: 1, constant: 0)
@@ -680,8 +679,8 @@ public class CariocaMenu : NSObject, UIGestureRecognizerDelegate {
 //MARK: - Boomerangs
 
     /**
-    Gets the saved value for the vertical boomerang
-    - returns: `CGFloat` The boomerang vertical value
+        Gets the saved value for the vertical boomerang
+        - returns: `CGFloat` The boomerang vertical value
     */
     class func getBoomerangVerticalValue()->CGFloat{
         let offset = NSUserDefaults.standardUserDefaults().doubleForKey(CariocaMenuUserDefaultsBoomerangVerticalKey)
@@ -689,8 +688,8 @@ public class CariocaMenu : NSObject, UIGestureRecognizerDelegate {
     }
     
     /**
-    Gets the saved value for the horizontal boomerang
-    - returns: `CariocaMenuEdge` the boomerang matching edge
+        Gets the saved value for the horizontal boomerang
+        - returns: `CariocaMenuEdge` the boomerang matching edge
     */
     class func getBoomerangHorizontalValue()->CariocaMenuEdge{
         let int = NSUserDefaults.standardUserDefaults().integerForKey(CariocaMenuUserDefaultsBoomerangHorizontalKey)
@@ -740,12 +739,12 @@ public class CariocaMenu : NSObject, UIGestureRecognizerDelegate {
 class CariocaMenuIndicatorView : UIView{
     
     /**
-    Initializes an indicator for the menu
-    - parameters:
-      - indicatoreEdge: Left or Right edge
-      - size: The size of the indicator
-      - backgroundColor: The background color of the indicator
-    - returns: `CariocaMenuIndicatorView` An indicator
+        Initializes an indicator for the menu
+        - parameters:
+            - indicatoreEdge: Left or Right edge
+            - size: The size of the indicator
+            - backgroundColor: The background color of the indicator
+        - returns: `CariocaMenuIndicatorView` An indicator
     */
     init(indicatorEdge: CariocaMenuEdge, size:CGSize, shapeColor: UIColor) {
         edge = indicatorEdge
@@ -756,7 +755,7 @@ class CariocaMenuIndicatorView : UIView{
         self.translatesAutoresizingMaskIntoConstraints = false
         self.backgroundColor = UIColor.clearColor()
     }
-
+    
     //Don't know the utility of this code, but seems to be required
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -806,10 +805,10 @@ class CariocaMenuIndicatorView : UIView{
     //MARK: - Indicator methods
     
     /**
-    Adds the indicator in the hostView
-    - parameters:
-      - hostView: The view that will contain the indicator
-      - edge: The edge on which to stick the indicator
+        Adds the indicator in the hostView
+        - parameters:
+            - hostView: The view that will contain the indicator
+            - edge: The edge on which to stick the indicator
     */
     func addInView(hostView:UIView, edge:CariocaMenuEdge) {
         
@@ -852,12 +851,12 @@ class CariocaMenuIndicatorView : UIView{
     }
 
     /**
-    Shows the indicator at the demanded position
-    - parameters:
-      - position: Top, Center or Bottom
-      - offset: The offset to adjust the position. Should be negative `if position == .Bottom`
-    - returns: `CGFloat` The top constraint constant value
-    - todo: Save the final value in %, to avoid problems with multiple orientations
+        Shows the indicator at the demanded position
+        - parameters:
+            - position: Top, Center or Bottom
+            - offset: The offset to adjust the position. Should be negative `if position == .Bottom`
+        - returns: `CGFloat` The top constraint constant value
+        - todo: Save the final value in %, to avoid problems with multiple orientations
     */
     func showAt(position:CariocaMenuIndicatorViewPosition, offset:CGFloat) ->CGFloat{
         
@@ -882,19 +881,19 @@ class CariocaMenuIndicatorView : UIView{
     }
     
     /**
-    Updates the Y position of the indicator
-    - parameters:
-      - y: The new value for the top constraint
+        Updates the Y position of the indicator
+        - parameters:
+            - y: The new value for the top constraint
     */
     func updateY(y:CGFloat){
         topConstraint?.constant = y
     }
     
     /**
-    Restores the indicator on its initial position, depending on the boomerang type of the menu
-    - parameters:
-      - boomerang: The boomerang of the menu
-      - completion: A completionBlock called when the animation is finished.
+        Restores the indicator on its initial position, depending on the boomerang type of the menu
+        - parameters:
+            - boomerang: The boomerang of the menu
+            - completion: A completionBlock called when the animation is finished.
     */
     func restoreOnOriginalEdge(boomerang:CariocaMenuBoomerangType, completion: (() -> Void)){
         superview!.layoutIfNeeded()
@@ -924,10 +923,10 @@ class CariocaMenuIndicatorView : UIView{
     }
 
     /**
-    Adapts the Y position of the indicator, while being on top of the menu
-    - parameters:
-      - y: The new vertical position
-      - containerWidth: The width of the hostView used to animate the indicator X position
+        Adapts the Y position of the indicator, while being on top of the menu
+        - parameters:
+            - y: The new vertical position
+            - containerWidth: The width of the hostView used to animate the indicator X position
     */
     func moveYOverMenu(y:CGFloat,containerWidth:CGFloat){
 //        CariocaMenu.Log("moveYOverMenu \(y)")
@@ -968,9 +967,9 @@ class CariocaMenuIndicatorView : UIView{
     }
     
     /**
-    Updates the indicator's image
-    - parameters:
-      - image: An UIImage to display in the indicator
+        Updates the indicator's image
+        - parameters:
+            - image: An UIImage to display in the indicator
     */
     func updateImage(image:UIImage){
         imageView.image = image
@@ -979,13 +978,13 @@ class CariocaMenuIndicatorView : UIView{
     //MARK: Internal methods
     
     /**
-    Animates the X position of the indicator, in two separate animations
-    - parameters:
-      - position1: The X position of the first animation
-      - spped1: The duration of the first animation
-      - position2: The X position of the second animation
-      - spped2: The duration of the second animation
-      - completion: the completionBlock called when the two animations are finished
+        Animates the X position of the indicator, in two separate animations
+        - parameters:
+            - position1: The X position of the first animation
+            - spped1: The duration of the first animation
+            - position2: The X position of the second animation
+            - spped2: The duration of the second animation
+            - completion: the completionBlock called when the two animations are finished
     */
     private func animateX(position1:CGFloat, speed1:Double, position2:CGFloat, speed2:Double, completion: (() -> Void)){
         
@@ -1006,10 +1005,10 @@ class CariocaMenuIndicatorView : UIView{
     }
     
     /**
-    Calculates the value to set to the edgeConstraint. (Negative or positive, depending on the edge)
-    - parameters:
-      - value: The value to transform
-    - returns: `CGFloat` The value to set to the constant of the edgeConstraint
+        Calculates the value to set to the edgeConstraint. (Negative or positive, depending on the edge)
+        - parameters:
+            - value: The value to transform
+        - returns: `CGFloat` The value to set to the constant of the edgeConstraint
     */
     private func getEdgeConstantValue(value:CGFloat!)->CGFloat{
         let val = (value != nil) ? value : -5.0
