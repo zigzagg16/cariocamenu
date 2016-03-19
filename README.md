@@ -1,7 +1,7 @@
 CariocaMenu
 ===============
 
-[![Cocoapods Compatible](https://img.shields.io/cocoapods/v/CariocaMenu.svg)](https://img.shields.io/cocoapods/v/CariocaMenu.svg)
+[![CocoaPods Compatible](https://img.shields.io/cocoapods/v/CariocaMenu.svg)](https://img.shields.io/cocoapods/v/CariocaMenu.svg)
 [![Carthage Compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 
 The fastest zero-tap iOS menu
