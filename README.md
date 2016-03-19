@@ -1,4 +1,4 @@
-CariocaMenu
+Carioca Menu
 ===============
 
 [![CocoaPods Compatible](https://img.shields.io/cocoapods/v/CariocaMenu.svg)](https://img.shields.io/cocoapods/v/CariocaMenu.svg)
@@ -18,7 +18,7 @@ CariocaMenu is a simple, elegant, fast, modern, innovative, ..., navigation menu
 - [x] Boomerang mode
 - [x] Full AutoLayout
 - [x] Easily customisable
-- [x] Complete Documentation
+- [x] [Complete Documentation](http://arn00s.github.io/cariocamenu/)
 
 ## Requirements
 
@@ -33,6 +33,7 @@ CariocaMenu is a simple, elegant, fast, modern, innovative, ..., navigation menu
 - If you **found a bug**, open an issue.
 - If you **have a feature request**, open an issue.
 - If you **want to contribute**, submit a pull request.
+- If you **use the control**, contact me to mention your app on this page.
 
 ## Installation
 
@@ -114,6 +115,7 @@ menu.boomerang = .VerticalAndHorizontal
 
 ## TODO
 
+- Support rotation
 - Add a `live tutorial` to indicate users how to get the most of this menu
 - Unit tests / UIAutomation Tests
 - Check support for Objective-C projects
@@ -139,12 +141,12 @@ A `Carioca` is someone who lives in Rio de Janeiro. I lived there for two months
 
 ## Contact
 
-- LinkedIn ([Arnaud Schloune](https://lu.linkedin.com/in/arnaudschloune))
-- Twitter ([@arnaud_momo](https://twitter.com/arnaud_momo))
+- [LinkedIn](https://lu.linkedin.com/in/arnaudschloune)
+- [twitter](https://twitter.com/arnaud_momo)
 
 ### Creator
 
-- [Arnaud Schloune](http://github.com/arn00s) ([@arnaud_momo](https://twitter.com/arnaud_momo))
+- [Arnaud Schloune](http://github.com/arn00s)
 
 ## License
 
