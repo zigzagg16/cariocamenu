@@ -32,7 +32,9 @@ private let CariocaMenuUserDefaultsBoomerangHorizontalKey = "com.cariocamenu.boo
 ///- `LeftEdge`: Left edge of the screen
 ///- `RightEdge`: Right edge of the screen
 @objc public enum CariocaMenuEdge : Int {
+    ///Left of the screen
     case LeftEdge = 0
+    ///Right of the screen
     case RightEdge = 1
 }
 
@@ -41,8 +43,11 @@ private let CariocaMenuUserDefaultsBoomerangHorizontalKey = "com.cariocamenu.boo
 ///- `Center`: Center of the hostView
 ///- `Bottom`: Bottom of the hostView
 @objc public enum CariocaMenuIndicatorViewPosition : Int {
+    ///Top of the hostView
     case Top = 0
+    ///Center of the hostView
     case Center = 1
+    ///Bottom of the hostView
     case Bottom = 2
 }
 
@@ -51,12 +56,16 @@ private let CariocaMenuUserDefaultsBoomerangHorizontalKey = "com.cariocamenu.boo
 ///- `Vertical`: The indicators will always come back at the same Y value. They may switch from Edge if the user wants.
 ///- `VerticalAndHorizontal`: The indicators will always come back at the exact same place
 @objc public enum CariocaMenuBoomerangType : Int {
+    ///Default value. The indicators will always return where they were let.
     case None = 0
+    ///The indicators will always come back at the same Y value. They may switch from Edge if the user wants.
     case Vertical = 1
+    ///The indicators will always come back at the exact same place
     case VerticalAndHorizontal = 2
 }
 
 //MARK: Delegate Protocol
+///Delegate Protocol for events on menu opening/closing
 @objc public protocol CariocaMenuDelegate {
     
     ///`Optional` Called when the menu is about to open
@@ -87,6 +96,7 @@ private let CariocaMenuUserDefaultsBoomerangHorizontalKey = "com.cariocamenu.boo
 }
 
 //MARK: - Datasource Protocol
+///DataSource protocol for filling up the menu
 @objc public protocol CariocaMenuDataSource {
     
     ///`Required` Gets the menu view, will be used to set constraints
@@ -140,6 +150,7 @@ private let CariocaMenuUserDefaultsBoomerangHorizontalKey = "com.cariocamenu.boo
 }
 
 //MARK: -
+///The famous CariocaMenu class
 public class CariocaMenu : NSObject, UIGestureRecognizerDelegate {
     
     /**
@@ -173,7 +184,9 @@ public class CariocaMenu : NSObject, UIGestureRecognizerDelegate {
     private var longPressForDragLeft:UILongPressGestureRecognizer?
     private var longPressForDragRight:UILongPressGestureRecognizer?
     
+    ///The datasource of the menu
     var dataSource:CariocaMenuDataSource
+    ///The delegate of events
     weak var delegate:CariocaMenuDelegate?
     /// The type of boomerang for the menu. Default : None
     public var boomerang:CariocaMenuBoomerangType
@@ -182,6 +195,7 @@ public class CariocaMenu : NSObject, UIGestureRecognizerDelegate {
     public var selectedIndexPath:NSIndexPath = NSIndexPath(forItem: 0, inSection: 0)
     private var preSelectedIndexPath:NSIndexPath!
     
+    ///The edge on which the menu will open
     public var openingEdge:CariocaMenuEdge = .LeftEdge
     private let menuHeight:CGFloat
     
@@ -734,8 +748,7 @@ public class CariocaMenu : NSObject, UIGestureRecognizerDelegate {
 }
 
 //MARK: - IndicatorView Class
-//MARK:
-
+///The indicators contained into the menu (one on the left, one on the right)
 class CariocaMenuIndicatorView : UIView{
     
     /**
@@ -756,7 +769,7 @@ class CariocaMenuIndicatorView : UIView{
         self.backgroundColor = UIColor.clearColor()
     }
     
-    //Don't know the utility of this code, but seems to be required
+    ///Don't know the utility of this code, but seems to be required
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -774,6 +787,7 @@ class CariocaMenuIndicatorView : UIView{
     ///- warning: 👮Don't steal icons.👮
     private var imageView:UIImageView
     
+    ///Drawing of the indicator. The shape was drawed using PaintCode
     override func drawRect(frame: CGRect) {
         
         //This shape was drawed with PaintCode App
