@@ -622,7 +622,7 @@ public class CariocaMenu : NSObject, UIGestureRecognizerDelegate {
             - position: Top, Center or Bottom
             - offset: A random offset value. Should be negative when position is equal to `.Bottom`
     */
-    func showIndicator(edge:CariocaMenuEdge, position:CariocaMenuIndicatorViewPosition, offset:CGFloat){
+    public func showIndicator(edge:CariocaMenuEdge, position:CariocaMenuIndicatorViewPosition, offset:CGFloat){
         indicatorOffset = getIndicatorForEdge(edge).showAt(position, offset: offset)
         NSUserDefaults.standardUserDefaults().setDouble(Double(indicatorOffset), forKey: CariocaMenuUserDefaultsBoomerangVerticalKey)
         NSUserDefaults.standardUserDefaults().setValue(edge.rawValue, forKey: CariocaMenuUserDefaultsBoomerangHorizontalKey)
