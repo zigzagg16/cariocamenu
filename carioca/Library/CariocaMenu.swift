@@ -187,7 +187,7 @@ public class CariocaMenu : NSObject, UIGestureRecognizerDelegate {
     ///The datasource of the menu
     var dataSource:CariocaMenuDataSource
     ///The delegate of events
-    weak var delegate:CariocaMenuDelegate?
+    public weak var delegate:CariocaMenuDelegate?
     /// The type of boomerang for the menu. Default : None
     public var boomerang:CariocaMenuBoomerangType
     
