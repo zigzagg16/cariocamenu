@@ -187,7 +187,7 @@ public class CariocaMenu : NSObject, UIGestureRecognizerDelegate {
     ///The datasource of the menu
     var dataSource:CariocaMenuDataSource
     ///The delegate of events
-    weak var delegate:CariocaMenuDelegate?
+    public weak var delegate:CariocaMenuDelegate?
     /// The type of boomerang for the menu. Default : None
     public var boomerang:CariocaMenuBoomerangType
     
@@ -622,7 +622,7 @@ public class CariocaMenu : NSObject, UIGestureRecognizerDelegate {
             - position: Top, Center or Bottom
             - offset: A random offset value. Should be negative when position is equal to `.Bottom`
     */
-    func showIndicator(edge:CariocaMenuEdge, position:CariocaMenuIndicatorViewPosition, offset:CGFloat){
+    public func showIndicator(edge:CariocaMenuEdge, position:CariocaMenuIndicatorViewPosition, offset:CGFloat){
         indicatorOffset = getIndicatorForEdge(edge).showAt(position, offset: offset)
         NSUserDefaults.standardUserDefaults().setDouble(Double(indicatorOffset), forKey: CariocaMenuUserDefaultsBoomerangVerticalKey)
         NSUserDefaults.standardUserDefaults().setValue(edge.rawValue, forKey: CariocaMenuUserDefaultsBoomerangHorizontalKey)
