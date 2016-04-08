@@ -426,7 +426,7 @@ public class CariocaMenu : NSObject, UIGestureRecognizerDelegate {
     }
     
     ///Makes sure the containerView is on top of the hostView
-    func moveToTop() {
+    public func moveToTop() {
         hostView?.bringSubviewToFront(containerView)
         if gestureHelperViewLeft != nil{
             hostView?.bringSubviewToFront(gestureHelperViewLeft)
