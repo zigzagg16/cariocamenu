@@ -251,15 +251,15 @@ public class CariocaMenu : NSObject, UIGestureRecognizerDelegate {
         containerView.addSubview(menuView)
         
         //Gesture recognizers
-        sidePanLeft.addTarget(self, action: Selector("gestureTouched:"))
+        sidePanLeft.addTarget(self, action: #selector(CariocaMenu.gestureTouched(_:)))
         hostView!.addGestureRecognizer(sidePanLeft)
         sidePanLeft.edges = .Left
         
-        sidePanRight.addTarget(self, action: Selector("gestureTouched:"))
+        sidePanRight.addTarget(self, action: #selector(CariocaMenu.gestureTouched(_:)))
         hostView!.addGestureRecognizer(sidePanRight)
         sidePanRight.edges = .Right
         
-        panGestureRecognizer.addTarget(self, action: Selector("gestureTouched:"))
+        panGestureRecognizer.addTarget(self, action: #selector(CariocaMenu.gestureTouched(_:)))
         containerView.addGestureRecognizer(panGestureRecognizer)
 
         //Autolayout constraints for the menu
@@ -567,7 +567,7 @@ public class CariocaMenu : NSObject, UIGestureRecognizerDelegate {
             rightIndicatorView = indicator
         }
         
-        let tapGesture = UITapGestureRecognizer(target: self, action: Selector("tappedOnIndicatorView:"))
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(CariocaMenu.tappedOnIndicatorView(_:)))
         indicator.addGestureRecognizer(tapGesture)
     }
     
@@ -721,10 +721,10 @@ public class CariocaMenu : NSObject, UIGestureRecognizerDelegate {
     private func updateDraggableIndicators(){
         
         if isDraggableVertically {
-            longPressForDragLeft = UILongPressGestureRecognizer(target: self, action: Selector("longPressedForDrag:"))
+            longPressForDragLeft = UILongPressGestureRecognizer(target: self, action: #selector(CariocaMenu.longPressedForDrag(_:)))
             longPressForDragLeft?.minimumPressDuration = 0.7
             leftIndicatorView.addGestureRecognizer(longPressForDragLeft!)
-            longPressForDragRight = UILongPressGestureRecognizer(target: self, action: Selector("longPressedForDrag:"))
+            longPressForDragRight = UILongPressGestureRecognizer(target: self, action: #selector(CariocaMenu.longPressedForDrag(_:)))
             longPressForDragRight?.minimumPressDuration = 0.7
             rightIndicatorView.addGestureRecognizer(longPressForDragRight!)
         } else {

@@ -44,7 +44,7 @@ class DemoSettingsViewController: UITableViewController{
             //edges
         case 0:
             let switcher = cell.viewWithTag(30) as! UISwitch
-            switcher.addTarget(self, action: Selector("edgesSwitchChanged:"), forControlEvents: .ValueChanged)
+            switcher.addTarget(self, action: #selector(DemoSettingsViewController.edgesSwitchChanged(_:)), forControlEvents: .ValueChanged)
             switcher.setOn((menu?.isAlwaysOnScreen)!, animated: true)
             descriptionText = (menu?.isAlwaysOnScreen)! ? "The menu stays on screen." : "The menu is completely free !!"
             
@@ -53,7 +53,7 @@ class DemoSettingsViewController: UITableViewController{
             //dragging
         case 1:
             let switcher = cell.viewWithTag(30) as! UISwitch
-            switcher.addTarget(self, action: Selector("dragSwitchChanged:"), forControlEvents: .ValueChanged)
+            switcher.addTarget(self, action: #selector(DemoSettingsViewController.dragSwitchChanged(_:)), forControlEvents: .ValueChanged)
             switcher.setOn((menu?.isDraggableVertically)!, animated: true)
             descriptionText = (menu?.isDraggableVertically)! ? "The user can drag the indicators." : "No dragging of the indicators."
             
@@ -62,7 +62,7 @@ class DemoSettingsViewController: UITableViewController{
             //boomerang
         default:
             let segment = cell.viewWithTag(30) as! UISegmentedControl
-            segment.addTarget(self, action: Selector("boomerangSegmentChanged:"), forControlEvents: .ValueChanged)
+            segment.addTarget(self, action: #selector(DemoSettingsViewController.boomerangSegmentChanged(_:)), forControlEvents: .ValueChanged)
             
             if menu?.boomerang == .Vertical {
                 segment.selectedSegmentIndex = 1
