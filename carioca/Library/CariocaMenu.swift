@@ -190,7 +190,8 @@ public class CariocaMenu : NSObject, UIGestureRecognizerDelegate {
     public weak var delegate:CariocaMenuDelegate?
     /// The type of boomerang for the menu. Default : None
     public var boomerang:CariocaMenuBoomerangType
-    
+    // The color for indicator view
+    public var indicatorColor:UIColor?
     /// The selected index of the menu
     public var selectedIndexPath:NSIndexPath = NSIndexPath(forItem: 0, inSection: 0)
     private var preSelectedIndexPath:NSIndexPath!
@@ -558,7 +559,12 @@ public class CariocaMenu : NSObject, UIGestureRecognizerDelegate {
     private func addIndicator(edge:CariocaMenuEdge){
         
         //TODO: Check if the indicator already exists
-        let indicator = CariocaMenuIndicatorView(indicatorEdge: edge, size:CGSizeMake(47, 40), shapeColor:UIColor(red:0.07, green:0.73, blue:0.86, alpha:1))
+        //Default indicator color
+        if self.indicatorColor == nil {
+            self.indicatorColor = UIColor(red:0.07, green:0.73, blue:0.86, alpha:1)
+        }
+        
+        let indicator = CariocaMenuIndicatorView(indicatorEdge: edge, size:CGSizeMake(47, 40), shapeColor:self.indicatorColor!)
         indicator.addInView(hostView!, edge: edge)
         
         if(edge == .LeftEdge){
