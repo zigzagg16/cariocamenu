@@ -15,37 +15,37 @@ class DemoWebViewController: UIViewController, UIWebViewDelegate{
         loader.hidesWhenStopped = true
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         loadURL()
     }
     
     func loadURL(){
-        webview.scrollView.scrollEnabled = false
-        errorMessage.hidden = true
-        tryAgain.hidden = true
-        webview.loadRequest(NSURLRequest(URL: NSURL(string: "https://medium.com/search?q=Hamburger%20menu")!))
+        webview.scrollView.isScrollEnabled = false
+        errorMessage.isHidden = true
+        tryAgain.isHidden = true
+        webview.loadRequest(URLRequest(url: URL(string: "https://medium.com/search?q=Hamburger%20menu")!))
     }
     
-    func webViewDidStartLoad(webView: UIWebView){
+    func webViewDidStartLoad(_ webView: UIWebView){
         loader.startAnimating()
-        loader.hidden = false
+        loader.isHidden = false
     }
     
-    func webViewDidFinishLoad(webView: UIWebView){
-        webview.scrollView.scrollEnabled = true
+    func webViewDidFinishLoad(_ webView: UIWebView){
+        webview.scrollView.isScrollEnabled = true
         loader.stopAnimating()
-        loader.hidden = true
+        loader.isHidden = true
     }
 
-    func webView(webView: UIWebView, didFailLoadWithError error: NSError?){
-        webview.scrollView.scrollEnabled = false
+    func webView(_ webView: UIWebView, didFailLoadWithError error: Error){
+        webview.scrollView.isScrollEnabled = false
         loader.stopAnimating()
-        loader.hidden = true
-        webview.hidden = true
-        errorMessage.hidden = false
-        tryAgain.hidden = false
+        loader.isHidden = true
+        webview.isHidden = true
+        errorMessage.isHidden = false
+        tryAgain.isHidden = false
     }
-    @IBAction func tryAgainAction(sender: AnyObject) {
+    @IBAction func tryAgainAction(_ sender: AnyObject) {
         loadURL()
     }
 }

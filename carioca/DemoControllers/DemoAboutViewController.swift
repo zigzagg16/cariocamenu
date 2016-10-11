@@ -3,17 +3,17 @@ import UIKit
 
 class DemoAboutViewController: UIViewController{
 
-    @IBAction func actionTwitter(sender: AnyObject) {
+    @IBAction func actionTwitter(_ sender: AnyObject) {
         url("https://twitter.com/arnaud_momo")
     }
-    @IBAction func actionLinkedin(sender: AnyObject) {
+    @IBAction func actionLinkedin(_ sender: AnyObject) {
         url("https://lu.linkedin.com/in/arnaudschloune")
     }
-    @IBAction func actionGithub(sender: AnyObject) {
+    @IBAction func actionGithub(_ sender: AnyObject) {
         url("https://github.com/arn00s/cariocamenu")
     }
     
-    func url(urlString:String){
-        UIApplication.sharedApplication().openURL(NSURL(string: urlString)!)
+    func url(_ urlString:String){
+        UIApplication.shared.openURL(URL(string: urlString)!)
     }
 }
