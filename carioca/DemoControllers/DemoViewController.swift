@@ -13,14 +13,14 @@ class DemoViewController: UIViewController, CariocaMenuDelegate {
         self.view.translatesAutoresizingMaskIntoConstraints = false
         
         //Initialise the tableviewcontroller of the menu
-        let menuCtrl = self.storyboard?.instantiateViewControllerWithIdentifier("MyMenu") as! MyMenuContentController
+        let menuCtrl = self.storyboard?.instantiateViewController(withIdentifier: "MyMenu") as! MyMenuContentController
         
         //Set the tableviewcontroller for the shared carioca menu
         menu = CariocaMenu(dataSource: menuCtrl)
-        menu?.selectedIndexPath = NSIndexPath(forItem: 0, inSection: 0)
+        menu?.selectedIndexPath = IndexPath(item: 0, section: 0)
         
         menu?.delegate = self
-        menu?.boomerang = .None
+        menu?.boomerang = .none
         
         //reverse delegate for cell selection by tap :
         menuCtrl.cariocaMenu = menu
@@ -29,22 +29,22 @@ class DemoViewController: UIViewController, CariocaMenuDelegate {
         showDemoControllerForIndex(0)
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         
         menu?.addInView(self.view)
         menu?.isDraggableVertically = true
 //        menu?.showIndicator(.RightEdge, position: .Bottom, offset: -50)
-        menu?.showIndicator(.RightEdge, position: .Center, offset: 30)
+        menu?.showIndicator(.rightEdge, position: .center, offset: 30)
 //        menu?.showIndicator(.RightEdge, position: .Top, offset: 50)
 //        menu?.showIndicator(.LeftEdge, position: .Top, offset: 50)
 //        menu?.showIndicator(.LeftEdge, position: .Center, offset: 50)
         
-        menu?.addGestureHelperViews([.LeftEdge,.RightEdge], width:30)
+        menu?.addGestureHelperViews([.leftEdge,.rightEdge], width:30)
     }
     
 // MARK: - Various demo controllers
     
-    func showDemoControllerForIndex(index:Int){
+    func showDemoControllerForIndex(_ index:Int){
         
         if demoContentController != nil {
             demoContentController.view.removeFromSuperview()
@@ -55,21 +55,21 @@ class DemoViewController: UIViewController, CariocaMenuDelegate {
         switch index {
         
         case 1:
-            if let demoWeb = self.storyboard?.instantiateViewControllerWithIdentifier("DemoWebView") as? DemoWebViewController{
+            if let demoWeb = self.storyboard?.instantiateViewController(withIdentifier: "DemoWebView") as? DemoWebViewController{
                 self.addChildViewController(demoWeb)
                 self.view.addSubview(demoWeb.view)
                 demoContentController = demoWeb as UIViewController
             }
             break
         case 2:
-            if let demoMap = self.storyboard?.instantiateViewControllerWithIdentifier("DemoMapView") as? DemoMapViewController{
+            if let demoMap = self.storyboard?.instantiateViewController(withIdentifier: "DemoMapView") as? DemoMapViewController{
                 self.addChildViewController(demoMap)
                 self.view.addSubview(demoMap.view)
                 demoContentController = demoMap as UIViewController
             }
             break
         case 3:
-            if let demoScreen = self.storyboard?.instantiateViewControllerWithIdentifier("DemoSettingsView") as? DemoSettingsViewController{
+            if let demoScreen = self.storyboard?.instantiateViewController(withIdentifier: "DemoSettingsView") as? DemoSettingsViewController{
                 demoScreen.menu = menu
                 self.addChildViewController(demoScreen)
                 self.view.addSubview(demoScreen.view)
@@ -77,14 +77,14 @@ class DemoViewController: UIViewController, CariocaMenuDelegate {
             }
             break
         case 4:
-            if let demoAbout = self.storyboard?.instantiateViewControllerWithIdentifier("DemoAboutView") as? DemoAboutViewController{
+            if let demoAbout = self.storyboard?.instantiateViewController(withIdentifier: "DemoAboutView") as? DemoAboutViewController{
                 self.addChildViewController(demoAbout)
                 self.view.addSubview(demoAbout.view)
                 demoContentController = demoAbout as UIViewController
             }
             break
         default:
-            if let demoIntro = self.storyboard?.instantiateViewControllerWithIdentifier("DemoIntroView") as? DemoIntroViewController{
+            if let demoIntro = self.storyboard?.instantiateViewController(withIdentifier: "DemoIntroView") as? DemoIntroViewController{
                 self.addChildViewController(demoIntro)
                 self.view.addSubview(demoIntro.view)
                 demoContentController = demoIntro as UIViewController
@@ -96,10 +96,10 @@ class DemoViewController: UIViewController, CariocaMenuDelegate {
         
         //Add constraints for autolayout
         self.view.addConstraints([
-            getEqualConstraint(demoContentController.view, toItem: self.view, attribute: .Trailing),
-            getEqualConstraint(demoContentController.view, toItem: self.view, attribute: .Leading),
-            getEqualConstraint(demoContentController.view, toItem: self.view, attribute: .Bottom),
-            getEqualConstraint(demoContentController.view, toItem: self.view, attribute: .Top)
+            getEqualConstraint(demoContentController.view, toItem: self.view, attribute: .trailing),
+            getEqualConstraint(demoContentController.view, toItem: self.view, attribute: .leading),
+            getEqualConstraint(demoContentController.view, toItem: self.view, attribute: .bottom),
+            getEqualConstraint(demoContentController.view, toItem: self.view, attribute: .top)
             ])
         
         self.view.setNeedsLayout()
@@ -108,8 +108,8 @@ class DemoViewController: UIViewController, CariocaMenuDelegate {
     }
     
     
-    private func getEqualConstraint(item: AnyObject, toItem: AnyObject, attribute: NSLayoutAttribute) -> NSLayoutConstraint{
-        return NSLayoutConstraint(item: item, attribute: attribute, relatedBy: .Equal, toItem: toItem, attribute: attribute, multiplier: 1, constant: 0)
+    fileprivate func getEqualConstraint(_ item: AnyObject, toItem: AnyObject, attribute: NSLayoutAttribute) -> NSLayoutConstraint{
+        return NSLayoutConstraint(item: item, attribute: attribute, relatedBy: .equal, toItem: toItem, attribute: attribute, multiplier: 1, constant: 0)
     }
     
 // MARK: - CariocaMenu Delegate
@@ -118,7 +118,7 @@ class DemoViewController: UIViewController, CariocaMenuDelegate {
     ///- parameters:
     ///  - menu: The menu object
     ///  - indexPath: The selected indexPath
-    func cariocaMenuDidSelect(menu:CariocaMenu, indexPath:NSIndexPath) {
+    func cariocaMenuDidSelect(_ menu:CariocaMenu, indexPath:IndexPath) {
         
         showDemoControllerForIndex(indexPath.row)
     }
@@ -126,7 +126,7 @@ class DemoViewController: UIViewController, CariocaMenuDelegate {
     ///`Optional` Called when the menu is about to open
     ///- parameters:
     ///  - menu: The opening menu object
-    func cariocaMenuWillOpen(menu:CariocaMenu) {
+    func cariocaMenuWillOpen(_ menu:CariocaMenu) {
         if(logging){
             print("carioca MenuWillOpen \(menu)")
         }
@@ -135,10 +135,10 @@ class DemoViewController: UIViewController, CariocaMenuDelegate {
     ///`Optional` Called when the menu just opened
     ///- parameters:
     ///  - menu: The opening menu object
-    func cariocaMenuDidOpen(menu:CariocaMenu){
+    func cariocaMenuDidOpen(_ menu:CariocaMenu){
         if(logging){
             switch menu.openingEdge{
-                case .LeftEdge:
+                case .leftEdge:
                     print("carioca MenuDidOpen \(menu) left")
                 break;
                 default:
@@ -151,7 +151,7 @@ class DemoViewController: UIViewController, CariocaMenuDelegate {
     ///`Optional` Called when the menu is about to be dismissed
     ///- parameters:
     ///  - menu: The disappearing menu object
-    func cariocaMenuWillClose(menu:CariocaMenu) {
+    func cariocaMenuWillClose(_ menu:CariocaMenu) {
         if(logging){
             print("carioca MenuWillClose \(menu)")
         }
@@ -160,7 +160,7 @@ class DemoViewController: UIViewController, CariocaMenuDelegate {
     ///`Optional` Called when the menu is dismissed
     ///- parameters:
     ///  - menu: The disappearing menu object
-    func cariocaMenuDidClose(menu:CariocaMenu){
+    func cariocaMenuDidClose(_ menu:CariocaMenu){
         if(logging){
             print("carioca MenuDidClose \(menu)")
         }
@@ -176,7 +176,7 @@ class DemoViewController: UIViewController, CariocaMenuDelegate {
 
 class roundedButton:UIButton{
 
-    override func drawRect(rect: CGRect) {
+    override func draw(_ rect: CGRect) {
         self.layer.cornerRadius = 6
         self.clipsToBounds = true
     }
