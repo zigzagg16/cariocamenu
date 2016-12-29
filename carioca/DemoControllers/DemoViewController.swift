@@ -33,13 +33,13 @@ class DemoViewController: UIViewController, CariocaMenuDelegate {
         
         menu?.addInView(self.view)
         menu?.isDraggableVertically = true
-//        menu?.showIndicator(.RightEdge, position: .Bottom, offset: -50)
-        menu?.showIndicator(.rightEdge, position: .center, offset: 30)
-//        menu?.showIndicator(.RightEdge, position: .Top, offset: 50)
-//        menu?.showIndicator(.LeftEdge, position: .Top, offset: 50)
-//        menu?.showIndicator(.LeftEdge, position: .Center, offset: 50)
+//        menu?.showIndicator(.right, position: .Bottom, offset: -50)
+        menu?.showIndicator(.right, position: .center, offset: 30)
+//        menu?.showIndicator(.right, position: .Top, offset: 50)
+//        menu?.showIndicator(.left, position: .Top, offset: 50)
+//        menu?.showIndicator(.left, position: .Center, offset: 50)
         
-        menu?.addGestureHelperViews([.leftEdge,.rightEdge], width:30)
+        menu?.addGestureHelperViews([.left,.right], width:30)
     }
     
 // MARK: - Various demo controllers
@@ -138,7 +138,7 @@ class DemoViewController: UIViewController, CariocaMenuDelegate {
     func cariocaMenuDidOpen(_ menu:CariocaMenu){
         if(logging){
             switch menu.openingEdge{
-                case .leftEdge:
+                case .left:
                     print("carioca MenuDidOpen \(menu) left")
                 break;
                 default:
