@@ -29,17 +29,17 @@ class DemoSettingsViewController: UITableViewController{
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cellTypeIdentifier = (indexPath as NSIndexPath).row == 2 ? "cellSegment" : "cellSwitch"
+        let cellTypeIdentifier = indexPath.row == 2 ? "cellSegment" : "cellSwitch"
         let cell = tableView.dequeueReusableCell(withIdentifier: cellTypeIdentifier, for: indexPath)
         
         //set the title in the cell
         let title = cell.viewWithTag(10) as! UILabel
-        title.text = settingsNames[(indexPath as NSIndexPath).row]
+        title.text = settingsNames[indexPath.row]
         
         let description = cell.viewWithTag(20) as! UITextView
         var descriptionText = ""
         
-        switch (indexPath as NSIndexPath).row {
+        switch indexPath.row {
         
             //edges
         case 0:
@@ -86,7 +86,7 @@ class DemoSettingsViewController: UITableViewController{
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return (indexPath as NSIndexPath).row == 2 ? 140 : 90.0
+        return indexPath.row == 2 ? 140 : 90.0
     }
     
     override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {

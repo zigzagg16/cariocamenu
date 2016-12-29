@@ -42,7 +42,7 @@ class MyMenuContentController: UITableViewController, CariocaMenuDataSource {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: cellTypeIdentifier, for: indexPath) as! MyMenuTableViewCell
         //set the title in the cell
-        cell.titleLabel.text = menuNames[(indexPath as NSIndexPath).row]
+        cell.titleLabel.text = menuNames[indexPath.row]
         
         if (indexPath == cariocaMenu?.selectedIndexPath){
 //            CariocaMenu.Log("cellForRow : selected")
@@ -53,7 +53,7 @@ class MyMenuContentController: UITableViewController, CariocaMenuDataSource {
             cell.applyStyleNormal()
         }
         
-        cell.iconImageView.image = UIImage(named: "\(iconNames[(indexPath as NSIndexPath).row])_menu.png")!
+        cell.iconImageView.image = UIImage(named: "\(iconNames[indexPath.row])_menu.png")!
         
         return cell
     }
@@ -124,7 +124,7 @@ class MyMenuContentController: UITableViewController, CariocaMenuDataSource {
     }
     
     func iconForRowAtIndexPath(_ indexPath:IndexPath)->UIImage {
-        return UIImage(named: "\(iconNames[(indexPath as NSIndexPath).row])_indicator.png")!
+        return UIImage(named: "\(iconNames[indexPath.row])_indicator.png")!
     }
     
     func setCellIdentifierForEdge(_ identifier:String)->Void {

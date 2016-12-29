@@ -23,8 +23,9 @@ CariocaMenu is a simple, elegant, fast, modern, innovative, ..., navigation menu
 ## Requirements
 
 - Autolayout
-- iOS 8.0+
-- Xcode 7.0
+- iOS 9.0+
+- Xcode 8.0
+- Swift 3.0 (Swift 2.3 available in swift_2.3 branch)
 
 ## Communication
 
@@ -151,11 +152,3 @@ A `Carioca` is someone who lives in Rio de Janeiro. I lived there for two months
 ## License
 
 CariocaMenu is released under the MIT license. See LICENSE for details.
-
-
-# Check also : [Barceloneta](https://github.com/arn00s/barceloneta)
-===============
-
-[Barceloneta](https://github.com/arn00s/barceloneta) is the right way to increment/decrement values with a simple gesture on iOS
-
-![](https://raw.githubusercontent.com/arn00s/barceloneta/master/img/barceloneta.gif)

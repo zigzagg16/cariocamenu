@@ -29,13 +29,13 @@ private let CariocaMenuUserDefaultsBoomerangVerticalKey = "com.cariocamenu.boome
 private let CariocaMenuUserDefaultsBoomerangHorizontalKey = "com.cariocamenu.boomerang.horizontal"
 
 ///The opening edge of the menu.
-///- `LeftEdge`: Left edge of the screen
-///- `RightEdge`: Right edge of the screen
+///- `left`: Left edge of the screen
+///- `right`: Right edge of the screen
 @objc public enum CariocaMenuEdge : Int {
     ///Left of the screen
-    case leftEdge = 0
+    case left = 0
     ///Right of the screen
-    case rightEdge = 1
+    case right = 1
 }
 
 ///The initial vertical position of the menu
@@ -190,14 +190,13 @@ open class CariocaMenu : NSObject, UIGestureRecognizerDelegate {
     open weak var delegate:CariocaMenuDelegate?
     /// The type of boomerang for the menu. Default : None
     open var boomerang:CariocaMenuBoomerangType
-    // The color for indicator view
-    open var indicatorColor:UIColor?
+    
     /// The selected index of the menu
     open var selectedIndexPath:IndexPath = IndexPath(item: 0, section: 0)
     fileprivate var preSelectedIndexPath:IndexPath!
     
     ///The edge on which the menu will open
-    open var openingEdge:CariocaMenuEdge = .leftEdge
+    open var openingEdge:CariocaMenuEdge = .left
     fileprivate let menuHeight:CGFloat
     
     fileprivate var leftIndicatorView:CariocaMenuIndicatorView!
@@ -274,8 +273,8 @@ open class CariocaMenu : NSObject, UIGestureRecognizerDelegate {
         ])
         menuView.setNeedsLayout()
         
-        addIndicator(.leftEdge)
-        addIndicator(.rightEdge)
+        addIndicator(.left)
+        addIndicator(.right)
         moveToTop()
         
         updateDraggableIndicators()
@@ -321,11 +320,11 @@ open class CariocaMenu : NSObject, UIGestureRecognizerDelegate {
         if(gesture.state == .began) {
             
             if(gesture != panGestureRecognizer){
-                let newEdge:CariocaMenuEdge = (gesture == sidePanLeft) ? .leftEdge : .rightEdge
+                let newEdge:CariocaMenuEdge = (gesture == sidePanLeft) ? .left : .right
                 if openingEdge != newEdge {
                     openingEdge = newEdge
-                    getIndicatorForEdge((openingEdge == .rightEdge) ? .leftEdge : .rightEdge).hide()
-                    dataSource.setCellIdentifierForEdge!((openingEdge == .leftEdge) ? "cellRight" : "cellLeft")
+                    getIndicatorForEdge((openingEdge == .right) ? .left : .right).hide()
+                    dataSource.setCellIdentifierForEdge!((openingEdge == .left) ? "cellRight" : "cellLeft")
                 }
             }
             
@@ -336,7 +335,7 @@ open class CariocaMenu : NSObject, UIGestureRecognizerDelegate {
             panOriginalY = location.y
             
             //Y to add to match the preselected index
-            menuOriginalY = panOriginalY - ((dataSource.heightByMenuItem() * CGFloat((selectedIndexPath as NSIndexPath).row)) + (dataSource.heightByMenuItem()/2))
+            menuOriginalY = panOriginalY - ((dataSource.heightByMenuItem() * CGFloat(selectedIndexPath.row)) + (dataSource.heightByMenuItem()/2))
             
             if isAlwaysOnScreen {
                 if menuOriginalY < topMinimum {
@@ -476,7 +475,7 @@ open class CariocaMenu : NSObject, UIGestureRecognizerDelegate {
             
             //show back only if it's on the same edge (always true if no horizontal boomerang)
             if edgeToCheckAfterFirstAnimation != self.openingEdge {
-                let otherIndicator = self.getIndicatorForEdge(self.openingEdge == .rightEdge ? .leftEdge : .rightEdge)
+                let otherIndicator = self.getIndicatorForEdge(self.openingEdge == .right ? .left : .right)
                 let offsetSaved = CariocaMenu.getBoomerangVerticalValue()
                 otherIndicator.updateY(offsetSaved)
                 otherIndicator.show()
@@ -506,14 +505,14 @@ open class CariocaMenu : NSObject, UIGestureRecognizerDelegate {
     */
     open func addGestureHelperViews(_ edges:Array<CariocaMenuEdge>, width:CGFloat) {
         
-        if(edges.contains(.leftEdge)){
+        if(edges.contains(.left)){
             if(gestureHelperViewLeft != nil){
                 gestureHelperViewLeft.removeFromSuperview()
             }
             gestureHelperViewLeft = prepareGestureHelperView(.leading, width:width)
         }
         
-        if(edges.contains(.rightEdge)){
+        if(edges.contains(.right)){
             if(gestureHelperViewRight != nil){
                 gestureHelperViewRight.removeFromSuperview()
             }
@@ -559,15 +558,10 @@ open class CariocaMenu : NSObject, UIGestureRecognizerDelegate {
     fileprivate func addIndicator(_ edge:CariocaMenuEdge){
         
         //TODO: Check if the indicator already exists
-        //Default indicator color
-        if self.indicatorColor == nil {
-            self.indicatorColor = UIColor(red:0.07, green:0.73, blue:0.86, alpha:1)
-        }
-        
-        let indicator = CariocaMenuIndicatorView(indicatorEdge: edge, size:CGSize(width: 47, height: 40), shapeColor:self.indicatorColor!)
+        let indicator = CariocaMenuIndicatorView(indicatorEdge: edge, size:CGSize(width: 47, height: 40), shapeColor:UIColor(red:0.07, green:0.73, blue:0.86, alpha:1))
         indicator.addInView(hostView!, edge: edge)
         
-        if(edge == .leftEdge){
+        if(edge == .left){
             leftIndicatorView = indicator
         }else{
             rightIndicatorView = indicator
@@ -599,7 +593,7 @@ open class CariocaMenu : NSObject, UIGestureRecognizerDelegate {
         //preset the menu Y
         //the indicator Y - the selected index Y - the space to center the indicator ((dataSource.heightByMenuItem() - indicatorHeight)/2)
         let indicatorSpace = (dataSource.heightByMenuItem()-indicator.size.height)/2
-        var menuY = (indicator.topConstraint?.constant)! - (CGFloat((selectedIndexPath as NSIndexPath).row) * dataSource.heightByMenuItem()) - indicatorSpace
+        var menuY = (indicator.topConstraint?.constant)! - (CGFloat(selectedIndexPath.row) * dataSource.heightByMenuItem()) - indicatorSpace
         
         if isAlwaysOnScreen {
             //remove the status bar
@@ -612,7 +606,7 @@ open class CariocaMenu : NSObject, UIGestureRecognizerDelegate {
         menuOriginalY = menuY
         menuTopEdgeConstraint?.constant = CGFloat(menuOriginalY)
         updateIndicatorsForIndexPath(selectedIndexPath)
-        dataSource.setCellIdentifierForEdge!((openingEdge == .leftEdge) ? "cellRight" : "cellLeft")
+        dataSource.setCellIdentifierForEdge!((openingEdge == .left) ? "cellRight" : "cellLeft")
         
         if afterDragging {
             indicatorOffset = (indicator.topConstraint?.constant)!
@@ -649,7 +643,7 @@ open class CariocaMenu : NSObject, UIGestureRecognizerDelegate {
         - returns: `CariocaMenuIndicatorView` The matching indicator
     */
     fileprivate func getIndicatorForEdge(_ edge:CariocaMenuEdge)->CariocaMenuIndicatorView {
-        return (edge == .rightEdge) ? rightIndicatorView : leftIndicatorView
+        return (edge == .right) ? rightIndicatorView : leftIndicatorView
     }
     
     /**
@@ -670,7 +664,7 @@ open class CariocaMenu : NSObject, UIGestureRecognizerDelegate {
     fileprivate func updateIndicatorsForIndexPath(_ indexPath:IndexPath){
         let indicator = getIndicatorForEdge(openingEdge)
         //menuTop + index position + center Y for indicator
-        indicatorOffset = CGFloat((menuTopEdgeConstraint?.constant)!) + (CGFloat((indexPath as NSIndexPath).row) * dataSource.heightByMenuItem()) + ((dataSource.heightByMenuItem() - indicator.size.height) / 2)
+        indicatorOffset = CGFloat((menuTopEdgeConstraint?.constant)!) + (CGFloat(indexPath.row) * dataSource.heightByMenuItem()) + ((dataSource.heightByMenuItem() - indicator.size.height) / 2)
         indicator.updateY(indicatorOffset)
         updateIndicatorsImage(dataSource.iconForRowAtIndexPath(indexPath))
     }
@@ -683,7 +677,7 @@ open class CariocaMenu : NSObject, UIGestureRecognizerDelegate {
     */
     open func disableEdge(_ edge:CariocaMenuEdge){
         if (hostView != nil){
-            hostView?.removeGestureRecognizer((edge == .leftEdge) ? sidePanLeft : sidePanRight)
+            hostView?.removeGestureRecognizer((edge == .left) ? sidePanLeft : sidePanRight)
         }
     }
     
@@ -713,7 +707,7 @@ open class CariocaMenu : NSObject, UIGestureRecognizerDelegate {
     */
     class func getBoomerangHorizontalValue()->CariocaMenuEdge{
         let int = UserDefaults.standard.integer(forKey: CariocaMenuUserDefaultsBoomerangHorizontalKey)
-        return int == 1 ? .rightEdge : .leftEdge
+        return int == 1 ? .right : .left
     }
     
     ///Resets the boomerang saved values
@@ -799,7 +793,7 @@ class CariocaMenuIndicatorView : UIView{
         //This shape was drawed with PaintCode App
         let ovalPath = UIBezierPath()
         
-        if(edge == .leftEdge){
+        if(edge == .left){
             ovalPath.move(to: CGPoint(x: frame.maxX, y: frame.minY + 0.50000 * frame.height))
             ovalPath.addCurve(to: CGPoint(x: frame.maxX - 20, y: frame.minY), controlPoint1: CGPoint(x: frame.maxX, y: frame.minY + 0.22386 * frame.height), controlPoint2: CGPoint(x: frame.maxX - 8.95, y: frame.minY))
             ovalPath.addCurve(to: CGPoint(x: frame.minX + 1, y: frame.minY + 0.50000 * frame.height), controlPoint1: CGPoint(x: frame.maxX - 31.05, y: frame.minY), controlPoint2: CGPoint(x: frame.minX + 1, y: frame.minY + 0.30000 * frame.height))
@@ -835,7 +829,7 @@ class CariocaMenuIndicatorView : UIView{
         isHidden = true
         hostView.addSubview(self)
         
-        var attrSideEdge:NSLayoutAttribute = (edge == .rightEdge) ? .trailing : .leading
+        var attrSideEdge:NSLayoutAttribute = (edge == .right) ? .trailing : .leading
         
         topConstraint = NSLayoutConstraint(item: self, attribute: .top, relatedBy: .equal, toItem: hostView, attribute: .top, multiplier: 1, constant: 0)
         
@@ -857,8 +851,8 @@ class CariocaMenuIndicatorView : UIView{
         self.addSubview(imageView)
         
         //constraints for imageView
-        attrSideEdge = (edge == .rightEdge) ? .leading : .trailing
-        let valSideEdge:CGFloat = (edge == .rightEdge) ? 10.0 : -10.0
+        attrSideEdge = (edge == .right) ? .leading : .trailing
+        let valSideEdge:CGFloat = (edge == .right) ? 10.0 : -10.0
         
         self.addConstraints([
             NSLayoutConstraint(item: imageView, attribute: attrSideEdge, relatedBy: .equal, toItem: self, attribute: attrSideEdge, multiplier: 1, constant: valSideEdge),
@@ -1032,6 +1026,6 @@ class CariocaMenuIndicatorView : UIView{
     */
     fileprivate func getEdgeConstantValue(_ value:CGFloat!)->CGFloat{
         let val = (value != nil) ? value : -5.0
-        return (edge == .rightEdge) ? (val! * -1) :  val!
+        return ((edge == .right) ? (val! * -1) :  val)!
     }
 }
