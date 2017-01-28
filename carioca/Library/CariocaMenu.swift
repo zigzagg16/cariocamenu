@@ -102,6 +102,10 @@ private let CariocaMenuUserDefaultsBoomerangHorizontalKey = "com.cariocamenu.boo
     ///`Required` Gets the menu view, will be used to set constraints
     ///- returns: `UIVIew` the view of the menu that will be displayed
     func getMenuView()->UIView
+
+    ///`Optional` Unselects a menu item
+    ///- returns: 'UIColor' of open menu item.
+    @objc optional func getShapeColor() -> UIColor
     
     ///`Optional` Unselects a menu item
     ///- parameters:
@@ -183,6 +187,8 @@ open class CariocaMenu : NSObject, UIGestureRecognizerDelegate {
     fileprivate var panGestureRecognizer = UIPanGestureRecognizer()
     fileprivate var longPressForDragLeft:UILongPressGestureRecognizer?
     fileprivate var longPressForDragRight:UILongPressGestureRecognizer?
+    
+    fileprivate var defaultShapeColor: UIColor = UIColor(red:0.07, green:0.73, blue:0.86, alpha:1)
     
     ///The datasource of the menu
     var dataSource:CariocaMenuDataSource
@@ -557,8 +563,10 @@ open class CariocaMenu : NSObject, UIGestureRecognizerDelegate {
     */
     fileprivate func addIndicator(_ edge:CariocaMenuEdge){
         
+        let customShapeColor = dataSource.getShapeColor?()
+        
         //TODO: Check if the indicator already exists
-        let indicator = CariocaMenuIndicatorView(indicatorEdge: edge, size:CGSize(width: 47, height: 40), shapeColor:UIColor(red:0.07, green:0.73, blue:0.86, alpha:1))
+        let indicator = CariocaMenuIndicatorView(indicatorEdge: edge, size:CGSize(width: 47, height: 40), shapeColor: customShapeColor != nil ? customShapeColor! : defaultShapeColor)
         indicator.addInView(hostView!, edge: edge)
         
         if(edge == .left){

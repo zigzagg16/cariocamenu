@@ -27,6 +27,10 @@ class MyMenuContentController: UITableViewController, CariocaMenuDataSource {
         menuNames.append("Settings")
         menuNames.append("About")
     }
+    
+    func getShapeColor() -> UIColor {
+        return UIColor(red:0.77, green:0.23, blue:0.86, alpha:1)
+    }
 
     // MARK: - Table view data source
     
