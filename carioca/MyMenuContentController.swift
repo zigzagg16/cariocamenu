@@ -29,7 +29,13 @@ class MyMenuContentController: UITableViewController, CariocaMenuDataSource {
     }
     
     func getShapeColor() -> UIColor {
-        return UIColor(red:0.77, green:0.23, blue:0.86, alpha:1)
+        //for shape color overrides
+        return UIColor(red:0.07, green:0.83, blue:0.86, alpha:1)
+    }
+    
+    func getBlurStyle() -> UIBlurEffectStyle {
+        //for menu BG overrides
+        return UIBlurEffectStyle.light
     }
 
     // MARK: - Table view data source

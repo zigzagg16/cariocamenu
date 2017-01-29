@@ -103,9 +103,15 @@ private let CariocaMenuUserDefaultsBoomerangHorizontalKey = "com.cariocamenu.boo
     ///- returns: `UIVIew` the view of the menu that will be displayed
     func getMenuView()->UIView
 
-    ///`Optional` Unselects a menu item
+    ///`Optional` for pin Shape color overrides
     ///- returns: 'UIColor' of open menu item.
+    ///- default: UIColor(red:0.07, green:0.73, blue:0.86, alpha:1)
     @objc optional func getShapeColor() -> UIColor
+    
+    ///`Optional` for menu BG BlurStyle overrides
+    ///- returns: 'UIBlurEffectStyle' of menu's BG.
+    ///- default: UIBlurEffectStyle.extraLight
+    @objc optional func getBlurStyle() -> UIBlurEffectStyle
     
     ///`Optional` Unselects a menu item
     ///- parameters:
@@ -189,6 +195,7 @@ open class CariocaMenu : NSObject, UIGestureRecognizerDelegate {
     fileprivate var longPressForDragRight:UILongPressGestureRecognizer?
     
     fileprivate var defaultShapeColor: UIColor = UIColor(red:0.07, green:0.73, blue:0.86, alpha:1)
+    fileprivate var defaultMenuBlurStyle: UIBlurEffectStyle = UIBlurEffectStyle.extraLight
     
     ///The datasource of the menu
     var dataSource:CariocaMenuDataSource
@@ -447,7 +454,9 @@ open class CariocaMenu : NSObject, UIGestureRecognizerDelegate {
     ///Adds blur to the container view (real blur for iOS > 7)
     fileprivate func addBlur() {
         if (NSClassFromString("UIVisualEffectView") != nil) {
-            let visualEffectView = UIVisualEffectView(effect: UIBlurEffect(style: UIBlurEffectStyle.extraLight)) as UIVisualEffectView
+            let blurEffectStyle = dataSource.getBlurStyle?()
+            let visualEffectView = UIVisualEffectView(effect: UIBlurEffect(style:
+                blurEffectStyle != nil ? blurEffectStyle! : defaultMenuBlurStyle)) as UIVisualEffectView
             visualEffectView.frame = containerView.bounds
             visualEffectView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
             containerView.addSubview(visualEffectView)
