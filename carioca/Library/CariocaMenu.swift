@@ -592,11 +592,13 @@ open class CariocaMenu : NSObject, UIGestureRecognizerDelegate {
     func tappedOnIndicatorView(_ tap:UIGestureRecognizer){
         let indicator = tap.view as! CariocaMenuIndicatorView
         openingEdge = indicator.edge
+        delegate?.cariocaMenuWillOpen!(self)
         if(menuOriginalY == 0 || boomerang == .vertical || boomerang == .verticalAndHorizontal){
             adaptMenuYForIndicatorY(indicator, afterDragging:false)
         }
         showMenu()
         showIndicatorOnTopOfMenu(openingEdge)
+        delegate?.cariocaMenuDidOpen!(self)
         dataSource.preselectRowAtIndexPath?(selectedIndexPath)
     }
     
