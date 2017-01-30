@@ -102,6 +102,16 @@ private let CariocaMenuUserDefaultsBoomerangHorizontalKey = "com.cariocamenu.boo
     ///`Required` Gets the menu view, will be used to set constraints
     ///- returns: `UIVIew` the view of the menu that will be displayed
     func getMenuView()->UIView
+
+    ///`Optional` for pin Shape color overrides
+    ///- returns: 'UIColor' of open menu item.
+    ///- default: UIColor(red:0.07, green:0.73, blue:0.86, alpha:1)
+    @objc optional func getShapeColor() -> UIColor
+    
+    ///`Optional` for menu BG BlurStyle overrides
+    ///- returns: 'UIBlurEffectStyle' of menu's BG.
+    ///- default: UIBlurEffectStyle.extraLight
+    @objc optional func getBlurStyle() -> UIBlurEffectStyle
     
     ///`Optional` Unselects a menu item
     ///- parameters:
@@ -183,6 +193,9 @@ open class CariocaMenu : NSObject, UIGestureRecognizerDelegate {
     fileprivate var panGestureRecognizer = UIPanGestureRecognizer()
     fileprivate var longPressForDragLeft:UILongPressGestureRecognizer?
     fileprivate var longPressForDragRight:UILongPressGestureRecognizer?
+    
+    fileprivate var defaultShapeColor: UIColor = UIColor(red:0.07, green:0.73, blue:0.86, alpha:1)
+    fileprivate var defaultMenuBlurStyle: UIBlurEffectStyle = UIBlurEffectStyle.extraLight
     
     ///The datasource of the menu
     var dataSource:CariocaMenuDataSource
@@ -441,7 +454,9 @@ open class CariocaMenu : NSObject, UIGestureRecognizerDelegate {
     ///Adds blur to the container view (real blur for iOS > 7)
     fileprivate func addBlur() {
         if (NSClassFromString("UIVisualEffectView") != nil) {
-            let visualEffectView = UIVisualEffectView(effect: UIBlurEffect(style: UIBlurEffectStyle.extraLight)) as UIVisualEffectView
+            let blurEffectStyle = dataSource.getBlurStyle?()
+            let visualEffectView = UIVisualEffectView(effect: UIBlurEffect(style:
+                blurEffectStyle != nil ? blurEffectStyle! : defaultMenuBlurStyle)) as UIVisualEffectView
             visualEffectView.frame = containerView.bounds
             visualEffectView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
             containerView.addSubview(visualEffectView)
@@ -557,8 +572,10 @@ open class CariocaMenu : NSObject, UIGestureRecognizerDelegate {
     */
     fileprivate func addIndicator(_ edge:CariocaMenuEdge){
         
+        let customShapeColor = dataSource.getShapeColor?()
+        
         //TODO: Check if the indicator already exists
-        let indicator = CariocaMenuIndicatorView(indicatorEdge: edge, size:CGSize(width: 47, height: 40), shapeColor:UIColor(red:0.07, green:0.73, blue:0.86, alpha:1))
+        let indicator = CariocaMenuIndicatorView(indicatorEdge: edge, size:CGSize(width: 47, height: 40), shapeColor: customShapeColor != nil ? customShapeColor! : defaultShapeColor)
         indicator.addInView(hostView!, edge: edge)
         
         if(edge == .left){
