@@ -507,6 +507,7 @@ open class CariocaMenu : NSObject, UIGestureRecognizerDelegate {
                 self.gestureHelperViewLeft?.isHidden = false
                 self.gestureHelperViewRight?.isHidden = false
                 self.delegate?.cariocaMenuDidClose!(self)
+                self.dataSource.setCellIdentifierForEdge!((self.openingEdge == .left) ? "cellRight" : "cellLeft")
         })
     }
     
