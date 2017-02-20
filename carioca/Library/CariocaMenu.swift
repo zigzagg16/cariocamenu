@@ -479,7 +479,6 @@ open class CariocaMenu : NSObject, UIGestureRecognizerDelegate {
                 let offsetSaved = CariocaMenu.getBoomerangVerticalValue()
                 otherIndicator.updateY(offsetSaved)
                 otherIndicator.show()
-                self.openingEdge = edgeToCheckAfterFirstAnimation
             }
         })
 
