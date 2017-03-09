@@ -56,7 +56,20 @@ class cariocaTests: XCTestCase {
         XCTAssert(menu.selectedIndexPath == IndexPath(item: 0, section: 0), "The menu's selectedIndexPath should be 0:0")
         XCTAssert(menu.openingEdge == .left, "The menu's default opening edge should be .left")
     }
- 
+    
+    ///Test adding in subview
+    func testCariocaMenu_UnderTestState_ShouldBeAddedAsContainerSubview() {
+        //Given
+        let dataSource = testDataSource()
+        
+        //When
+        let container = UIView()
+        let menu = CariocaMenu(dataSource: dataSource)
+        menu.addInView(container)
+        
+        //Then
+        XCTAssert(container.subviews.count == 3, "The container should have the menu and 2 CariocaMenuIndicatorView objects")
+    }
  
     /*TEMPLATE :
      ///
