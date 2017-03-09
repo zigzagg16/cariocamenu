@@ -7,6 +7,28 @@
 //
 
 import XCTest
+import cariocaframework
+
+class testDataSource:CariocaMenuDataSource {
+    
+    func getMenuView()->UIView {
+        return UIView()
+    }
+    
+    func selectRowAtIndexPath(_ indexPath:IndexPath) {}
+    
+    func heightByMenuItem()->CGFloat {
+        return 10
+    }
+    
+    func numberOfMenuItems()->Int {
+        return 5
+    }
+    
+    func iconForRowAtIndexPath(_ indexPath:IndexPath)->UIImage {
+        return UIImage()
+    }
+}
 
 class cariocaTests: XCTestCase {
     
@@ -20,16 +42,30 @@ class cariocaTests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    ///Test correct initialisation
+    func testCariocaMenu_UnderTestState_ShouldInitializeCorrectly() {
+        //Given
+        let dataSource = testDataSource()
+        
+        //When
+        let menu = CariocaMenu(dataSource: dataSource)
+        
+        //Then
+        XCTAssert(menu.boomerang == .none, "The menu's boomerang should be none")
+        XCTAssert(menu.delegate == nil, "The delegate should not be set")
+        XCTAssert(menu.selectedIndexPath == IndexPath(item: 0, section: 0), "The menu's selectedIndexPath should be 0:0")
+        XCTAssert(menu.openingEdge == .left, "The menu's default opening edge should be .left")
     }
-    
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
-    
+ 
+ 
+    /*TEMPLATE :
+     ///
+     func testCariocaMenu_UnderTestState_Should() {
+        //Given
+ 
+        //When
+ 
+        //Then
+     }
+     */
 }
