@@ -11,15 +11,15 @@ import UIKit
 
 public class CariocaMenuContainerView: UIView {
 
-    public override init(frame: CGRect) {
-        super.init(frame: frame)
-    }
+    let topConstraint: NSLayoutConstraint
 
-    convenience init(frame: CGRect, temp: Bool) {
-        self.init(frame: frame)
+    init(frame: CGRect, dataSource: CariocaController) {
+        topConstraint = NSLayoutConstraint()
+        super.init(frame: frame)
+        addSubview(dataSource.view)
     }
 
     required public init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
+        fatalError("init(coder:) has not been implemented")
     }
 }

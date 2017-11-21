@@ -16,12 +16,9 @@ import Foundation
     case right = 1
 }
 
-///The boomerang type of the menu.
-///- `None`: Default value. The indicators will always return where they were let.
-///- `Vertical`: The indicators will always come back at the same Y value. They may switch from Edge if the user wants.
-///- `VerticalAndHorizontal`: The indicators will always come back at the exact same place
+///The boomerang types.
 @objc public enum BoomerangType: Int {
-    ///Default value. The indicators will always return where they were let.
+    ///The indicators will always return where they were let.
     case none = 0
     ///The indicators will always come back at the same Y value. They may switch from Edge if the user wants.
     case vertical = 1

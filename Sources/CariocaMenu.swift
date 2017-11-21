@@ -15,6 +15,7 @@ public class CariocaMenu {
     let hostView: UIView
     let edges: [CariocaEdge]
     let container: CariocaMenuContainerView
+    ///Boomerang type. Default : .none
     var boomerang: BoomerangType = .none
 
     init(dataSource: CariocaController,
@@ -23,11 +24,12 @@ public class CariocaMenu {
         self.dataSource = dataSource
         self.hostView = hostView
         self.edges = edges
-        self.container = CariocaMenuContainerView(frame: hostView.frame, temp: true)
+        self.container = CariocaMenuContainerView(frame: hostView.frame,
+                                                  dataSource: dataSource)
     }
 
     ///Adds the menu's container view in the host view
     func addInHostView() {
-        hostView.addSubview(dataSource.view)
+        hostView.addSubview(container)
     }
 }
