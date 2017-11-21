@@ -11,9 +11,15 @@ import UIKit
 
 public class CariocaMenu {
 
-    let dataSource: CariocaDataSource
+    let dataSource: CariocaController
+    let hostView: UIView
 
-    init(dataSource: CariocaDataSource) {
+    init(dataSource: CariocaController,
+         hostView: UIView) {
         self.dataSource = dataSource
+        self.hostView = hostView
+    }
+    func addInHostView() {
+        hostView.addSubview(dataSource.view)
     }
 }

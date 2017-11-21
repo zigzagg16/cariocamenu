@@ -9,8 +9,10 @@
 import Foundation
 import UIKit
 
+typealias CariocaController = UITableViewController & CariocaDataSource
+
 ///DataSource protocol for filling up the menu
-@objc public protocol CariocaDataSource: UITableViewDataSource {
+public protocol CariocaDataSource: UITableViewDataSource {
 
 }
 
