@@ -10,8 +10,21 @@ import UIKit
 
 class DemoViewController: UIViewController {
 
+    var carioca: CariocaMenu?
+
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        initialiseCarioca()
+    }
+
+    func initialiseCarioca() {
+        if let dataSource = self.storyboard?.instantiateViewController(withIdentifier: "DemoMenu")
+            as? CariocaDataSource {
+            carioca = CariocaMenu(dataSource: dataSource)
+        }
     }
 
     override func didReceiveMemoryWarning() {

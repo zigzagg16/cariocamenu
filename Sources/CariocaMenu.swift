@@ -7,3 +7,13 @@
 //
 
 import Foundation
+import UIKit
+
+public class CariocaMenu {
+
+    let dataSource: CariocaDataSource
+
+    init(dataSource: CariocaDataSource) {
+        self.dataSource = dataSource
+    }
+}
