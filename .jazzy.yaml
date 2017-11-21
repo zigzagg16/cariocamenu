@@ -1,0 +1,9 @@
+clean: true
+author: Arnaud Schloune
+author_url: https://twitter.com/mmommommomo
+github_url: https://github.com/arn00s/cariocamenu
+github_file_prefix:
+module: CariocaMenu
+min_acl: private
+exclude: []
+hide_documentation_coverage: false
