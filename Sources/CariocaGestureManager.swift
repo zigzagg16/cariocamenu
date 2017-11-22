@@ -9,10 +9,13 @@
 import Foundation
 import UIKit
 
+///Manages all the gestures
 class CariocaGestureManager {
-
+    ///The hostview of the menu
     let hostView: UIView
+    ///The menu's controller
     let controller: CariocaController
+    ///The edges of the menu
     let edges: [UIRectEdge]
     ///The edge gestures
     let edgePanGestures: [UIScreenEdgePanGestureRecognizer] = []
@@ -34,8 +37,9 @@ class CariocaGestureManager {
             hostView.addGestureRecognizer(panGesture)
         }
     }
-
-    @objc func panGestureEvent(_ gesture: UIGestureRecognizer) {
+    ///Pan gesture event received
+    /// - Parameter gesture: UIPanGestureRecognizer
+    @objc func panGestureEvent(_ gesture: UIPanGestureRecognizer) {
         let location = gesture.location(in: gesture.view)
         if gesture.state == .changed {
             CariocaMenu.log("PAN: changed \(Double(location.y))")
