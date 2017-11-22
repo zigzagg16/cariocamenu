@@ -44,7 +44,8 @@ public class CariocaMenu {
                                                     controller: dataSource,
                                                     edges: edges)
         //Set delegate
-        tableViewDelegate = CariocaTableViewDelegate(delegate: delegate)
+        tableViewDelegate = CariocaTableViewDelegate(delegate: delegate,
+                                                     rowHeight: dataSource.heightForRow())
         dataSource.tableView.delegate = tableViewDelegate
         self.show()
     }

@@ -23,11 +23,7 @@ class DemoMenuContentController: UITableViewController, CariocaDataSource {
         return cell
     }
 
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    func heightForRow() -> CGFloat {
         return 60.0
-    }
-
-    override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        return UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: 0))
     }
 }
