@@ -8,14 +8,6 @@
 
 import Foundation
 
-///The possible edges of the menu
-@objc public enum CariocaEdge: Int {
-    ///Left of the screen
-    case left = 0
-    ///Right of the screen
-    case right = 1
-}
-
 ///The boomerang types.
 @objc public enum BoomerangType: Int {
     ///The indicators will always return where they were let.
