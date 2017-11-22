@@ -14,11 +14,16 @@ typealias CariocaController = UITableViewController & CariocaDataSource
 ///DataSource protocol for filling up the menu
 public protocol CariocaDataSource: UITableViewDataSource {
     func heightForRow() -> CGFloat
+    func numberOfRows(_ tableView: UITableView) -> Int
 }
 extension CariocaDataSource {
     ///Default, only one section is allowed for now
     public func numberOfSections(in tableView: UITableView) -> Int {
         return 1
+    }
+    ///Returns the number of rows
+    func numberOfRows(_ tableViewItem: UITableView) -> Int {
+        return tableView(tableViewItem, numberOfRowsInSection: 0)
     }
 }
 
