@@ -17,8 +17,8 @@ public class CariocaMenuContainerView: UIView {
     let menuHeight: CGFloat
 
     ///Initialises the containerview
-    /// - Parameter frame: The hostView frame
-    /// - Parameter dataSource: The menu's dataSource
+    ///- Parameter frame: The hostView frame
+    ///- Parameter dataSource: The menu's dataSource
     init(frame: CGRect, dataSource: CariocaController) {
         topConstraint = NSLayoutConstraint()
         menuHeight = dataSource.heightForRow() * CGFloat(dataSource.numberOfRows(dataSource.tableView))

@@ -21,9 +21,9 @@ class CariocaGestureManager {
     let edgePanGestures: [UIScreenEdgePanGestureRecognizer] = []
 
     ///Initialises the gesture manager
-    /// - Parameter hostView: The menu's host view
-    /// - Parameter controller: The menu's content controller
-    /// - Parameter edges: The menu's edges
+    ///- Parameter hostView: The menu's host view
+    ///- Parameter controller: The menu's content controller
+    ///- Parameter edges: The menu's edges
     init(hostView: UIView, controller: CariocaController, edges: [UIRectEdge]) {
         self.hostView = hostView
         self.controller = controller
@@ -42,7 +42,7 @@ class CariocaGestureManager {
         }
     }
     ///Pan gesture event received
-    /// - Parameter gesture: UIPanGestureRecognizer
+    ///- Parameter gesture: UIPanGestureRecognizer
     @objc func panGestureEvent(_ gesture: UIPanGestureRecognizer) {
         let location = gesture.location(in: gesture.view)
         if gesture.state == .changed {

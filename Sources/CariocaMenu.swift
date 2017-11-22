@@ -8,29 +8,34 @@
 
 import Foundation
 import UIKit
-
+///🇧🇷 Carioca Menu 🇧🇷
 public class CariocaMenu {
-    /// The menu's content controller
+    ///The menu's content controller
     let dataSource: CariocaController
-    /// The view in which the menu will be displayed
+    ///The view in which the menu will be displayed
     let hostView: UIView
-    /// The edges of the menu. Supported : .left, .right
+    ///The edges of the menu. Supported : .left, .right
     let edges: [UIRectEdge]
-    /// The container view. Created programatically,
-    /// it takes the same dimensions as the host view
+    ///The container view. Created programatically,
+    ///it takes the same dimensions as the host view
     let container: CariocaMenuContainerView
-    /// Boomerang type. Default : .none
+    ///Boomerang type. Default : .none
     var boomerang: BoomerangType = .none
-    /// Gestures manager
+    ///Gestures manager
     let gestureManager: CariocaGestureManager
-    /// Can the menu go offscreen with user's gesture ? (true)
-    /// Or should it always stay fully visible ? (false)
+    ///Can the menu go offscreen with user's gesture ? (true)
+    ///Or should it always stay fully visible ? (false)
     var isOffscreenAllowed = true
-    ///Receiver of UITableView events
     // swiftlint:disable weak_delegate
+    ///Receiver of UITableView events
     let tableViewDelegate: CariocaTableViewDelegate
     // swiftlint:enable weak_delegate
 
+    ///Initialises 🇧🇷 Carioca Menu 🇧🇷
+    ///- Parameter dataSource: The menu's dataSource
+    ///- Parameter hostView: The view in which the menu will be displayed
+    ///- Parameter edges: The supported edges
+    ///- Parameter delegate: The menu's event delegate
     init(dataSource: CariocaController,
          hostView: UIView,
          edges: [UIRectEdge],

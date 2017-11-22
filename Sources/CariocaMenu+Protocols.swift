@@ -32,7 +32,7 @@ extension CariocaDataSource {
 ///The menu's events delegate
 public protocol CariocaDelegate: class {
     ///The user selected a menu item
-    /// - Parameter index: The index of the selected item
+    ///- Parameter index: The index of the selected item
     func cariocaDidSelectItem(at index: Int)
 }
 
@@ -45,8 +45,8 @@ class CariocaTableViewDelegate: NSObject, UITableViewDelegate {
     let rowHeight: CGFloat
 
     ///Initialisation of the UITableView delegate
-    /// - Parameter delegate: The menu event's delegate (to forward selection events)
-    /// - Parameter rowHeight: The menu's row height.
+    ///- Parameter delegate: The menu event's delegate (to forward selection events)
+    ///- Parameter rowHeight: The menu's row height.
     init(delegate: CariocaDelegate,
          rowHeight: CGFloat) {
         self.delegate = delegate
