@@ -20,6 +20,10 @@ class CariocaGestureManager {
     ///The edge gestures
     let edgePanGestures: [UIScreenEdgePanGestureRecognizer] = []
 
+    ///Initialises the gesture manager
+    /// - Parameter hostView: The menu's host view
+    /// - Parameter controller: The menu's content controller
+    /// - Parameter edges: The menu's edges
     init(hostView: UIView, controller: CariocaController, edges: [UIRectEdge]) {
         self.hostView = hostView
         self.controller = controller
