@@ -23,14 +23,23 @@ class DemoViewController: UIViewController {
     func initialiseCarioca() {
         if let dataSource = self.storyboard?.instantiateViewController(withIdentifier: "DemoMenu")
             as? CariocaController {
+            self.addChildViewController(dataSource)
             carioca = CariocaMenu(dataSource: dataSource,
                                   hostView: self.view,
-                                  edges: [.left, .right])
+                                  edges: [.left, .right],
+                                  delegate: self)
             carioca?.addInHostView()
         }
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+}
+
+extension DemoViewController: CariocaDelegate {
+
+    func cariocaDidSelectItem(at index: Int) {
+       CariocaMenu.log("didSelect: \(index)")
     }
 }

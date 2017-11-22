@@ -19,6 +19,7 @@ public class CariocaMenuContainerView: UIView {
         // TODO: Calculate proper height
         menuHeight = 180.0
         super.init(frame: frame)
+        self.translatesAutoresizingMaskIntoConstraints = false
         addSubview(dataSource.view)
         dataSource.tableView.isScrollEnabled = false
         //Autolayout constraints for the menu

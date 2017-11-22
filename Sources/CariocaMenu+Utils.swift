@@ -16,14 +16,15 @@ extension CariocaMenu {
      */
     class func equalConstraint(_ item: AnyObject,
                                toItem: AnyObject,
-                               attribute: NSLayoutAttribute) -> NSLayoutConstraint {
+                               attribute: NSLayoutAttribute,
+                               constant: CGFloat = 0.0) -> NSLayoutConstraint {
         return NSLayoutConstraint(item: item,
                                   attribute: attribute,
                                   relatedBy: .equal,
                                   toItem: toItem,
                                   attribute: attribute,
                                   multiplier: 1,
-                                  constant: 0)
+                                  constant: constant)
     }
     ///Logs a string in the console
     ///- parameters:
