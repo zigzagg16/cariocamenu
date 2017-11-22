@@ -28,7 +28,8 @@ class CariocaGestureManager {
     func makeEdgePanGestures() {
         edges.forEach { edge in
             let panGesture = UIScreenEdgePanGestureRecognizer(target: self,
-                                                              action: #selector(CariocaGestureManager.panGestureEvent(_:)))
+                                                              action:
+                #selector(CariocaGestureManager.panGestureEvent(_:)))
             panGesture.edges = edge
             hostView.addGestureRecognizer(panGesture)
         }

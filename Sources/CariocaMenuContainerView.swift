@@ -12,13 +12,13 @@ import UIKit
 public class CariocaMenuContainerView: UIView {
 
     var topConstraint: NSLayoutConstraint
-    var menuHeight: CGFloat
+    let menuHeight: CGFloat
 
     init(frame: CGRect, dataSource: CariocaController) {
         topConstraint = NSLayoutConstraint()
-        // TODO: Calculate proper height
-        menuHeight = 180.0
+        menuHeight = dataSource.heightForRow() * CGFloat(dataSource.numberOfRows(dataSource.tableView))
         super.init(frame: frame)
+        self.translatesAutoresizingMaskIntoConstraints = false
         addSubview(dataSource.view)
         dataSource.tableView.isScrollEnabled = false
         //Autolayout constraints for the menu
