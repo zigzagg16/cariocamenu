@@ -9,7 +9,7 @@
 import Foundation
 
 ///The boomerang types.
-@objc public enum BoomerangType: Int {
+public enum BoomerangType: Int {
     ///The indicators will always return where they were let.
     case none = 0
     ///The indicators will always come back at the same Y value. They may switch from Edge if the user wants.

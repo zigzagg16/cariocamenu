@@ -32,17 +32,23 @@ extension CariocaDataSource {
 ///The menu's events delegate
 public protocol CariocaDelegate: class {
     ///The user selected a menu item
+    ///- Parameter menu: The menu instance
     ///- Parameter index: The index of the selected item
-    func cariocaDidSelectItem(at index: Int)
+    func cariocamenu(_ menu: CariocaMenu?, didSelectItemAt index: Int)
+    ///Menu will open
+    ///- Parameter menu: The menu instance
+    ///- Parameter edge: The opening edge of the menu
+    func cariocamenu(_ menu: CariocaMenu, willOpenFromEdge edge: UIRectEdge)
 }
 
 ///Delegate for UITableView events
 class CariocaTableViewDelegate: NSObject, UITableViewDelegate {
     ////The carioca events delegate
     weak var delegate: CariocaDelegate?
-
     ///The rowHeight of each menu item
     let rowHeight: CGFloat
+    ///The carioca menu
+    weak var menu: CariocaMenu?
 
     ///Initialisation of the UITableView delegate
     ///- Parameter delegate: The menu event's delegate (to forward selection events)
@@ -55,7 +61,7 @@ class CariocaTableViewDelegate: NSObject, UITableViewDelegate {
 
     ///UITableView selection delegate, forwarded to CariocaDelegate
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        delegate?.cariocaDidSelectItem(at: indexPath.row)
+        delegate?.cariocamenu(menu, didSelectItemAt: indexPath.row)
     }
 
     ///Takes the specified rowHeight passed in the initialiser
@@ -69,4 +75,11 @@ extension CariocaTableViewDelegate {
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         return UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: 0))
     }
+}
+
+///Forwards the events between CariocaMenu and CariocaGestureManager
+protocol CariocaGestureManagerDelegate: class {
+    ///Menu will open
+    ///- Parameter edge: The opening edge of the menu
+    func willOpenFromEdge(edge: UIRectEdge)
 }

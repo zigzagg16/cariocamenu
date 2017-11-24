@@ -38,8 +38,11 @@ class DemoViewController: UIViewController {
 }
 
 extension DemoViewController: CariocaDelegate {
+    func cariocamenu(_ menu: CariocaMenu?, didSelectItemAt index: Int) {
+        CariocaMenu.log("\(menu) didSelectItemAt \(index)")
+    }
 
-    func cariocaDidSelectItem(at index: Int) {
-       CariocaMenu.log("didSelect: \(index)")
+    func cariocamenu(_ menu: CariocaMenu, willOpenFromEdge edge: UIRectEdge) {
+        CariocaMenu.log("\(menu) will open from \(edge)")
     }
 }

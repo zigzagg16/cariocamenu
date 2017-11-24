@@ -262,7 +262,7 @@
 					};
 					FA9E9A431FC4A38F00C57175 = {
 						CreatedOnToolsVersion = 9.2;
-						DevelopmentTeam = HN4L38K7AC;
+						DevelopmentTeam = NYMPRW2HUE;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -593,7 +593,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = HN4L38K7AC;
+				DEVELOPMENT_TEAM = NYMPRW2HUE;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = CariocaMenuDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
@@ -617,7 +617,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = HN4L38K7AC;
+				DEVELOPMENT_TEAM = NYMPRW2HUE;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = CariocaMenuDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;

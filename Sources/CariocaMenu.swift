@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 ///🇧🇷 Carioca Menu 🇧🇷
-public class CariocaMenu {
+public class CariocaMenu: CariocaGestureManagerDelegate {
     ///The menu's content controller
     let dataSource: CariocaController
     ///The view in which the menu will be displayed
@@ -30,6 +30,8 @@ public class CariocaMenu {
     ///Receiver of UITableView events
     let tableViewDelegate: CariocaTableViewDelegate
     // swiftlint:enable weak_delegate
+    ///The delegate receiving menu's events
+    weak var delegate: CariocaDelegate?
 
     ///Initialises 🇧🇷 Carioca Menu 🇧🇷
     ///- Parameter dataSource: The menu's dataSource
@@ -45,13 +47,16 @@ public class CariocaMenu {
         self.edges = edges
         self.container = CariocaMenuContainerView(frame: hostView.frame,
                                                   dataSource: dataSource)
+        self.tableViewDelegate = CariocaTableViewDelegate(delegate: delegate,
+                                                          rowHeight: dataSource.heightForRow())
         self.gestureManager = CariocaGestureManager(hostView: hostView,
                                                     controller: dataSource,
-                                                    edges: edges)
-        //Set delegate
-        tableViewDelegate = CariocaTableViewDelegate(delegate: delegate,
-                                                     rowHeight: dataSource.heightForRow())
-        dataSource.tableView.delegate = tableViewDelegate
+                                                    edges: edges,
+                                                    menuHeight: self.container.menuHeight)
+        self.delegate = delegate
+        self.gestureManager.delegate = self
+        self.tableViewDelegate.menu = self
+        self.dataSource.tableView.delegate = tableViewDelegate
         self.show()
     }
 
@@ -72,5 +77,13 @@ public class CariocaMenu {
     ///Show the menu
     private func show() {
         container.isHidden = false
+    }
+
+    // MARK: Events delegate/forwarding
+
+    ///Menu will open
+    ///- Parameter edge: The opening edge of the menu
+    func willOpenFromEdge(edge: UIRectEdge) {
+        delegate?.cariocamenu(self, willOpenFromEdge: edge)
     }
 }
