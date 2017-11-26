@@ -9,7 +9,9 @@
 import Foundation
 import UIKit
 
+///Selector shortcuts, used for gestures
 fileprivate extension Selector {
+    ///Gesture for panning from any screen edge
     static let pannedFromScreenEdge = #selector(CariocaGestureManager.panGestureEvent(_:))
 }
 
