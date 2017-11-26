@@ -52,7 +52,7 @@ public class CariocaMenu: CariocaGestureManagerDelegate {
         self.gestureManager = CariocaGestureManager(hostView: hostView,
                                                     controller: dataSource,
                                                     edges: edges,
-                                                    menuHeight: self.container.menuHeight)
+                                                    container: self.container)
         self.delegate = delegate
         self.gestureManager.delegate = self
         self.tableViewDelegate.menu = self
