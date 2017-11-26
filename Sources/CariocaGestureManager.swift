@@ -70,19 +70,31 @@ class CariocaGestureManager {
             delegate?.willOpenFromEdge(edge: gesture.edges)
             originalScreeenEdgePanY = yLocation
         }
+        var matchingIndex = 0
         if gesture.state == .changed {
+            delegate?.showMenu()
             /*
              showMenu()
              showIndicatorOnTopOfMenu(openingEdge)
              */
-            let topY = topYConstraint(yLocation: yLocation,
-                                      originalScreeenEdgePanY: originalScreeenEdgePanY,
-                                      menuHeight: container.menuHeight,
-                                      heightForRow: controller.heightForRow(),
-                                      selectedIndex: 1,
-                                      yRange: yRange,
-                                      isOffscreenAllowed: true)
+            let topY = CariocaGestureManager.topYConstraint(yLocation: yLocation,
+                                                            originalScreeenEdgePanY: originalScreeenEdgePanY,
+                                                            menuHeight: container.menuHeight,
+                                                            heightForRow: controller.heightForRow(),
+                                                            selectedIndex: delegate?.selectedIndex ?? 0,
+                                                            yRange: yRange,
+                                                            isOffscreenAllowed: true)
             container.topConstraint.constant = topY
+            delegate?.didUpdateY(topY)
+            matchingIndex = CariocaGestureManager.matchingIndex(yLocation: yLocation,
+                                                                menuYPosition: topY,
+                                                                menuItemHeight: controller.heightForRow(),
+                                                                numberOfMenuItems: controller.numberOfRows(controller.tableView))
+            delegate?.didUpdateSelectionIndex(matchingIndex)
+        }
+        if gesture.state == .ended {
+            delegate?.didSelectItem(at: matchingIndex)
+            delegate?.hideMenu()
         }
         if gesture.state == .failed { CariocaMenu.log("Failed : \(gesture)") }
         if gesture.state == .possible { CariocaMenu.log("Possible : \(gesture)") }
@@ -91,26 +103,26 @@ class CariocaGestureManager {
 
     // swiftlint:disable function_parameter_count
     ///Calculates the y top constraint, to move the menu
-    ///- Parameter :
-    ///- Parameter :
-    ///- Parameter :
-    ///- Parameter :
-    ///- Parameter :
-    ///- Parameter :
+    ///- Parameter yLocation: The gesture's location
+    ///- Parameter originalScreenEdgePanY: The Y location where the gesture started
+    ///- Parameter menuHeight: The total menu height
+    ///- Parameter heightForRow: The height of each menu item
+    ///- Parameter selectedIndex: The menu's previously selected index
+    ///- Parameter yRange: The y range representing the top/bottom Y limits where the menu can go
+    ///- Parameter isOffscreenAllowed: Can the menu go out of the screen ?
     ///- Returns: CGFloat: The new menu's Y position
-    private func topYConstraint(yLocation: CGFloat,
-                                originalScreeenEdgePanY: CGFloat,
-                                menuHeight: CGFloat,
-                                heightForRow: CGFloat,
-                                selectedIndex: Int,
-                                yRange: ClosedRange<CGFloat>,
-                                isOffscreenAllowed: Bool) -> CGFloat {
+    class func topYConstraint(yLocation: CGFloat,
+                              originalScreeenEdgePanY: CGFloat,
+                              menuHeight: CGFloat,
+                              heightForRow: CGFloat,
+                              selectedIndex: Int,
+                              yRange: ClosedRange<CGFloat>,
+                              isOffscreenAllowed: Bool) -> CGFloat {
+
         var yPosition = originalScreeenEdgePanY
             - (heightForRow * CGFloat(selectedIndex))
-            + heightForRow / 2.0
-
-        let difference = originalScreeenEdgePanY - yLocation
-        yPosition += difference
+            - (heightForRow / 2.0)
+            + originalScreeenEdgePanY - yLocation
 
         if !isOffscreenAllowed {
             if yPosition < yRange.lowerBound {
@@ -122,4 +134,21 @@ class CariocaGestureManager {
         return yPosition
     }
     // swiftlint:enable function_parameter_count
+
+    ///Calculates the menu's matching index based on Y position
+    ///- Parameter yLocation: The gesture's location
+    ///- Parameter :
+    ///- Parameter :
+    ///- Parameter :
+    ///- Returns: CGFloat: The new menu's Y position
+    class func matchingIndex(yLocation: CGFloat,
+                             menuYPosition: CGFloat,
+                             menuItemHeight: CGFloat,
+                             numberOfMenuItems: Int) -> Int {
+        var matchingIndex = Int(floor((yLocation - menuYPosition) / menuItemHeight))
+        //check if < 0 or > numberOfMenuItems
+        matchingIndex = (matchingIndex < 0) ?
+            0 : ((matchingIndex > numberOfMenuItems - 1) ? (numberOfMenuItems - 1) : matchingIndex)
+        return matchingIndex
+    }
 }

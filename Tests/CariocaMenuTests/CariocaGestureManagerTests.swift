@@ -37,10 +37,10 @@ class CariocaGestureManagerTests: XCTestCase {
         originalScreenEdgePanY = 600
         isOffScreenAllowed = false
         let yPosition3 = position()
-        
+
         //Then
-        XCTAssertEqual(yPosition1, CGFloat(614.00), accuracy: 0.001)
-        XCTAssertEqual(yPosition2, CGFloat(-90.00), accuracy: 0.001)
+        XCTAssertEqual(yPosition1, CGFloat(554.00), accuracy: 0.001)
+        XCTAssertEqual(yPosition2, CGFloat(-150.00), accuracy: 0.001)
         XCTAssertEqual(yPosition3, CGFloat(700.00), accuracy: 0.001)
     }
 }
