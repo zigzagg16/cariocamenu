@@ -79,7 +79,19 @@ extension CariocaTableViewDelegate {
 
 ///Forwards the events between CariocaMenu and CariocaGestureManager
 protocol CariocaGestureManagerDelegate: class {
+    ///The selected index
+    var selectedIndex: Int { get }
     ///Menu will open
     ///- Parameter edge: The opening edge of the menu
     func willOpenFromEdge(edge: UIRectEdge)
+    ///Shows the menu
+    func showMenu()
+    ///hides the menu
+    func hideMenu()
+    ///Updated the Y position of the menu
+    func didUpdateY(_ yValue: CGFloat)
+    ///Updated the selection index
+    func didUpdateSelectionIndex(_ index: Int)
+    ///The user did select an item at index
+    func didSelectItem(at index: Int)
 }

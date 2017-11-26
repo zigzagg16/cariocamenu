@@ -30,6 +30,8 @@ public class CariocaMenu: CariocaGestureManagerDelegate {
     ///Receiver of UITableView events
     let tableViewDelegate: CariocaTableViewDelegate
     // swiftlint:enable weak_delegate
+    ///The selected index of the menu. Default: 0
+    var selectedIndex: Int = 1
     ///The delegate receiving menu's events
     weak var delegate: CariocaDelegate?
 
@@ -52,12 +54,12 @@ public class CariocaMenu: CariocaGestureManagerDelegate {
         self.gestureManager = CariocaGestureManager(hostView: hostView,
                                                     controller: dataSource,
                                                     edges: edges,
-                                                    menuHeight: self.container.menuHeight)
+                                                    container: self.container)
         self.delegate = delegate
         self.gestureManager.delegate = self
         self.tableViewDelegate.menu = self
         self.dataSource.tableView.delegate = tableViewDelegate
-        self.show()
+        self.hideMenu()
     }
 
     ///Adds the menu's container view in the host view
@@ -70,14 +72,6 @@ public class CariocaMenu: CariocaGestureManagerDelegate {
             CariocaMenu.equalConstraint(container, toItem: hostView, attribute: .bottom)
         ])
     }
-    ///Hide the menu
-    private func hide() {
-        container.isHidden = true
-    }
-    ///Show the menu
-    private func show() {
-        container.isHidden = false
-    }
 
     // MARK: Events delegate/forwarding
 
@@ -85,5 +79,36 @@ public class CariocaMenu: CariocaGestureManagerDelegate {
     ///- Parameter edge: The opening edge of the menu
     func willOpenFromEdge(edge: UIRectEdge) {
         delegate?.cariocamenu(self, willOpenFromEdge: edge)
+    }
+    func showMenu() {
+        container.isHidden = false
+    }
+    func hideMenu() {
+        container.isHidden = true
+    }
+    func didUpdateY(_ yValue: CGFloat) {
+        //should we do something ?
+    }
+    func didUpdateSelectionIndex(_ index: Int) {
+        CariocaMenu.log("matches index \(index)")
+    }
+    func didSelectItem(at index: Int) {
+        selectedIndex = index
+        /*menuOriginalY = location.y
+         //Unselect the previously selected cell, but first, update the selectedIndexPath
+         let indexPathForDeselection = selectedIndexPath
+         selectedIndexPath = preSelectedIndexPath
+         dataSource.unselectRowAtIndexPath(indexPathForDeselection)
+         didSelectRowAtIndexPath(selectedIndexPath, fromContentController: true)*/
+        /*
+         if preSelectedIndexPath !=  calculatedIndexPath {
+         if preSelectedIndexPath != nil {
+         dataSource.unselectRowAtIndexPath(preSelectedIndexPath)
+         }
+         preSelectedIndexPath = calculatedIndexPath
+         dataSource.preselectRowAtIndexPath(preSelectedIndexPath)
+         }
+         updateIndicatorsForIndexPath(preSelectedIndexPath)
+         }*/
     }
 }
