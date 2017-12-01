@@ -18,7 +18,7 @@ class DemoMenuContentController: UITableViewController, CariocaDataSource {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         //set the title in the cell
-        cell.textLabel?.text = menuNames[indexPath.row]
+//        cell.textLabel?.text = menuNames[indexPath.row]
         //let image = UIImage(named: "\(menuNames[indexPath.row].lowercased())_menu.png")!
         return cell
     }

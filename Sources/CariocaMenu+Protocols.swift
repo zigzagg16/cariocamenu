@@ -34,7 +34,7 @@ public protocol CariocaDelegate: class {
     ///The user selected a menu item
     ///- Parameter menu: The menu instance
     ///- Parameter index: The index of the selected item
-    func cariocamenu(_ menu: CariocaMenu?, didSelectItemAt index: Int)
+    func cariocamenu(_ menu: CariocaMenu, didSelectItemAt index: Int)
     ///Menu will open
     ///- Parameter menu: The menu instance
     ///- Parameter edge: The opening edge of the menu
@@ -61,6 +61,7 @@ class CariocaTableViewDelegate: NSObject, UITableViewDelegate {
 
     ///UITableView selection delegate, forwarded to CariocaDelegate
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let menu = menu else { return }
         delegate?.cariocamenu(menu, didSelectItemAt: indexPath.row)
     }
 

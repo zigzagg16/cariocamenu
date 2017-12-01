@@ -90,8 +90,8 @@ public class CariocaMenu: CariocaGestureManagerDelegate {
         //should we do something ?
     }
     func didSelectItem(at index: Int) {
-        print("did select \(index)")
         selectedIndex = index
+        delegate?.cariocamenu(self, didSelectItemAt: index)
         /*menuOriginalY = location.y
          //Unselect the previously selected cell, but first, update the selectedIndexPath
          let indexPathForDeselection = selectedIndexPath

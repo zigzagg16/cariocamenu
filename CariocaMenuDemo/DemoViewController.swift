@@ -38,7 +38,7 @@ class DemoViewController: UIViewController {
 }
 
 extension DemoViewController: CariocaDelegate {
-    func cariocamenu(_ menu: CariocaMenu?, didSelectItemAt index: Int) {
+    func cariocamenu(_ menu: CariocaMenu, didSelectItemAt index: Int) {
         CariocaMenu.log("\(menu) didSelectItemAt \(index)")
     }
 
