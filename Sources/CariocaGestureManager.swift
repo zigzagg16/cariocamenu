@@ -89,11 +89,15 @@ class CariocaGestureManager {
                                                             isOffscreenAllowed: true)
             container.topConstraint.constant = topY
             delegate?.didUpdateY(topY)
-            internalSelectedIndex = CariocaGestureManager.matchingIndex(yLocation: yLocation,
-                                                                menuYPosition: topY,
-                                                                menuItemHeight: controller.heightForRow(),
-                                                                numberOfMenuItems:
+            let newIndex = CariocaGestureManager.matchingIndex(yLocation: yLocation,
+                                                               menuYPosition: topY,
+                                                               heightForRow: controller.heightForRow(),
+                                                               numberOfMenuItems:
                 controller.numberOfRows(controller.tableView))
+            if newIndex != internalSelectedIndex {
+                delegate?.didUpdateSelectionIndex(newIndex)
+            }
+            internalSelectedIndex = newIndex
         }
         if gesture.state == .ended {
             delegate?.didSelectItem(at: internalSelectedIndex ?? 0)
@@ -140,15 +144,15 @@ class CariocaGestureManager {
 
     ///Calculates the menu's matching index based on Y position
     ///- Parameter yLocation: The gesture's location
-    ///- Parameter :
-    ///- Parameter :
-    ///- Parameter :
-    ///- Returns: CGFloat: The new menu's Y position
+    ///- Parameter menuYPosition: The menu's Y top constraint value
+    ///- Parameter heightForRow: The menu's item height
+    ///- Parameter numberOfMenuItems: The number of items in the menu
+    ///- Returns: Int: The matching index
     class func matchingIndex(yLocation: CGFloat,
                              menuYPosition: CGFloat,
-                             menuItemHeight: CGFloat,
+                             heightForRow: CGFloat,
                              numberOfMenuItems: Int) -> Int {
-        var matchingIndex = Int(floor((yLocation - menuYPosition) / menuItemHeight))
+        var matchingIndex = Int(floor((yLocation - menuYPosition) / heightForRow))
         //check if < 0 or > numberOfMenuItems
         matchingIndex = (matchingIndex < 0) ?
             0 : ((matchingIndex > numberOfMenuItems - 1) ? (numberOfMenuItems - 1) : matchingIndex)

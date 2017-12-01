@@ -34,6 +34,9 @@
 		FAC89F071FC5522A00C988B6 /* CariocaGestureManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC89F051FC5522900C988B6 /* CariocaGestureManager.swift */; };
 		FAC89F081FC5522A00C988B6 /* CariocaGestureManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC89F051FC5522900C988B6 /* CariocaGestureManager.swift */; };
 		FAE31D851FCB1BC4002E793A /* CariocaGestureManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE31D841FCB1BC4002E793A /* CariocaGestureManagerTests.swift */; };
+		FAFF054B1FD170A2002FAB75 /* CariocaMenuIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFF054A1FD170A2002FAB75 /* CariocaMenuIndicatorView.swift */; };
+		FAFF054C1FD176AF002FAB75 /* CariocaMenuIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFF054A1FD170A2002FAB75 /* CariocaMenuIndicatorView.swift */; };
+		FAFF054D1FD176B1002FAB75 /* CariocaMenuIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFF054A1FD170A2002FAB75 /* CariocaMenuIndicatorView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +70,7 @@
 		FA9E9A6B1FC4D2F700C57175 /* CariocaMenu+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CariocaMenu+Utils.swift"; sourceTree = "<group>"; };
 		FAC89F051FC5522900C988B6 /* CariocaGestureManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CariocaGestureManager.swift; sourceTree = "<group>"; };
 		FAE31D841FCB1BC4002E793A /* CariocaGestureManagerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CariocaGestureManagerTests.swift; sourceTree = "<group>"; };
+		FAFF054A1FD170A2002FAB75 /* CariocaMenuIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CariocaMenuIndicatorView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +138,7 @@
 				FA9E9A6B1FC4D2F700C57175 /* CariocaMenu+Utils.swift */,
 				FA9E9A671FC4BDFA00C57175 /* CariocaMenuContainerView.swift */,
 				FAC89F051FC5522900C988B6 /* CariocaGestureManager.swift */,
+				FAFF054A1FD170A2002FAB75 /* CariocaMenuIndicatorView.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -342,6 +347,7 @@
 				FA9E9A641FC4B6C200C57175 /* CariocaMenu+Enums.swift in Sources */,
 				FAC89F061FC5522A00C988B6 /* CariocaGestureManager.swift in Sources */,
 				FA9E9A681FC4BDFA00C57175 /* CariocaMenuContainerView.swift in Sources */,
+				FAFF054B1FD170A2002FAB75 /* CariocaMenuIndicatorView.swift in Sources */,
 				FA9E9A5E1FC4AA4900C57175 /* CariocaMenu+Protocols.swift in Sources */,
 				FA9E9A6C1FC4D2F700C57175 /* CariocaMenu+Utils.swift in Sources */,
 			);
@@ -354,6 +360,7 @@
 				FA9E9A651FC4B6C200C57175 /* CariocaMenu+Enums.swift in Sources */,
 				8933C7901EB5B82D000D00A4 /* CariocaMenuTests.swift in Sources */,
 				FAC89F071FC5522A00C988B6 /* CariocaGestureManager.swift in Sources */,
+				FAFF054D1FD176B1002FAB75 /* CariocaMenuIndicatorView.swift in Sources */,
 				FA9E9A621FC4ACDC00C57175 /* CariocaMenu.swift in Sources */,
 				FA9E9A6D1FC4D2F700C57175 /* CariocaMenu+Utils.swift in Sources */,
 				FA9E9A691FC4BDFA00C57175 /* CariocaMenuContainerView.swift in Sources */,
@@ -374,6 +381,7 @@
 				FA9E9A611FC4ACDB00C57175 /* CariocaMenu.swift in Sources */,
 				FA9E9A6E1FC4D2F700C57175 /* CariocaMenu+Utils.swift in Sources */,
 				FA9E9A661FC4B6C200C57175 /* CariocaMenu+Enums.swift in Sources */,
+				FAFF054C1FD176AF002FAB75 /* CariocaMenuIndicatorView.swift in Sources */,
 				FA9E9A5A1FC4A6D700C57175 /* DemoViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
