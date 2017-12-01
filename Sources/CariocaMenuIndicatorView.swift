@@ -18,9 +18,10 @@ public class CariocaMenuIndicatorView: UIView {
 	var color: UIColor
 	///The indicator's top constraint
 	var topConstraint: NSLayoutConstraint?
-	///The indicator's horizontal constraint
+	///The indicator's horizontal constraint, used to avoid rotation bug
 	var horizontalConstraint: NSLayoutConstraint?
-	//TODO : Check why that swiftlint warning appears
+	///The indicator's horizontal center constraint, used to animate the indicator
+	var horizontalCenterConstraint: NSLayoutConstraint?
 	//swiftlint:disable vertical_parameter_alignment
 	init(edge: UIRectEdge,
 		 size: CGSize = CGSize(width: 47, height: 40),
@@ -35,7 +36,17 @@ public class CariocaMenuIndicatorView: UIView {
 		self.translatesAutoresizingMaskIntoConstraints = false
 		hostView.addSubview(self)
 		let topConstraintItem = CariocaMenu.equalConstraint(self, toItem: tableView, attribute: .top)
-		let horizontalConstraintItem = makeHorizontalConstraint(tableView, edge: edge)
+		let horizontalConstraintItem = makeHorizontalConstraint(tableView,
+																layoutAttribute: CariocaMenuIndicatorView.layoutAttribute(for: edge))
+		horizontalConstraintItem.priority = UILayoutPriority(rawValue: 700.0)
+		let horizontalCenterConstraintItem = NSLayoutConstraint(item: self,
+																attribute: NSLayoutAttribute.centerX,
+																relatedBy: .equal,
+																toItem: hostView,
+																attribute: .centerX,
+																multiplier: 1,
+																constant: 0)
+		horizontalCenterConstraintItem.priority = UILayoutPriority(rawValue: 1000.0)
 		hostView.addConstraints([
 			NSLayoutConstraint(item: self,
 							   attribute: .width, relatedBy: .equal,
@@ -46,19 +57,21 @@ public class CariocaMenuIndicatorView: UIView {
 							   toItem: nil, attribute: .notAnAttribute,
 							   multiplier: 1, constant: frame.size.height),
 			topConstraintItem,
-			horizontalConstraintItem
+			horizontalConstraintItem,
+			horizontalCenterConstraintItem
 			])
 		horizontalConstraint = horizontalConstraintItem
+		horizontalCenterConstraint = horizontalCenterConstraintItem
 		topConstraint = topConstraintItem
 	}
 
-	func makeHorizontalConstraint(_ tableView: UITableView, edge: UIRectEdge) -> NSLayoutConstraint {
-		let edgeAttribute: NSLayoutAttribute = edge == .left ? .trailing : .leading
+	private func makeHorizontalConstraint(_ tableView: UITableView,
+										  layoutAttribute: NSLayoutAttribute) -> NSLayoutConstraint {
 		return NSLayoutConstraint(item: self,
-								  attribute: edgeAttribute,
+								  attribute: layoutAttribute,
 								  relatedBy: .equal,
 								  toItem: tableView,
-								  attribute: edgeAttribute,
+								  attribute: layoutAttribute,
 								  multiplier: 1,
 								  constant: 0)
 	}
@@ -106,14 +119,52 @@ public class CariocaMenuIndicatorView: UIView {
 		if let horizontalC = horizontalConstraint {
 			hostView.removeConstraint(horizontalC)
 		}
-		let newConstraint = makeHorizontalConstraint(tableView, edge: edge)
-		hostView.addConstraint(newConstraint)
-		horizontalConstraint = newConstraint
+		let multiplier: CGFloat = edge == .left ? 1.0 : -1.0
+		let inverseMultiplier: CGFloat = multiplier * -1.0
+		let borderSpace: CGFloat = 5.0
+		let midHostWidth: CGFloat = hostView.frame.size.width / 2.0
+		let midFrameWidth: CGFloat = frame.size.width / 2.0
+
+		let startPosition = (midHostWidth + midFrameWidth) * inverseMultiplier
+		let beforeEndPosition = (midHostWidth - borderSpace) * multiplier
+		let endPosition = (midHostWidth - midFrameWidth - borderSpace) * multiplier
+		print(beforeEndPosition)
+		print(endPosition)
+		horizontalCenterConstraint?.constant = startPosition
+		self.superview?.layoutIfNeeded()
+
+		horizontalCenterConstraint?.constant = beforeEndPosition
+		UIView.animate(withDuration: 0.2,
+					   delay: 0,
+					   options: [.curveEaseIn],
+					   animations: {
+						self.superview?.layoutIfNeeded()
+		}, completion: { _ in
+			self.horizontalCenterConstraint?.constant = endPosition
+			UIView.animate(withDuration: 0.3,
+						   delay: 0,
+						   options: [.curveEaseOut],
+						   animations: {
+							self.superview?.layoutIfNeeded()
+			}, completion: nil)
+		})
+//		let newConstraint = makeHorizontalConstraint(tableView,
+//													 layoutAttribute: CariocaMenuIndicatorView.layoutAttribute(for: edge))
+//		hostView.addConstraint(newConstraint)
+//		horizontalConstraint = newConstraint
 		self.edge = edge
 		self.setNeedsDisplay()
 	}
 
+	func moveTo(index: Int, heightForRow: CGFloat) {
+		topConstraint?.constant = (CGFloat(index) * heightForRow) + ((heightForRow - frame.size.height) / 2.0)
+	}
+
 	required public init?(coder aDecoder: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
+	}
+
+	class func layoutAttribute(for edge: UIRectEdge) -> NSLayoutAttribute {
+		return edge == .left ? .trailing : .leading
 	}
 }

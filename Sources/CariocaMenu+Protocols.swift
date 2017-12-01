@@ -45,18 +45,18 @@ public protocol CariocaDelegate: class {
 class CariocaTableViewDelegate: NSObject, UITableViewDelegate {
     ////The carioca events delegate
     weak var delegate: CariocaDelegate?
-    ///The rowHeight of each menu item
-    let rowHeight: CGFloat
+    ///The heightForRow of each menu item
+    let heightForRow: CGFloat
     ///The carioca menu
     weak var menu: CariocaMenu?
 
     ///Initialisation of the UITableView delegate
     ///- Parameter delegate: The menu event's delegate (to forward selection events)
-    ///- Parameter rowHeight: The menu's row height.
+    ///- Parameter heightForRow: The menu's row height.
     init(delegate: CariocaDelegate,
-         rowHeight: CGFloat) {
+         heightForRow: CGFloat) {
         self.delegate = delegate
-        self.rowHeight = rowHeight
+        self.heightForRow = heightForRow
     }
 
     ///UITableView selection delegate, forwarded to CariocaDelegate
@@ -65,9 +65,9 @@ class CariocaTableViewDelegate: NSObject, UITableViewDelegate {
         delegate?.cariocamenu(menu, didSelectItemAt: indexPath.row)
     }
 
-    ///Takes the specified rowHeight passed in the initialiser
+    ///Takes the specified heightForRow passed in the initialiser
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return rowHeight
+        return heightForRow
     }
 }
 

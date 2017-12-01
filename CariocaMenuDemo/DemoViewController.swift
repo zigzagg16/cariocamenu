@@ -11,6 +11,7 @@ import UIKit
 class DemoViewController: UIViewController {
 
     var carioca: CariocaMenu?
+	@IBOutlet weak var selectedLabel: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
