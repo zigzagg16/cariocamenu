@@ -52,7 +52,7 @@ public class CariocaMenu: CariocaGestureManagerDelegate {
         self.container = CariocaMenuContainerView(frame: hostView.frame,
                                                   dataSource: dataSource)
         self.tableViewDelegate = CariocaTableViewDelegate(delegate: delegate,
-                                                          rowHeight: dataSource.heightForRow())
+                                                          heightForRow: dataSource.heightForRow())
         self.gestureManager = CariocaGestureManager(hostView: hostView,
                                                     controller: dataSource,
                                                     edges: edges,
@@ -97,7 +97,7 @@ public class CariocaMenu: CariocaGestureManagerDelegate {
         //should we do something ?
     }
     func didUpdateSelectionIndex(_ index: Int) {
-        print(index)
+		indicator.moveTo(index: index, heightForRow: dataSource.heightForRow())
     }
     func didSelectItem(at index: Int) {
         selectedIndex = index

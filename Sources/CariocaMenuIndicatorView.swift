@@ -113,6 +113,10 @@ public class CariocaMenuIndicatorView: UIView {
 		self.setNeedsDisplay()
 	}
 
+	func moveTo(index: Int, heightForRow: CGFloat) {
+		topConstraint?.constant = (CGFloat(index) * heightForRow) + ((heightForRow - frame.size.height) / 2.0)
+	}
+
 	required public init?(coder aDecoder: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
 	}
