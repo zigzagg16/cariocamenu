@@ -43,7 +43,7 @@ class CariocaGestureManagerTests: XCTestCase {
         XCTAssertEqual(yPosition2, CGFloat(-150.00), accuracy: 0.001)
         XCTAssertEqual(yPosition3, CGFloat(700.00), accuracy: 0.001)
     }
-    
+
     func testMatchingIndexCalculation() {
         //Given
         var yLocation: CGFloat = 40.0
@@ -62,7 +62,7 @@ class CariocaGestureManagerTests: XCTestCase {
         menuYPosition = 290.0
         yLocation = 390.0
         let index2 = index()
-        
+
         //Then
         XCTAssertEqual(index1, 0)
         XCTAssertEqual(index2, 1)

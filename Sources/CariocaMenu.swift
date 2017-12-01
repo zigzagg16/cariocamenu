@@ -32,6 +32,8 @@ public class CariocaMenu: CariocaGestureManagerDelegate {
     // swiftlint:enable weak_delegate
     ///The selected index of the menu. Default: 0
     var selectedIndex: Int = 1
+	///The indicatorView
+	let indicator: CariocaMenuIndicatorView
     ///The delegate receiving menu's events
     weak var delegate: CariocaDelegate?
 
@@ -56,6 +58,7 @@ public class CariocaMenu: CariocaGestureManagerDelegate {
                                                     edges: edges,
                                                     container: self.container)
         self.delegate = delegate
+		self.indicator = CariocaMenuIndicatorView(edge: edges.first!)
         self.gestureManager.delegate = self
         self.tableViewDelegate.menu = self
         self.dataSource.tableView.delegate = tableViewDelegate
@@ -71,6 +74,7 @@ public class CariocaMenu: CariocaGestureManagerDelegate {
             CariocaMenu.equalConstraint(container, toItem: hostView, attribute: .right),
             CariocaMenu.equalConstraint(container, toItem: hostView, attribute: .bottom)
         ])
+		indicator.addIn(hostView, tableView: dataSource.tableView)
     }
 
     // MARK: Events delegate/forwarding
@@ -79,15 +83,21 @@ public class CariocaMenu: CariocaGestureManagerDelegate {
     ///- Parameter edge: The opening edge of the menu
     func willOpenFromEdge(edge: UIRectEdge) {
         delegate?.cariocamenu(self, willOpenFromEdge: edge)
+		indicator.show(edge: edge, tableView: dataSource.tableView, hostView: hostView)
     }
     func showMenu() {
         container.isHidden = false
+		indicator.isHidden = false
     }
     func hideMenu() {
         container.isHidden = true
+		indicator.isHidden = true
     }
     func didUpdateY(_ yValue: CGFloat) {
         //should we do something ?
+    }
+    func didUpdateSelectionIndex(_ index: Int) {
+        print(index)
     }
     func didSelectItem(at index: Int) {
         selectedIndex = index

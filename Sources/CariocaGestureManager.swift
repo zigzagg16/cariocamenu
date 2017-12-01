@@ -89,11 +89,15 @@ class CariocaGestureManager {
                                                             isOffscreenAllowed: true)
             container.topConstraint.constant = topY
             delegate?.didUpdateY(topY)
-            internalSelectedIndex = CariocaGestureManager.matchingIndex(yLocation: yLocation,
-                                                                menuYPosition: topY,
-                                                                heightForRow: controller.heightForRow(),
-                                                                numberOfMenuItems:
+            let newIndex = CariocaGestureManager.matchingIndex(yLocation: yLocation,
+                                                               menuYPosition: topY,
+                                                               heightForRow: controller.heightForRow(),
+                                                               numberOfMenuItems:
                 controller.numberOfRows(controller.tableView))
+            if newIndex != internalSelectedIndex {
+                delegate?.didUpdateSelectionIndex(newIndex)
+            }
+            internalSelectedIndex = newIndex
         }
         if gesture.state == .ended {
             delegate?.didSelectItem(at: internalSelectedIndex ?? 0)
