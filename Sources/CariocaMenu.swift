@@ -89,10 +89,8 @@ public class CariocaMenu: CariocaGestureManagerDelegate {
     func didUpdateY(_ yValue: CGFloat) {
         //should we do something ?
     }
-    func didUpdateSelectionIndex(_ index: Int) {
-        CariocaMenu.log("matches index \(index)")
-    }
     func didSelectItem(at index: Int) {
+        print("did select \(index)")
         selectedIndex = index
         /*menuOriginalY = location.y
          //Unselect the previously selected cell, but first, update the selectedIndexPath

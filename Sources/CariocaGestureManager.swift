@@ -61,6 +61,7 @@ class CariocaGestureManager {
             hostView.addGestureRecognizer(panGesture)
         }
     }
+    private var internalSelectedIndex: Int?
     ///Pan gesture event received
     ///- Parameter gesture: UIScreenEdgePanGestureRecognizer
     @objc func panGestureEvent(_ gesture: UIScreenEdgePanGestureRecognizer) {
@@ -72,7 +73,6 @@ class CariocaGestureManager {
             delegate?.willOpenFromEdge(edge: gesture.edges)
             originalScreeenEdgePanY = yLocation
         }
-        var matchingIndex = 0
         if gesture.state == .changed {
             delegate?.showMenu()
             /*
@@ -83,19 +83,20 @@ class CariocaGestureManager {
                                                             originalScreeenEdgePanY: originalScreeenEdgePanY,
                                                             menuHeight: container.menuHeight,
                                                             heightForRow: controller.heightForRow(),
-                                                            selectedIndex: delegate?.selectedIndex ?? 0,
+                                                            selectedIndex:
+                delegate?.selectedIndex ?? internalSelectedIndex ?? 0,
                                                             yRange: yRange,
                                                             isOffscreenAllowed: true)
             container.topConstraint.constant = topY
             delegate?.didUpdateY(topY)
-            matchingIndex = CariocaGestureManager.matchingIndex(yLocation: yLocation,
+            internalSelectedIndex = CariocaGestureManager.matchingIndex(yLocation: yLocation,
                                                                 menuYPosition: topY,
                                                                 menuItemHeight: controller.heightForRow(),
-                                                                numberOfMenuItems: controller.numberOfRows(controller.tableView))
-            delegate?.didUpdateSelectionIndex(matchingIndex)
+                                                                numberOfMenuItems:
+                controller.numberOfRows(controller.tableView))
         }
         if gesture.state == .ended {
-            delegate?.didSelectItem(at: matchingIndex)
+            delegate?.didSelectItem(at: internalSelectedIndex ?? 0)
             delegate?.hideMenu()
         }
         if gesture.state == .failed { CariocaMenu.log("Failed : \(gesture)") }

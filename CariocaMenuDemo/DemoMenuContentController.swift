@@ -6,7 +6,7 @@ class DemoMenuContentController: UITableViewController, CariocaDataSource {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        menuNames = ["Hello", "Settings", "About"]
+        menuNames = ["Hello", "Settings", "About", "🇧🇷", "😍"]
         tableView.reloadData()
     }
 

@@ -90,8 +90,6 @@ protocol CariocaGestureManagerDelegate: class {
     func hideMenu()
     ///Updated the Y position of the menu
     func didUpdateY(_ yValue: CGFloat)
-    ///Updated the selection index
-    func didUpdateSelectionIndex(_ index: Int)
     ///The user did select an item at index
     func didSelectItem(at index: Int)
 }
