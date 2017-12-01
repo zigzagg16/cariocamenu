@@ -120,17 +120,34 @@ public class CariocaMenuIndicatorView: UIView {
 			hostView.removeConstraint(horizontalC)
 		}
 		let multiplier: CGFloat = edge == .left ? 1.0 : -1.0
+		let inverseMultiplier: CGFloat = multiplier * -1.0
 		let borderSpace: CGFloat = 5.0
 		let midHostWidth: CGFloat = hostView.frame.size.width / 2.0
 		let midFrameWidth: CGFloat = frame.size.width / 2.0
 
-		let start = midHostWidth * multiplier
-		let end = (midHostWidth - midFrameWidth - borderSpace) * multiplier
-		print(end)
-//		print(end)
-		horizontalCenterConstraint?.constant = end
-//			((midHostWidth - (() + borderSpace))) * multiplier
+		let startPosition = (midHostWidth + midFrameWidth) * inverseMultiplier
+		let beforeEndPosition = (midHostWidth - borderSpace) * multiplier
+		let endPosition = (midHostWidth - midFrameWidth - borderSpace) * multiplier
+		print(beforeEndPosition)
+		print(endPosition)
+		horizontalCenterConstraint?.constant = startPosition
+		self.superview?.layoutIfNeeded()
 
+		horizontalCenterConstraint?.constant = beforeEndPosition
+		UIView.animate(withDuration: 0.2,
+					   delay: 0,
+					   options: [.curveEaseIn],
+					   animations: {
+						self.superview?.layoutIfNeeded()
+		}, completion: { _ in
+			self.horizontalCenterConstraint?.constant = endPosition
+			UIView.animate(withDuration: 0.3,
+						   delay: 0,
+						   options: [.curveEaseOut],
+						   animations: {
+							self.superview?.layoutIfNeeded()
+			}, completion: nil)
+		})
 //		let newConstraint = makeHorizontalConstraint(tableView,
 //													 layoutAttribute: CariocaMenuIndicatorView.layoutAttribute(for: edge))
 //		hostView.addConstraint(newConstraint)
