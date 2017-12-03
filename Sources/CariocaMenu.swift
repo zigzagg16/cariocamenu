@@ -11,7 +11,7 @@ import UIKit
 ///🇧🇷 Carioca Menu 🇧🇷
 public class CariocaMenu: CariocaGestureManagerDelegate {
     ///The menu's content controller
-    let dataSource: CariocaController
+    let controller: CariocaController
     ///The view in which the menu will be displayed
     let hostView: UIView
     ///The edges of the menu. Supported : .left, .right
@@ -38,31 +38,31 @@ public class CariocaMenu: CariocaGestureManagerDelegate {
     weak var delegate: CariocaDelegate?
 
     ///Initialises 🇧🇷 Carioca Menu 🇧🇷
-    ///- Parameter dataSource: The menu's dataSource
+    ///- Parameter controller: The menu's dataSource
     ///- Parameter hostView: The view in which the menu will be displayed
     ///- Parameter edges: The supported edges
     ///- Parameter delegate: The menu's event delegate
-    init(dataSource: CariocaController,
+    init(controller: CariocaController,
          hostView: UIView,
          edges: [UIRectEdge],
          delegate: CariocaDelegate) {
-        self.dataSource = dataSource
+        self.controller = controller
         self.hostView = hostView
         self.edges = edges
         self.container = CariocaMenuContainerView(frame: hostView.frame,
-                                                  dataSource: dataSource)
+                                                  dataSource: controller)
         self.tableViewDelegate = CariocaTableViewDelegate(delegate: delegate,
-                                                          heightForRow: dataSource.heightForRow())
+                                                          heightForRow: controller.heightForRow())
         self.gestureManager = CariocaGestureManager(hostView: hostView,
-                                                    controller: dataSource,
+                                                    controller: controller,
                                                     edges: edges,
                                                     container: self.container)
         self.delegate = delegate
 		self.indicator = CariocaMenuIndicatorView(edge: edges.first!)
         self.gestureManager.delegate = self
         self.tableViewDelegate.menu = self
-        self.dataSource.tableView.delegate = tableViewDelegate
-		self.dataSource.tableView.dataSource = CariocaTableViewDataSource()
+        self.controller.tableView.delegate = tableViewDelegate
+		self.controller.tableView.dataSource = CariocaTableViewDataSource()
         self.hideMenu()
     }
 
@@ -75,7 +75,7 @@ public class CariocaMenu: CariocaGestureManagerDelegate {
             CariocaMenu.equalConstraint(container, toItem: hostView, attribute: .right),
             CariocaMenu.equalConstraint(container, toItem: hostView, attribute: .bottom)
         ])
-		indicator.addIn(hostView, tableView: dataSource.tableView)
+		indicator.addIn(hostView, tableView: controller.tableView)
     }
 
     // MARK: Events delegate/forwarding
@@ -84,7 +84,7 @@ public class CariocaMenu: CariocaGestureManagerDelegate {
     ///- Parameter edge: The opening edge of the menu
     func willOpenFromEdge(edge: UIRectEdge) {
         delegate?.cariocamenu(self, willOpenFromEdge: edge)
-		indicator.show(edge: edge, tableView: dataSource.tableView, hostView: hostView)
+		indicator.show(edge: edge, tableView: controller.tableView, hostView: hostView)
     }
     func showMenu() {
         container.isHidden = false
@@ -98,7 +98,7 @@ public class CariocaMenu: CariocaGestureManagerDelegate {
         //should we do something ?
     }
     func didUpdateSelectionIndex(_ index: Int) {
-		indicator.moveTo(index: index, heightForRow: dataSource.heightForRow())
+		indicator.moveTo(index: index, heightForRow: controller.heightForRow())
     }
     func didSelectItem(at index: Int) {
         selectedIndex = index

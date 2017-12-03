@@ -28,13 +28,6 @@ extension CariocaDataSource {
     public func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
-//    ///Returns the number of rows
-//    func numberOfRows(_ tableViewItem: UITableView) -> Int {
-//        return tableView(tableViewItem, numberOfRowsInSection: 0)
-//    }
-//	func edgeCell(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//		return tableView(tableView, cellForRowAt: indexPath, withEdge: .left)
-//	}
 }
 ///The menu's events delegate
 public protocol CariocaDelegate: class {
@@ -91,7 +84,7 @@ class CariocaTableViewDataSource: NSObject, UITableViewDataSource {
 	weak var menu: CariocaMenu?
 
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return 0
+		return 5
 	}
 //	///Initialisation of the UITableView delegate
 //	///- Parameter delegate: The menu event's delegate (to forward selection events)
