@@ -92,8 +92,7 @@ class CariocaGestureManager {
             let newIndex = CariocaGestureManager.matchingIndex(yLocation: yLocation,
                                                                menuYPosition: topY,
                                                                heightForRow: controller.heightForRow(),
-                                                               numberOfMenuItems:
-                controller.numberOfRows(controller.tableView))
+                                                               numberOfMenuItems: controller.menuItems.count)
             if newIndex != internalSelectedIndex {
                 delegate?.didUpdateSelectionIndex(newIndex)
             }

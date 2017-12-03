@@ -128,8 +128,6 @@ public class CariocaMenuIndicatorView: UIView {
 		let startPosition = (midHostWidth + midFrameWidth) * inverseMultiplier
 		let beforeEndPosition = (midHostWidth - borderSpace) * multiplier
 		let endPosition = (midHostWidth - midFrameWidth - borderSpace) * multiplier
-		print(beforeEndPosition)
-		print(endPosition)
 		horizontalCenterConstraint?.constant = startPosition
 		self.superview?.layoutIfNeeded()
 
@@ -146,12 +144,11 @@ public class CariocaMenuIndicatorView: UIView {
 						   options: [.curveEaseOut],
 						   animations: {
 							self.superview?.layoutIfNeeded()
-			}, completion: nil)
+			}, completion: { _ in
+				//TODO: Apply new constraint constant
+				//change priority
+			})
 		})
-//		let newConstraint = makeHorizontalConstraint(tableView,
-//													 layoutAttribute: CariocaMenuIndicatorView.layoutAttribute(for: edge))
-//		hostView.addConstraint(newConstraint)
-//		horizontalConstraint = newConstraint
 		self.edge = edge
 		self.setNeedsDisplay()
 	}

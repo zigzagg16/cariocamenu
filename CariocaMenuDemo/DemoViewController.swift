@@ -22,10 +22,10 @@ class DemoViewController: UIViewController {
     }
 
     func initialiseCarioca() {
-        if let dataSource = self.storyboard?.instantiateViewController(withIdentifier: "DemoMenu")
+        if let menuController = self.storyboard?.instantiateViewController(withIdentifier: "DemoMenu")
             as? CariocaController {
-            self.addChildViewController(dataSource)
-            carioca = CariocaMenu(dataSource: dataSource,
+            self.addChildViewController(menuController)
+            carioca = CariocaMenu(dataSource: menuController,
                                   hostView: self.view,
                                   edges: [.left, .right],
                                   delegate: self)

@@ -62,6 +62,7 @@ public class CariocaMenu: CariocaGestureManagerDelegate {
         self.gestureManager.delegate = self
         self.tableViewDelegate.menu = self
         self.dataSource.tableView.delegate = tableViewDelegate
+		self.dataSource.tableView.dataSource = CariocaTableViewDataSource()
         self.hideMenu()
     }
 
