@@ -78,6 +78,7 @@ public class CariocaMenu: NSObject, CariocaGestureManagerDelegate, UITableViewDe
     ///Menu will open
     ///- Parameter edge: The opening edge of the menu
     func willOpenFromEdge(edge: UIRectEdge) {
+		controller.tableView.reloadData()
         delegate?.cariocamenu(self, willOpenFromEdge: edge)
 		indicator.show(edge: edge, tableView: controller.tableView, hostView: hostView)
     }
@@ -104,21 +105,18 @@ public class CariocaMenu: NSObject, CariocaGestureManagerDelegate, UITableViewDe
 	public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		return controller.menuItems.count
 	}
-
 	public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		return tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+		return controller.tableView(tableView, cellForRowAt: indexPath, withEdge: gestureManager.openingEdge)
 	}
-
+	public func numberOfSections(in tableView: UITableView) -> Int { return 1 }
 	///UITableView selection delegate, forwarded to CariocaDelegate
 	public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		didSelectItem(at: indexPath.row)
 	}
-
 	///Takes the specified heightForRow passed in the initialiser
 	public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
 		return controller.heightForRow()
 	}
-
 	///Default footer view (to hide extra separators)
 	public func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
 		return UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: 0))

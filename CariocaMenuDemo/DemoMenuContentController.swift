@@ -4,22 +4,24 @@ class DemoMenuContentController: UITableViewController, CariocaDataSource {
 
 	var menuItems: [CariocaMenuItem] = []
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-
-	override func viewWillAppear(_ animated: Bool) {
-		tableView.reloadData()
-	}
-
     // MARK: - menu data source
 	func tableView(_ tableView: UITableView,
 				   cellForRowAt indexPath: IndexPath,
 				   withEdge edge: UIRectEdge) -> UITableViewCell {
-		return tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+		let menuItem = menuItems[indexPath.row]
+		//swiftlint:disable force_cast
+		let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! MenuItemCell
+		//swiftlint:enable force_cast
+		cell.titleLabel.text = menuItem.title
+		cell.titleLabel.textAlignment = (edge == .left) ? .right : .left
+		return cell
 	}
 
     func heightForRow() -> CGFloat {
         return 60.0
     }
+}
+
+class MenuItemCell: UITableViewCell {
+	@IBOutlet weak var titleLabel: UILabel!
 }

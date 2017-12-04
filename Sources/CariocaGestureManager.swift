@@ -24,7 +24,7 @@ class CariocaGestureManager {
     ///The edges of the menu
     let edges: [UIRectEdge]
     ///The menu's opening edge
-    let openingEdge: UIRectEdge
+    var openingEdge: UIRectEdge
     ///The edge gestures
     let edgePanGestures: [UIScreenEdgePanGestureRecognizer] = []
     ///The events delegate
@@ -70,6 +70,7 @@ class CariocaGestureManager {
         let yRange: ClosedRange<CGFloat> = 20.0...frameHeight - container.menuHeight
         // TODO: Find the matching indicator view based on the edge
         if gesture.state == .began {
+			openingEdge = gesture.edges
             delegate?.willOpenFromEdge(edge: gesture.edges)
             originalScreeenEdgePanY = yLocation
         }

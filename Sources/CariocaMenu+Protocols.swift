@@ -20,14 +20,8 @@ public protocol CariocaDataSource {
     func heightForRow() -> CGFloat
 	///The cell for a specific edge
 	func tableView(_ tableView: UITableView,
-                   cellForRowAt indexPath: IndexPath,
-                   withEdge edge: UIRectEdge) -> UITableViewCell
-}
-extension CariocaDataSource {
-    ///Default, only one section is allowed for now
-    public func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
+				   cellForRowAt indexPath: IndexPath,
+				   withEdge edge: UIRectEdge) -> UITableViewCell
 }
 ///The menu's events delegate
 public protocol CariocaDelegate: class {
