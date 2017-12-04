@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 ///🇧🇷 Carioca Menu 🇧🇷
-public class CariocaMenu: CariocaGestureManagerDelegate {
+public class CariocaMenu: NSObject, CariocaGestureManagerDelegate, UITableViewDelegate, UITableViewDataSource {
     ///The menu's content controller
     let controller: CariocaController
     ///The view in which the menu will be displayed
@@ -26,10 +26,6 @@ public class CariocaMenu: CariocaGestureManagerDelegate {
     ///Can the menu go offscreen with user's gesture ? (true)
     ///Or should it always stay fully visible ? (false)
     var isOffscreenAllowed = true
-    // swiftlint:disable weak_delegate
-    ///Receiver of UITableView events
-    let tableViewDelegate: CariocaTableViewDelegate
-    // swiftlint:enable weak_delegate
     ///The selected index of the menu. Default: 0
     var selectedIndex: Int = 1
 	///The indicatorView
@@ -51,18 +47,17 @@ public class CariocaMenu: CariocaGestureManagerDelegate {
         self.edges = edges
         self.container = CariocaMenuContainerView(frame: hostView.frame,
                                                   dataSource: controller)
-        self.tableViewDelegate = CariocaTableViewDelegate(delegate: delegate,
-                                                          heightForRow: controller.heightForRow())
         self.gestureManager = CariocaGestureManager(hostView: hostView,
                                                     controller: controller,
                                                     edges: edges,
                                                     container: self.container)
         self.delegate = delegate
 		self.indicator = CariocaMenuIndicatorView(edge: edges.first!)
+		super.init()
         self.gestureManager.delegate = self
-        self.tableViewDelegate.menu = self
-        self.controller.tableView.delegate = tableViewDelegate
-		self.controller.tableView.dataSource = CariocaTableViewDataSource()
+		self.controller.tableView.dataSource = self
+		self.controller.tableView.delegate = self
+		self.controller.tableView.frame = CGRect(x: 0, y: 0, width: 375, height: 500)
         self.hideMenu()
     }
 
@@ -103,21 +98,29 @@ public class CariocaMenu: CariocaGestureManagerDelegate {
     func didSelectItem(at index: Int) {
         selectedIndex = index
         delegate?.cariocamenu(self, didSelectItemAt: index)
-        /*menuOriginalY = location.y
-         //Unselect the previously selected cell, but first, update the selectedIndexPath
-         let indexPathForDeselection = selectedIndexPath
-         selectedIndexPath = preSelectedIndexPath
-         dataSource.unselectRowAtIndexPath(indexPathForDeselection)
-         didSelectRowAtIndexPath(selectedIndexPath, fromContentController: true)*/
-        /*
-         if preSelectedIndexPath !=  calculatedIndexPath {
-         if preSelectedIndexPath != nil {
-         dataSource.unselectRowAtIndexPath(preSelectedIndexPath)
-         }
-         preSelectedIndexPath = calculatedIndexPath
-         dataSource.preselectRowAtIndexPath(preSelectedIndexPath)
-         }
-         updateIndicatorsForIndexPath(preSelectedIndexPath)
-         }*/
     }
+
+	// MARK: UITableView datasource/delegate
+	public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+		return controller.menuItems.count
+	}
+
+	public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+		return tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+	}
+
+	///UITableView selection delegate, forwarded to CariocaDelegate
+	public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		didSelectItem(at: indexPath.row)
+	}
+
+	///Takes the specified heightForRow passed in the initialiser
+	public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+		return controller.heightForRow()
+	}
+
+	///Default footer view (to hide extra separators)
+	public func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+		return UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: 0))
+	}
 }
