@@ -95,6 +95,8 @@ public class CariocaMenu: NSObject, CariocaGestureManagerDelegate, UITableViewDe
     }
     func didUpdateSelectionIndex(_ index: Int) {
 		indicator.moveTo(index: index, heightForRow: controller.heightForRow())
+		let item = controller.menuItems[index]
+		indicator.updateIcon(item.indicatorIcon)
     }
     func didSelectItem(at index: Int) {
         selectedIndex = index

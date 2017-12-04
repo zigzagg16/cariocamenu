@@ -23,12 +23,20 @@ public class CariocaMenuIndicatorView: UIView {
 	///The indicator's horizontal center constraint, used to animate the indicator
 	var horizontalCenterConstraint: NSLayoutConstraint?
 	//swiftlint:disable vertical_parameter_alignment
+	///The icon's label
+	var iconLabel: UILabel
+	//TODO: Add icon image
+
 	init(edge: UIRectEdge,
 		 size: CGSize = CGSize(width: 47, height: 40),
 		 color: UIColor = UIColor(red: 0.07, green: 0.73, blue: 0.86, alpha: 1)) {
 		self.edge = edge
 		self.color = color
-		super.init(frame: CGRect(x: 0, y: 0, width: size.width, height: size.height))
+		let frame = CGRect(x: 0, y: 0, width: size.width, height: size.height)
+		self.iconLabel = UILabel(frame: frame)
+		self.iconLabel.textAlignment = .center
+		super.init(frame: frame)
+		addSubview(self.iconLabel)
 	}
 
 	func addIn(_ hostView: UIView,
@@ -155,6 +163,15 @@ public class CariocaMenuIndicatorView: UIView {
 
 	func moveTo(index: Int, heightForRow: CGFloat) {
 		topConstraint?.constant = (CGFloat(index) * heightForRow) + ((heightForRow - frame.size.height) / 2.0)
+	}
+
+	func updateIcon(_ icon: CariocaMenuItemIndicatorIcon) {
+		switch icon {
+		case let .emoji(emojiString):
+			iconLabel.text = emojiString
+		default:
+			iconLabel.text = "?"
+		}
 	}
 
 	required public init?(coder aDecoder: NSCoder) {
