@@ -9,15 +9,18 @@
 import Foundation
 import UIKit
 
+public enum CariocaMenuItemIndicatorIcon {
+	case emoji(String)
+	case icon(UIImage)
+}
+
 ///Carioca Menu Item
 public class CariocaMenuItem {
 	let title: String
-	let emoji: String?
-	let icon: UIImage?
+	let indicatorIcon: CariocaMenuItemIndicatorIcon
 
-	init(_ title: String, _ emoji: String? = nil, _ icon: UIImage? = nil) {
+	init(_ title: String, _ indicatorIcon: CariocaMenuItemIndicatorIcon) {
 		self.title = title
-		self.emoji = emoji
-		self.icon = icon
+		self.indicatorIcon = indicatorIcon
 	}
 }

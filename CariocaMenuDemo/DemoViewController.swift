@@ -25,11 +25,11 @@ class DemoViewController: UIViewController {
         if var menuController = self.storyboard?.instantiateViewController(withIdentifier: "DemoMenu")
             as? CariocaController {
 			menuController.menuItems = [
-				CariocaMenuItem("😍", "😍"),
-				CariocaMenuItem("🤙🏼", "🤙🏼"),
-				CariocaMenuItem("🛠", "🛠"),
-				CariocaMenuItem("🔮", "🔮"),
-				CariocaMenuItem("🇧🇷", "🇧🇷")
+				CariocaMenuItem("Hello", .emoji("😍")),
+				CariocaMenuItem("About", .emoji("🤙🏼")),
+				CariocaMenuItem("Settings", .emoji("🛠")),
+				CariocaMenuItem("Hamburger menu", .emoji("🔮")),
+				CariocaMenuItem("Brasil", .emoji("🇧🇷"))
 			]
             carioca = CariocaMenu(controller: menuController,
                                   hostView: self.view,
