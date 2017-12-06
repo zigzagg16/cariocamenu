@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13770" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13770"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -63,15 +63,29 @@
                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sah-ne-E1N" customClass="CariocaIconView" customModule="CariocaMenuDemo" customModuleProvider="target">
+                                            <rect key="frame" x="20" y="7" width="30" height="30"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="30" id="Fuc-Tk-ItX"/>
+                                                <constraint firstAttribute="width" constant="30" id="fzD-xE-GYJ"/>
+                                            </constraints>
+                                        </view>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="4kj-qP-ABx" firstAttribute="top" secondItem="444-wH-1aq" secondAttribute="top" id="5G3-OL-gDJ"/>
                                         <constraint firstAttribute="trailing" secondItem="4kj-qP-ABx" secondAttribute="trailing" constant="60" id="Jr2-Tz-CPd"/>
+                                        <constraint firstAttribute="trailing" secondItem="sah-ne-E1N" secondAttribute="trailing" priority="10" constant="15" id="Mmw-iM-qg6"/>
                                         <constraint firstItem="4kj-qP-ABx" firstAttribute="leading" secondItem="444-wH-1aq" secondAttribute="leading" constant="60" id="bVu-gg-nYc"/>
+                                        <constraint firstItem="sah-ne-E1N" firstAttribute="centerY" secondItem="444-wH-1aq" secondAttribute="centerY" id="cRc-T8-yTc"/>
+                                        <constraint firstItem="sah-ne-E1N" firstAttribute="leading" secondItem="444-wH-1aq" secondAttribute="leading" priority="30" constant="20" id="ix0-hf-Kwu"/>
                                         <constraint firstAttribute="bottom" secondItem="4kj-qP-ABx" secondAttribute="bottom" id="lKp-4l-cIo"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="iconLeftConstraint" destination="ix0-hf-Kwu" id="jRW-8r-1oD"/>
+                                    <outlet property="iconRightConstraint" destination="Mmw-iM-qg6" id="BHp-lD-7Bh"/>
+                                    <outlet property="iconView" destination="sah-ne-E1N" id="eO6-G8-7B7"/>
                                     <outlet property="titleLabel" destination="4kj-qP-ABx" id="Xy3-MH-QeK"/>
                                 </connections>
                             </tableViewCell>
@@ -80,7 +94,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gSH-lj-Z1y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1004" y="133"/>
+            <point key="canvasLocation" x="1004" y="132.68365817091455"/>
         </scene>
     </scenes>
 </document>

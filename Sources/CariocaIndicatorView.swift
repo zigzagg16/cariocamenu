@@ -9,16 +9,8 @@
 import Foundation
 import UIKit
 
-///The indicator various icon options
-public enum CariocaMenuItemIndicatorIcon {
-	///Emoji, but in reality it can be whatever string that fits in the view
-	case emoji(String)
-	///Image icon
-	case icon(UIImage)
-}
-
 ///The menu's indicator
-public class CariocaMenuIndicatorView: UIView {
+public class CariocaIndicatorView: UIView {
 
 	///The edge of the indicator.
 	var edge: UIRectEdge
@@ -60,7 +52,7 @@ public class CariocaMenuIndicatorView: UIView {
 		hostView.addSubview(self)
 		let topConstraintItem = CariocaMenu.equalConstraint(self, toItem: tableView, attribute: .top)
 		let horizontalConstraintItem = makeHorizontalConstraint(tableView,
-																layoutAttribute: CariocaMenuIndicatorView.layoutAttribute(for: edge))
+																layoutAttribute: CariocaIndicatorView.layoutAttribute(for: edge))
 		horizontalConstraintItem.priority = UILayoutPriority(rawValue: 700.0)
 		let horizontalCenterConstraintItem = NSLayoutConstraint(item: self,
 																attribute: NSLayoutAttribute.centerX,
@@ -195,7 +187,7 @@ public class CariocaMenuIndicatorView: UIView {
 
 	///Updates the indicator icon, depending on the icon type
 	///- Parameter icon: The icon to display in the indicator
-	func updateIcon(_ icon: CariocaMenuItemIndicatorIcon) {
+	func updateIcon(_ icon: CariocaIcon) {
 		switch icon {
 		case let .emoji(emojiString):
 			iconLabel.text = emojiString
@@ -207,7 +199,7 @@ public class CariocaMenuIndicatorView: UIView {
 	required public init?(coder aDecoder: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
 	}
-	
+
 	///Get the matching NSLAyoutAttribute
 	///- Parameter edge: The screen edge
 	///- Returns: NSLayoutAttribute: The matching NSLayoutAttribute

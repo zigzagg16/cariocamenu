@@ -29,7 +29,7 @@ public class CariocaMenu: NSObject, CariocaGestureManagerDelegate, UITableViewDe
     ///The selected index of the menu. Default: 0
     var selectedIndex: Int = 1
 	///The indicatorView
-	let indicator: CariocaMenuIndicatorView
+	let indicator: CariocaIndicatorView
     ///The delegate receiving menu's events
     weak var delegate: CariocaDelegate?
 
@@ -52,7 +52,7 @@ public class CariocaMenu: NSObject, CariocaGestureManagerDelegate, UITableViewDe
                                                     edges: edges,
                                                     container: self.container)
         self.delegate = delegate
-		self.indicator = CariocaMenuIndicatorView(edge: edges.first!)
+		self.indicator = CariocaIndicatorView(edge: edges.first!)
 		super.init()
         self.gestureManager.delegate = self
 		self.controller.tableView.dataSource = self
@@ -64,12 +64,7 @@ public class CariocaMenu: NSObject, CariocaGestureManagerDelegate, UITableViewDe
     ///Adds the menu's container view in the host view
     func addInHostView() {
         hostView.addSubview(container)
-        hostView.addConstraints([
-            CariocaMenu.equalConstraint(container, toItem: hostView, attribute: .left),
-            CariocaMenu.equalConstraint(container, toItem: hostView, attribute: .top),
-            CariocaMenu.equalConstraint(container, toItem: hostView, attribute: .right),
-            CariocaMenu.equalConstraint(container, toItem: hostView, attribute: .bottom)
-        ])
+        hostView.addConstraints(container.makeAnchorConstraints(to: hostView))
 		indicator.addIn(hostView, tableView: controller.tableView)
     }
 
@@ -100,7 +95,7 @@ public class CariocaMenu: NSObject, CariocaGestureManagerDelegate, UITableViewDe
     func didUpdateSelectionIndex(_ index: Int) {
 		indicator.moveTo(index: index, heightForRow: controller.heightForRow())
 		let item = controller.menuItems[index]
-		indicator.updateIcon(item.indicatorIcon)
+		indicator.updateIcon(item.icon)
     }
 	///The user did select a menu item
 	///- Parameter index: The selected index

@@ -32,3 +32,15 @@ extension CariocaMenu {
     ///- Parameter log: The log message
     class func log(_ log: String) { print("[🇧🇷 CariocaMenu] \(log)") }
 }
+
+extension UIView {
+	///Generates 4 NSLayoutConstraints
+	///- Parameter superview: The superview to which the view will stick
+	///- Returns: [NSLayoutConstraint]: The 4 constraints in CSS Style order (Top, Right, Bottom, Left)
+	func makeAnchorConstraints(to superview: UIView) -> [NSLayoutConstraint] {
+		return [self.topAnchor.constraint(equalTo: superview.topAnchor),
+				self.rightAnchor.constraint(equalTo: superview.rightAnchor),
+				self.leftAnchor.constraint(equalTo: superview.leftAnchor),
+				self.bottomAnchor.constraint(equalTo: superview.bottomAnchor)]
+	}
+}

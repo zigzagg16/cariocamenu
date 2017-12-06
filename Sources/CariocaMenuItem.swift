@@ -14,13 +14,13 @@ public class CariocaMenuItem {
 	///The item's title
 	let title: String
 	///The item'sicon
-	let indicatorIcon: CariocaMenuItemIndicatorIcon
-	
+	let icon: CariocaIcon
+
 	///Initialise a menu item
 	///- Parameter title: The item's title
 	///- Parameter indicatorIcon: The icon displayed in the menu indicator
-	init(_ title: String, _ indicatorIcon: CariocaMenuItemIndicatorIcon) {
+	init(_ title: String, _ icon: CariocaIcon) {
 		self.title = title
-		self.indicatorIcon = indicatorIcon
+		self.icon = icon
 	}
 }
