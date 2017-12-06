@@ -13,7 +13,7 @@ class DemoViewController: UIViewController {
     var carioca: CariocaMenu?
 	@IBOutlet weak var selectedLabel: UILabel!
 	@IBOutlet weak var iconView: CariocaIconView!
-	
+
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -27,7 +27,7 @@ class DemoViewController: UIViewController {
         if var menuController = self.storyboard?.instantiateViewController(withIdentifier: "DemoMenu")
             as? CariocaController {
 			menuController.menuItems = [
-				CariocaMenuItem("Hello", .emoji("😍")),
+				CariocaMenuItem("Hello", .icon(UIImage(named: "hamburger")!)),
 				CariocaMenuItem("About", .emoji("🤙🏼")),
 				CariocaMenuItem("Settings", .emoji("🛠")),
 				CariocaMenuItem("Hamburger menu", .emoji("🔮")),

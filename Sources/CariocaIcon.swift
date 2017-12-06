@@ -30,6 +30,11 @@ public class CariocaIconView: UIView {
 		imageView = UIImageView(frame: frame)
 		super.init(frame: frame)
 		self.translatesAutoresizingMaskIntoConstraints = false
+		self.imageView.translatesAutoresizingMaskIntoConstraints = false
+		self.label.translatesAutoresizingMaskIntoConstraints = false
+		self.label.textAlignment = .center
+		self.imageView.contentMode = .scaleAspectFit
+		self.clipsToBounds = true
 		self.addSubview(label)
 		self.addSubview(imageView)
 		self.addConstraints(label.makeAnchorConstraints(to: self))

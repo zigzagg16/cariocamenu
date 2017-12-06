@@ -23,9 +23,8 @@ public class CariocaIndicatorView: UIView {
 	///The indicator's horizontal center constraint, used to animate the indicator
 	var horizontalCenterConstraint: NSLayoutConstraint?
 	//swiftlint:disable vertical_parameter_alignment
-	///The icon's label
-	var iconLabel: UILabel
-	//TODO: Add icon image
+	///The icon's view
+	var iconView: CariocaIconView
 
 	///Initialise an IndicatorView
 	///- Parameter edge: The inital edge. Will be updated every time the user changes of edge.
@@ -36,11 +35,12 @@ public class CariocaIndicatorView: UIView {
 		 color: UIColor = UIColor(red: 0.07, green: 0.73, blue: 0.86, alpha: 1)) {
 		self.edge = edge
 		self.color = color
+		self.iconView = CariocaIconView(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
+		self.iconView.translatesAutoresizingMaskIntoConstraints = false
 		let frame = CGRect(x: 0, y: 0, width: size.width, height: size.height)
-		self.iconLabel = UILabel(frame: frame)
-		self.iconLabel.textAlignment = .center
 		super.init(frame: frame)
-		addSubview(self.iconLabel)
+		self.addSubview(iconView)
+		self.addConstraints(iconView.makeAnchorConstraints(to: self))
 	}
 
 	///Adds the indicator in the hostView
@@ -185,16 +185,6 @@ public class CariocaIndicatorView: UIView {
 		topConstraint?.constant = (CGFloat(index) * heightForRow) + ((heightForRow - frame.size.height) / 2.0)
 	}
 
-	///Updates the indicator icon, depending on the icon type
-	///- Parameter icon: The icon to display in the indicator
-	func updateIcon(_ icon: CariocaIcon) {
-		switch icon {
-		case let .emoji(emojiString):
-			iconLabel.text = emojiString
-		default:
-			iconLabel.text = "?"
-		}
-	}
 	///:nodoc:
 	required public init?(coder aDecoder: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
