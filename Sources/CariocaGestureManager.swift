@@ -33,6 +33,8 @@ class CariocaGestureManager {
     var originalScreeenEdgePanY: CGFloat = 0.0
     ///The menu's container
     let container: CariocaMenuContainerView
+	///Internal selection index, used to check index changes.
+	private var internalSelectedIndex: Int?
 
     ///Initialises the gesture manager
     ///- Parameter hostView: The menu's host view
@@ -61,7 +63,7 @@ class CariocaGestureManager {
             hostView.addGestureRecognizer(panGesture)
         }
     }
-    private var internalSelectedIndex: Int?
+
     ///Pan gesture event received
     ///- Parameter gesture: UIScreenEdgePanGestureRecognizer
     @objc func panGestureEvent(_ gesture: UIScreenEdgePanGestureRecognizer) {

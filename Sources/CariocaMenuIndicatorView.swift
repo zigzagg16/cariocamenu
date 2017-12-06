@@ -9,6 +9,14 @@
 import Foundation
 import UIKit
 
+///The indicator various icon options
+public enum CariocaMenuItemIndicatorIcon {
+	///Emoji, but in reality it can be whatever string that fits in the view
+	case emoji(String)
+	///Image icon
+	case icon(UIImage)
+}
+
 ///The menu's indicator
 public class CariocaMenuIndicatorView: UIView {
 
@@ -27,6 +35,10 @@ public class CariocaMenuIndicatorView: UIView {
 	var iconLabel: UILabel
 	//TODO: Add icon image
 
+	///Initialise an IndicatorView
+	///- Parameter edge: The inital edge. Will be updated every time the user changes of edge.
+	///- Parameter size: The view's size
+	///- Parameter color: The view's shape color
 	init(edge: UIRectEdge,
 		 size: CGSize = CGSize(width: 47, height: 40),
 		 color: UIColor = UIColor(red: 0.07, green: 0.73, blue: 0.86, alpha: 1)) {
@@ -39,6 +51,9 @@ public class CariocaMenuIndicatorView: UIView {
 		addSubview(self.iconLabel)
 	}
 
+	///Adds the indicator in the hostView
+	///- Parameter hostView: the menu's hostView
+	///- Parameter tableView: the menu's tableView
 	func addIn(_ hostView: UIView,
 			   tableView: UITableView) {
 		self.translatesAutoresizingMaskIntoConstraints = false
@@ -73,6 +88,10 @@ public class CariocaMenuIndicatorView: UIView {
 		topConstraint = topConstraintItem
 	}
 
+	///Create the horizontal constraint
+	///- Parameter tableView: The menu's tableView
+	///- Parameter layoutAttribute: The layoutAttribute for the constraint
+	///- Returns: NSLayoutConstraint the horizontal constraint
 	private func makeHorizontalConstraint(_ tableView: UITableView,
 										  layoutAttribute: NSLayoutAttribute) -> NSLayoutConstraint {
 		return NSLayoutConstraint(item: self,
@@ -84,6 +103,8 @@ public class CariocaMenuIndicatorView: UIView {
 								  constant: 0)
 	}
 
+	///Draws the shape, depending on the edge.
+	///- Parameter frame: The IndicatorView's frame
 	override public func draw(_ frame: CGRect) {
 		self.backgroundColor = .clear
 		//This shape was drawed with PaintCode App
@@ -123,6 +144,10 @@ public class CariocaMenuIndicatorView: UIView {
 		ovalPath.fill()
 	}
 
+	///Show the indicator on a specific edge, by animating the horizontal position
+	///- Parameter edge: The screen edge
+	///- Parameter tableView: The menu's tableView. The indicator top constraint will be attached to tableview's top.
+	///- Parameter hostView: The menu's hostView, to who the constraints are added.
 	func show(edge: UIRectEdge, tableView: UITableView, hostView: UIView) {
 		if let horizontalC = horizontalConstraint {
 			hostView.removeConstraint(horizontalC)
@@ -161,10 +186,15 @@ public class CariocaMenuIndicatorView: UIView {
 		self.setNeedsDisplay()
 	}
 
+	///Move the indicator to a specific index, by updating the top constraint value
+	///- Parameter index: The selection index of the menu, where the indicator will appear
+	///- Parameter heightForRow: The height of each menu item
 	func moveTo(index: Int, heightForRow: CGFloat) {
 		topConstraint?.constant = (CGFloat(index) * heightForRow) + ((heightForRow - frame.size.height) / 2.0)
 	}
 
+	///Updates the indicator icon, depending on the icon type
+	///- Parameter icon: The icon to display in the indicator
 	func updateIcon(_ icon: CariocaMenuItemIndicatorIcon) {
 		switch icon {
 		case let .emoji(emojiString):
@@ -173,11 +203,14 @@ public class CariocaMenuIndicatorView: UIView {
 			iconLabel.text = "?"
 		}
 	}
-
+	///:nodoc:
 	required public init?(coder aDecoder: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
 	}
-
+	
+	///Get the matching NSLAyoutAttribute
+	///- Parameter edge: The screen edge
+	///- Returns: NSLayoutAttribute: The matching NSLayoutAttribute
 	class func layoutAttribute(for edge: UIRectEdge) -> NSLayoutAttribute {
 		return edge == .left ? .trailing : .leading
 	}

@@ -82,10 +82,12 @@ public class CariocaMenu: NSObject, CariocaGestureManagerDelegate, UITableViewDe
         delegate?.cariocamenu(self, willOpenFromEdge: edge)
 		indicator.show(edge: edge, tableView: controller.tableView, hostView: hostView)
     }
+	///Hide the menu
     func showMenu() {
         container.isHidden = false
 		indicator.isHidden = false
     }
+	///Show the menu
     func hideMenu() {
         container.isHidden = true
 		indicator.isHidden = true
@@ -93,23 +95,30 @@ public class CariocaMenu: NSObject, CariocaGestureManagerDelegate, UITableViewDe
     func didUpdateY(_ yValue: CGFloat) {
         //should we do something ?
     }
+	///The selection index was updated, while user panning in the view
+	///- Parameter index: The updated selection index
     func didUpdateSelectionIndex(_ index: Int) {
 		indicator.moveTo(index: index, heightForRow: controller.heightForRow())
 		let item = controller.menuItems[index]
 		indicator.updateIcon(item.indicatorIcon)
     }
+	///The user did select a menu item
+	///- Parameter index: The selected index
     func didSelectItem(at index: Int) {
         selectedIndex = index
         delegate?.cariocamenu(self, didSelectItemAt: index)
     }
 
 	// MARK: UITableView datasource/delegate
+	///Number of menu items
 	public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		return controller.menuItems.count
 	}
+	///Cell for row. Forwarded to the controller, with the extra edge parameter.
 	public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		return controller.tableView(tableView, cellForRowAt: indexPath, withEdge: gestureManager.openingEdge)
 	}
+	///Number of sections. Cannot be updated for now, as the menu's tableView only supports 1 section
 	public func numberOfSections(in tableView: UITableView) -> Int { return 1 }
 	///UITableView selection delegate, forwarded to CariocaDelegate
 	public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

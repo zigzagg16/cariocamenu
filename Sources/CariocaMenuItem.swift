@@ -9,16 +9,16 @@
 import Foundation
 import UIKit
 
-public enum CariocaMenuItemIndicatorIcon {
-	case emoji(String)
-	case icon(UIImage)
-}
-
 ///Carioca Menu Item
 public class CariocaMenuItem {
+	///The item's title
 	let title: String
+	///The item'sicon
 	let indicatorIcon: CariocaMenuItemIndicatorIcon
-
+	
+	///Initialise a menu item
+	///- Parameter title: The item's title
+	///- Parameter indicatorIcon: The icon displayed in the menu indicator
 	init(_ title: String, _ indicatorIcon: CariocaMenuItemIndicatorIcon) {
 		self.title = title
 		self.indicatorIcon = indicatorIcon
