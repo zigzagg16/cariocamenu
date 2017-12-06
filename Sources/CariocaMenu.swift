@@ -101,7 +101,7 @@ public class CariocaMenu: NSObject, CariocaGestureManagerDelegate, UITableViewDe
 	///- Parameter index: The selected index
     func didSelectItem(at index: Int) {
         selectedIndex = index
-        delegate?.cariocamenu(self, didSelectItemAt: index)
+        delegate?.cariocamenu(self, didSelect: controller.menuItems[index], at: index)
     }
 
 	// MARK: UITableView datasource/delegate

@@ -27,8 +27,9 @@ public protocol CariocaDataSource {
 public protocol CariocaDelegate: class {
     ///The user selected a menu item
     ///- Parameter menu: The menu instance
+	///- Parameter item: The selected menu item
     ///- Parameter index: The index of the selected item
-    func cariocamenu(_ menu: CariocaMenu, didSelectItemAt index: Int)
+	func cariocamenu(_ menu: CariocaMenu, didSelect item: CariocaMenuItem, at index: Int)
     ///Menu will open
     ///- Parameter menu: The menu instance
     ///- Parameter edge: The opening edge of the menu
