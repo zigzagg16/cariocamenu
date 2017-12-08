@@ -24,7 +24,7 @@ public class CariocaIndicatorView: UIView {
 	///The indicator's color
 	var color: UIColor
 	///The indicator's top constraint
-	var topConstraint: NSLayoutConstraint?
+	var topConstraint = NSLayoutConstraint()
 	///The indicator's horizontal constraint
 	var horizontalConstraint = NSLayoutConstraint()
 	///The icon's view
@@ -83,16 +83,9 @@ public class CariocaIndicatorView: UIView {
 			   tableView: UITableView) {
 		self.translatesAutoresizingMaskIntoConstraints = false
 		hostView.addSubview(self)
-		let constantValues = positionConstants(hostFrame: hostView.frame,
-											   indicatorFrame: frame,
-											   edge: edge,
-											   borderSpace: borderSpace,
-											   bouncingValues: bouncingValues)
-		let topConstraintItem = CariocaMenu.equalConstraint(self, toItem: tableView, attribute: .top)
+		topConstraint = CariocaMenu.equalConstraint(self, toItem: tableView, attribute: .top)
 		horizontalConstraint = makeHorizontalConstraint(tableView,
-														attribute: CariocaIndicatorView.layoutAttribute(for: edge),
-														constant: constantValues.start)
-
+														attribute: CariocaIndicatorView.layoutAttribute(for: edge))
 		hostView.addConstraints([
 			NSLayoutConstraint(item: self,
 							   attribute: .width, relatedBy: .equal,
@@ -102,10 +95,9 @@ public class CariocaIndicatorView: UIView {
 							   attribute: .height, relatedBy: .equal,
 							   toItem: nil, attribute: .notAnAttribute,
 							   multiplier: 1, constant: frame.size.height),
-			topConstraintItem,
+			topConstraint,
 			horizontalConstraint
 			])
-		topConstraint = topConstraintItem
 	}
 
 	///Create the horizontal constraint
@@ -114,7 +106,7 @@ public class CariocaIndicatorView: UIView {
 	///- Returns: NSLayoutConstraint the horizontal constraint
 	private func makeHorizontalConstraint(_ tableView: UITableView,
 										  attribute: NSLayoutAttribute,
-										  constant: CGFloat) -> NSLayoutConstraint {
+										  constant: CGFloat = 0.0) -> NSLayoutConstraint {
 		return NSLayoutConstraint(item: self,
 								  attribute: attribute,
 								  relatedBy: .equal,
@@ -209,7 +201,7 @@ public class CariocaIndicatorView: UIView {
 	///- Parameter index: The selection index of the menu, where the indicator will appear
 	///- Parameter heightForRow: The height of each menu item
 	func moveTo(index: Int, heightForRow: CGFloat) {
-		topConstraint?.constant = (CGFloat(index) * heightForRow) + ((heightForRow - frame.size.height) / 2.0)
+		topConstraint.constant = (CGFloat(index) * heightForRow) + ((heightForRow - frame.size.height) / 2.0)
 	}
 
 	///:nodoc:
