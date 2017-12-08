@@ -14,8 +14,7 @@ typealias BouncingValues = (from: CGFloat, to: CGFloat)
 struct IndicatorPositionConstants {
 	let start: CGFloat
 	let startBounce: BouncingValues
-	let end: CGFloat
-	let endBounce: BouncingValues
+	let end: BouncingValues
 }
 ///The menu's indicator
 public class CariocaIndicatorView: UIView {
@@ -64,16 +63,17 @@ public class CariocaIndicatorView: UIView {
 								   bouncingValues: BouncingValues) -> IndicatorPositionConstants {
 		let multiplier: CGFloat = edge == .left ? 1.0 : -1.0
 		let inverseMultiplier: CGFloat = multiplier * -1.0
-
+		//Start positions
 		let start = borderSpace * inverseMultiplier
 		let startBounceFrom = start + (bouncingValues.from * inverseMultiplier)
 		let startBounceTo = start + (bouncingValues.to * multiplier)
 		let startBounce: BouncingValues = (from: startBounceFrom, to: startBounceTo)
+		//End positions
+		let endBounceFrom: CGFloat = (hostFrame.width - indicatorFrame.size.width + bouncingValues.from) * multiplier
+		let endBounceTo: CGFloat = (hostFrame.width - indicatorFrame.size.width - borderSpace) * multiplier
+		let endBounce: BouncingValues = (from: endBounceFrom, to: endBounceTo)
 
-		let end: CGFloat = 0.0
-		let endBounce: BouncingValues = (from: 0.0, to: 0.0)
-
-		return IndicatorPositionConstants(start: startBounce.to, startBounce: startBounce, end: end, endBounce: endBounce)
+		return IndicatorPositionConstants(start: start, startBounce: startBounce, end: endBounce)
 	}
 
 	///Adds the indicator in the hostView
@@ -88,7 +88,6 @@ public class CariocaIndicatorView: UIView {
 											   edge: edge,
 											   borderSpace: borderSpace,
 											   bouncingValues: bouncingValues)
-		print(constantValues)
 		let topConstraintItem = CariocaMenu.equalConstraint(self, toItem: tableView, attribute: .top)
 		horizontalConstraint = makeHorizontalConstraint(tableView,
 														attribute: CariocaIndicatorView.layoutAttribute(for: edge),
