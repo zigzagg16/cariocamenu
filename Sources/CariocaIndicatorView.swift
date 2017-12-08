@@ -163,7 +163,7 @@ public class CariocaIndicatorView: UIView {
 
 	///Show the indicator on a specific edge, by animating the horizontal position
 	///- Parameter edge: The screen edge
-	///- Parameter hostView: The menu's hostView, to who the constraints are added.
+	///- Parameter hostView: The menu's hostView, to calculate the positions
 	///- Parameter isTraversingView: Should the indicator traverse the hostView, and stick to the opposite edge ?
 	func show(edge: UIRectEdge, hostView: UIView, isTraversingView: Bool) {
 		self.edge = edge
@@ -173,35 +173,64 @@ public class CariocaIndicatorView: UIView {
 										  edge: edge,
 										  borderSpace: borderSpace,
 										  bouncingValues: bouncingValues)
-		print(positions)
 		let mainConstraint = edge == .left ? leadingConstraint : trailingConstraint
 		let secondConstraint = edge == .left ? trailingConstraint : leadingConstraint
 		constraintPriorities(main: mainConstraint, second: secondConstraint)
 		mainConstraint.constant = positions.startBounce.from
+		self.superview?.layoutIfNeeded()
 		if isTraversingView {
 			secondConstraint.constant = positions.start
 		}
 		let animationValueOne = isTraversingView ? positions.end.from : positions.startBounce.to
 		let animationValueTwo = isTraversingView ? positions.end.to : positions.start
-		self.superview?.layoutIfNeeded()
-		mainConstraint.constant = animationValueOne
-		UIView.animate(withDuration: 0.15,
+
+		animate(mainConstraint, positionOne: animationValueOne,
+				positionTwo: animationValueTwo,
+				finished: {
+					if isTraversingView {
+						self.constraintPriorities(main: secondConstraint, second: mainConstraint)
+					}
+		})
+	}
+
+	///Retore the indicator on it's original edge position
+	///- Parameter hostView: The menu's hostView, to calculate the positions
+	func restore(hostView: UIView) {
+		let positions = positionConstants(hostFrame: hostView.frame,
+										  indicatorFrame: frame,
+										  edge: edge,
+										  borderSpace: borderSpace,
+										  bouncingValues: bouncingValues)
+		let mainConstraint = edge == .left ? leadingConstraint : trailingConstraint
+		let secondConstraint = edge == .left ? trailingConstraint : leadingConstraint
+		constraintPriorities(main: mainConstraint, second: secondConstraint)
+		animate(mainConstraint,
+				positionOne: positions.startBounce.from,
+				positionTwo: positions.start,
+				finished: {})
+	}
+
+	internal func animate(_ constraint: NSLayoutConstraint,
+						  positionOne: CGFloat,
+						  timingOne: Double =  0.15,
+						  positionTwo: CGFloat,
+						  timingTwo: Double =  0.25,
+						  finished: @escaping () -> Void) {
+		constraint.constant = positionOne
+		UIView.animate(withDuration: timingOne,
 					   delay: 0,
 					   options: [.curveEaseIn],
 					   animations: {
 						self.superview?.layoutIfNeeded()
 		}, completion: { _ in
-			mainConstraint.constant = animationValueTwo
-			UIView.animate(withDuration: 0.25,
+			constraint.constant = positionTwo
+			UIView.animate(withDuration: timingTwo,
 						   delay: 0,
 						   options: [.curveEaseOut],
 						   animations: {
 							self.superview?.layoutIfNeeded()
 			}, completion: { _ in
-				//change priority
-				if isTraversingView {
-					self.constraintPriorities(main: secondConstraint, second: mainConstraint)
-				}
+				finished()
 			})
 		})
 	}
