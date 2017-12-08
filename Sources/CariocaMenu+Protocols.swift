@@ -22,6 +22,8 @@ public protocol CariocaDataSource {
 	func tableView(_ tableView: UITableView,
 				   cellForRowAt indexPath: IndexPath,
 				   withEdge edge: UIRectEdge) -> UITableViewCell
+	///The blur style, optional
+	var blurStyle: UIBlurEffectStyle? { get }
 }
 ///The menu's events delegate
 public protocol CariocaDelegate: class {

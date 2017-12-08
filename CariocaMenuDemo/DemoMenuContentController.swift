@@ -2,6 +2,8 @@ import UIKit
 
 class DemoMenuContentController: UITableViewController, CariocaDataSource {
 
+	var blurStyle: UIBlurEffectStyle?
+
 	var menuItems: [CariocaMenuItem] = []
 
     // MARK: - menu data source
