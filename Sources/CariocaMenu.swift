@@ -136,7 +136,7 @@ public class CariocaMenu: NSObject, CariocaGestureManagerDelegate, UITableViewDe
 	public func numberOfSections(in tableView: UITableView) -> Int { return 1 }
 	///UITableView selection delegate, forwarded to CariocaDelegate
 	public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-		indicator.restore(hostView: hostView)
+		indicator.moveTo(index: indexPath.row, heightForRow: controller.heightForRow())
 		hideMenu()
 		didSelectItem(at: indexPath.row)
 	}
