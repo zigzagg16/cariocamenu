@@ -9,8 +9,13 @@
 import Foundation
 import UIKit
 
+typealias BouncingValues = (from: CGFloat, to: CGFloat)
+
 struct IndicatorPositionConstants {
 	let start: CGFloat
+	let startBounce: BouncingValues
+	let end: CGFloat
+	let endBounce: BouncingValues
 }
 ///The menu's indicator
 public class CariocaIndicatorView: UIView {
@@ -27,6 +32,8 @@ public class CariocaIndicatorView: UIView {
 	var iconView: CariocaIconView
 	///The border space.
 	let borderSpace: CGFloat
+	///The bouncing value
+	let bouncingValues: BouncingValues
 
 	///Initialise an IndicatorView
 	///- Parameter edge: The inital edge. Will be updated every time the user changes of edge.
@@ -35,10 +42,12 @@ public class CariocaIndicatorView: UIView {
 	init(edge: UIRectEdge,
 		 size: CGSize = CGSize(width: 47, height: 40),
 		 color: UIColor = UIColor(red: 0.07, green: 0.73, blue: 0.86, alpha: 1),
-		 borderSpace: CGFloat = 5.0) {
+		 borderSpace: CGFloat = 5.0,
+		 bouncingValues: BouncingValues = (from: 15.0, to: 5.0)) {
 		self.edge = edge
 		self.color = color
 		self.borderSpace = borderSpace
+		self.bouncingValues = bouncingValues
 		self.iconView = CariocaIconView(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
 		self.iconView.translatesAutoresizingMaskIntoConstraints = false
 		let frame = CGRect(x: 0, y: 0, width: size.width, height: size.height)
@@ -51,23 +60,20 @@ public class CariocaIndicatorView: UIView {
 	private func positionConstants(hostFrame: CGRect,
 								   indicatorFrame: CGRect,
 								   edge: UIRectEdge,
-								   borderSpace: CGFloat) -> IndicatorPositionConstants {
-		print("INDICATOR POSITIONS")
-		print(hostFrame)
+								   borderSpace: CGFloat,
+								   bouncingValues: BouncingValues) -> IndicatorPositionConstants {
 		let multiplier: CGFloat = edge == .left ? 1.0 : -1.0
 		let inverseMultiplier: CGFloat = multiplier * -1.0
-		let midHostWidth: CGFloat = hostFrame.size.width / 2.0
-		let midFrameWidth: CGFloat = indicatorFrame.size.width / 2.0
 
-		let startPosition = (midHostWidth + midFrameWidth) * inverseMultiplier
-		let beforeEndPosition = (midHostWidth - borderSpace) * multiplier
-		let endPosition = (midHostWidth - midFrameWidth - borderSpace) * multiplier
+		let start = borderSpace * inverseMultiplier
+		let startBounceFrom = start + (bouncingValues.from * inverseMultiplier)
+		let startBounceTo = start + (bouncingValues.to * multiplier)
+		let startBounce: BouncingValues = (from: startBounceFrom, to: startBounceTo)
 
-		print("start \(startPosition)")
-		print("beforeEnd \(beforeEndPosition)")
-		print("End \(endPosition)")
+		let end: CGFloat = 0.0
+		let endBounce: BouncingValues = (from: 0.0, to: 0.0)
 
-		return IndicatorPositionConstants(start: 0.0)
+		return IndicatorPositionConstants(start: startBounce.to, startBounce: startBounce, end: end, endBounce: endBounce)
 	}
 
 	///Adds the indicator in the hostView
@@ -77,11 +83,16 @@ public class CariocaIndicatorView: UIView {
 			   tableView: UITableView) {
 		self.translatesAutoresizingMaskIntoConstraints = false
 		hostView.addSubview(self)
-		_ = positionConstants(hostFrame: hostView.frame, indicatorFrame: frame, edge: edge, borderSpace: borderSpace)
-
+		let constantValues = positionConstants(hostFrame: hostView.frame,
+											   indicatorFrame: frame,
+											   edge: edge,
+											   borderSpace: borderSpace,
+											   bouncingValues: bouncingValues)
+		print(constantValues)
 		let topConstraintItem = CariocaMenu.equalConstraint(self, toItem: tableView, attribute: .top)
 		horizontalConstraint = makeHorizontalConstraint(tableView,
-														layoutAttribute: CariocaIndicatorView.layoutAttribute(for: edge))
+														attribute: CariocaIndicatorView.layoutAttribute(for: edge),
+														constant: constantValues.start)
 
 		hostView.addConstraints([
 			NSLayoutConstraint(item: self,
@@ -103,14 +114,15 @@ public class CariocaIndicatorView: UIView {
 	///- Parameter layoutAttribute: The layoutAttribute for the constraint
 	///- Returns: NSLayoutConstraint the horizontal constraint
 	private func makeHorizontalConstraint(_ tableView: UITableView,
-										  layoutAttribute: NSLayoutAttribute) -> NSLayoutConstraint {
+										  attribute: NSLayoutAttribute,
+										  constant: CGFloat) -> NSLayoutConstraint {
 		return NSLayoutConstraint(item: self,
-								  attribute: layoutAttribute,
+								  attribute: attribute,
 								  relatedBy: .equal,
 								  toItem: tableView,
-								  attribute: layoutAttribute,
+								  attribute: attribute,
 								  multiplier: 1,
-								  constant: 0)
+								  constant: constant)
 	}
 
 	///Draws the shape, depending on the edge.
