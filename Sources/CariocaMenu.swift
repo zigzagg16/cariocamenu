@@ -70,6 +70,7 @@ public class CariocaMenu: NSObject, CariocaGestureManagerDelegate, UITableViewDe
         hostView.addConstraints(container.makeAnchorConstraints(to: hostView))
 		indicator.addIn(hostView, tableView: controller.tableView)
 		indicator.iconView.display(icon: controller.menuItems.first!.icon)
+		indicator.show(edge: edges.first!, hostView: hostView)
     }
 
     // MARK: Events delegate/forwarding
@@ -79,7 +80,7 @@ public class CariocaMenu: NSObject, CariocaGestureManagerDelegate, UITableViewDe
     func willOpenFromEdge(edge: UIRectEdge) {
 		controller.tableView.reloadData()
         delegate?.cariocamenu(self, willOpenFromEdge: edge)
-		indicator.show(edge: edge, tableView: controller.tableView, hostView: hostView)
+		indicator.show(edge: edge, hostView: hostView)
     }
 	///Hide the menu
     func showMenu() {

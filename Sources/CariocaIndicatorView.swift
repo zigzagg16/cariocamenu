@@ -84,7 +84,7 @@ public class CariocaIndicatorView: UIView {
 		self.translatesAutoresizingMaskIntoConstraints = false
 		hostView.addSubview(self)
 		topConstraint = CariocaMenu.equalConstraint(self, toItem: tableView, attribute: .top)
-		horizontalConstraint = makeHorizontalConstraint(tableView,
+		horizontalConstraint = makeHorizontalConstraint(hostView,
 														attribute: CariocaIndicatorView.layoutAttribute(for: edge))
 		hostView.addConstraints([
 			NSLayoutConstraint(item: self,
@@ -104,13 +104,13 @@ public class CariocaIndicatorView: UIView {
 	///- Parameter tableView: The menu's tableView
 	///- Parameter layoutAttribute: The layoutAttribute for the constraint
 	///- Returns: NSLayoutConstraint the horizontal constraint
-	private func makeHorizontalConstraint(_ tableView: UITableView,
+	private func makeHorizontalConstraint(_ hostView: UIView,
 										  attribute: NSLayoutAttribute,
 										  constant: CGFloat = 0.0) -> NSLayoutConstraint {
 		return NSLayoutConstraint(item: self,
 								  attribute: attribute,
 								  relatedBy: .equal,
-								  toItem: tableView,
+								  toItem: hostView,
 								  attribute: attribute,
 								  multiplier: 1,
 								  constant: constant)
@@ -159,42 +159,21 @@ public class CariocaIndicatorView: UIView {
 
 	///Show the indicator on a specific edge, by animating the horizontal position
 	///- Parameter edge: The screen edge
-	///- Parameter tableView: The menu's tableView. The indicator top constraint will be attached to tableview's top.
 	///- Parameter hostView: The menu's hostView, to who the constraints are added.
-	func show(edge: UIRectEdge, tableView: UITableView, hostView: UIView) {
-//		hostView.removeConstraint(horizontalC)
-		let multiplier: CGFloat = edge == .left ? 1.0 : -1.0
-		let inverseMultiplier: CGFloat = multiplier * -1.0
-		let borderSpace: CGFloat = 5.0
-		let midHostWidth: CGFloat = hostView.frame.size.width / 2.0
-		let midFrameWidth: CGFloat = frame.size.width / 2.0
-
-		let startPosition = (midHostWidth + midFrameWidth) * inverseMultiplier
-		let beforeEndPosition = (midHostWidth - borderSpace) * multiplier
-		let endPosition = (midHostWidth - midFrameWidth - borderSpace) * multiplier
-		horizontalConstraint.constant = startPosition
-		self.superview?.layoutIfNeeded()
-
-		horizontalConstraint.constant = beforeEndPosition
-		UIView.animate(withDuration: 0.2,
-					   delay: 0,
-					   options: [.curveEaseIn],
-					   animations: {
-						self.superview?.layoutIfNeeded()
-		}, completion: { _ in
-			self.horizontalConstraint.constant = endPosition
-			UIView.animate(withDuration: 0.3,
-						   delay: 0,
-						   options: [.curveEaseOut],
-						   animations: {
-							self.superview?.layoutIfNeeded()
-			}, completion: { _ in
-				//TODO: Apply new constraint constant
-				//change priority
-			})
-		})
+	func show(edge: UIRectEdge, hostView: UIView) {
 		self.edge = edge
 		self.setNeedsDisplay()
+		let positions = positionConstants(hostFrame: hostView.frame,
+										  indicatorFrame: frame,
+										  edge: edge,
+										  borderSpace: borderSpace,
+										  bouncingValues: bouncingValues)
+
+		hostView.removeConstraint(horizontalConstraint)
+		horizontalConstraint = makeHorizontalConstraint(hostView,
+														attribute: CariocaIndicatorView.layoutAttribute(for: edge))
+		horizontalConstraint.constant = positions.start
+		hostView.addConstraint(horizontalConstraint)
 	}
 
 	///Move the indicator to a specific index, by updating the top constraint value
