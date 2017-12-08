@@ -64,7 +64,6 @@ class CariocaGestureManager {
         let yLocation = gesture.location(in: gesture.view).y
         let frameHeight = hostView.frame.height
         let yRange: ClosedRange<CGFloat> = 20.0...frameHeight - container.menuHeight
-        // TODO: Find the matching indicator view based on the edge
         if gesture.state == .began {
 			openingEdge = gesture.edges
             delegate?.willOpenFromEdge(edge: gesture.edges)
@@ -72,10 +71,6 @@ class CariocaGestureManager {
         }
         if gesture.state == .changed {
             delegate?.showMenu()
-            /*
-             showMenu()
-             showIndicatorOnTopOfMenu(openingEdge)
-             */
             let topY = CariocaGestureManager.topYConstraint(yLocation: yLocation,
                                                             originalScreeenEdgePanY: originalScreeenEdgePanY,
                                                             menuHeight: container.menuHeight,

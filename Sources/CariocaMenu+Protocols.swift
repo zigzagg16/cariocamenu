@@ -27,6 +27,8 @@ public protocol CariocaDataSource {
 	///Can the menu go offscreen with user's gesture ? (true)
 	///Or should it always stay fully visible ? (false)
 	var isOffscreenAllowed: Bool { get set }
+	///The indicator's initial position
+	var indicatorPosition: CariocaIndicatorPosition { get set }
 }
 ///The menu's events delegate
 public protocol CariocaDelegate: class {

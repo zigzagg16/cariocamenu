@@ -9,6 +9,16 @@
 import Foundation
 import UIKit
 
+///The indicator initial position
+public enum CariocaIndicatorPosition {
+	///Top position, with offset option
+	case top(CGFloat)
+	///Center position, with offset option
+	case center(CGFloat)
+	///Bottom position, with offset option
+	case bottom(CGFloat)
+}
+
 ///Defines bouncing values for animation from/to
 typealias BouncingValues = (from: CGFloat, to: CGFloat)
 

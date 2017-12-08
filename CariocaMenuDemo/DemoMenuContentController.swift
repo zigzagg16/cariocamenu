@@ -1,7 +1,10 @@
 import UIKit
 
 class DemoMenuContentController: UITableViewController, CariocaDataSource {
-	var isOffscreenAllowed: Bool = false
+
+	var indicatorPosition: CariocaIndicatorPosition = .center(0.0)
+
+	var isOffscreenAllowed: Bool = true
 
 	var blurStyle: UIBlurEffectStyle? = .extraLight
 

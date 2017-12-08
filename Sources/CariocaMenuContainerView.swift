@@ -29,7 +29,8 @@ public class CariocaMenuContainerView: UIView {
         //Autolayout constraints for the menu
         dataSource.view.translatesAutoresizingMaskIntoConstraints = false
         topConstraint = CariocaMenu.equalConstraint(dataSource.view, toItem: self, attribute: .top)
-        topConstraint.constant = 140.0
+		//TODO: Take the initial position into account.
+        topConstraint.constant = 150.0
         self.addConstraints([
             topConstraint,
             NSLayoutConstraint(item: dataSource.view,
