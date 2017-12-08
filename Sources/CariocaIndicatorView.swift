@@ -88,8 +88,10 @@ public class CariocaIndicatorView: UIView {
 		self.translatesAutoresizingMaskIntoConstraints = false
 		hostView.addSubview(self)
 		topConstraint = CariocaMenu.equalConstraint(self, toItem: tableView, attribute: .top)
-		leadingConstraint = makeHorizontalConstraint(hostView, .leading, 50.0)
-		trailingConstraint = makeHorizontalConstraint(hostView, .trailing, 100.0)
+		leadingConstraint = makeHorizontalConstraint(hostView, .leading)
+		trailingConstraint = makeHorizontalConstraint(hostView, .trailing)
+		//This priority setting call will be overrided later, in show().
+		constraintPriorities(main: leadingConstraint, second: trailingConstraint)
 		hostView.addConstraints([
 			NSLayoutConstraint(item: self,
 							   attribute: .width, relatedBy: .equal,
@@ -106,21 +108,16 @@ public class CariocaIndicatorView: UIView {
 	}
 
 	///Create the horizontal constraint
-	///- Parameter hostView: The menu's tableView
+	///- Parameter hostView: The menu's hostView
 	///- Parameter attribute: The layoutAttribute for the constraint
+	///- Parameter priority: The constraint's priority
 	///- Returns: NSLayoutConstraint the horizontal constraint
 	private func makeHorizontalConstraint(_ hostView: UIView,
-										  _ attribute: NSLayoutAttribute,
-										  _ priority: Float) -> NSLayoutConstraint {
-		let constraint = NSLayoutConstraint(item: self,
-											attribute: attribute,
-											relatedBy: .equal,
-											toItem: hostView,
-											attribute: attribute,
-											multiplier: 1,
-											constant: 0.0)
-		constraint.priority = UILayoutPriority(priority)
-		return constraint
+										  _ attribute: NSLayoutAttribute) -> NSLayoutConstraint {
+		return NSLayoutConstraint(item: self,
+								  attribute: attribute, relatedBy: .equal,
+								  toItem: hostView, attribute: attribute,
+								  multiplier: 1, constant: 0.0)
 	}
 
 	///Draws the shape, depending on the edge.
@@ -178,12 +175,12 @@ public class CariocaIndicatorView: UIView {
 		print(positions)
 		let mainConstraint = edge == .left ? leadingConstraint : trailingConstraint
 		let secondConstraint = edge == .left ? trailingConstraint : leadingConstraint
-		mainConstraint.priority = UILayoutPriority(100.0)
-		secondConstraint.priority = UILayoutPriority(50.0)
+		constraintPriorities(main: mainConstraint, second: secondConstraint)
 		mainConstraint.constant = positions.start
-//		self.superview?.layoutIfNeeded()
-//
-//		horizontalConstraint.constant = beforeEndPosition
+
+		mainConstraint.constant = positions.start
+		secondConstraint.constant = positions.end.to * -1.0
+		self.superview?.layoutIfNeeded()
 //		UIView.animate(withDuration: 0.2,
 //					   delay: 0,
 //					   options: [.curveEaseIn],
@@ -202,7 +199,13 @@ public class CariocaIndicatorView: UIView {
 //			})
 //		})
 	}
-
+	
+	internal func constraintPriorities(main: NSLayoutConstraint,
+									   second: NSLayoutConstraint) {
+		main.priority = UILayoutPriority(100.0)
+		second.priority = UILayoutPriority(50.0)
+	}
+	
 	///Move the indicator to a specific index, by updating the top constraint value
 	///- Parameter index: The selection index of the menu, where the indicator will appear
 	///- Parameter heightForRow: The height of each menu item
