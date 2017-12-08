@@ -83,7 +83,7 @@ class CariocaGestureManager {
                                                             selectedIndex:
                 delegate?.selectedIndex ?? internalSelectedIndex ?? 0,
                                                             yRange: yRange,
-                                                            isOffscreenAllowed: true)
+                                                            isOffscreenAllowed: controller.isOffscreenAllowed)
             container.topConstraint.constant = topY
             delegate?.didUpdateY(topY)
             let newIndex = CariocaGestureManager.matchingIndex(yLocation: yLocation,

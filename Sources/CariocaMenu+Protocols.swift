@@ -24,6 +24,9 @@ public protocol CariocaDataSource {
 				   withEdge edge: UIRectEdge) -> UITableViewCell
 	///The blur style, optional
 	var blurStyle: UIBlurEffectStyle? { get }
+	///Can the menu go offscreen with user's gesture ? (true)
+	///Or should it always stay fully visible ? (false)
+	var isOffscreenAllowed: Bool { get set }
 }
 ///The menu's events delegate
 public protocol CariocaDelegate: class {

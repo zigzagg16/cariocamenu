@@ -27,17 +27,19 @@ class DemoViewController: UIViewController {
         if var menuController = self.storyboard?.instantiateViewController(withIdentifier: "DemoMenu")
             as? CariocaController {
 			menuController.menuItems = [
-				CariocaMenuItem("Hello", .icon(UIImage(named: "hamburger")!)),
-				CariocaMenuItem("About", .emoji("🤙🏼")),
+				CariocaMenuItem("Hello", .emoji("🤙🏼")),
+				CariocaMenuItem("About", .icon(UIImage(named: "hamburger")!)),
 				CariocaMenuItem("Settings", .emoji("🛠")),
 				CariocaMenuItem("Hamburger menu", .emoji("🔮")),
 				CariocaMenuItem("Brasil", .emoji("🇧🇷"))
 			]
-            carioca = CariocaMenu(controller: menuController,
-                                  hostView: self.view,
-                                  edges: [.right, .left],
-                                  delegate: self)
-            carioca?.addInHostView()
+			carioca = CariocaMenu(controller: menuController,
+								  hostView: self.view,
+								  edges: [.right, .left],
+//								  edges: [.left, .right],
+//								  edges: [.left],
+								  delegate: self)
+			carioca?.addInHostView()
 			self.addChildViewController(menuController)
         }
     }

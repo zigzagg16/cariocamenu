@@ -23,9 +23,6 @@ public class CariocaMenu: NSObject, CariocaGestureManagerDelegate, UITableViewDe
     var boomerang: BoomerangType = .none
     ///Gestures manager
     let gestureManager: CariocaGestureManager
-    ///Can the menu go offscreen with user's gesture ? (true)
-    ///Or should it always stay fully visible ? (false)
-    var isOffscreenAllowed = true
     ///The selected index of the menu. Default: 0
     var selectedIndex: Int = 1
 	///The indicatorView
