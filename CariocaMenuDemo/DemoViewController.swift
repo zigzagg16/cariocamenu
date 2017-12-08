@@ -12,12 +12,14 @@ class DemoViewController: UIViewController {
 
     var carioca: CariocaMenu?
 	@IBOutlet weak var selectedLabel: UILabel!
+	@IBOutlet weak var iconView: CariocaIconView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
     }
 
     override func viewDidAppear(_ animated: Bool) {
+		iconView.display(icon: CariocaIcon.emoji("🤙🏼"))
         initialiseCarioca()
     }
 
@@ -25,7 +27,7 @@ class DemoViewController: UIViewController {
         if var menuController = self.storyboard?.instantiateViewController(withIdentifier: "DemoMenu")
             as? CariocaController {
 			menuController.menuItems = [
-				CariocaMenuItem("Hello", .emoji("😍")),
+				CariocaMenuItem("Hello", .icon(UIImage(named: "hamburger")!)),
 				CariocaMenuItem("About", .emoji("🤙🏼")),
 				CariocaMenuItem("Settings", .emoji("🛠")),
 				CariocaMenuItem("Hamburger menu", .emoji("🔮")),
@@ -46,8 +48,9 @@ class DemoViewController: UIViewController {
 }
 
 extension DemoViewController: CariocaDelegate {
-    func cariocamenu(_ menu: CariocaMenu, didSelectItemAt index: Int) {
-        CariocaMenu.log("\(menu) didSelectItemAt \(index)")
+	func cariocamenu(_ menu: CariocaMenu, didSelect item: CariocaMenuItem, at index: Int) {
+        CariocaMenu.log("\(menu) didSelect \(item) at \(index)")
+		iconView.display(icon: item.icon)
     }
 
     func cariocamenu(_ menu: CariocaMenu, willOpenFromEdge edge: UIRectEdge) {

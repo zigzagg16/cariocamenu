@@ -14,14 +14,20 @@ class DemoMenuContentController: UITableViewController, CariocaDataSource {
 		//swiftlint:enable force_cast
 		cell.titleLabel.text = menuItem.title
 		cell.titleLabel.textAlignment = (edge == .left) ? .right : .left
+		cell.iconLeftConstraint?.priority = (edge == .left) ? UILayoutPriority(50.0) : UILayoutPriority(100.0)
+		cell.iconRightConstraint?.priority = (edge == .right) ? UILayoutPriority(50.0) : UILayoutPriority(100.0)
+		cell.iconView.display(icon: menuItem.icon)
 		return cell
 	}
 
     func heightForRow() -> CGFloat {
-        return 60.0
+        return 70.0
     }
 }
 
 class MenuItemCell: UITableViewCell {
 	@IBOutlet weak var titleLabel: UILabel!
+	@IBOutlet weak var iconView: CariocaIconView!
+	@IBOutlet weak var iconLeftConstraint: NSLayoutConstraint?
+	@IBOutlet weak var iconRightConstraint: NSLayoutConstraint?
 }
