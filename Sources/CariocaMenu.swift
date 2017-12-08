@@ -69,8 +69,9 @@ public class CariocaMenu: NSObject, CariocaGestureManagerDelegate, UITableViewDe
 		}
         hostView.addConstraints(container.makeAnchorConstraints(to: hostView))
 		indicator.addIn(hostView, tableView: controller.tableView)
+		indicator.iconView.display(icon: controller.menuItems.first!.icon)
     }
-	
+
     // MARK: Events delegate/forwarding
 
     ///Menu will open
@@ -83,12 +84,10 @@ public class CariocaMenu: NSObject, CariocaGestureManagerDelegate, UITableViewDe
 	///Hide the menu
     func showMenu() {
         container.isHidden = false
-		indicator.isHidden = false
     }
 	///Show the menu
     func hideMenu() {
         container.isHidden = true
-		indicator.isHidden = true
     }
     func didUpdateY(_ yValue: CGFloat) {
         //should we do something ?

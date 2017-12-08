@@ -2,11 +2,11 @@ import UIKit
 
 class DemoMenuContentController: UITableViewController, CariocaDataSource {
 
-	var blurStyle: UIBlurEffectStyle? = .light
+	var blurStyle: UIBlurEffectStyle? = .extraLight
 
 	var menuItems: [CariocaMenuItem] = []
 
-    // MARK: - menu data source
+    // MARK: - menu data source 
 	func tableView(_ tableView: UITableView,
 				   cellForRowAt indexPath: IndexPath,
 				   withEdge edge: UIRectEdge) -> UITableViewCell {
@@ -23,7 +23,7 @@ class DemoMenuContentController: UITableViewController, CariocaDataSource {
 	}
 
     func heightForRow() -> CGFloat {
-        return 70.0
+        return 60.0
     }
 }
 
