@@ -164,7 +164,8 @@ public class CariocaIndicatorView: UIView {
 	///Show the indicator on a specific edge, by animating the horizontal position
 	///- Parameter edge: The screen edge
 	///- Parameter hostView: The menu's hostView, to who the constraints are added.
-	func show(edge: UIRectEdge, hostView: UIView) {
+	///- Parameter isTraversingView: Should the indicator traverse the hostView, and stick to the opposite edge ?
+	func show(edge: UIRectEdge, hostView: UIView, isTraversingView: Bool) {
 		self.edge = edge
 		self.setNeedsDisplay()
 		let positions = positionConstants(hostFrame: hostView.frame,
@@ -176,36 +177,40 @@ public class CariocaIndicatorView: UIView {
 		let mainConstraint = edge == .left ? leadingConstraint : trailingConstraint
 		let secondConstraint = edge == .left ? trailingConstraint : leadingConstraint
 		constraintPriorities(main: mainConstraint, second: secondConstraint)
-		mainConstraint.constant = positions.start
-
-		mainConstraint.constant = positions.start
-		secondConstraint.constant = positions.end.to * -1.0
+		mainConstraint.constant = positions.startBounce.from
+		//no needs to be set now, in fact.
+		//🎉 keep that code for later
+//		secondConstraint.constant = positions.start
 		self.superview?.layoutIfNeeded()
-//		UIView.animate(withDuration: 0.2,
-//					   delay: 0,
-//					   options: [.curveEaseIn],
-//					   animations: {
-//						self.superview?.layoutIfNeeded()
-//		}, completion: { _ in
-//			self.horizontalConstraint.constant = endPosition
-//			UIView.animate(withDuration: 0.3,
-//						   delay: 0,
-//						   options: [.curveEaseOut],
-//						   animations: {
-//							self.superview?.layoutIfNeeded()
-//			}, completion: { _ in
-//				//TODO: Apply new constraint constant
-//				//change priority
-//			})
-//		})
+		mainConstraint.constant = positions.startBounce.to
+		UIView.animate(withDuration: 0.15,
+					   delay: 0,
+					   options: [.curveEaseIn],
+					   animations: {
+						self.superview?.layoutIfNeeded()
+		}, completion: { _ in
+			print("done 1")
+			mainConstraint.constant = positions.start
+			UIView.animate(withDuration: 0.25,
+						   delay: 0,
+						   options: [.curveEaseOut],
+						   animations: {
+							self.superview?.layoutIfNeeded()
+			}, completion: { _ in
+				//TODO: Apply new constraint constant
+				print("done 2")
+				//change priority
+//				constraintPriorities(main: secondConstraint, second: mainConstraint)
+			})
+		})
 	}
-	
+
 	internal func constraintPriorities(main: NSLayoutConstraint,
 									   second: NSLayoutConstraint) {
 		main.priority = UILayoutPriority(100.0)
 		second.priority = UILayoutPriority(50.0)
 	}
-	
+
 	///Move the indicator to a specific index, by updating the top constraint value
 	///- Parameter index: The selection index of the menu, where the indicator will appear
 	///- Parameter heightForRow: The height of each menu item
