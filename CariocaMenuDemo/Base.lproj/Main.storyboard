@@ -67,7 +67,7 @@
                                         </label>
                                         <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sah-ne-E1N" customClass="CariocaIconView" customModule="CariocaMenuDemo" customModuleProvider="target">
                                             <rect key="frame" x="20" y="7" width="30" height="30"/>
-                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="30" id="Fuc-Tk-ItX"/>
                                                 <constraint firstAttribute="width" constant="30" id="fzD-xE-GYJ"/>
@@ -78,17 +78,17 @@
                                     <constraints>
                                         <constraint firstItem="4kj-qP-ABx" firstAttribute="top" secondItem="444-wH-1aq" secondAttribute="top" id="5G3-OL-gDJ"/>
                                         <constraint firstAttribute="trailing" secondItem="4kj-qP-ABx" secondAttribute="trailing" constant="60" id="Jr2-Tz-CPd"/>
-                                        <constraint firstAttribute="trailing" secondItem="sah-ne-E1N" secondAttribute="trailing" priority="10" constant="15" id="Mmw-iM-qg6"/>
-                                        <constraint firstItem="4kj-qP-ABx" firstAttribute="leading" secondItem="444-wH-1aq" secondAttribute="leading" constant="60" id="bVu-gg-nYc"/>
-                                        <constraint firstItem="sah-ne-E1N" firstAttribute="centerY" secondItem="444-wH-1aq" secondAttribute="centerY" id="cRc-T8-yTc"/>
-                                        <constraint firstItem="sah-ne-E1N" firstAttribute="leading" secondItem="444-wH-1aq" secondAttribute="leading" priority="30" constant="20" id="ix0-hf-Kwu"/>
+                                        <constraint firstAttribute="trailing" secondItem="sah-ne-E1N" secondAttribute="trailing" priority="50" constant="20" id="N3t-zJ-JOV"/>
+                                        <constraint firstItem="sah-ne-E1N" firstAttribute="centerY" secondItem="444-wH-1aq" secondAttribute="centerY" id="ZLP-ci-J0d"/>
+                                        <constraint firstItem="4kj-qP-ABx" firstAttribute="leading" relation="lessThanOrEqual" secondItem="444-wH-1aq" secondAttribute="leading" constant="60" id="bVu-gg-nYc"/>
+                                        <constraint firstItem="sah-ne-E1N" firstAttribute="leading" secondItem="444-wH-1aq" secondAttribute="leading" priority="100" constant="20" id="ix0-hf-Kwu"/>
                                         <constraint firstAttribute="bottom" secondItem="4kj-qP-ABx" secondAttribute="bottom" id="lKp-4l-cIo"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <outlet property="iconLeftConstraint" destination="ix0-hf-Kwu" id="jRW-8r-1oD"/>
-                                    <outlet property="iconRightConstraint" destination="Mmw-iM-qg6" id="BHp-lD-7Bh"/>
+                                    <outlet property="iconRightConstraint" destination="N3t-zJ-JOV" id="Aex-gH-Xvy"/>
                                     <outlet property="iconView" destination="sah-ne-E1N" id="eO6-G8-7B7"/>
                                     <outlet property="titleLabel" destination="4kj-qP-ABx" id="Xy3-MH-QeK"/>
                                 </connections>

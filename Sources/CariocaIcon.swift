@@ -20,44 +20,46 @@ public enum CariocaIcon {
 }
 
 public class CariocaIconView: UIView {
-	var label: UILabel
-	var labelConstraints: [NSLayoutConstraint] = []
-	var imageView: UIImageView
-	var imageViewConstraints: [NSLayoutConstraint] = []
+	var label = UILabel()
+	var imageView = UIImageView()
 
 	override init(frame: CGRect) {
-		label = UILabel(frame: frame)
-		imageView = UIImageView(frame: frame)
 		super.init(frame: frame)
-		self.translatesAutoresizingMaskIntoConstraints = false
-		self.imageView.translatesAutoresizingMaskIntoConstraints = false
-		self.label.translatesAutoresizingMaskIntoConstraints = false
-		self.label.textAlignment = .center
-		self.imageView.contentMode = .scaleAspectFit
-		self.clipsToBounds = true
-		self.addSubview(label)
-		self.addSubview(imageView)
-		self.addConstraints(label.makeAnchorConstraints(to: self))
-		self.addConstraints(imageView.makeAnchorConstraints(to: self))
+		commonInit()
+	}
+
+	required public init?(coder aDecoder: NSCoder) {
+		super.init(coder: aDecoder)
+		commonInit()
+	}
+
+	private func commonInit() {
+		translatesAutoresizingMaskIntoConstraints = false
+		clipsToBounds = true
+		label.translatesAutoresizingMaskIntoConstraints = false
+		imageView.translatesAutoresizingMaskIntoConstraints = false
+		addSubview(label)
+		addConstraints(label.makeAnchorConstraints(to: self))
+		addSubview(imageView)
+		addConstraints(imageView.makeAnchorConstraints(to: self))
+		label.textAlignment = .center
+		imageView.contentMode = .scaleAspectFit
 	}
 
 	func display(icon: CariocaIcon) {
+		func hide(_ labelHidden: Bool, _ imageHidden: Bool) {
+			imageView.isHidden = imageHidden
+			label.isHidden = labelHidden
+		}
 		switch icon {
 		case let .emoji(emojiString):
+			hide(false, true)
 			label.text = emojiString
-			imageView.isHidden = true
-			label.isHidden = false
 		case let .icon(image):
+			hide(true, false)
 			imageView.image = image
-			imageView.isHidden = false
-			label.isHidden = true
 		case .none:
-			imageView.isHidden = true
-			label.isHidden = true
+			hide(true, true)
 		}
-	}
-	///:nodoc:
-	required public convenience init?(coder aDecoder: NSCoder) {
-		self.init(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
 	}
 }
