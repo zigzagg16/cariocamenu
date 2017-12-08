@@ -9,16 +9,20 @@
 import Foundation
 import UIKit
 
+///Defines bouncing values for animation from/to
 typealias BouncingValues = (from: CGFloat, to: CGFloat)
 
+///The constants that will be used to animate the indicator
 struct IndicatorPositionConstants {
+	///Starting position constant (indicator on hold)
 	let start: CGFloat
+	///Starting position bouncing values
 	let startBounce: BouncingValues
+	///Ending position bouncing values
 	let end: BouncingValues
 }
 ///The menu's indicator
 public class CariocaIndicatorView: UIView {
-
 	///The edge of the indicator.
 	var edge: UIRectEdge
 	///The indicator's color
@@ -34,7 +38,7 @@ public class CariocaIndicatorView: UIView {
 	///The icon's view
 	var iconView: CariocaIconView
 	///The border space.
-	let borderSpace: CGFloat
+	let borderMargin: CGFloat
 	///The bouncing value
 	let bouncingValues: BouncingValues
 
@@ -49,7 +53,7 @@ public class CariocaIndicatorView: UIView {
 		 bouncingValues: BouncingValues = (from: 15.0, to: 5.0)) {
 		self.edge = edge
 		self.color = color
-		self.borderSpace = borderSpace
+		self.borderMargin = borderSpace
 		self.bouncingValues = bouncingValues
 		self.iconView = CariocaIconView(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
 		self.iconView.translatesAutoresizingMaskIntoConstraints = false
@@ -60,21 +64,28 @@ public class CariocaIndicatorView: UIView {
 		self.addConstraints(iconView.makeAnchorConstraints(to: self))
 	}
 
-	private func positionConstants(hostFrame: CGRect,
-								   indicatorFrame: CGRect,
+	///Calculates the indicator's position for animation
+	///- Parameter hostSize: The hostView's size
+	///- Parameter indicatorSize: The indicator's size
+	///- Parameter edge: The original edge
+	///- Parameter borderMargin: The border magins
+	///- Parameter bouncingValues: The values to make the bouncing effect in animations
+	///- Returns: IndicatorPositionConstants All the possible calculated positions
+	private func positionConstants(hostWidth: CGFloat,
+								   indicatorWidth: CGFloat,
 								   edge: UIRectEdge,
-								   borderSpace: CGFloat,
+								   borderMargin: CGFloat,
 								   bouncingValues: BouncingValues) -> IndicatorPositionConstants {
 		let multiplier: CGFloat = edge == .left ? 1.0 : -1.0
 		let inverseMultiplier: CGFloat = multiplier * -1.0
 		//Start positions
-		let start = borderSpace * inverseMultiplier
+		let start = borderMargin * inverseMultiplier
 		let startBounceFrom = start + (bouncingValues.from * inverseMultiplier)
 		let startBounceTo = start + (bouncingValues.to * multiplier)
 		let startBounce: BouncingValues = (from: startBounceFrom, to: startBounceTo)
 		//End positions
-		let endBounceFrom: CGFloat = (hostFrame.width - indicatorFrame.size.width + bouncingValues.from) * multiplier
-		let endBounceTo: CGFloat = (hostFrame.width - indicatorFrame.size.width - borderSpace) * multiplier
+		let endBounceFrom: CGFloat = (hostWidth - indicatorWidth + bouncingValues.from) * multiplier
+		let endBounceTo: CGFloat = (hostWidth - indicatorWidth - borderMargin) * multiplier
 		let endBounce: BouncingValues = (from: endBounceFrom, to: endBounceTo)
 
 		return IndicatorPositionConstants(start: start, startBounce: startBounce, end: endBounce)
@@ -168,10 +179,10 @@ public class CariocaIndicatorView: UIView {
 	func show(edge: UIRectEdge, hostView: UIView, isTraversingView: Bool) {
 		self.edge = edge
 		self.setNeedsDisplay()
-		let positions = positionConstants(hostFrame: hostView.frame,
-										  indicatorFrame: frame,
+		let positions = positionConstants(hostWidth: hostView.frame.width,
+										  indicatorWidth: frame.width,
 										  edge: edge,
-										  borderSpace: borderSpace,
+										  borderMargin: borderMargin,
 										  bouncingValues: bouncingValues)
 		let mainConstraint = edge == .left ? leadingConstraint : trailingConstraint
 		let secondConstraint = edge == .left ? trailingConstraint : leadingConstraint
@@ -184,7 +195,9 @@ public class CariocaIndicatorView: UIView {
 		let animationValueOne = isTraversingView ? positions.end.from : positions.startBounce.to
 		let animationValueTwo = isTraversingView ? positions.end.to : positions.start
 
-		animate(mainConstraint, positionOne: animationValueOne,
+		animate(mainConstraint,
+				positionOne: animationValueOne,
+				timingOne: isTraversingView ? 0.3 : 0.15,
 				positionTwo: animationValueTwo,
 				finished: {
 					if isTraversingView {
@@ -196,20 +209,28 @@ public class CariocaIndicatorView: UIView {
 	///Retore the indicator on it's original edge position
 	///- Parameter hostView: The menu's hostView, to calculate the positions
 	func restore(hostView: UIView) {
-		let positions = positionConstants(hostFrame: hostView.frame,
-										  indicatorFrame: frame,
+		let positions = positionConstants(hostWidth: hostView.frame.width,
+										  indicatorWidth: frame.width,
 										  edge: edge,
-										  borderSpace: borderSpace,
+										  borderMargin: borderMargin,
 										  bouncingValues: bouncingValues)
 		let mainConstraint = edge == .left ? leadingConstraint : trailingConstraint
 		let secondConstraint = edge == .left ? trailingConstraint : leadingConstraint
 		constraintPriorities(main: mainConstraint, second: secondConstraint)
 		animate(mainConstraint,
 				positionOne: positions.startBounce.from,
+				timingOne: 0.4,
 				positionTwo: positions.start,
 				finished: {})
 	}
 
+	///Animate a constraint two times, on two different values
+	///- Parameter constraint: The constraint to animate
+	///- Parameter positionOne: The first constant to animate
+	///- Parameter timingOne: The first animation duration
+	///- Parameter positionTwo: The second constant to animate
+	///- Parameter timingTwo: The second animation duration
+	///- Parameter finished: Completion closure, when both animations finished
 	internal func animate(_ constraint: NSLayoutConstraint,
 						  positionOne: CGFloat,
 						  timingOne: Double =  0.15,
@@ -235,6 +256,9 @@ public class CariocaIndicatorView: UIView {
 		})
 	}
 
+	///Utility to inverse 2 constraint priorities
+	///- Parameter main: The highest priority will be applied to that constraint.
+	///- Parameter second: The lowest priority will be applied to that constraint.
 	internal func constraintPriorities(main: NSLayoutConstraint,
 									   second: NSLayoutConstraint) {
 		main.priority = UILayoutPriority(100.0)

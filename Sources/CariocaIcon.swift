@@ -18,21 +18,25 @@ public enum CariocaIcon {
 	///No icon
 	case none
 }
-
+///Displays a CariocaIcon, whatever the type of icon
 public class CariocaIconView: UIView {
+	///The label to display emoji
 	var label = UILabel()
+	///The imageView, to display icons
 	var imageView = UIImageView()
 
+	///Initialises view
+	///- Parameter frame: The view's frame
 	override init(frame: CGRect) {
 		super.init(frame: frame)
 		commonInit()
 	}
-
+	///:nodoc:
 	required public init?(coder aDecoder: NSCoder) {
 		super.init(coder: aDecoder)
 		commonInit()
 	}
-
+	///:nodoc:
 	private func commonInit() {
 		translatesAutoresizingMaskIntoConstraints = false
 		clipsToBounds = true
@@ -46,7 +50,11 @@ public class CariocaIconView: UIView {
 		imageView.contentMode = .scaleAspectFit
 	}
 
+	///Displays an icon in the view. Only the required subview (label/imageview/?) will be displayed.
+	///Other views will be hidden, not removed.
+	///- Parameter icon: The icon to display
 	func display(icon: CariocaIcon) {
+		///:nodoc:
 		func hide(_ labelHidden: Bool, _ imageHidden: Bool) {
 			imageView.isHidden = imageHidden
 			label.isHidden = labelHidden

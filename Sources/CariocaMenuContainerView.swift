@@ -44,6 +44,8 @@ public class CariocaMenuContainerView: UIView {
         ])
     }
 
+	///Adds the blur view as a subview
+	///- Parameter style: The blur effect style
 	func addBlurView(style: UIBlurEffectStyle) {
 		let visualEffectView = UIVisualEffectView(effect: UIBlurEffect(style: style))
 			as UIVisualEffectView
