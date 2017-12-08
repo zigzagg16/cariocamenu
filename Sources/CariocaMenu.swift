@@ -71,17 +71,32 @@ public class CariocaMenu: NSObject, CariocaGestureManagerDelegate, UITableViewDe
 		indicator.addIn(hostView, tableView: controller.tableView)
 		indicator.iconView.display(icon: controller.menuItems.first!.icon)
 		indicator.show(edge: edges.first!, hostView: hostView, isTraversingView: false)
-    }
+		let tapGesture = UITapGestureRecognizer(target: self, action: .tappedIndicatorView)
+		tapGesture.numberOfTapsRequired = 1
+		indicator.addGestureRecognizer(tapGesture)
+	}
+
+	///Tap gesture event received
+	///- Parameter gesture: UITapGestureRecognizer
+	@objc func tappedIndicatorView(_ gesture: UITapGestureRecognizer) {
+		showMenu()
+		openFromEdge(edge: gestureManager.openingEdge)
+	}
 
     // MARK: Events delegate/forwarding
 
-    ///Menu will open
+    ///Menu will open. Forwards call to openFromEdge
     ///- Parameter edge: The opening edge of the menu
     func willOpenFromEdge(edge: UIRectEdge) {
-		controller.tableView.reloadData()
-        delegate?.cariocamenu(self, willOpenFromEdge: edge)
-		indicator.show(edge: edge, hostView: hostView, isTraversingView: true)
+		openFromEdge(edge: edge)
     }
+	///Open the menu from an edge
+	///- Parameter edge: The opening edge of the menu
+	private func openFromEdge(edge: UIRectEdge) {
+		controller.tableView.reloadData()
+		delegate?.cariocamenu(self, willOpenFromEdge: edge)
+		indicator.show(edge: edge, hostView: hostView, isTraversingView: true)
+	}
 	///Hide the menu
     func showMenu() {
         container.isHidden = false
@@ -121,6 +136,8 @@ public class CariocaMenu: NSObject, CariocaGestureManagerDelegate, UITableViewDe
 	public func numberOfSections(in tableView: UITableView) -> Int { return 1 }
 	///UITableView selection delegate, forwarded to CariocaDelegate
 	public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		didUpdateSelectionIndex(indexPath.row)
+		hideMenu()
 		didSelectItem(at: indexPath.row)
 	}
 	///Takes the specified heightForRow passed in the initialiser

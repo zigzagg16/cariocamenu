@@ -44,3 +44,10 @@ extension UIView {
 				self.bottomAnchor.constraint(equalTo: superview.bottomAnchor)]
 	}
 }
+
+///Selector shortcuts, used for gestures
+extension Selector {
+	///Gesture for panning from any screen edge
+	static let pannedFromScreenEdge = #selector(CariocaGestureManager.panGestureEvent(_:))
+	static let tappedIndicatorView = #selector(CariocaMenu.tappedIndicatorView(_:))
+}

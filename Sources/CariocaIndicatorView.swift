@@ -188,7 +188,7 @@ public class CariocaIndicatorView: UIView {
 		let secondConstraint = edge == .left ? trailingConstraint : leadingConstraint
 		constraintPriorities(main: mainConstraint, second: secondConstraint)
 		mainConstraint.constant = positions.startBounce.from
-		self.superview?.layoutIfNeeded()
+		superview?.layoutIfNeeded()
 		if isTraversingView {
 			secondConstraint.constant = positions.start
 		}
@@ -270,6 +270,7 @@ public class CariocaIndicatorView: UIView {
 	///- Parameter heightForRow: The height of each menu item
 	func moveTo(index: Int, heightForRow: CGFloat) {
 		topConstraint.constant = (CGFloat(index) * heightForRow) + ((heightForRow - frame.size.height) / 2.0)
+		superview?.layoutIfNeeded()
 	}
 
 	///:nodoc:
