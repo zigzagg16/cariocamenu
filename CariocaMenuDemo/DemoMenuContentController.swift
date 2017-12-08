@@ -2,7 +2,7 @@ import UIKit
 
 class DemoMenuContentController: UITableViewController, CariocaDataSource {
 
-	var blurStyle: UIBlurEffectStyle?
+	var blurStyle: UIBlurEffectStyle? = .light
 
 	var menuItems: [CariocaMenuItem] = []
 
