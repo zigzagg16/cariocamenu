@@ -25,8 +25,12 @@ public class CariocaIndicatorView: UIView {
 	var color: UIColor
 	///The indicator's top constraint
 	var topConstraint = NSLayoutConstraint()
-	///The indicator's horizontal constraint
-	var horizontalConstraint = NSLayoutConstraint()
+	///The indicator's leading/left constraint.
+	///Depending on the edge, the priority will be switched w/ trailingConstraint
+	var leadingConstraint = NSLayoutConstraint()
+	///The indicator's trailing/right constraint.
+	///Depending on the edge, the priority will be switched w/ leadingConstraint
+	var trailingConstraint = NSLayoutConstraint()
 	///The icon's view
 	var iconView: CariocaIconView
 	///The border space.
@@ -84,8 +88,8 @@ public class CariocaIndicatorView: UIView {
 		self.translatesAutoresizingMaskIntoConstraints = false
 		hostView.addSubview(self)
 		topConstraint = CariocaMenu.equalConstraint(self, toItem: tableView, attribute: .top)
-		horizontalConstraint = makeHorizontalConstraint(hostView,
-														attribute: CariocaIndicatorView.layoutAttribute(for: edge))
+		leadingConstraint = makeHorizontalConstraint(hostView, .leading, 50.0)
+		trailingConstraint = makeHorizontalConstraint(hostView, .trailing, 100.0)
 		hostView.addConstraints([
 			NSLayoutConstraint(item: self,
 							   attribute: .width, relatedBy: .equal,
@@ -96,24 +100,27 @@ public class CariocaIndicatorView: UIView {
 							   toItem: nil, attribute: .notAnAttribute,
 							   multiplier: 1, constant: frame.size.height),
 			topConstraint,
-			horizontalConstraint
-			])
+			leadingConstraint,
+			trailingConstraint
+		])
 	}
 
 	///Create the horizontal constraint
-	///- Parameter tableView: The menu's tableView
-	///- Parameter layoutAttribute: The layoutAttribute for the constraint
+	///- Parameter hostView: The menu's tableView
+	///- Parameter attribute: The layoutAttribute for the constraint
 	///- Returns: NSLayoutConstraint the horizontal constraint
 	private func makeHorizontalConstraint(_ hostView: UIView,
-										  attribute: NSLayoutAttribute,
-										  constant: CGFloat = 0.0) -> NSLayoutConstraint {
-		return NSLayoutConstraint(item: self,
-								  attribute: attribute,
-								  relatedBy: .equal,
-								  toItem: hostView,
-								  attribute: attribute,
-								  multiplier: 1,
-								  constant: constant)
+										  _ attribute: NSLayoutAttribute,
+										  _ priority: Float) -> NSLayoutConstraint {
+		let constraint = NSLayoutConstraint(item: self,
+											attribute: attribute,
+											relatedBy: .equal,
+											toItem: hostView,
+											attribute: attribute,
+											multiplier: 1,
+											constant: 0.0)
+		constraint.priority = UILayoutPriority(priority)
+		return constraint
 	}
 
 	///Draws the shape, depending on the edge.
@@ -168,12 +175,32 @@ public class CariocaIndicatorView: UIView {
 										  edge: edge,
 										  borderSpace: borderSpace,
 										  bouncingValues: bouncingValues)
-
-		hostView.removeConstraint(horizontalConstraint)
-		horizontalConstraint = makeHorizontalConstraint(hostView,
-														attribute: CariocaIndicatorView.layoutAttribute(for: edge))
-		horizontalConstraint.constant = positions.start
-		hostView.addConstraint(horizontalConstraint)
+		print(positions)
+		let mainConstraint = edge == .left ? leadingConstraint : trailingConstraint
+		let secondConstraint = edge == .left ? trailingConstraint : leadingConstraint
+		mainConstraint.priority = UILayoutPriority(100.0)
+		secondConstraint.priority = UILayoutPriority(50.0)
+		mainConstraint.constant = positions.start
+//		self.superview?.layoutIfNeeded()
+//
+//		horizontalConstraint.constant = beforeEndPosition
+//		UIView.animate(withDuration: 0.2,
+//					   delay: 0,
+//					   options: [.curveEaseIn],
+//					   animations: {
+//						self.superview?.layoutIfNeeded()
+//		}, completion: { _ in
+//			self.horizontalConstraint.constant = endPosition
+//			UIView.animate(withDuration: 0.3,
+//						   delay: 0,
+//						   options: [.curveEaseOut],
+//						   animations: {
+//							self.superview?.layoutIfNeeded()
+//			}, completion: { _ in
+//				//TODO: Apply new constraint constant
+//				//change priority
+//			})
+//		})
 	}
 
 	///Move the indicator to a specific index, by updating the top constraint value
@@ -186,12 +213,5 @@ public class CariocaIndicatorView: UIView {
 	///:nodoc:
 	required public init?(coder aDecoder: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
-	}
-
-	///Get the matching NSLAyoutAttribute
-	///- Parameter edge: The screen edge
-	///- Returns: NSLayoutAttribute: The matching NSLayoutAttribute
-	class func layoutAttribute(for edge: UIRectEdge) -> NSLayoutAttribute {
-		return edge == .left ? .leading : .trailing
 	}
 }
