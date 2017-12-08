@@ -9,6 +9,13 @@
 import Foundation
 import UIKit
 
+typealias BouncingValues = (from: CGFloat, to: CGFloat)
+
+struct IndicatorPositionConstants {
+	let start: CGFloat
+	let startBounce: BouncingValues
+	let end: BouncingValues
+}
 ///The menu's indicator
 public class CariocaIndicatorView: UIView {
 
@@ -17,14 +24,19 @@ public class CariocaIndicatorView: UIView {
 	///The indicator's color
 	var color: UIColor
 	///The indicator's top constraint
-	var topConstraint: NSLayoutConstraint?
-	///The indicator's horizontal constraint, used to avoid rotation bug
-	var horizontalConstraint: NSLayoutConstraint?
-	///The indicator's horizontal center constraint, used to animate the indicator
-	var horizontalCenterConstraint: NSLayoutConstraint?
-	//swiftlint:disable vertical_parameter_alignment
+	var topConstraint = NSLayoutConstraint()
+	///The indicator's leading/left constraint.
+	///Depending on the edge, the priority will be switched w/ trailingConstraint
+	var leadingConstraint = NSLayoutConstraint()
+	///The indicator's trailing/right constraint.
+	///Depending on the edge, the priority will be switched w/ leadingConstraint
+	var trailingConstraint = NSLayoutConstraint()
 	///The icon's view
 	var iconView: CariocaIconView
+	///The border space.
+	let borderSpace: CGFloat
+	///The bouncing value
+	let bouncingValues: BouncingValues
 
 	///Initialise an IndicatorView
 	///- Parameter edge: The inital edge. Will be updated every time the user changes of edge.
@@ -32,15 +44,40 @@ public class CariocaIndicatorView: UIView {
 	///- Parameter color: The view's shape color
 	init(edge: UIRectEdge,
 		 size: CGSize = CGSize(width: 47, height: 40),
-		 color: UIColor = UIColor(red: 0.07, green: 0.73, blue: 0.86, alpha: 1)) {
+		 color: UIColor = UIColor(red: 0.07, green: 0.73, blue: 0.86, alpha: 1),
+		 borderSpace: CGFloat = 5.0,
+		 bouncingValues: BouncingValues = (from: 15.0, to: 5.0)) {
 		self.edge = edge
 		self.color = color
+		self.borderSpace = borderSpace
+		self.bouncingValues = bouncingValues
 		self.iconView = CariocaIconView(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
 		self.iconView.translatesAutoresizingMaskIntoConstraints = false
 		let frame = CGRect(x: 0, y: 0, width: size.width, height: size.height)
 		super.init(frame: frame)
+		self.backgroundColor = .clear
 		self.addSubview(iconView)
 		self.addConstraints(iconView.makeAnchorConstraints(to: self))
+	}
+
+	private func positionConstants(hostFrame: CGRect,
+								   indicatorFrame: CGRect,
+								   edge: UIRectEdge,
+								   borderSpace: CGFloat,
+								   bouncingValues: BouncingValues) -> IndicatorPositionConstants {
+		let multiplier: CGFloat = edge == .left ? 1.0 : -1.0
+		let inverseMultiplier: CGFloat = multiplier * -1.0
+		//Start positions
+		let start = borderSpace * inverseMultiplier
+		let startBounceFrom = start + (bouncingValues.from * inverseMultiplier)
+		let startBounceTo = start + (bouncingValues.to * multiplier)
+		let startBounce: BouncingValues = (from: startBounceFrom, to: startBounceTo)
+		//End positions
+		let endBounceFrom: CGFloat = (hostFrame.width - indicatorFrame.size.width + bouncingValues.from) * multiplier
+		let endBounceTo: CGFloat = (hostFrame.width - indicatorFrame.size.width - borderSpace) * multiplier
+		let endBounce: BouncingValues = (from: endBounceFrom, to: endBounceTo)
+
+		return IndicatorPositionConstants(start: start, startBounce: startBounce, end: endBounce)
 	}
 
 	///Adds the indicator in the hostView
@@ -50,18 +87,11 @@ public class CariocaIndicatorView: UIView {
 			   tableView: UITableView) {
 		self.translatesAutoresizingMaskIntoConstraints = false
 		hostView.addSubview(self)
-		let topConstraintItem = CariocaMenu.equalConstraint(self, toItem: tableView, attribute: .top)
-		let horizontalConstraintItem = makeHorizontalConstraint(tableView,
-																layoutAttribute: CariocaIndicatorView.layoutAttribute(for: edge))
-		horizontalConstraintItem.priority = UILayoutPriority(rawValue: 700.0)
-		let horizontalCenterConstraintItem = NSLayoutConstraint(item: self,
-																attribute: NSLayoutAttribute.centerX,
-																relatedBy: .equal,
-																toItem: hostView,
-																attribute: .centerX,
-																multiplier: 1,
-																constant: 0)
-		horizontalCenterConstraintItem.priority = UILayoutPriority(rawValue: 1000.0)
+		topConstraint = CariocaMenu.equalConstraint(self, toItem: tableView, attribute: .top)
+		leadingConstraint = makeHorizontalConstraint(hostView, .leading)
+		trailingConstraint = makeHorizontalConstraint(hostView, .trailing)
+		//This priority setting call will be overrided later, in show().
+		constraintPriorities(main: leadingConstraint, second: trailingConstraint)
 		hostView.addConstraints([
 			NSLayoutConstraint(item: self,
 							   attribute: .width, relatedBy: .equal,
@@ -71,28 +101,23 @@ public class CariocaIndicatorView: UIView {
 							   attribute: .height, relatedBy: .equal,
 							   toItem: nil, attribute: .notAnAttribute,
 							   multiplier: 1, constant: frame.size.height),
-			topConstraintItem,
-			horizontalConstraintItem,
-			horizontalCenterConstraintItem
-			])
-		horizontalConstraint = horizontalConstraintItem
-		horizontalCenterConstraint = horizontalCenterConstraintItem
-		topConstraint = topConstraintItem
+			topConstraint,
+			leadingConstraint,
+			trailingConstraint
+		])
 	}
 
 	///Create the horizontal constraint
-	///- Parameter tableView: The menu's tableView
-	///- Parameter layoutAttribute: The layoutAttribute for the constraint
+	///- Parameter hostView: The menu's hostView
+	///- Parameter attribute: The layoutAttribute for the constraint
+	///- Parameter priority: The constraint's priority
 	///- Returns: NSLayoutConstraint the horizontal constraint
-	private func makeHorizontalConstraint(_ tableView: UITableView,
-										  layoutAttribute: NSLayoutAttribute) -> NSLayoutConstraint {
+	private func makeHorizontalConstraint(_ hostView: UIView,
+										  _ attribute: NSLayoutAttribute) -> NSLayoutConstraint {
 		return NSLayoutConstraint(item: self,
-								  attribute: layoutAttribute,
-								  relatedBy: .equal,
-								  toItem: tableView,
-								  attribute: layoutAttribute,
-								  multiplier: 1,
-								  constant: 0)
+								  attribute: attribute, relatedBy: .equal,
+								  toItem: hostView, attribute: attribute,
+								  multiplier: 1, constant: 0.0)
 	}
 
 	///Draws the shape, depending on the edge.
@@ -138,62 +163,93 @@ public class CariocaIndicatorView: UIView {
 
 	///Show the indicator on a specific edge, by animating the horizontal position
 	///- Parameter edge: The screen edge
-	///- Parameter tableView: The menu's tableView. The indicator top constraint will be attached to tableview's top.
-	///- Parameter hostView: The menu's hostView, to who the constraints are added.
-	func show(edge: UIRectEdge, tableView: UITableView, hostView: UIView) {
-		if let horizontalC = horizontalConstraint {
-			hostView.removeConstraint(horizontalC)
-		}
-		let multiplier: CGFloat = edge == .left ? 1.0 : -1.0
-		let inverseMultiplier: CGFloat = multiplier * -1.0
-		let borderSpace: CGFloat = 5.0
-		let midHostWidth: CGFloat = hostView.frame.size.width / 2.0
-		let midFrameWidth: CGFloat = frame.size.width / 2.0
-
-		let startPosition = (midHostWidth + midFrameWidth) * inverseMultiplier
-		let beforeEndPosition = (midHostWidth - borderSpace) * multiplier
-		let endPosition = (midHostWidth - midFrameWidth - borderSpace) * multiplier
-		horizontalCenterConstraint?.constant = startPosition
+	///- Parameter hostView: The menu's hostView, to calculate the positions
+	///- Parameter isTraversingView: Should the indicator traverse the hostView, and stick to the opposite edge ?
+	func show(edge: UIRectEdge, hostView: UIView, isTraversingView: Bool) {
+		self.edge = edge
+		self.setNeedsDisplay()
+		let positions = positionConstants(hostFrame: hostView.frame,
+										  indicatorFrame: frame,
+										  edge: edge,
+										  borderSpace: borderSpace,
+										  bouncingValues: bouncingValues)
+		let mainConstraint = edge == .left ? leadingConstraint : trailingConstraint
+		let secondConstraint = edge == .left ? trailingConstraint : leadingConstraint
+		constraintPriorities(main: mainConstraint, second: secondConstraint)
+		mainConstraint.constant = positions.startBounce.from
 		self.superview?.layoutIfNeeded()
+		if isTraversingView {
+			secondConstraint.constant = positions.start
+		}
+		let animationValueOne = isTraversingView ? positions.end.from : positions.startBounce.to
+		let animationValueTwo = isTraversingView ? positions.end.to : positions.start
 
-		horizontalCenterConstraint?.constant = beforeEndPosition
-		UIView.animate(withDuration: 0.2,
+		animate(mainConstraint, positionOne: animationValueOne,
+				positionTwo: animationValueTwo,
+				finished: {
+					if isTraversingView {
+						self.constraintPriorities(main: secondConstraint, second: mainConstraint)
+					}
+		})
+	}
+
+	///Retore the indicator on it's original edge position
+	///- Parameter hostView: The menu's hostView, to calculate the positions
+	func restore(hostView: UIView) {
+		let positions = positionConstants(hostFrame: hostView.frame,
+										  indicatorFrame: frame,
+										  edge: edge,
+										  borderSpace: borderSpace,
+										  bouncingValues: bouncingValues)
+		let mainConstraint = edge == .left ? leadingConstraint : trailingConstraint
+		let secondConstraint = edge == .left ? trailingConstraint : leadingConstraint
+		constraintPriorities(main: mainConstraint, second: secondConstraint)
+		animate(mainConstraint,
+				positionOne: positions.startBounce.from,
+				positionTwo: positions.start,
+				finished: {})
+	}
+
+	internal func animate(_ constraint: NSLayoutConstraint,
+						  positionOne: CGFloat,
+						  timingOne: Double =  0.15,
+						  positionTwo: CGFloat,
+						  timingTwo: Double =  0.25,
+						  finished: @escaping () -> Void) {
+		constraint.constant = positionOne
+		UIView.animate(withDuration: timingOne,
 					   delay: 0,
 					   options: [.curveEaseIn],
 					   animations: {
 						self.superview?.layoutIfNeeded()
 		}, completion: { _ in
-			self.horizontalCenterConstraint?.constant = endPosition
-			UIView.animate(withDuration: 0.3,
+			constraint.constant = positionTwo
+			UIView.animate(withDuration: timingTwo,
 						   delay: 0,
 						   options: [.curveEaseOut],
 						   animations: {
 							self.superview?.layoutIfNeeded()
 			}, completion: { _ in
-				//TODO: Apply new constraint constant
-				//change priority
+				finished()
 			})
 		})
-		self.edge = edge
-		self.setNeedsDisplay()
+	}
+
+	internal func constraintPriorities(main: NSLayoutConstraint,
+									   second: NSLayoutConstraint) {
+		main.priority = UILayoutPriority(100.0)
+		second.priority = UILayoutPriority(50.0)
 	}
 
 	///Move the indicator to a specific index, by updating the top constraint value
 	///- Parameter index: The selection index of the menu, where the indicator will appear
 	///- Parameter heightForRow: The height of each menu item
 	func moveTo(index: Int, heightForRow: CGFloat) {
-		topConstraint?.constant = (CGFloat(index) * heightForRow) + ((heightForRow - frame.size.height) / 2.0)
+		topConstraint.constant = (CGFloat(index) * heightForRow) + ((heightForRow - frame.size.height) / 2.0)
 	}
 
 	///:nodoc:
 	required public init?(coder aDecoder: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
-	}
-
-	///Get the matching NSLAyoutAttribute
-	///- Parameter edge: The screen edge
-	///- Returns: NSLayoutAttribute: The matching NSLayoutAttribute
-	class func layoutAttribute(for edge: UIRectEdge) -> NSLayoutAttribute {
-		return edge == .left ? .trailing : .leading
 	}
 }

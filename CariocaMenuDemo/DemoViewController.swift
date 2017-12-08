@@ -35,7 +35,7 @@ class DemoViewController: UIViewController {
 			]
             carioca = CariocaMenu(controller: menuController,
                                   hostView: self.view,
-                                  edges: [.left, .right],
+                                  edges: [.right, .left],
                                   delegate: self)
             carioca?.addInHostView()
 			self.addChildViewController(menuController)

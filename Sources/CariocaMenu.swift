@@ -69,8 +69,10 @@ public class CariocaMenu: NSObject, CariocaGestureManagerDelegate, UITableViewDe
 		}
         hostView.addConstraints(container.makeAnchorConstraints(to: hostView))
 		indicator.addIn(hostView, tableView: controller.tableView)
+		indicator.iconView.display(icon: controller.menuItems.first!.icon)
+		indicator.show(edge: edges.first!, hostView: hostView, isTraversingView: false)
     }
-	
+
     // MARK: Events delegate/forwarding
 
     ///Menu will open
@@ -78,17 +80,15 @@ public class CariocaMenu: NSObject, CariocaGestureManagerDelegate, UITableViewDe
     func willOpenFromEdge(edge: UIRectEdge) {
 		controller.tableView.reloadData()
         delegate?.cariocamenu(self, willOpenFromEdge: edge)
-		indicator.show(edge: edge, tableView: controller.tableView, hostView: hostView)
+		indicator.show(edge: edge, hostView: hostView, isTraversingView: true)
     }
 	///Hide the menu
     func showMenu() {
         container.isHidden = false
-		indicator.isHidden = false
     }
 	///Show the menu
     func hideMenu() {
         container.isHidden = true
-		indicator.isHidden = true
     }
     func didUpdateY(_ yValue: CGFloat) {
         //should we do something ?
@@ -103,6 +103,7 @@ public class CariocaMenu: NSObject, CariocaGestureManagerDelegate, UITableViewDe
 	///The user did select a menu item
 	///- Parameter index: The selected index
     func didSelectItem(at index: Int) {
+		indicator.restore(hostView: hostView)
         selectedIndex = index
         delegate?.cariocamenu(self, didSelect: controller.menuItems[index], at: index)
     }

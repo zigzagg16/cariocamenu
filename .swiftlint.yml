@@ -1,2 +1,3 @@
 disabled_rules:
-  todo
+  - todo
+  - vertical_parameter_alignment
