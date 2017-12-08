@@ -178,29 +178,30 @@ public class CariocaIndicatorView: UIView {
 		let secondConstraint = edge == .left ? trailingConstraint : leadingConstraint
 		constraintPriorities(main: mainConstraint, second: secondConstraint)
 		mainConstraint.constant = positions.startBounce.from
-		//no needs to be set now, in fact.
-		//🎉 keep that code for later
-//		secondConstraint.constant = positions.start
+		if isTraversingView {
+			secondConstraint.constant = positions.start
+		}
+		let animationValueOne = isTraversingView ? positions.end.from : positions.startBounce.to
+		let animationValueTwo = isTraversingView ? positions.end.to : positions.start
 		self.superview?.layoutIfNeeded()
-		mainConstraint.constant = positions.startBounce.to
+		mainConstraint.constant = animationValueOne
 		UIView.animate(withDuration: 0.15,
 					   delay: 0,
 					   options: [.curveEaseIn],
 					   animations: {
 						self.superview?.layoutIfNeeded()
 		}, completion: { _ in
-			print("done 1")
-			mainConstraint.constant = positions.start
+			mainConstraint.constant = animationValueTwo
 			UIView.animate(withDuration: 0.25,
 						   delay: 0,
 						   options: [.curveEaseOut],
 						   animations: {
 							self.superview?.layoutIfNeeded()
 			}, completion: { _ in
-				//TODO: Apply new constraint constant
-				print("done 2")
 				//change priority
-//				constraintPriorities(main: secondConstraint, second: mainConstraint)
+				if isTraversingView {
+					self.constraintPriorities(main: secondConstraint, second: mainConstraint)
+				}
 			})
 		})
 	}
