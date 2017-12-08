@@ -64,10 +64,13 @@ public class CariocaMenu: NSObject, CariocaGestureManagerDelegate, UITableViewDe
     ///Adds the menu's container view in the host view
     func addInHostView() {
         hostView.addSubview(container)
+		if let blurStyle = controller.blurStyle {
+			container.addBlurView(style: blurStyle)
+		}
         hostView.addConstraints(container.makeAnchorConstraints(to: hostView))
 		indicator.addIn(hostView, tableView: controller.tableView)
     }
-
+	
     // MARK: Events delegate/forwarding
 
     ///Menu will open

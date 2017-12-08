@@ -44,6 +44,15 @@ public class CariocaMenuContainerView: UIView {
         ])
     }
 
+	func addBlurView(style: UIBlurEffectStyle) {
+		let visualEffectView = UIVisualEffectView(effect: UIBlurEffect(style: style))
+			as UIVisualEffectView
+		visualEffectView.frame = self.frame
+		visualEffectView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+		addSubview(visualEffectView)
+		sendSubview(toBack: visualEffectView)
+	}
+
     ///:nodoc:
     required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
