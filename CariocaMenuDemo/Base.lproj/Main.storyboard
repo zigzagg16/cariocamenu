@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -14,10 +13,14 @@
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="DemoViewController" customModule="CariocaMenuDemo" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                    <view key="view" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pxq-TG-T1U" customClass="ASGradientView" customModule="CariocaMenuDemo" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gb1-ld-dav" customClass="CariocaIconView" customModule="CariocaMenuDemo" customModuleProvider="target">
                                 <rect key="frame" x="137.5" y="283.5" width="100" height="100"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -29,18 +32,22 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstAttribute="bottom" secondItem="pxq-TG-T1U" secondAttribute="bottom" id="5ko-3r-hl5"/>
                             <constraint firstItem="Gb1-ld-dav" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="6H1-rC-G6S"/>
+                            <constraint firstAttribute="trailing" secondItem="pxq-TG-T1U" secondAttribute="trailing" id="9I8-Zr-Pf1"/>
+                            <constraint firstItem="pxq-TG-T1U" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Eax-Bv-xmm"/>
+                            <constraint firstItem="pxq-TG-T1U" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="PS3-v3-Da7"/>
                             <constraint firstItem="Gb1-ld-dav" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="oa1-Ie-L9L"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="gradientView" destination="pxq-TG-T1U" id="oNp-ob-SsD"/>
                         <outlet property="iconView" destination="Gb1-ld-dav" id="NKn-1T-cB1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="225" y="133"/>
+            <point key="canvasLocation" x="224.80000000000001" y="132.68365817091455"/>
         </scene>
         <!--Demo Menu Content Controller-->
         <scene sceneID="W0C-we-hrT">
