@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 ///Defines bouncing values for animation from/to
-typealias BouncingValues = (from: CGFloat, to: CGFloat)
+public typealias BouncingValues = (from: CGFloat, to: CGFloat)
 
 ///The constants that will be used to animate the indicator
 struct IndicatorPositionConstants {
@@ -21,12 +21,23 @@ struct IndicatorPositionConstants {
 	///Ending position bouncing values
 	let end: BouncingValues
 }
+
+public protocol CariocaIndicatorConfiguration {
+	var color: UIColor { get }
+	var size: CGSize { get }
+	var borderMargin: CGFloat { get }
+	var bouncingValues: BouncingValues { get }
+	func bezierPath(for edge: UIRectEdge) -> UIBezierPath
+}
+
+typealias CariocaIndicator = UIView & CariocaIndicatorConfiguration
+
 ///The menu's indicator
 public class CariocaIndicatorView: UIView {
 	///The edge of the indicator.
 	var edge: UIRectEdge
 	///The indicator's color
-	var color: UIColor
+	public var color: UIColor
 	///The indicator's top constraint
 	var topConstraint = NSLayoutConstraint()
 	///The indicator's leading/left constraint.
