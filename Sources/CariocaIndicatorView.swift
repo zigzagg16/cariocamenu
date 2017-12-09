@@ -34,6 +34,14 @@ public protocol CariocaIndicatorConfiguration {
 	var bouncingValues: BouncingValues { get }
 	///The custom shape of the view
 	func shape(for edge: UIRectEdge, frame: CGRect) -> UIBezierPath
+	///The margins for the icon, depending on the edge
+	func iconMargins(for edge: UIRectEdge) -> (top: CGFloat, right: CGFloat, bottom: CGFloat, left: CGFloat)
+}
+extension CariocaIndicatorConfiguration {
+	///Default margins are 0,0,0,0
+	func iconMargins(for edge: UIRectEdge) -> (top: CGFloat, right: CGFloat, bottom: CGFloat, left: CGFloat) {
+		return (top: 0.0, right: 0.0, bottom: 0.0, left: 0.0)
+	}
 }
 
 ///The indicator configuration
@@ -47,14 +55,15 @@ public class CariocaIndicatorView: UIView {
 	var topConstraint = NSLayoutConstraint()
 	///The indicator's leading/left constraint.
 	///Depending on the edge, the priority will be switched w/ trailingConstraint
-	var leadingConstraint = NSLayoutConstraint()
+	private var leadingConstraint = NSLayoutConstraint()
 	///The indicator's trailing/right constraint.
 	///Depending on the edge, the priority will be switched w/ leadingConstraint
-	var trailingConstraint = NSLayoutConstraint()
+	private var trailingConstraint = NSLayoutConstraint()
 	///The icon's view
 	var iconView: CariocaIconView
 	///The custom indicator configuration
-	let config: CariocaIndicator
+	private let config: CariocaIndicator
+	private var iconConstraints: [NSLayoutConstraint] = []
 
 	///Initialise an IndicatorView
 	///- Parameter edge: The inital edge. Will be updated every time the user changes of edge.
@@ -62,13 +71,14 @@ public class CariocaIndicatorView: UIView {
 	init(edge: UIRectEdge, indicator: CariocaIndicator) {
 		self.edge = edge
 		self.config = indicator
-		self.iconView = CariocaIconView(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
+		self.iconView = CariocaIconView()
 		self.iconView.translatesAutoresizingMaskIntoConstraints = false
 		let frame = CGRect(x: 0, y: 0, width: indicator.size.width, height: indicator.size.height)
 		super.init(frame: frame)
 		self.backgroundColor = .clear
 		self.addSubview(iconView)
-		self.addConstraints(iconView.makeAnchorConstraints(to: self))
+		iconConstraints = iconView.makeAnchorConstraints(to: self)
+		self.addConstraints(iconConstraints)
 	}
 
 	///Calculates the indicator's position for animation
@@ -163,9 +173,18 @@ public class CariocaIndicatorView: UIView {
 	///Draws the shape, depending on the edge.
 	///- Parameter frame: The IndicatorView's frame
 	override public func draw(_ frame: CGRect) {
+		applyMarginConstraints(margins: config.iconMargins(for: edge))
 		let ovalPath = config.shape(for: edge, frame: frame)
 		config.color.setFill()
 		ovalPath.fill()
+	}
+
+	private func applyMarginConstraints(margins: (top: CGFloat, right: CGFloat, bottom: CGFloat, left: CGFloat)) {
+		iconConstraints[0].constant = margins.top
+		iconConstraints[1].constant = margins.right
+		iconConstraints[2].constant = margins.bottom
+		iconConstraints[3].constant = margins.left
+		setNeedsLayout()
 	}
 
 	///Show the indicator on a specific edge, by animating the horizontal position

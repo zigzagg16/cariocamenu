@@ -90,4 +90,9 @@ class CariocaCustomIndicatorView: UIView, CariocaIndicatorConfiguration {
 		ovalPath.close()
 		return ovalPath
 	}
+	public func iconMargins(for edge: UIRectEdge) -> (top: CGFloat, right: CGFloat, bottom: CGFloat, left: CGFloat) {
+//		if edge == .left {
+			return (top: 0.0, right: 0.0, bottom: 0.0, left: 0.0)
+//		} else {}
+	}
 }
