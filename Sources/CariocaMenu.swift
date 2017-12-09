@@ -81,7 +81,13 @@ public class CariocaMenu: NSObject, CariocaGestureManagerDelegate, UITableViewDe
 	///Called from the hostview, if a rotation has been detected.
 	///We'll do our best to manage the rotation 😉
 	func hostViewDidRotate() {
+		//Set the menu top to 0
+		container.topConstraint.constant = 0.0
+		//Move the constraint to the center
 		indicator.moveAfterRotation(hostView, position: 50.0)
+		//Hide the menu, restore the indicator
+		hideMenu()
+		indicator.restore(hostView: hostView)
 	}
 
 	///Tap gesture event received. Forwards parameters to GestureManager, to simulate a Pan gesture.
