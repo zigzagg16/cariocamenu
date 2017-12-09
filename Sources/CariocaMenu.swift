@@ -76,11 +76,12 @@ public class CariocaMenu: NSObject, CariocaGestureManagerDelegate, UITableViewDe
 		indicator.addGestureRecognizer(tapGesture)
 	}
 
-	///Tap gesture event received
+	///Tap gesture event received. Forwards parameters to GestureManager, to simulate a Pan gesture.
 	///- Parameter gesture: UITapGestureRecognizer
 	@objc func tappedIndicatorView(_ gesture: UITapGestureRecognizer) {
-		showMenu()
-		openFromEdge(edge: gestureManager.openingEdge)
+		let yLocation  = gesture.location(in: hostView).y
+		gestureManager.panned(yLocation: yLocation, edge: gestureManager.openingEdge, state: .began)
+		gestureManager.panned(yLocation: yLocation, edge: gestureManager.openingEdge, state: .changed)
 	}
 
     // MARK: Events delegate/forwarding
