@@ -78,6 +78,12 @@ public class CariocaMenu: NSObject, CariocaGestureManagerDelegate, UITableViewDe
 		indicator.addGestureRecognizer(tapGesture)
 	}
 
+	///Called from the hostview, if a rotation has been detected.
+	///We'll do our best to manage the rotation 😉
+	func hostViewDidRotate() {
+		indicator.moveAfterRotation(hostView, position: 50.0)
+	}
+
 	///Tap gesture event received. Forwards parameters to GestureManager, to simulate a Pan gesture.
 	///- Parameter gesture: UITapGestureRecognizer
 	@objc func tappedIndicatorView(_ gesture: UITapGestureRecognizer) {

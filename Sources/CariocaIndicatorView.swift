@@ -112,6 +112,7 @@ public class CariocaIndicatorView: UIView {
 	var iconView: CariocaIconView
 	///The custom indicator configuration
 	private let config: CariocaIndicator
+	///The constraints applied to the iconview. Can be updated later with custom configuration
 	private var iconConstraints: [NSLayoutConstraint] = []
 
 	///Initialise an IndicatorView
@@ -185,6 +186,15 @@ public class CariocaIndicatorView: UIView {
 			leadingConstraint,
 			trailingConstraint
 		])
+		topConstraint.constant = verticalConstant(for: position,
+												  hostHeight: hostView.frame.height,
+												  height: frame.height)
+	}
+
+	///Moves the indicator after rotation, at 50%, to be centered
+	///- Parameter hostView: the menu's hostView
+	///- Parameter position: the indicator initial position in %
+	func moveAfterRotation(_ hostView: UIView, position: CGFloat) {
 		topConstraint.constant = verticalConstant(for: position,
 												  hostHeight: hostView.frame.height,
 												  height: frame.height)
