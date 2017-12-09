@@ -4,7 +4,7 @@ class DemoMenuContentController: UITableViewController, CariocaDataSource {
 	// MARK: Configuration properties
 	var indicatorPosition: CGFloat = 35.0
 	var isOffscreenAllowed: Bool = true
-	var blurStyle: UIBlurEffectStyle? = .extraLight
+	var blurStyle: UIBlurEffectStyle? = .dark
 	var menuItems: [CariocaMenuItem] = []
 	func heightForRow() -> CGFloat { return 60.0 }
 
@@ -16,7 +16,7 @@ class DemoMenuContentController: UITableViewController, CariocaDataSource {
 		//swiftlint:disable force_cast
 		let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! MenuItemCell
 		//swiftlint:enable force_cast
-		cell.titleLabel.text = menuItem.title
+		cell.titleLabel.text = menuItem.title.uppercased()
 		cell.titleLabel.textAlignment = edge == .left ? .right : .left
 		cell.iconLeftConstraint?.priority = edge == .left ? UILayoutPriority(50.0) : UILayoutPriority(100.0)
 		cell.iconRightConstraint?.priority = edge == .right ? UILayoutPriority(50.0) : UILayoutPriority(100.0)
