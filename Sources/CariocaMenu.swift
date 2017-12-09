@@ -55,7 +55,7 @@ public class CariocaMenu: NSObject, CariocaGestureManagerDelegate, UITableViewDe
 													selectedIndex: selectedIndex)
         self.delegate = delegate
 		self.selectedIndex = selectedIndex
-		self.indicator = CariocaIndicatorView(edge: edges.first!)
+		self.indicator = CariocaIndicatorView(edge: edges.first!, indicator: indicator)
 		super.init()
         self.gestureManager.delegate = self
 		self.controller.tableView.dataSource = self

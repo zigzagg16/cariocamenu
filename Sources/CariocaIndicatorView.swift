@@ -27,7 +27,7 @@ public protocol CariocaIndicatorConfiguration {
 	var size: CGSize { get }
 	var borderMargin: CGFloat { get }
 	var bouncingValues: BouncingValues { get }
-	func bezierPath(for edge: UIRectEdge) -> UIBezierPath
+	func shape(for edge: UIRectEdge, frame: CGRect) -> UIBezierPath
 }
 
 typealias CariocaIndicator = UIView & CariocaIndicatorConfiguration
@@ -36,8 +36,6 @@ typealias CariocaIndicator = UIView & CariocaIndicatorConfiguration
 public class CariocaIndicatorView: UIView {
 	///The edge of the indicator.
 	var edge: UIRectEdge
-	///The indicator's color
-	public var color: UIColor
 	///The indicator's top constraint
 	var topConstraint = NSLayoutConstraint()
 	///The indicator's leading/left constraint.
@@ -48,27 +46,18 @@ public class CariocaIndicatorView: UIView {
 	var trailingConstraint = NSLayoutConstraint()
 	///The icon's view
 	var iconView: CariocaIconView
-	///The border space.
-	let borderMargin: CGFloat
-	///The bouncing value
-	let bouncingValues: BouncingValues
+	///The custom indicator configuration
+	let config: CariocaIndicator
 
 	///Initialise an IndicatorView
 	///- Parameter edge: The inital edge. Will be updated every time the user changes of edge.
-	///- Parameter size: The view's size
-	///- Parameter color: The view's shape color
-	init(edge: UIRectEdge,
-		 size: CGSize = CGSize(width: 47, height: 40),
-		 color: UIColor = UIColor(red: 0.07, green: 0.73, blue: 0.86, alpha: 1),
-		 borderSpace: CGFloat = 5.0,
-		 bouncingValues: BouncingValues = (from: 15.0, to: 5.0)) {
+	///- Parameter indicator: The indicator custom configuration
+	init(edge: UIRectEdge, indicator: CariocaIndicator) {
 		self.edge = edge
-		self.color = color
-		self.borderMargin = borderSpace
-		self.bouncingValues = bouncingValues
+		self.config = indicator
 		self.iconView = CariocaIconView(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
 		self.iconView.translatesAutoresizingMaskIntoConstraints = false
-		let frame = CGRect(x: 0, y: 0, width: size.width, height: size.height)
+		let frame = CGRect(x: 0, y: 0, width: indicator.size.width, height: indicator.size.height)
 		super.init(frame: frame)
 		self.backgroundColor = .clear
 		self.addSubview(iconView)
@@ -167,41 +156,8 @@ public class CariocaIndicatorView: UIView {
 	///Draws the shape, depending on the edge.
 	///- Parameter frame: The IndicatorView's frame
 	override public func draw(_ frame: CGRect) {
-		self.backgroundColor = .clear
-		//This shape was drawed with PaintCode App
-		let ovalPath = UIBezierPath()
-		if edge == .left {
-			ovalPath.move(to: CGPoint(x: frame.maxX, y: frame.minY + 0.5 * frame.height))
-			ovalPath.addCurve(to: CGPoint(x: frame.maxX - 20, y: frame.minY),
-							  controlPoint1: CGPoint(x: frame.maxX, y: frame.minY + 0.22 * frame.height),
-							  controlPoint2: CGPoint(x: frame.maxX - 9, y: frame.minY))
-			ovalPath.addCurve(to: CGPoint(x: frame.minX, y: frame.minY + 0.5 * frame.height),
-							  controlPoint1: CGPoint(x: frame.maxX - 31, y: frame.minY),
-							  controlPoint2: CGPoint(x: frame.minX, y: frame.minY + 0.3 * frame.height))
-			ovalPath.addCurve(to: CGPoint(x: frame.maxX - 20, y: frame.maxY),
-							  controlPoint1: CGPoint(x: frame.minX, y: frame.minY + 0.7 * frame.height),
-							  controlPoint2: CGPoint(x: frame.maxX - 31, y: frame.maxY))
-			ovalPath.addCurve(to: CGPoint(x: frame.maxX, y: frame.minY + 0.5 * frame.height),
-							  controlPoint1: CGPoint(x: frame.maxX - 9, y: frame.maxY),
-							  controlPoint2: CGPoint(x: frame.maxX, y: frame.minY + 0.78 * frame.height))
-		} else {
-			//right
-			ovalPath.move(to: CGPoint(x: frame.minX, y: frame.minY + 0.5 * frame.height))
-			ovalPath.addCurve(to: CGPoint(x: frame.minX + 20, y: frame.minY),
-							  controlPoint1: CGPoint(x: frame.minX, y: frame.minY + 0.22 * frame.height),
-							  controlPoint2: CGPoint(x: frame.minX + 9, y: frame.minY))
-			ovalPath.addCurve(to: CGPoint(x: frame.maxX, y: frame.minY + 0.5 * frame.height),
-							  controlPoint1: CGPoint(x: frame.minX + 31, y: frame.minY),
-							  controlPoint2: CGPoint(x: frame.maxX, y: frame.minY + 0.3 * frame.height))
-			ovalPath.addCurve(to: CGPoint(x: frame.minX + 20, y: frame.maxY),
-							  controlPoint1: CGPoint(x: frame.maxX, y: frame.minY + 0.7 * frame.height),
-							  controlPoint2: CGPoint(x: frame.minX + 31, y: frame.maxY))
-			ovalPath.addCurve(to: CGPoint(x: frame.minX, y: frame.minY + 0.5 * frame.height),
-							  controlPoint1: CGPoint(x: frame.minX + 9, y: frame.maxY),
-							  controlPoint2: CGPoint(x: frame.minX, y: frame.minY + 0.78 * frame.height))
-		}
-		ovalPath.close()
-		color.setFill()
+		let ovalPath = config.shape(for: edge, frame: frame)
+		config.color.setFill()
 		ovalPath.fill()
 	}
 
@@ -215,8 +171,8 @@ public class CariocaIndicatorView: UIView {
 		let positions = positionConstants(hostWidth: hostView.frame.width,
 										  indicatorWidth: frame.width,
 										  edge: edge,
-										  borderMargin: borderMargin,
-										  bouncingValues: bouncingValues)
+										  borderMargin: config.borderMargin,
+										  bouncingValues: config.bouncingValues)
 		let mainConstraint = edge == .left ? leadingConstraint : trailingConstraint
 		let secondConstraint = edge == .left ? trailingConstraint : leadingConstraint
 		constraintPriorities(main: mainConstraint, second: secondConstraint)
@@ -247,8 +203,8 @@ public class CariocaIndicatorView: UIView {
 		let positions = positionConstants(hostWidth: hostView.frame.width,
 										  indicatorWidth: frame.width,
 										  edge: edge,
-										  borderMargin: borderMargin,
-										  bouncingValues: bouncingValues)
+										  borderMargin: config.borderMargin,
+										  bouncingValues: config.bouncingValues)
 		let mainConstraint = edge == .left ? leadingConstraint : trailingConstraint
 		let secondConstraint = edge == .left ? trailingConstraint : leadingConstraint
 		constraintPriorities(main: mainConstraint, second: secondConstraint)

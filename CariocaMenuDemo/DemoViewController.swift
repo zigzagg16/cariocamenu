@@ -54,7 +54,40 @@ class CariocaCustomIndicatorView: UIView, CariocaIndicatorConfiguration {
 	public var borderMargin: CGFloat = 5.0
 	public var color: UIColor = UIColor(red: 0.07, green: 0.73, blue: 0.86, alpha: 1)
 	public var bouncingValues: BouncingValues = (from: 15.0, to: 5.0)
-	public func bezierPath(for edge: UIRectEdge) -> UIBezierPath {
-		return UIBezierPath()
+	public func shape(for edge: UIRectEdge, frame: CGRect) -> UIBezierPath {
+		//This shape was drawed with PaintCode App
+		let ovalPath = UIBezierPath()
+		if edge == .left {
+			ovalPath.move(to: CGPoint(x: frame.maxX, y: frame.minY + 0.5 * frame.height))
+			ovalPath.addCurve(to: CGPoint(x: frame.maxX - 20, y: frame.minY),
+							  controlPoint1: CGPoint(x: frame.maxX, y: frame.minY + 0.22 * frame.height),
+							  controlPoint2: CGPoint(x: frame.maxX - 9, y: frame.minY))
+			ovalPath.addCurve(to: CGPoint(x: frame.minX, y: frame.minY + 0.5 * frame.height),
+							  controlPoint1: CGPoint(x: frame.maxX - 31, y: frame.minY),
+							  controlPoint2: CGPoint(x: frame.minX, y: frame.minY + 0.3 * frame.height))
+			ovalPath.addCurve(to: CGPoint(x: frame.maxX - 20, y: frame.maxY),
+							  controlPoint1: CGPoint(x: frame.minX, y: frame.minY + 0.7 * frame.height),
+							  controlPoint2: CGPoint(x: frame.maxX - 31, y: frame.maxY))
+			ovalPath.addCurve(to: CGPoint(x: frame.maxX, y: frame.minY + 0.5 * frame.height),
+							  controlPoint1: CGPoint(x: frame.maxX - 9, y: frame.maxY),
+							  controlPoint2: CGPoint(x: frame.maxX, y: frame.minY + 0.78 * frame.height))
+		} else {
+			//right
+			ovalPath.move(to: CGPoint(x: frame.minX, y: frame.minY + 0.5 * frame.height))
+			ovalPath.addCurve(to: CGPoint(x: frame.minX + 20, y: frame.minY),
+							  controlPoint1: CGPoint(x: frame.minX, y: frame.minY + 0.22 * frame.height),
+							  controlPoint2: CGPoint(x: frame.minX + 9, y: frame.minY))
+			ovalPath.addCurve(to: CGPoint(x: frame.maxX, y: frame.minY + 0.5 * frame.height),
+							  controlPoint1: CGPoint(x: frame.minX + 31, y: frame.minY),
+							  controlPoint2: CGPoint(x: frame.maxX, y: frame.minY + 0.3 * frame.height))
+			ovalPath.addCurve(to: CGPoint(x: frame.minX + 20, y: frame.maxY),
+							  controlPoint1: CGPoint(x: frame.maxX, y: frame.minY + 0.7 * frame.height),
+							  controlPoint2: CGPoint(x: frame.minX + 31, y: frame.maxY))
+			ovalPath.addCurve(to: CGPoint(x: frame.minX, y: frame.minY + 0.5 * frame.height),
+							  controlPoint1: CGPoint(x: frame.minX + 9, y: frame.maxY),
+							  controlPoint2: CGPoint(x: frame.minX, y: frame.minY + 0.78 * frame.height))
+		}
+		ovalPath.close()
+		return ovalPath
 	}
 }
