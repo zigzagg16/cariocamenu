@@ -24,7 +24,7 @@ public class CariocaMenu: NSObject, CariocaGestureManagerDelegate, UITableViewDe
     ///Gestures manager
     let gestureManager: CariocaGestureManager
     ///The selected index of the menu. Default: 0
-    var selectedIndex: Int = 1
+	internal var selectedIndex: Int
 	///The indicatorView
 	let indicator: CariocaIndicatorView
     ///The delegate receiving menu's events
@@ -35,10 +35,12 @@ public class CariocaMenu: NSObject, CariocaGestureManagerDelegate, UITableViewDe
     ///- Parameter hostView: The view in which the menu will be displayed
     ///- Parameter edges: The supported edges
     ///- Parameter delegate: The menu's event delegate
+	///- Parameter selectedIndex: The menu's default selected index
     init(controller: CariocaController,
          hostView: UIView,
          edges: [UIRectEdge],
-         delegate: CariocaDelegate) {
+         delegate: CariocaDelegate,
+		 selectedIndex: Int = 0) {
         self.controller = controller
         self.hostView = hostView
         self.edges = edges
@@ -47,8 +49,10 @@ public class CariocaMenu: NSObject, CariocaGestureManagerDelegate, UITableViewDe
         self.gestureManager = CariocaGestureManager(hostView: hostView,
                                                     controller: controller,
                                                     edges: edges,
-                                                    container: self.container)
+                                                    container: container,
+													selectedIndex: selectedIndex)
         self.delegate = delegate
+		self.selectedIndex = selectedIndex
 		self.indicator = CariocaIndicatorView(edge: edges.first!)
 		super.init()
         self.gestureManager.delegate = self
@@ -116,7 +120,7 @@ public class CariocaMenu: NSObject, CariocaGestureManagerDelegate, UITableViewDe
 	///- Parameter index: The selected index
     func didSelectItem(at index: Int) {
 		indicator.restore(hostView: hostView)
-        selectedIndex = index
+		selectedIndex = index
         delegate?.cariocamenu(self, didSelect: controller.menuItems[index], at: index)
     }
 

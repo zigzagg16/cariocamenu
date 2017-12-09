@@ -28,23 +28,26 @@ class CariocaGestureManager {
     ///The menu's container
     let container: CariocaMenuContainerView
 	///Internal selection index, used to check index changes.
-	private var internalSelectedIndex: Int?
+	private var internalSelectedIndex: Int
 
     ///Initialises the gesture manager
     ///- Parameter hostView: The menu's host view
     ///- Parameter controller: The menu's content controller
     ///- Parameter edges: The menu's edges
     ///- Parameter container: The menu's container view
+	///- Parameter selectedIndex: The menu's default selected index
     init(hostView: UIView,
          controller: CariocaController,
          edges: [UIRectEdge],
-         container: CariocaMenuContainerView) {
+         container: CariocaMenuContainerView,
+		 selectedIndex: Int) {
         //TODO: Check that the edges are only .left or .right, as they are the only supported
         self.hostView = hostView
         self.controller = controller
         self.edges = edges
         self.openingEdge = edges.first!
         self.container = container
+		self.internalSelectedIndex = selectedIndex
         makeEdgePanGestures()
     }
 
@@ -72,13 +75,12 @@ class CariocaGestureManager {
         if gesture.state == .changed {
             delegate?.showMenu()
             let topY = CariocaGestureManager.topYConstraint(yLocation: yLocation,
-                                                            originalScreeenEdgePanY: originalScreeenEdgePanY,
-                                                            menuHeight: container.menuHeight,
-                                                            heightForRow: controller.heightForRow(),
-                                                            selectedIndex:
-                delegate?.selectedIndex ?? internalSelectedIndex ?? 0,
-                                                            yRange: yRange,
-                                                            isOffscreenAllowed: controller.isOffscreenAllowed)
+															originalScreeenEdgePanY: originalScreeenEdgePanY,
+															menuHeight: container.menuHeight,
+															heightForRow: controller.heightForRow(),
+															selectedIndex: delegate?.selectedIndex ?? internalSelectedIndex,
+															yRange: yRange,
+															isOffscreenAllowed: controller.isOffscreenAllowed)
             container.topConstraint.constant = topY
             delegate?.didUpdateY(topY)
             let newIndex = CariocaGestureManager.matchingIndex(yLocation: yLocation,
@@ -88,10 +90,10 @@ class CariocaGestureManager {
             if newIndex != internalSelectedIndex {
                 delegate?.didUpdateSelectionIndex(newIndex)
             }
-            internalSelectedIndex = newIndex
+			internalSelectedIndex = newIndex
         }
         if gesture.state == .ended {
-            delegate?.didSelectItem(at: internalSelectedIndex ?? 0)
+            delegate?.didSelectItem(at: internalSelectedIndex)
             delegate?.hideMenu()
         }
         if gesture.state == .failed { CariocaMenu.log("Failed : \(gesture)") }
@@ -116,7 +118,6 @@ class CariocaGestureManager {
                               selectedIndex: Int,
                               yRange: ClosedRange<CGFloat>,
                               isOffscreenAllowed: Bool) -> CGFloat {
-
         var yPosition = originalScreeenEdgePanY
             - (heightForRow * CGFloat(selectedIndex))
             - (heightForRow / 2.0)
