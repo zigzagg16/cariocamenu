@@ -1,14 +1,12 @@
 import UIKit
 
 class DemoMenuContentController: UITableViewController, CariocaDataSource {
-
+	// MARK: Configuration properties
 	var indicatorPosition: CGFloat = 35.0
-
 	var isOffscreenAllowed: Bool = true
-
 	var blurStyle: UIBlurEffectStyle? = .extraLight
-
 	var menuItems: [CariocaMenuItem] = []
+	func heightForRow() -> CGFloat { return 60.0 }
 
     // MARK: - menu data source 
 	func tableView(_ tableView: UITableView,
@@ -25,10 +23,6 @@ class DemoMenuContentController: UITableViewController, CariocaDataSource {
 		cell.iconView.display(icon: menuItem.icon)
 		return cell
 	}
-
-    func heightForRow() -> CGFloat {
-        return 60.0
-    }
 }
 
 class MenuItemCell: UITableViewCell {
