@@ -22,14 +22,21 @@ struct IndicatorPositionConstants {
 	let end: BouncingValues
 }
 
+///Required parameters to create a custom indicator view
 public protocol CariocaIndicatorConfiguration {
+	///The shape's color
 	var color: UIColor { get }
+	///The shape's size
 	var size: CGSize { get }
+	///The margin to the screen
 	var borderMargin: CGFloat { get }
+	///The bouncing values used for animation
 	var bouncingValues: BouncingValues { get }
+	///The custom shape of the view
 	func shape(for edge: UIRectEdge, frame: CGRect) -> UIBezierPath
 }
 
+///The indicator configuration
 typealias CariocaIndicator = UIView & CariocaIndicatorConfiguration
 
 ///The menu's indicator
