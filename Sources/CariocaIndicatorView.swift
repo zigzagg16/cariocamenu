@@ -94,8 +94,10 @@ public class CariocaIndicatorView: UIView {
 	///Adds the indicator in the hostView
 	///- Parameter hostView: the menu's hostView
 	///- Parameter tableView: the menu's tableView
+	///- Parameter position: the indicator initial position in %
 	func addIn(_ hostView: UIView,
-			   tableView: UITableView) {
+			   tableView: UITableView,
+			   position: CGFloat) {
 		self.translatesAutoresizingMaskIntoConstraints = false
 		hostView.addSubview(self)
 		topConstraint = CariocaMenu.equalConstraint(self, toItem: tableView, attribute: .top)
@@ -116,6 +118,26 @@ public class CariocaIndicatorView: UIView {
 			leadingConstraint,
 			trailingConstraint
 		])
+		topConstraint.constant = verticalConstant(for: position,
+												  hostHeight: hostView.frame.height,
+												  height: frame.height)
+	}
+
+	///Calculates the Y constraint based on percentage.
+	///A margin of 50% of the indicator view is applied for security.
+	///- Parameter percentage: The desired position percentage
+	///- Parameter hostHeight: The host's height
+	///- Parameter height: The indicator's height
+	///- Returns: CGFloat: The constant calculated Y value
+	private func verticalConstant(for percentage: CGFloat,
+								  hostHeight: CGFloat,
+								  height: CGFloat) -> CGFloat {
+		let demiHeight = height / 2.0
+		let min = demiHeight
+		let max = hostHeight - (height + demiHeight)
+		let desiredPosition = ((hostHeight / 100.0) * percentage) - demiHeight
+		//Check the minimum/maximum
+		return desiredPosition < min ? min : desiredPosition > max ? max : desiredPosition
 	}
 
 	///Create the horizontal constraint

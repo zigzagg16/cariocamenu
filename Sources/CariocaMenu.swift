@@ -23,11 +23,8 @@ public class CariocaMenu: NSObject, CariocaGestureManagerDelegate, UITableViewDe
     var boomerang: BoomerangType = .none
     ///Gestures manager
     let gestureManager: CariocaGestureManager
-    ///Can the menu go offscreen with user's gesture ? (true)
-    ///Or should it always stay fully visible ? (false)
-    var isOffscreenAllowed = true
     ///The selected index of the menu. Default: 0
-    var selectedIndex: Int = 1
+	internal var selectedIndex: Int
 	///The indicatorView
 	let indicator: CariocaIndicatorView
     ///The delegate receiving menu's events
@@ -38,10 +35,12 @@ public class CariocaMenu: NSObject, CariocaGestureManagerDelegate, UITableViewDe
     ///- Parameter hostView: The view in which the menu will be displayed
     ///- Parameter edges: The supported edges
     ///- Parameter delegate: The menu's event delegate
+	///- Parameter selectedIndex: The menu's default selected index
     init(controller: CariocaController,
          hostView: UIView,
          edges: [UIRectEdge],
-         delegate: CariocaDelegate) {
+         delegate: CariocaDelegate,
+		 selectedIndex: Int = 0) {
         self.controller = controller
         self.hostView = hostView
         self.edges = edges
@@ -50,14 +49,15 @@ public class CariocaMenu: NSObject, CariocaGestureManagerDelegate, UITableViewDe
         self.gestureManager = CariocaGestureManager(hostView: hostView,
                                                     controller: controller,
                                                     edges: edges,
-                                                    container: self.container)
+                                                    container: container,
+													selectedIndex: selectedIndex)
         self.delegate = delegate
+		self.selectedIndex = selectedIndex
 		self.indicator = CariocaIndicatorView(edge: edges.first!)
 		super.init()
         self.gestureManager.delegate = self
 		self.controller.tableView.dataSource = self
 		self.controller.tableView.delegate = self
-		self.controller.tableView.frame = CGRect(x: 0, y: 0, width: 375, height: 500)
         self.hideMenu()
     }
 
@@ -68,7 +68,7 @@ public class CariocaMenu: NSObject, CariocaGestureManagerDelegate, UITableViewDe
 			container.addBlurView(style: blurStyle)
 		}
         hostView.addConstraints(container.makeAnchorConstraints(to: hostView))
-		indicator.addIn(hostView, tableView: controller.tableView)
+		indicator.addIn(hostView, tableView: controller.tableView, position: controller.indicatorPosition)
 		indicator.iconView.display(icon: controller.menuItems.first!.icon)
 		indicator.show(edge: edges.first!, hostView: hostView, isTraversingView: false)
 		let tapGesture = UITapGestureRecognizer(target: self, action: .tappedIndicatorView)
@@ -76,11 +76,12 @@ public class CariocaMenu: NSObject, CariocaGestureManagerDelegate, UITableViewDe
 		indicator.addGestureRecognizer(tapGesture)
 	}
 
-	///Tap gesture event received
+	///Tap gesture event received. Forwards parameters to GestureManager, to simulate a Pan gesture.
 	///- Parameter gesture: UITapGestureRecognizer
 	@objc func tappedIndicatorView(_ gesture: UITapGestureRecognizer) {
-		showMenu()
-		openFromEdge(edge: gestureManager.openingEdge)
+		let yLocation  = gesture.location(in: hostView).y
+		gestureManager.panned(yLocation: yLocation, edge: gestureManager.openingEdge, state: .began)
+		gestureManager.panned(yLocation: yLocation, edge: gestureManager.openingEdge, state: .changed)
 	}
 
     // MARK: Events delegate/forwarding
@@ -119,7 +120,7 @@ public class CariocaMenu: NSObject, CariocaGestureManagerDelegate, UITableViewDe
 	///- Parameter index: The selected index
     func didSelectItem(at index: Int) {
 		indicator.restore(hostView: hostView)
-        selectedIndex = index
+		selectedIndex = index
         delegate?.cariocamenu(self, didSelect: controller.menuItems[index], at: index)
     }
 

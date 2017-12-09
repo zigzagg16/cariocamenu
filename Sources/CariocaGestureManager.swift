@@ -28,23 +28,26 @@ class CariocaGestureManager {
     ///The menu's container
     let container: CariocaMenuContainerView
 	///Internal selection index, used to check index changes.
-	private var internalSelectedIndex: Int?
+	private var internalSelectedIndex: Int
 
     ///Initialises the gesture manager
     ///- Parameter hostView: The menu's host view
     ///- Parameter controller: The menu's content controller
     ///- Parameter edges: The menu's edges
     ///- Parameter container: The menu's container view
+	///- Parameter selectedIndex: The menu's default selected index
     init(hostView: UIView,
          controller: CariocaController,
          edges: [UIRectEdge],
-         container: CariocaMenuContainerView) {
+         container: CariocaMenuContainerView,
+		 selectedIndex: Int) {
         //TODO: Check that the edges are only .left or .right, as they are the only supported
         self.hostView = hostView
         self.controller = controller
         self.edges = edges
         self.openingEdge = edges.first!
         self.container = container
+		self.internalSelectedIndex = selectedIndex
         makeEdgePanGestures()
     }
 
@@ -62,47 +65,50 @@ class CariocaGestureManager {
     ///- Parameter gesture: UIScreenEdgePanGestureRecognizer
     @objc func panGestureEvent(_ gesture: UIScreenEdgePanGestureRecognizer) {
         let yLocation = gesture.location(in: gesture.view).y
-        let frameHeight = hostView.frame.height
-        let yRange: ClosedRange<CGFloat> = 20.0...frameHeight - container.menuHeight
-        // TODO: Find the matching indicator view based on the edge
-        if gesture.state == .began {
-			openingEdge = gesture.edges
-            delegate?.willOpenFromEdge(edge: gesture.edges)
-            originalScreeenEdgePanY = yLocation
-        }
-        if gesture.state == .changed {
-            delegate?.showMenu()
-            /*
-             showMenu()
-             showIndicatorOnTopOfMenu(openingEdge)
-             */
-            let topY = CariocaGestureManager.topYConstraint(yLocation: yLocation,
-                                                            originalScreeenEdgePanY: originalScreeenEdgePanY,
-                                                            menuHeight: container.menuHeight,
-                                                            heightForRow: controller.heightForRow(),
-                                                            selectedIndex:
-                delegate?.selectedIndex ?? internalSelectedIndex ?? 0,
-                                                            yRange: yRange,
-                                                            isOffscreenAllowed: true)
-            container.topConstraint.constant = topY
-            delegate?.didUpdateY(topY)
-            let newIndex = CariocaGestureManager.matchingIndex(yLocation: yLocation,
-                                                               menuYPosition: topY,
-                                                               heightForRow: controller.heightForRow(),
-                                                               numberOfMenuItems: controller.menuItems.count)
-            if newIndex != internalSelectedIndex {
-                delegate?.didUpdateSelectionIndex(newIndex)
-            }
-            internalSelectedIndex = newIndex
-        }
-        if gesture.state == .ended {
-            delegate?.didSelectItem(at: internalSelectedIndex ?? 0)
-            delegate?.hideMenu()
-        }
-        if gesture.state == .failed { CariocaMenu.log("Failed : \(gesture)") }
-        if gesture.state == .possible { CariocaMenu.log("Possible : \(gesture)") }
-        if gesture.state == .cancelled { CariocaMenu.log("cancelled : \(gesture)") }
+		panned(yLocation: yLocation, edge: gesture.edges, state: gesture.state)
     }
+
+	///Manages the panning in the view
+	///- Parameter yLocation: The gesture's location
+	///- Parameter edge: The edge where the gesture started
+	///- Parameter state: The gesture state
+	func panned(yLocation: CGFloat, edge: UIRectEdge, state: UIGestureRecognizerState) {
+		let frameHeight = hostView.frame.height
+		let yRange: ClosedRange<CGFloat> = 20.0...frameHeight - container.menuHeight
+		if state == .began {
+			openingEdge = edge
+			delegate?.willOpenFromEdge(edge: edge)
+			delegate?.didUpdateSelectionIndex(internalSelectedIndex)
+			originalScreeenEdgePanY = yLocation
+		}
+		if state == .changed {
+			delegate?.showMenu()
+			let topY = CariocaGestureManager.topYConstraint(yLocation: yLocation,
+															originalScreeenEdgePanY: originalScreeenEdgePanY,
+															menuHeight: container.menuHeight,
+															heightForRow: controller.heightForRow(),
+															selectedIndex: delegate?.selectedIndex ?? internalSelectedIndex,
+															yRange: yRange,
+															isOffscreenAllowed: controller.isOffscreenAllowed)
+			container.topConstraint.constant = topY
+			delegate?.didUpdateY(topY)
+			let newIndex = CariocaGestureManager.matchingIndex(yLocation: yLocation,
+															   menuYPosition: topY,
+															   heightForRow: controller.heightForRow(),
+															   numberOfMenuItems: controller.menuItems.count)
+			if newIndex != internalSelectedIndex {
+				delegate?.didUpdateSelectionIndex(newIndex)
+			}
+			internalSelectedIndex = newIndex
+		}
+		if state == .ended {
+			delegate?.didSelectItem(at: internalSelectedIndex)
+			delegate?.hideMenu()
+		}
+		if state == .failed { CariocaMenu.log("Failed Gesture") }
+		if state == .possible { CariocaMenu.log("Possible Gesture") }
+		if state == .cancelled { CariocaMenu.log("cancelled Gesture") }
+	}
 
     // swiftlint:disable function_parameter_count
     ///Calculates the y top constraint, to move the menu
@@ -121,7 +127,6 @@ class CariocaGestureManager {
                               selectedIndex: Int,
                               yRange: ClosedRange<CGFloat>,
                               isOffscreenAllowed: Bool) -> CGFloat {
-
         var yPosition = originalScreeenEdgePanY
             - (heightForRow * CGFloat(selectedIndex))
             - (heightForRow / 2.0)

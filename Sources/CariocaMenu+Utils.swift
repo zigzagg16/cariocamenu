@@ -49,5 +49,6 @@ extension UIView {
 extension Selector {
 	///Gesture for panning from any screen edge
 	static let pannedFromScreenEdge = #selector(CariocaGestureManager.panGestureEvent(_:))
+	///Gesture when the user taps the indicator view to display the menu
 	static let tappedIndicatorView = #selector(CariocaMenu.tappedIndicatorView(_:))
 }
