@@ -49,7 +49,7 @@ extension CariocaIndicatorConfiguration {
 	///Default border margin
 	var borderMargin: CGFloat { return 5.0 }
 	///Default color
-	var color: UIColor { return UIColor(red: 0.07, green: 0.73, blue: 0.86, alpha: 1) }
+	var color: UIColor { return UIColor(red: 0.23, green: 0.60, blue: 0.85, alpha: 1.00) }
 	///Default bouncing values
 	var bouncingValues: BouncingValues { return (from: 15.0, to: 5.0) }
 	///Default font
