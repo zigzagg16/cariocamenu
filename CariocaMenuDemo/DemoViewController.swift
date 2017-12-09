@@ -54,6 +54,7 @@ class CariocaCustomIndicatorView: UIView, CariocaIndicatorConfiguration {
 	public var borderMargin: CGFloat = 5.0
 	public var color: UIColor = UIColor(red: 0.07, green: 0.73, blue: 0.86, alpha: 1)
 	public var bouncingValues: BouncingValues = (from: 15.0, to: 5.0)
+	public var font: UIFont = UIFont.boldSystemFont(ofSize: 20.0)
 	public func shape(for edge: UIRectEdge, frame: CGRect) -> UIBezierPath {
 		//This shape was drawed with PaintCode App
 		let ovalPath = UIBezierPath()

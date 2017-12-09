@@ -26,6 +26,8 @@ struct IndicatorPositionConstants {
 public protocol CariocaIndicatorConfiguration {
 	///The shape's color
 	var color: UIColor { get }
+	///The font used to display emojis/string
+	var font: UIFont { get }
 	///The shape's size
 	var size: CGSize { get }
 	///The margin to the screen
@@ -79,6 +81,7 @@ public class CariocaIndicatorView: UIView {
 		self.addSubview(iconView)
 		iconConstraints = iconView.makeAnchorConstraints(to: self)
 		self.addConstraints(iconConstraints)
+		iconView.font = config.font
 	}
 
 	///Calculates the indicator's position for animation
