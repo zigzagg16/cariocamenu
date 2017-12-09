@@ -24,6 +24,12 @@ public class CariocaIconView: UIView {
 	var label = UILabel()
 	///The imageView, to display icons
 	var imageView = UIImageView()
+	///The label's font
+	var font: UIFont = UIFont.boldSystemFont(ofSize: 16.0) {
+		didSet {
+			label.font = font
+		}
+	}
 
 	///Initialises view
 	///- Parameter frame: The view's frame
@@ -46,6 +52,7 @@ public class CariocaIconView: UIView {
 		addConstraints(label.makeAnchorConstraints(to: self))
 		addSubview(imageView)
 		addConstraints(imageView.makeAnchorConstraints(to: self))
+		label.font = font
 		label.textAlignment = .center
 		imageView.contentMode = .scaleAspectFit
 	}
