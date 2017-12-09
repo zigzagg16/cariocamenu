@@ -209,6 +209,8 @@ public class CariocaIndicatorView: UIView {
 		let mainConstraint = edge == .left ? leadingConstraint : trailingConstraint
 		let secondConstraint = edge == .left ? trailingConstraint : leadingConstraint
 		constraintPriorities(main: mainConstraint, second: secondConstraint)
+		mainConstraint.isActive = true
+		secondConstraint.isActive = true
 		mainConstraint.constant = positions.startBounce.from
 		superview?.layoutIfNeeded()
 		if isTraversingView {
@@ -239,6 +241,8 @@ public class CariocaIndicatorView: UIView {
 		let mainConstraint = edge == .left ? leadingConstraint : trailingConstraint
 		let secondConstraint = edge == .left ? trailingConstraint : leadingConstraint
 		constraintPriorities(main: mainConstraint, second: secondConstraint)
+		mainConstraint.isActive = true
+		secondConstraint.isActive = false
 		animate(mainConstraint,
 				positionOne: positions.startBounce.from,
 				timingOne: 0.4,
