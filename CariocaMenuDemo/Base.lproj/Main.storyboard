@@ -8,6 +8,11 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="HelveticaNeue.ttc">
+            <string>HelveticaNeue-Bold</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Demo View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -67,9 +72,9 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Menu item" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4kj-qP-ABx">
-                                            <rect key="frame" x="60" y="0.0" width="255" height="43.5"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <rect key="frame" x="64" y="0.0" width="247" height="43.5"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sah-ne-E1N" customClass="CariocaIconView" customModule="CariocaMenuDemo" customModuleProvider="target">
@@ -84,10 +89,10 @@
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstItem="4kj-qP-ABx" firstAttribute="top" secondItem="444-wH-1aq" secondAttribute="top" id="5G3-OL-gDJ"/>
-                                        <constraint firstAttribute="trailing" secondItem="4kj-qP-ABx" secondAttribute="trailing" constant="60" id="Jr2-Tz-CPd"/>
+                                        <constraint firstAttribute="trailing" secondItem="4kj-qP-ABx" secondAttribute="trailing" constant="64" id="Jr2-Tz-CPd"/>
                                         <constraint firstAttribute="trailing" secondItem="sah-ne-E1N" secondAttribute="trailing" priority="50" constant="20" id="N3t-zJ-JOV"/>
                                         <constraint firstItem="sah-ne-E1N" firstAttribute="centerY" secondItem="444-wH-1aq" secondAttribute="centerY" id="ZLP-ci-J0d"/>
-                                        <constraint firstItem="4kj-qP-ABx" firstAttribute="leading" relation="lessThanOrEqual" secondItem="444-wH-1aq" secondAttribute="leading" constant="60" id="bVu-gg-nYc"/>
+                                        <constraint firstItem="4kj-qP-ABx" firstAttribute="leading" relation="lessThanOrEqual" secondItem="444-wH-1aq" secondAttribute="leading" constant="64" id="bVu-gg-nYc"/>
                                         <constraint firstItem="sah-ne-E1N" firstAttribute="leading" secondItem="444-wH-1aq" secondAttribute="leading" priority="100" constant="20" id="ix0-hf-Kwu"/>
                                         <constraint firstAttribute="bottom" secondItem="4kj-qP-ABx" secondAttribute="bottom" id="lKp-4l-cIo"/>
                                     </constraints>

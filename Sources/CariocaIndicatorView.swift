@@ -72,8 +72,7 @@ extension CariocaIndicatorConfiguration {
 			ovalPath.addCurve(to: CGPoint(x: frame.maxX, y: frame.minY + 0.5 * frame.height),
 							  controlPoint1: CGPoint(x: frame.maxX - 9, y: frame.maxY),
 							  controlPoint2: CGPoint(x: frame.maxX, y: frame.minY + 0.78 * frame.height))
-		} else {
-			//right
+		} else { //right
 			ovalPath.move(to: CGPoint(x: frame.minX, y: frame.minY + 0.5 * frame.height))
 			ovalPath.addCurve(to: CGPoint(x: frame.minX + 20, y: frame.minY),
 							  controlPoint1: CGPoint(x: frame.minX, y: frame.minY + 0.22 * frame.height),

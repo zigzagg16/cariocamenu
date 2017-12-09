@@ -54,6 +54,7 @@ public class CariocaIconView: UIView {
 		addConstraints(imageView.makeAnchorConstraints(to: self))
 		label.font = font
 		label.textAlignment = .center
+		label.textColor = .white
 		imageView.contentMode = .scaleAspectFit
 	}
 
