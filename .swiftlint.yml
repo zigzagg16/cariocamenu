@@ -1,3 +1,4 @@
 disabled_rules:
   - todo
   - vertical_parameter_alignment
+  - large_tuple

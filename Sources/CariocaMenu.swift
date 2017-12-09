@@ -36,11 +36,13 @@ public class CariocaMenu: NSObject, CariocaGestureManagerDelegate, UITableViewDe
     ///- Parameter edges: The supported edges
     ///- Parameter delegate: The menu's event delegate
 	///- Parameter selectedIndex: The menu's default selected index
+	///- Parameter indicator: The custom indicator view
     init(controller: CariocaController,
          hostView: UIView,
          edges: [UIRectEdge],
          delegate: CariocaDelegate,
-		 selectedIndex: Int = 0) {
+		 selectedIndex: Int = 0,
+		 indicator: CariocaIndicator) {
         self.controller = controller
         self.hostView = hostView
         self.edges = edges
@@ -53,7 +55,7 @@ public class CariocaMenu: NSObject, CariocaGestureManagerDelegate, UITableViewDe
 													selectedIndex: selectedIndex)
         self.delegate = delegate
 		self.selectedIndex = selectedIndex
-		self.indicator = CariocaIndicatorView(edge: edges.first!)
+		self.indicator = CariocaIndicatorView(edge: edges.first!, indicator: indicator)
 		super.init()
         self.gestureManager.delegate = self
 		self.controller.tableView.dataSource = self
