@@ -72,17 +72,23 @@ class CariocaGestureManager {
 	///- Parameter yLocation: The gesture's location
 	///- Parameter edge: The edge where the gesture started
 	///- Parameter state: The gesture state
-	func panned(yLocation: CGFloat, edge: UIRectEdge, state: UIGestureRecognizerState) {
+	///- Parameter state: The gesture state
+	///- Parameter fromGesture: When called from rotation event, some method calls are optionl. Default: true
+	func panned(yLocation: CGFloat, edge: UIRectEdge, state: UIGestureRecognizerState, fromGesture: Bool = true) {
 		let frameHeight = hostView.frame.height
 		let yRange: ClosedRange<CGFloat> = 20.0...frameHeight - container.menuHeight
 		if state == .began {
 			openingEdge = edge
-			delegate?.willOpenFromEdge(edge: edge)
+			if fromGesture {
+				delegate?.willOpenFromEdge(edge: edge)
+			}
 			delegate?.didUpdateSelectionIndex(internalSelectedIndex)
 			originalScreeenEdgePanY = yLocation
+			if fromGesture {
+				delegate?.showMenu()
+			}
 		}
 		if state == .changed {
-			delegate?.showMenu()
 			let topY = CariocaGestureManager.topYConstraint(yLocation: yLocation,
 															originalScreeenEdgePanY: originalScreeenEdgePanY,
 															menuHeight: container.menuHeight,

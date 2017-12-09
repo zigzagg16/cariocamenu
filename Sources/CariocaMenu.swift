@@ -78,6 +78,19 @@ public class CariocaMenu: NSObject, CariocaGestureManagerDelegate, UITableViewDe
 		indicator.addGestureRecognizer(tapGesture)
 	}
 
+	///Called from the hostview, if a rotation has been detected.
+	///Moves the indicator at 50% of the hostView.
+	func hostViewDidRotate() {
+		let yScreenMiddle = hostView.frame.height / 2.0
+		gestureManager.panned(yLocation: yScreenMiddle,
+							  edge: gestureManager.openingEdge,
+							  state: .began,
+							  fromGesture: false)
+		gestureManager.panned(yLocation: yScreenMiddle,
+							  edge: gestureManager.openingEdge,
+							  state: .changed)
+	}
+
 	///Tap gesture event received. Forwards parameters to GestureManager, to simulate a Pan gesture.
 	///- Parameter gesture: UITapGestureRecognizer
 	@objc func tappedIndicatorView(_ gesture: UITapGestureRecognizer) {
@@ -91,15 +104,11 @@ public class CariocaMenu: NSObject, CariocaGestureManagerDelegate, UITableViewDe
     ///Menu will open. Forwards call to openFromEdge
     ///- Parameter edge: The opening edge of the menu
     func willOpenFromEdge(edge: UIRectEdge) {
-		openFromEdge(edge: edge)
-    }
-	///Open the menu from an edge
-	///- Parameter edge: The opening edge of the menu
-	private func openFromEdge(edge: UIRectEdge) {
 		controller.tableView.reloadData()
 		delegate?.cariocamenu(self, willOpenFromEdge: edge)
 		indicator.show(edge: edge, hostView: hostView, isTraversingView: true)
 	}
+
 	///Hide the menu
     func showMenu() {
         container.isHidden = false

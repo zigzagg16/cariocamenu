@@ -37,6 +37,12 @@ class DemoViewController: UIViewController {
 			carioca?.addInHostView()
         }
     }
+	// MARK: Rotation management
+	override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+		coordinator.animateAlongsideTransition(in: self.view, animation: nil, completion: { [weak self] _ in
+			self?.carioca?.hostViewDidRotate()
+		})
+	}
 }
 
 extension DemoViewController: CariocaDelegate {
