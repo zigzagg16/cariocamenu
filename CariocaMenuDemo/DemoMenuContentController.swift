@@ -2,7 +2,7 @@ import UIKit
 
 class DemoMenuContentController: UITableViewController, CariocaDataSource {
 
-	var indicatorPosition: Double = 50.0
+	var indicatorPosition: CGFloat = 50.0
 
 	var isOffscreenAllowed: Bool = true
 

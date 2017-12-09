@@ -58,7 +58,6 @@ public class CariocaMenu: NSObject, CariocaGestureManagerDelegate, UITableViewDe
         self.gestureManager.delegate = self
 		self.controller.tableView.dataSource = self
 		self.controller.tableView.delegate = self
-		self.controller.tableView.frame = CGRect(x: 0, y: 0, width: 375, height: 500)
         self.hideMenu()
     }
 
@@ -69,7 +68,7 @@ public class CariocaMenu: NSObject, CariocaGestureManagerDelegate, UITableViewDe
 			container.addBlurView(style: blurStyle)
 		}
         hostView.addConstraints(container.makeAnchorConstraints(to: hostView))
-		indicator.addIn(hostView, tableView: controller.tableView)
+		indicator.addIn(hostView, tableView: controller.tableView, position: controller.indicatorPosition)
 		indicator.iconView.display(icon: controller.menuItems.first!.icon)
 		indicator.show(edge: edges.first!, hostView: hostView, isTraversingView: false)
 		let tapGesture = UITapGestureRecognizer(target: self, action: .tappedIndicatorView)
