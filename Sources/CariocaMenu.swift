@@ -115,13 +115,22 @@ public class CariocaMenu: NSObject, CariocaGestureManagerDelegate, UITableViewDe
 		indicator.moveTo(index: index, heightForRow: controller.heightForRow())
 		let item = controller.menuItems[index]
 		indicator.iconView.display(icon: item.icon)
+		selectionFeedback()
     }
+	///Haptick feedback, if the device supports. Min iOS 10.0
+	internal func selectionFeedback() {
+		if #available(iOS 10.0, *) {
+			let selectionFeedback = UISelectionFeedbackGenerator()
+			selectionFeedback.selectionChanged()
+		}
+	}
 	///The user did select a menu item
 	///- Parameter index: The selected index
     func didSelectItem(at index: Int) {
 		indicator.restore(hostView: hostView)
 		selectedIndex = index
         delegate?.cariocamenu(self, didSelect: controller.menuItems[index], at: index)
+		selectionFeedback()
     }
 
 	// MARK: UITableView datasource/delegate

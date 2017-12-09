@@ -2,7 +2,7 @@ import UIKit
 
 class DemoMenuContentController: UITableViewController, CariocaDataSource {
 
-	var indicatorPosition: CGFloat = 50.0
+	var indicatorPosition: CGFloat = 35.0
 
 	var isOffscreenAllowed: Bool = true
 
@@ -19,9 +19,9 @@ class DemoMenuContentController: UITableViewController, CariocaDataSource {
 		let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! MenuItemCell
 		//swiftlint:enable force_cast
 		cell.titleLabel.text = menuItem.title
-		cell.titleLabel.textAlignment = (edge == .left) ? .right : .left
-		cell.iconLeftConstraint?.priority = (edge == .left) ? UILayoutPriority(50.0) : UILayoutPriority(100.0)
-		cell.iconRightConstraint?.priority = (edge == .right) ? UILayoutPriority(50.0) : UILayoutPriority(100.0)
+		cell.titleLabel.textAlignment = edge == .left ? .right : .left
+		cell.iconLeftConstraint?.priority = edge == .left ? UILayoutPriority(50.0) : UILayoutPriority(100.0)
+		cell.iconRightConstraint?.priority = edge == .right ? UILayoutPriority(50.0) : UILayoutPriority(100.0)
 		cell.iconView.display(icon: menuItem.icon)
 		return cell
 	}
