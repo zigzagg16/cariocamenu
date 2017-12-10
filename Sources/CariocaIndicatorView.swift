@@ -132,8 +132,8 @@ public class CariocaIndicatorView: UIView {
 	}
 
 	///Calculates the indicator's position for animation
-	///- Parameter hostSize: The hostView's size
-	///- Parameter indicatorSize: The indicator's size
+	///- Parameter hostWidth: The hostView's width
+	///- Parameter indicatorWidth: The indicator's size
 	///- Parameter edge: The original edge
 	///- Parameter borderMargin: The border magins
 	///- Parameter bouncingValues: The values to make the bouncing effect in animations
@@ -246,6 +246,23 @@ public class CariocaIndicatorView: UIView {
 		setNeedsLayout()
 	}
 
+	///The main constraint, with the highest priority. Depends on the current edge.
+	private var mainConstraint: NSLayoutConstraint {
+		return edge == .left ? leadingConstraint : trailingConstraint
+	}
+	///The second constraint, with the lowest priority. Depends on the current edge.
+	private var secondConstraint: NSLayoutConstraint {
+		return edge == .left ? trailingConstraint : leadingConstraint
+	}
+	///Calls the positionConstants() with all internal parameters
+	///- Returns: IndicatorPositionConstants All the possible calculated positions
+	private func positionValues(_ hostView: UIView) -> IndicatorPositionConstants {
+		return positionConstants(hostWidth: hostView.frame.width,
+								 indicatorWidth: frame.width,
+								 edge: edge,
+								 borderMargin: config.borderMargin,
+								 bouncingValues: config.bouncingValues)
+	}
 	///Show the indicator on a specific edge, by animating the horizontal position
 	///- Parameter edge: The screen edge
 	///- Parameter hostView: The menu's hostView, to calculate the positions
@@ -253,13 +270,7 @@ public class CariocaIndicatorView: UIView {
 	func show(edge: UIRectEdge, hostView: UIView, isTraversingView: Bool) {
 		self.edge = edge
 		self.setNeedsDisplay()
-		let positions = positionConstants(hostWidth: hostView.frame.width,
-										  indicatorWidth: frame.width,
-										  edge: edge,
-										  borderMargin: config.borderMargin,
-										  bouncingValues: config.bouncingValues)
-		let mainConstraint = edge == .left ? leadingConstraint : trailingConstraint
-		let secondConstraint = edge == .left ? trailingConstraint : leadingConstraint
+		let positions = positionValues(hostView)
 		constraintPriorities(main: mainConstraint, second: secondConstraint)
 		mainConstraint.isActive = true
 		secondConstraint.isActive = true
@@ -277,21 +288,15 @@ public class CariocaIndicatorView: UIView {
 				positionTwo: animationValueTwo,
 				finished: {
 					if isTraversingView {
-						self.constraintPriorities(main: secondConstraint, second: mainConstraint)
+						self.constraintPriorities(main: self.secondConstraint,
+												  second: self.mainConstraint)
 					}
 		})
 	}
-
 	///Retore the indicator on it's original edge position
 	///- Parameter hostView: The menu's hostView, to calculate the positions
 	func restore(hostView: UIView) {
-		let positions = positionConstants(hostWidth: hostView.frame.width,
-										  indicatorWidth: frame.width,
-										  edge: edge,
-										  borderMargin: config.borderMargin,
-										  bouncingValues: config.bouncingValues)
-		let mainConstraint = edge == .left ? leadingConstraint : trailingConstraint
-		let secondConstraint = edge == .left ? trailingConstraint : leadingConstraint
+		let positions = positionValues(hostView)
 		constraintPriorities(main: mainConstraint, second: secondConstraint)
 		mainConstraint.isActive = true
 		secondConstraint.isActive = false
