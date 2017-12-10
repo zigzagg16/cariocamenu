@@ -33,6 +33,7 @@ class CariocaIndicatorViewTests: XCTestCase {
 		XCTAssertEqual(positions.startBounce.to, 0.0)
 		XCTAssertEqual(positions.end.from, 265.0)
 		XCTAssertEqual(positions.end.to, 245.0)
+		XCTAssertEqual(positions.secondConstant, -5.0)
     }
 
 	func testPositionsCalculationRight() {
@@ -48,6 +49,7 @@ class CariocaIndicatorViewTests: XCTestCase {
 		XCTAssertEqual(positions.startBounce.to, 0.0)
 		XCTAssertEqual(positions.end.from, -265.0)
 		XCTAssertEqual(positions.end.to, -245.0)
+		XCTAssertEqual(positions.secondConstant, 5.0)
 	}
 
 	func testPositionsCalculationiPhoneX() {
@@ -63,9 +65,15 @@ class CariocaIndicatorViewTests: XCTestCase {
 		XCTAssertEqual(left.start, 39.0)
 		XCTAssertEqual(left.startBounce.from, 68.0)
 		XCTAssertEqual(left.startBounce.to, 44.0)
+		XCTAssertEqual(left.end.from, 309.0)
+		XCTAssertEqual(left.end.to, 201.0)
+		XCTAssertEqual(left.secondConstant, -49.0)
 		XCTAssertEqual(right.start, -39.0)
 		XCTAssertEqual(right.startBounce.from, 20.0)
 		XCTAssertEqual(right.startBounce.to, -44.0)
+		XCTAssertEqual(right.end.from, -309.0)
+		XCTAssertEqual(right.end.to, -201.0)
+		XCTAssertEqual(right.secondConstant, 49.0)
 	}
 
 	private func calculatePositions() -> IndicatorPositionConstants {
