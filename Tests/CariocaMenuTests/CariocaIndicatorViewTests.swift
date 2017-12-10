@@ -17,32 +17,49 @@ class CariocaIndicatorViewTests: XCTestCase {
 	var edge: UIRectEdge = .left
 	var borderMargin: CGFloat = 5.0
 	var bouncingValues: BouncingValues = (from: 15.0, to: 5.0)
-	var startInset: CGFloat = 44.0
-	var endInset: CGFloat = 44.0
+	var startInset: CGFloat = 0.0
+	var endInset: CGFloat = 0.0
 
     func testPositionsCalculationLeft() {
         //Given
-		//All initial variable values
+		startInset = 0.0
+		endInset = 0.0
+		edge = .left
 		//When
 		let positions = calculatePositions()
         //Then
-//		print(positions.start)
-		print(positions)
-//        XCTAssertEqual(yPosition1, CGFloat(554.00), accuracy: 0.001)
+		XCTAssertEqual(positions.start, -5.0)
+		XCTAssertEqual(positions.startBounce.from, -20.0)
+		XCTAssertEqual(positions.startBounce.to, 0.0)
+		XCTAssertEqual(positions.end.from, 265.0)
+		XCTAssertEqual(positions.end.to, 245.0)
     }
 
 	func testPositionsCalculationRight() {
 		//Given
+		startInset = 0.0
+		endInset = 0.0
+		edge = .right
 		//When
 		let positions = calculatePositions()
 		//Then
+		XCTAssertEqual(positions.start, 5.0)
+		XCTAssertEqual(positions.startBounce.from, 20.0)
+		XCTAssertEqual(positions.startBounce.to, 0.0)
+		XCTAssertEqual(positions.end.from, -265.0)
+		XCTAssertEqual(positions.end.to, -245.0)
 	}
 
 	func testPositionsCalculationiPhoneXLeft() {
 		//Given
+		startInset = 44.0
+		endInset = 44.0
+		edge = .left
 		//When
 		let positions = calculatePositions()
 		//Then
+		print("💪🏼 iPhone X")
+		print(positions)
 	}
 
 	private func calculatePositions() -> IndicatorPositionConstants {
