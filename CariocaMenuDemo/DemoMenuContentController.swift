@@ -5,6 +5,7 @@ class DemoMenuContentController: UITableViewController, CariocaDataSource {
 	var indicatorPosition: CGFloat = 50.0
 	var isOffscreenAllowed: Bool = true
 	var blurStyle: UIBlurEffectStyle? = .dark
+	var boomerang: BoomerangType = .vertical
 	var menuItems: [CariocaMenuItem] = []
 	func heightForRow() -> CGFloat { return 60.0 }
 

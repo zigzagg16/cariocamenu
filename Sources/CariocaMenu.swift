@@ -19,8 +19,6 @@ public class CariocaMenu: NSObject, CariocaGestureManagerDelegate, UITableViewDe
     ///The container view. Created programatically,
     ///it takes the same dimensions as the host view
     let container: CariocaMenuContainerView
-    ///Boomerang type. Default : .none
-    var boomerang: BoomerangType = .none
     ///Gestures manager
     let gestureManager: CariocaGestureManager
     ///The selected index of the menu. Default: 0

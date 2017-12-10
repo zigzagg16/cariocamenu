@@ -26,9 +26,11 @@ public protocol CariocaDataSource {
 	var blurStyle: UIBlurEffectStyle? { get }
 	///Can the menu go offscreen with user's gesture ? (true)
 	///Or should it always stay fully visible ? (false)
-	var isOffscreenAllowed: Bool { get set }
+	var isOffscreenAllowed: Bool { get }
 	///The indicator's initial position, in %. Top : 0%, Center: 50%, Bottom: 100%.
-	var indicatorPosition: CGFloat { get set }
+	var indicatorPosition: CGFloat { get }
+	///The indicator's Boomerang type.
+	var boomerang: BoomerangType { get }
 }
 
 ///The menu's events delegate
