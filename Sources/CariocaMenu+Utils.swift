@@ -45,6 +45,22 @@ extension UIView {
 	}
 }
 
+extension UIView {
+	///Safe way to get the insets of the view, depending on iOS version.
+	///On iOS 11.0 and higher, returns the safeAreaInsets
+	///
+	///For < iOS 11.0, returns insets of StatusBar's height, 0, 0, 0
+	///- Returns: UIEdgeInsets: The view's insets
+	func insets() -> UIEdgeInsets {
+		if #available(iOS 11.0, *) {
+			return safeAreaInsets
+		} else {
+			return UIEdgeInsets(top: UIApplication.shared.statusBarFrame.size.height,
+								left: 0, bottom: 0, right: 0)
+		}
+	}
+}
+
 ///Selector shortcuts, used for gestures
 extension Selector {
 	///Gesture for panning from any screen edge
