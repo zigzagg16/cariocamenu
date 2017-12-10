@@ -89,6 +89,7 @@ public class CariocaMenu: NSObject, CariocaGestureManagerDelegate, UITableViewDe
 		gestureManager.panned(yLocation: yScreenMiddle,
 							  edge: gestureManager.openingEdge,
 							  state: .changed)
+		indicator.repositionXAfterRotation(hostView)
 	}
 
 	///Tap gesture event received. Forwards parameters to GestureManager, to simulate a Pan gesture.

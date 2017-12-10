@@ -177,6 +177,8 @@ public class CariocaIndicatorView: UIView {
 		ovalPath.fill()
 	}
 
+	///Applies the margins to the iconView
+	///- Parameter margins: Tuple of margins in CSS Style (Top, Right, Bottom, left)
 	private func applyMarginConstraints(margins: (top: CGFloat, right: CGFloat, bottom: CGFloat, left: CGFloat)) {
 		iconConstraints[0].constant = margins.top
 		iconConstraints[1].constant = margins.right
@@ -206,6 +208,15 @@ public class CariocaIndicatorView: UIView {
 													  bouncingValues: config.bouncingValues,
 													  startInset: insets.start,
 													  endInset: insets.end)
+	}
+
+	///When the hostView has rotated, re-apply the constraints.
+	///This should have an effect only on iPhone X, because of the view edges.
+	///- Parameter hostView: The menu's hostView
+	func repositionXAfterRotation(_ hostView: UIView) {
+		let positions = positionValues(hostView)
+		mainConstraint.constant = positions.start
+		secondConstraint.constant = positions.secondConstant
 	}
 
 	///Calculates inset values, depending on orientation.
