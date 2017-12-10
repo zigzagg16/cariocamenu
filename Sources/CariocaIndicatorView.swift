@@ -263,17 +263,36 @@ public class CariocaIndicatorView: UIView {
 	///Calls the positionConstants() with all internal parameters
 	///- Returns: IndicatorPositionConstants All the possible calculated positions
 	private func positionValues(_ hostView: UIView) -> IndicatorPositionConstants {
-		let insets = hostView.insets()
-		let startInset = edge == .left ? insets.left : insets.right
-		let endInset = edge == .left ? insets.right : insets.left
+		let insets = insetsValues(hostView.insets(),
+								  orientation: UIDevice.current.orientation,
+								  edge: edge)
 		return CariocaIndicatorView.positionConstants(hostWidth: hostView.frame.width,
 													  indicatorWidth: frame.width,
 													  edge: edge,
 													  borderMargin: config.borderMargin,
 													  bouncingValues: config.bouncingValues,
-													  startInset: startInset,
-													  endInset: endInset)
+													  startInset: insets.start,
+													  endInset: insets.end)
 	}
+
+	///Calculates inset values, depending on orientation.
+	///The goal is to only have the inset on the indicator when the edge of the indicator is on the side of the notch.
+	///- Parameter insets: The original insets
+	///- Parameter orientation: The screen orientation
+	///- Parameter edge: The screen edge
+	///- Returns: Start end End insets for the indicator.
+	func insetsValues(_ insets: UIEdgeInsets,
+					  orientation: UIDeviceOrientation,
+					  edge: UIRectEdge) -> (start: CGFloat, end: CGFloat) {
+		var startInset = edge == .left ? insets.left : insets.right
+		let endInset = edge == .left ? insets.right : insets.left
+		if (orientation == .landscapeLeft && edge == .right) ||  //The notch is on the left side
+			(orientation == .landscapeRight && edge == .left) { //The notch is on the right side
+			startInset = 0.0
+		}
+		return (start: startInset, end: endInset)
+	}
+
 	///Show the indicator on a specific edge, by animating the horizontal position
 	///- Parameter edge: The screen edge
 	///- Parameter hostView: The menu's hostView, to calculate the positions
