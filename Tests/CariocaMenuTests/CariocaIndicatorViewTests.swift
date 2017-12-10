@@ -60,8 +60,12 @@ class CariocaIndicatorViewTests: XCTestCase {
 		edge = .right
 		let right = calculatePositions()
 		//Then
-		XCTAssertEqual(left.start, -49.0)
+		XCTAssertEqual(left.start, 39.0)
+		XCTAssertEqual(left.startBounce.from, 68.0)
+		XCTAssertEqual(left.startBounce.to, 44.0)
 		XCTAssertEqual(right.start, -39.0)
+		XCTAssertEqual(right.startBounce.from, 20.0)
+		XCTAssertEqual(right.startBounce.to, -44.0)
 	}
 
 	private func calculatePositions() -> IndicatorPositionConstants {

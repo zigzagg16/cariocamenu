@@ -2,7 +2,7 @@ import UIKit
 
 class DemoMenuContentController: UITableViewController, CariocaDataSource {
 	// MARK: Configuration properties
-	var indicatorPosition: CGFloat = 35.0
+	var indicatorPosition: CGFloat = 15.0
 	var isOffscreenAllowed: Bool = true
 	var blurStyle: UIBlurEffectStyle? = .dark
 	var menuItems: [CariocaMenuItem] = []
