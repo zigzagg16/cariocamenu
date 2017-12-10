@@ -35,7 +35,7 @@ public protocol CariocaDataSource {
 
 ///The menu's events delegate
 public protocol CariocaDelegate: class {
-    ///The user selected a menu item
+    ///The user selected a menu item. The menu will close and hide.
     ///- Parameter menu: The menu instance
 	///- Parameter item: The selected menu item
     ///- Parameter index: The index of the selected item

@@ -103,11 +103,10 @@ public class CariocaMenu: NSObject, CariocaGestureManagerDelegate, UITableViewDe
     ///Menu will open. Forwards call to openFromEdge
     ///- Parameter edge: The opening edge of the menu
     func willOpenFromEdge(edge: UIRectEdge) {
-		controller.tableView.reloadData()
 		delegate?.cariocamenu(self, willOpenFromEdge: edge)
+		controller.tableView.reloadData()
 		indicator.show(edge: edge, hostView: hostView, isTraversingView: true)
 	}
-
 	///Hide the menu
     func showMenu() {
         container.isHidden = false

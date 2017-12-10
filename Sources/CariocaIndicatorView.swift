@@ -23,6 +23,8 @@ struct IndicatorPositionConstants {
 	///The value of the secondary constraint's constant, when the indicator is showed.
 	///The secondary constant will be prioritary only when the menu is opened.
 	let secondConstant: CGFloat
+	///The value to hide the menu, when restoring the boomerang.
+	let hidingConstant: CGFloat
 }
 
 ///The menu's indicator
@@ -91,9 +93,12 @@ public class CariocaIndicatorView: UIView {
 		let endBounce: BouncingValues = (from: endBounceFrom, to: endBounceTo)
 		///Second constant value calculation
 		let secondConstant: CGFloat = (endInset + borderMargin) * inverseMultiplier
+		///Hiding constant
+		let hidingConstant = (indicatorWidth * 2.0) * multiplier
 		return IndicatorPositionConstants(start: start, startBounce: startBounce,
 										  end: endBounce,
-										  secondConstant: secondConstant)
+										  secondConstant: secondConstant,
+										  hidingConstant: hidingConstant)
 	}
 	//swiftlint:enable function_parameter_count
 
