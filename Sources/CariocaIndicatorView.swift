@@ -137,12 +137,17 @@ public class CariocaIndicatorView: UIView {
 	///- Parameter edge: The original edge
 	///- Parameter borderMargin: The border magins
 	///- Parameter bouncingValues: The values to make the bouncing effect in animations
+	///- Parameter startInset: The view's starting inset, if applies (iPhone X safe area)
+	///- Parameter endInset: The view's starting inset, if applies (iPhone X safe area)
 	///- Returns: IndicatorPositionConstants All the possible calculated positions
-	private func positionConstants(hostWidth: CGFloat,
-								   indicatorWidth: CGFloat,
-								   edge: UIRectEdge,
-								   borderMargin: CGFloat,
-								   bouncingValues: BouncingValues) -> IndicatorPositionConstants {
+	//swiftlint:disable function_parameter_count
+	class func positionConstants(hostWidth: CGFloat,
+								 indicatorWidth: CGFloat,
+								 edge: UIRectEdge,
+								 borderMargin: CGFloat,
+								 bouncingValues: BouncingValues,
+								 startInset: CGFloat,
+								 endInset: CGFloat) -> IndicatorPositionConstants {
 		let multiplier: CGFloat = edge == .left ? 1.0 : -1.0
 		let inverseMultiplier: CGFloat = multiplier * -1.0
 		//Start positions
@@ -157,6 +162,7 @@ public class CariocaIndicatorView: UIView {
 
 		return IndicatorPositionConstants(start: start, startBounce: startBounce, end: endBounce)
 	}
+	//swiftlint:enable function_parameter_count
 
 	///Adds the indicator in the hostView
 	///- Parameter hostView: the menu's hostView
@@ -257,11 +263,16 @@ public class CariocaIndicatorView: UIView {
 	///Calls the positionConstants() with all internal parameters
 	///- Returns: IndicatorPositionConstants All the possible calculated positions
 	private func positionValues(_ hostView: UIView) -> IndicatorPositionConstants {
-		return positionConstants(hostWidth: hostView.frame.width,
-								 indicatorWidth: frame.width,
-								 edge: edge,
-								 borderMargin: config.borderMargin,
-								 bouncingValues: config.bouncingValues)
+		let insets = hostView.insets()
+		let startInset = edge == .left ? insets.left : insets.right
+		let endInset = edge == .left ? insets.right : insets.left
+		return CariocaIndicatorView.positionConstants(hostWidth: hostView.frame.width,
+													  indicatorWidth: frame.width,
+													  edge: edge,
+													  borderMargin: config.borderMargin,
+													  bouncingValues: config.bouncingValues,
+													  startInset: startInset,
+													  endInset: endInset)
 	}
 	///Show the indicator on a specific edge, by animating the horizontal position
 	///- Parameter edge: The screen edge
