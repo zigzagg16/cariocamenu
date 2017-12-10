@@ -68,3 +68,11 @@ extension Selector {
 	///Gesture when the user taps the indicator view to display the menu
 	static let tappedIndicatorView = #selector(CariocaMenu.tappedIndicatorView(_:))
 }
+
+extension UIRectEdge {
+	///Returns the left/right opposite. If other, returns the same value.
+	func opposite() -> UIRectEdge {
+		guard self == .left || self == .right else { return self }
+		return self == .left ? .right : .left
+	}
+}

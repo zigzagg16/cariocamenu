@@ -15,5 +15,5 @@ public enum BoomerangType: Int {
     ///The indicators will always come back at the same Y value. They may switch from Edge if the user wants.
     case vertical = 1
     ///The indicators will always come back at the exact same place
-    case verticalAndHorizontal = 2
+    case verticalHorizontal = 2
 }

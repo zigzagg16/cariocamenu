@@ -137,15 +137,6 @@ public class CariocaIndicatorView: UIView {
 												  height: frame.height)
 	}
 
-	///Moves the indicator after rotation, at 50%, to be centered
-	///- Parameter hostView: the menu's hostView
-	///- Parameter position: the indicator initial position in %
-	func moveAfterRotation(_ hostView: UIView, position: CGFloat) {
-		topConstraint.constant = verticalConstant(for: position,
-												  hostHeight: hostView.frame.height,
-												  height: frame.height)
-	}
-
 	///Calculates the Y constraint based on percentage.
 	///A margin of 50% of the indicator view is applied for security.
 	///- Parameter percentage: The desired position percentage
@@ -281,42 +272,46 @@ public class CariocaIndicatorView: UIView {
 	///- Parameter hostView: The menu's hostView, to calculate the positions
 	///- Parameter boomerang: The boomerang type to restore the indicator
 	///- Parameter initialPosition: The indicator initial position
+	///- Parameter firstStepDuration: Should equal the time to hide the menu. First animation is 70%, second 30%.
+	///In boomerang mode, first animation is 125% of that value.
 	///- Parameter firstStepDone: Called when the first animation is complete, with or without boomerang.
 	func restore(hostView: UIView,
 				 boomerang: BoomerangType,
 				 initialPosition: CGFloat,
-				 firstStepDone: @escaping () -> Void) {
-		let hasBoomerang = boomerang == .vertical || boomerang == .verticalAndHorizontal
+				 firstStepDuration: Double,
+				 firstStepDone: @escaping (_ boomerang: Bool) -> Void) {
+		let hasBoomerang = boomerang == .vertical || boomerang == .verticalHorizontal
 		let positions = positionValues(hostView)
-		var positionOne: CGFloat
-		var positionTwo: CGFloat
-		var mustSwitchEdge = false //Will the indicator switch of edge ?
+		var positionOne: CGFloat, mustSwitchEdge = false //Will the indicator switch of edge ?
+		var timingAnim1: Double = firstStepDuration * 0.7, timingAnim2: Double = firstStepDuration * 0.3
 		if hasBoomerang { //Boomerang logic
 			//the indicator must go out of the view
 			constraintPriorities(main: secondConstraint, second: mainConstraint)
 			mainConstraint.isActive = false
 			secondConstraint.isActive = true
 			positionOne = positions.hidingConstant
-			positionTwo = positions.hidingConstant
-			mustSwitchEdge = self.originalEdge != self.edge
+			mustSwitchEdge = boomerang == .verticalHorizontal && originalEdge != edge
+			timingAnim1 = firstStepDuration * 1.25
 		} else {
 			constraintPriorities(main: mainConstraint, second: secondConstraint)
 			mainConstraint.isActive = true
 			secondConstraint.isActive = false
 			positionOne = positions.startBounce.from
-			positionTwo = positions.start
 		}
 		let constraintToAnimate = hasBoomerang ? secondConstraint : mainConstraint
 		animation(superview!, constraint: constraintToAnimate,
-				  constant: positionOne, timing: 0.4, options: [.curveEaseIn], finished: {
+				  constant: positionOne, timing: timingAnim1, options: [.curveEaseIn], finished: {
 					if hasBoomerang {
-						firstStepDone()
-						print("mustSwitchEdge \(mustSwitchEdge)")
-						return
+						firstStepDone(hasBoomerang)
+						let edgeToShow = mustSwitchEdge ? self.edge.opposite() : self.edge
+						self.topConstraint.constant = self.verticalConstant(for: initialPosition,
+																			hostHeight: hostView.frame.height,
+																			height: self.frame.height)
+						self.show(edge: edgeToShow, hostView: hostView, isTraversingView: false)
 					} else {
 						self.animation(self.superview!, constraint: constraintToAnimate,
-									   constant: positionTwo, timing: 0.3, options: [.curveEaseOut], finished: {
-										firstStepDone()
+									   constant: positions.start, timing: timingAnim2, options: [.curveEaseOut], finished: {
+										firstStepDone(hasBoomerang)
 						})
 					}
 		})
@@ -330,18 +325,14 @@ public class CariocaIndicatorView: UIView {
 	///- Parameter timing: The animation duration
 	///- Parameter options: The animation options
 	///- Parameter finished: Completion closure, when animation finished
-	internal func animation(_ view: UIView,
-							constraint: NSLayoutConstraint,
-							constant: CGFloat,
-							timing: Double,
+	internal func animation(_ view: UIView, constraint: NSLayoutConstraint,
+							constant: CGFloat, timing: Double,
 							options: UIViewAnimationOptions,
 							finished: @escaping () -> Void) {
 		constraint.constant = constant
 		UIView.animate(withDuration: timing, delay: 0.0, options: options, animations: {
 			view.layoutIfNeeded()
-		}, completion: { _ in
-			finished()
-		})
+		}, completion: { _ in finished() })
 	}
 	// swiftlint:enable function_parameter_count
 
