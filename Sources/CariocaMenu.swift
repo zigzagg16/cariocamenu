@@ -19,8 +19,6 @@ public class CariocaMenu: NSObject, CariocaGestureManagerDelegate, UITableViewDe
     ///The container view. Created programatically,
     ///it takes the same dimensions as the host view
     let container: CariocaMenuContainerView
-    ///Boomerang type. Default : .none
-    var boomerang: BoomerangType = .none
     ///Gestures manager
     let gestureManager: CariocaGestureManager
     ///The selected index of the menu. Default: 0
@@ -105,18 +103,28 @@ public class CariocaMenu: NSObject, CariocaGestureManagerDelegate, UITableViewDe
     ///Menu will open. Forwards call to openFromEdge
     ///- Parameter edge: The opening edge of the menu
     func willOpenFromEdge(edge: UIRectEdge) {
-		controller.tableView.reloadData()
 		delegate?.cariocamenu(self, willOpenFromEdge: edge)
+		controller.tableView.reloadData()
+		showMenu()
 		indicator.show(edge: edge, hostView: hostView, isTraversingView: true)
 	}
-
-	///Hide the menu
+	///Show the menu
     func showMenu() {
         container.isHidden = false
     }
-	///Show the menu
-    func hideMenu() {
-        container.isHidden = true
+	///Hide the menu
+	///- Parameter duration: The fading duration, optional. If not set, the menu is immediately hidden.
+	func hideMenu(_ duration: Double? = nil) {
+		guard let duration = duration else {
+			container.isHidden = true
+			return
+		}
+		UIView.animate(withDuration: duration, animations: {
+			self.container.alpha = 0.0
+		}, completion: { _ in
+			self.container.isHidden = true
+			self.container.alpha = 1.0
+		})
     }
 	///The selection index was updated, while user panning in the view
 	///- Parameter index: The updated selection index
@@ -139,10 +147,20 @@ public class CariocaMenu: NSObject, CariocaGestureManagerDelegate, UITableViewDe
 	///The user did select a menu item
 	///- Parameter index: The selected index
     func didSelectItem(at index: Int) {
-		indicator.restore(hostView: hostView)
-		selectedIndex = index
-        delegate?.cariocamenu(self, didSelect: controller.menuItems[index], at: index)
-		makeSelectionFeedback()
+		self.selectedIndex = index
+		self.delegate?.cariocamenu(self, didSelect: self.controller.menuItems[index], at: index)
+		self.makeSelectionFeedback()
+		self.hideMenu(0.5)
+		indicator.restore(hostView: hostView, boomerang: controller.boomerang,
+						  initialPosition: controller.indicatorPosition,
+						  firstStepDuration: 0.5,
+						  firstStepDone: { boomerang in
+							if boomerang {
+								//Set the container on top to avoid incorrect calculations.
+								self.container.topConstraint.constant = 0.0
+								self.hostView.setNeedsLayout()
+							}
+		})
     }
 
 	// MARK: UITableView datasource/delegate
@@ -159,7 +177,6 @@ public class CariocaMenu: NSObject, CariocaGestureManagerDelegate, UITableViewDe
 	///UITableView selection delegate, forwarded to CariocaDelegate
 	public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		didUpdateSelectionIndex(indexPath.row, selectionFeedback: true)
-		hideMenu()
 		didSelectItem(at: indexPath.row)
 	}
 	///Takes the specified heightForRow passed in the initialiser

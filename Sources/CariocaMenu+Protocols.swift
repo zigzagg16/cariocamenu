@@ -26,14 +26,16 @@ public protocol CariocaDataSource {
 	var blurStyle: UIBlurEffectStyle? { get }
 	///Can the menu go offscreen with user's gesture ? (true)
 	///Or should it always stay fully visible ? (false)
-	var isOffscreenAllowed: Bool { get set }
+	var isOffscreenAllowed: Bool { get }
 	///The indicator's initial position, in %. Top : 0%, Center: 50%, Bottom: 100%.
-	var indicatorPosition: CGFloat { get set }
+	var indicatorPosition: CGFloat { get }
+	///The indicator's Boomerang type.
+	var boomerang: BoomerangType { get }
 }
 
 ///The menu's events delegate
 public protocol CariocaDelegate: class {
-    ///The user selected a menu item
+    ///The user selected a menu item. The menu will close and hide.
     ///- Parameter menu: The menu instance
 	///- Parameter item: The selected menu item
     ///- Parameter index: The index of the selected item
@@ -51,10 +53,6 @@ protocol CariocaGestureManagerDelegate: class {
     ///Menu will open
     ///- Parameter edge: The opening edge of the menu
     func willOpenFromEdge(edge: UIRectEdge)
-    ///Shows the menu
-    func showMenu()
-    ///hides the menu
-    func hideMenu()
 	///The selection index was updated
 	///- Parameter index: The updated selection index
 	///- Parameter selectionFeedback: Should we make a selection feedback
