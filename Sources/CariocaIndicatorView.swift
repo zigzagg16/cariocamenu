@@ -20,80 +20,10 @@ struct IndicatorPositionConstants {
 	let startBounce: BouncingValues
 	///Ending position bouncing values
 	let end: BouncingValues
+	///The value of the secondary constraint's constant, when the indicator is showed.
+	///The secondary constant will be prioritary only when the menu is opened.
+	let secondConstant: CGFloat
 }
-
-///Required parameters to create a custom indicator view
-public protocol CariocaIndicatorConfiguration {
-	///The shape's color
-	var color: UIColor { get }
-	///The font used to display emojis/string
-	var font: UIFont { get }
-	///The shape's size
-	var size: CGSize { get }
-	///The margin to the screen
-	var borderMargin: CGFloat { get }
-	///The bouncing values used for animation
-	var bouncingValues: BouncingValues { get }
-	///The custom shape of the view
-	func shape(for edge: UIRectEdge, frame: CGRect) -> UIBezierPath
-	///The margins for the icon, depending on the edge
-	func iconMargins(for edge: UIRectEdge) -> (top: CGFloat, right: CGFloat, bottom: CGFloat, left: CGFloat)
-}
-extension CariocaIndicatorConfiguration {
-	///Default margins are 0,0,0,0
-	func iconMargins(for edge: UIRectEdge) -> (top: CGFloat, right: CGFloat, bottom: CGFloat, left: CGFloat) {
-		return (top: 0.0, right: 0.0, bottom: 0.0, left: 0.0)
-	}
-	///Default size
-	var size: CGSize { return CGSize(width: 50, height: 40) }
-	///Default border margin
-	var borderMargin: CGFloat { return 5.0 }
-	///Default color
-	var color: UIColor { return UIColor(red: 0.23, green: 0.60, blue: 0.85, alpha: 1.00) }
-	///Default bouncing values
-	var bouncingValues: BouncingValues { return (from: 15.0, to: 5.0) }
-	///Default font
-	var font: UIFont { return UIFont.boldSystemFont(ofSize: 20.0) }
-
-	func shape(for edge: UIRectEdge, frame: CGRect) -> UIBezierPath {
-		//This shape was drawed with PaintCode App
-		let ovalPath = UIBezierPath()
-		if edge == .left {
-			ovalPath.move(to: CGPoint(x: frame.maxX, y: frame.minY + 0.5 * frame.height))
-			ovalPath.addCurve(to: CGPoint(x: frame.maxX - 20, y: frame.minY),
-							  controlPoint1: CGPoint(x: frame.maxX, y: frame.minY + 0.22 * frame.height),
-							  controlPoint2: CGPoint(x: frame.maxX - 9, y: frame.minY))
-			ovalPath.addCurve(to: CGPoint(x: frame.minX, y: frame.minY + 0.5 * frame.height),
-							  controlPoint1: CGPoint(x: frame.maxX - 31, y: frame.minY),
-							  controlPoint2: CGPoint(x: frame.minX, y: frame.minY + 0.3 * frame.height))
-			ovalPath.addCurve(to: CGPoint(x: frame.maxX - 20, y: frame.maxY),
-							  controlPoint1: CGPoint(x: frame.minX, y: frame.minY + 0.7 * frame.height),
-							  controlPoint2: CGPoint(x: frame.maxX - 31, y: frame.maxY))
-			ovalPath.addCurve(to: CGPoint(x: frame.maxX, y: frame.minY + 0.5 * frame.height),
-							  controlPoint1: CGPoint(x: frame.maxX - 9, y: frame.maxY),
-							  controlPoint2: CGPoint(x: frame.maxX, y: frame.minY + 0.78 * frame.height))
-		} else { //right
-			ovalPath.move(to: CGPoint(x: frame.minX, y: frame.minY + 0.5 * frame.height))
-			ovalPath.addCurve(to: CGPoint(x: frame.minX + 20, y: frame.minY),
-							  controlPoint1: CGPoint(x: frame.minX, y: frame.minY + 0.22 * frame.height),
-							  controlPoint2: CGPoint(x: frame.minX + 9, y: frame.minY))
-			ovalPath.addCurve(to: CGPoint(x: frame.maxX, y: frame.minY + 0.5 * frame.height),
-							  controlPoint1: CGPoint(x: frame.minX + 31, y: frame.minY),
-							  controlPoint2: CGPoint(x: frame.maxX, y: frame.minY + 0.3 * frame.height))
-			ovalPath.addCurve(to: CGPoint(x: frame.minX + 20, y: frame.maxY),
-							  controlPoint1: CGPoint(x: frame.maxX, y: frame.minY + 0.7 * frame.height),
-							  controlPoint2: CGPoint(x: frame.minX + 31, y: frame.maxY))
-			ovalPath.addCurve(to: CGPoint(x: frame.minX, y: frame.minY + 0.5 * frame.height),
-							  controlPoint1: CGPoint(x: frame.minX + 9, y: frame.maxY),
-							  controlPoint2: CGPoint(x: frame.minX, y: frame.minY + 0.78 * frame.height))
-		}
-		ovalPath.close()
-		return ovalPath
-	}
-}
-
-///The indicator configuration
-typealias CariocaIndicator = UIView & CariocaIndicatorConfiguration
 
 ///The menu's indicator
 public class CariocaIndicatorView: UIView {
@@ -132,31 +62,40 @@ public class CariocaIndicatorView: UIView {
 	}
 
 	///Calculates the indicator's position for animation
-	///- Parameter hostSize: The hostView's size
-	///- Parameter indicatorSize: The indicator's size
+	///- Parameter hostWidth: The hostView's width
+	///- Parameter indicatorWidth: The indicator's size
 	///- Parameter edge: The original edge
 	///- Parameter borderMargin: The border magins
 	///- Parameter bouncingValues: The values to make the bouncing effect in animations
+	///- Parameter startInset: The view's starting inset, if applies (iPhone X safe area)
+	///- Parameter endInset: The view's starting inset, if applies (iPhone X safe area)
 	///- Returns: IndicatorPositionConstants All the possible calculated positions
-	private func positionConstants(hostWidth: CGFloat,
-								   indicatorWidth: CGFloat,
-								   edge: UIRectEdge,
-								   borderMargin: CGFloat,
-								   bouncingValues: BouncingValues) -> IndicatorPositionConstants {
+	//swiftlint:disable function_parameter_count
+	class func positionConstants(hostWidth: CGFloat,
+								 indicatorWidth: CGFloat,
+								 edge: UIRectEdge,
+								 borderMargin: CGFloat,
+								 bouncingValues: BouncingValues,
+								 startInset: CGFloat,
+								 endInset: CGFloat) -> IndicatorPositionConstants {
 		let multiplier: CGFloat = edge == .left ? 1.0 : -1.0
 		let inverseMultiplier: CGFloat = multiplier * -1.0
 		//Start positions
-		let start = borderMargin * inverseMultiplier
-		let startBounceFrom = start + (bouncingValues.from * inverseMultiplier)
+		let start = (borderMargin - startInset) * inverseMultiplier
+		let startBounceFrom = start + (bouncingValues.from * inverseMultiplier) + startInset
 		let startBounceTo = start + (bouncingValues.to * multiplier)
 		let startBounce: BouncingValues = (from: startBounceFrom, to: startBounceTo)
 		//End positions
-		let endBounceFrom: CGFloat = (hostWidth - indicatorWidth + bouncingValues.from) * multiplier
-		let endBounceTo: CGFloat = (hostWidth - indicatorWidth - borderMargin) * multiplier
+		let endBounceFrom: CGFloat = (hostWidth - indicatorWidth + bouncingValues.from + endInset) * multiplier
+		let endBounceTo: CGFloat = (hostWidth - indicatorWidth - borderMargin - endInset) * multiplier
 		let endBounce: BouncingValues = (from: endBounceFrom, to: endBounceTo)
-
-		return IndicatorPositionConstants(start: start, startBounce: startBounce, end: endBounce)
+		///Second constant value calculation
+		let secondConstant: CGFloat = (endInset + borderMargin) * inverseMultiplier
+		return IndicatorPositionConstants(start: start, startBounce: startBounce,
+										  end: endBounce,
+										  secondConstant: secondConstant)
 	}
+	//swiftlint:enable function_parameter_count
 
 	///Adds the indicator in the hostView
 	///- Parameter hostView: the menu's hostView
@@ -238,12 +177,64 @@ public class CariocaIndicatorView: UIView {
 		ovalPath.fill()
 	}
 
+	///Applies the margins to the iconView
+	///- Parameter margins: Tuple of margins in CSS Style (Top, Right, Bottom, left)
 	private func applyMarginConstraints(margins: (top: CGFloat, right: CGFloat, bottom: CGFloat, left: CGFloat)) {
 		iconConstraints[0].constant = margins.top
 		iconConstraints[1].constant = margins.right
 		iconConstraints[2].constant = margins.bottom
 		iconConstraints[3].constant = margins.left
 		setNeedsLayout()
+	}
+
+	///The main constraint, with the highest priority. Depends on the current edge.
+	private var mainConstraint: NSLayoutConstraint {
+		return edge == .left ? leadingConstraint : trailingConstraint
+	}
+	///The second constraint, with the lowest priority. Depends on the current edge.
+	private var secondConstraint: NSLayoutConstraint {
+		return edge == .left ? trailingConstraint : leadingConstraint
+	}
+	///Calls the positionConstants() with all internal parameters
+	///- Returns: IndicatorPositionConstants All the possible calculated positions
+	private func positionValues(_ hostView: UIView) -> IndicatorPositionConstants {
+		let insets = insetsValues(hostView.insets(),
+								  orientation: UIDevice.current.orientation,
+								  edge: edge)
+		return CariocaIndicatorView.positionConstants(hostWidth: hostView.frame.width,
+													  indicatorWidth: frame.width,
+													  edge: edge,
+													  borderMargin: config.borderMargin,
+													  bouncingValues: config.bouncingValues,
+													  startInset: insets.start,
+													  endInset: insets.end)
+	}
+
+	///When the hostView has rotated, re-apply the constraints.
+	///This should have an effect only on iPhone X, because of the view edges.
+	///- Parameter hostView: The menu's hostView
+	func repositionXAfterRotation(_ hostView: UIView) {
+		let positions = positionValues(hostView)
+		mainConstraint.constant = positions.start
+		secondConstraint.constant = positions.secondConstant
+	}
+
+	///Calculates inset values, depending on orientation.
+	///The goal is to only have the inset on the indicator when the edge of the indicator is on the side of the notch.
+	///- Parameter insets: The original insets
+	///- Parameter orientation: The screen orientation
+	///- Parameter edge: The screen edge
+	///- Returns: Start end End insets for the indicator.
+	func insetsValues(_ insets: UIEdgeInsets,
+					  orientation: UIDeviceOrientation,
+					  edge: UIRectEdge) -> (start: CGFloat, end: CGFloat) {
+		var startInset = edge == .left ? insets.left : insets.right
+		let endInset = edge == .left ? insets.right : insets.left
+		if (orientation == .landscapeLeft && edge == .right) ||  //The notch is on the left side
+			(orientation == .landscapeRight && edge == .left) { //The notch is on the right side
+			startInset = 0.0
+		}
+		return (start: startInset, end: endInset)
 	}
 
 	///Show the indicator on a specific edge, by animating the horizontal position
@@ -253,21 +244,12 @@ public class CariocaIndicatorView: UIView {
 	func show(edge: UIRectEdge, hostView: UIView, isTraversingView: Bool) {
 		self.edge = edge
 		self.setNeedsDisplay()
-		let positions = positionConstants(hostWidth: hostView.frame.width,
-										  indicatorWidth: frame.width,
-										  edge: edge,
-										  borderMargin: config.borderMargin,
-										  bouncingValues: config.bouncingValues)
-		let mainConstraint = edge == .left ? leadingConstraint : trailingConstraint
-		let secondConstraint = edge == .left ? trailingConstraint : leadingConstraint
+		let positions = positionValues(hostView)
 		constraintPriorities(main: mainConstraint, second: secondConstraint)
 		mainConstraint.isActive = true
 		secondConstraint.isActive = true
 		mainConstraint.constant = positions.startBounce.from
 		superview?.layoutIfNeeded()
-		if isTraversingView {
-			secondConstraint.constant = positions.start
-		}
 		let animationValueOne = isTraversingView ? positions.end.from : positions.startBounce.to
 		let animationValueTwo = isTraversingView ? positions.end.to : positions.start
 
@@ -277,21 +259,16 @@ public class CariocaIndicatorView: UIView {
 				positionTwo: animationValueTwo,
 				finished: {
 					if isTraversingView {
-						self.constraintPriorities(main: secondConstraint, second: mainConstraint)
+						self.secondConstraint.constant = positions.secondConstant
+						self.constraintPriorities(main: self.secondConstraint,
+												  second: self.mainConstraint)
 					}
 		})
 	}
-
 	///Retore the indicator on it's original edge position
 	///- Parameter hostView: The menu's hostView, to calculate the positions
 	func restore(hostView: UIView) {
-		let positions = positionConstants(hostWidth: hostView.frame.width,
-										  indicatorWidth: frame.width,
-										  edge: edge,
-										  borderMargin: config.borderMargin,
-										  bouncingValues: config.bouncingValues)
-		let mainConstraint = edge == .left ? leadingConstraint : trailingConstraint
-		let secondConstraint = edge == .left ? trailingConstraint : leadingConstraint
+		let positions = positionValues(hostView)
 		constraintPriorities(main: mainConstraint, second: secondConstraint)
 		mainConstraint.isActive = true
 		secondConstraint.isActive = false

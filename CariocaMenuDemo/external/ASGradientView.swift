@@ -33,7 +33,6 @@ class ASGradientView: UIView, CAAnimationDelegate {
         gradientLayer.colors = [colors[currentIndex].start.cgColor, colors[currentIndex].end.cgColor]
         gradientLayer.startPoint = CGPoint(x: 0, y: 1)
         gradientLayer.endPoint = CGPoint(x: 1, y: 0)
-        print("init gradient view")
         self.setNeedsDisplay()
     }
 

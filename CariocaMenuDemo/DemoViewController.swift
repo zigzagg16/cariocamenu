@@ -33,8 +33,8 @@ class DemoViewController: UIViewController {
 			]
 			carioca = CariocaMenu(controller: menuController,
 								  hostView: self.view,
-								  edges: [.right, .left],
-//								  edges: [.left, .right],
+//								  edges: [.right, .left],
+								  edges: [.left, .right],
 //								  edges: [.left],
 								  delegate: self,
 								  indicator: CariocaCustomIndicatorView()
