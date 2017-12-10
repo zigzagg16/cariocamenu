@@ -20,6 +20,9 @@ struct IndicatorPositionConstants {
 	let startBounce: BouncingValues
 	///Ending position bouncing values
 	let end: BouncingValues
+	///The value of the secondary constraint's constant, when the indicator is showed.
+	///The secondary constant will be prioritary only when the menu is opened.
+	let secondConstant: CGFloat
 }
 
 ///The menu's indicator
@@ -78,16 +81,19 @@ public class CariocaIndicatorView: UIView {
 		let multiplier: CGFloat = edge == .left ? 1.0 : -1.0
 		let inverseMultiplier: CGFloat = multiplier * -1.0
 		//Start positions
-		let start = (borderMargin * inverseMultiplier) - (startInset * inverseMultiplier)
+		let start = (borderMargin - startInset) * inverseMultiplier
 		let startBounceFrom = start + (bouncingValues.from * inverseMultiplier) + startInset
 		let startBounceTo = start + (bouncingValues.to * multiplier)
 		let startBounce: BouncingValues = (from: startBounceFrom, to: startBounceTo)
 		//End positions
-		let endBounceFrom: CGFloat = (hostWidth - indicatorWidth + bouncingValues.from) * multiplier
-		let endBounceTo: CGFloat = (hostWidth - indicatorWidth - borderMargin) * multiplier
+		let endBounceFrom: CGFloat = (hostWidth - indicatorWidth + bouncingValues.from + endInset) * multiplier
+		let endBounceTo: CGFloat = (hostWidth - indicatorWidth - borderMargin - endInset) * multiplier
 		let endBounce: BouncingValues = (from: endBounceFrom, to: endBounceTo)
-
-		return IndicatorPositionConstants(start: start, startBounce: startBounce, end: endBounce)
+		///Second constant value calculation
+		let secondConstant: CGFloat = (endInset + borderMargin) * inverseMultiplier
+		return IndicatorPositionConstants(start: start, startBounce: startBounce,
+										  end: endBounce,
+										  secondConstant: secondConstant)
 	}
 	//swiftlint:enable function_parameter_count
 
@@ -233,19 +239,16 @@ public class CariocaIndicatorView: UIView {
 		secondConstraint.isActive = true
 		mainConstraint.constant = positions.startBounce.from
 		superview?.layoutIfNeeded()
-		if isTraversingView {
-			secondConstraint.constant = positions.start
-		}
 		let animationValueOne = isTraversingView ? positions.end.from : positions.startBounce.to
 		let animationValueTwo = isTraversingView ? positions.end.to : positions.start
 
 		animate(mainConstraint,
 				positionOne: animationValueOne,
-				timingOne: isTraversingView ? 4.3 : 0.15,
+				timingOne: isTraversingView ? 0.3 : 0.15,
 				positionTwo: animationValueTwo,
-				timingTwo: 3.0,
 				finished: {
 					if isTraversingView {
+						self.secondConstraint.constant = positions.secondConstant
 						self.constraintPriorities(main: self.secondConstraint,
 												  second: self.mainConstraint)
 					}
