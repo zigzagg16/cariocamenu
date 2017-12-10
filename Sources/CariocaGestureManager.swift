@@ -82,7 +82,7 @@ class CariocaGestureManager {
 			if fromGesture {
 				delegate?.willOpenFromEdge(edge: edge)
 			}
-			delegate?.didUpdateSelectionIndex(internalSelectedIndex)
+			delegate?.didUpdateSelectionIndex(internalSelectedIndex, selectionFeedback: fromGesture)
 			originalScreeenEdgePanY = yLocation
 			if fromGesture {
 				delegate?.showMenu()
@@ -97,13 +97,12 @@ class CariocaGestureManager {
 															yRange: yRange,
 															isOffscreenAllowed: controller.isOffscreenAllowed)
 			container.topConstraint.constant = topY
-			delegate?.didUpdateY(topY)
 			let newIndex = CariocaGestureManager.matchingIndex(yLocation: yLocation,
 															   menuYPosition: topY,
 															   heightForRow: controller.heightForRow(),
 															   numberOfMenuItems: controller.menuItems.count)
 			if newIndex != internalSelectedIndex {
-				delegate?.didUpdateSelectionIndex(newIndex)
+				delegate?.didUpdateSelectionIndex(newIndex, selectionFeedback: fromGesture)
 			}
 			internalSelectedIndex = newIndex
 		}

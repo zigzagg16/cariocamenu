@@ -61,6 +61,7 @@ public class CariocaIndicatorView: UIView {
 		iconView.font = config.font
 	}
 
+	//swiftlint:disable function_parameter_count
 	///Calculates the indicator's position for animation
 	///- Parameter hostWidth: The hostView's width
 	///- Parameter indicatorWidth: The indicator's size
@@ -70,7 +71,6 @@ public class CariocaIndicatorView: UIView {
 	///- Parameter startInset: The view's starting inset, if applies (iPhone X safe area)
 	///- Parameter endInset: The view's starting inset, if applies (iPhone X safe area)
 	///- Returns: IndicatorPositionConstants All the possible calculated positions
-	//swiftlint:disable function_parameter_count
 	class func positionConstants(hostWidth: CGFloat,
 								 indicatorWidth: CGFloat,
 								 edge: UIRectEdge,
@@ -234,6 +234,9 @@ public class CariocaIndicatorView: UIView {
 			(orientation == .landscapeRight && edge == .left) { //The notch is on the right side
 			startInset = 0.0
 		}
+		//Special case to not put the at the notch level
+		//35.0 is the limit of the notch.
+		startInset = startInset == 44.0 ? (35.0 - config.borderMargin) : startInset
 		return (start: startInset, end: endInset)
 	}
 

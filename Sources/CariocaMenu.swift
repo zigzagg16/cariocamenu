@@ -118,19 +118,19 @@ public class CariocaMenu: NSObject, CariocaGestureManagerDelegate, UITableViewDe
     func hideMenu() {
         container.isHidden = true
     }
-    func didUpdateY(_ yValue: CGFloat) {
-        //should we do something ?
-    }
 	///The selection index was updated, while user panning in the view
 	///- Parameter index: The updated selection index
-    func didUpdateSelectionIndex(_ index: Int) {
+	///- Parameter selectionFeedback: Should we make a selection feedback?
+	func didUpdateSelectionIndex(_ index: Int, selectionFeedback: Bool) {
 		indicator.moveTo(index: index, heightForRow: controller.heightForRow())
 		let item = controller.menuItems[index]
 		indicator.iconView.display(icon: item.icon)
-		selectionFeedback()
+		if selectionFeedback {
+			makeSelectionFeedback()
+		}
     }
-	///Haptick feedback, if the device supports. Min iOS 10.0
-	internal func selectionFeedback() {
+	///Haptick feedback, if supported. Min iOS 10.0.
+	internal func makeSelectionFeedback() {
 		if #available(iOS 10.0, *) {
 			let selectionFeedback = UISelectionFeedbackGenerator()
 			selectionFeedback.selectionChanged()
@@ -142,7 +142,7 @@ public class CariocaMenu: NSObject, CariocaGestureManagerDelegate, UITableViewDe
 		indicator.restore(hostView: hostView)
 		selectedIndex = index
         delegate?.cariocamenu(self, didSelect: controller.menuItems[index], at: index)
-		selectionFeedback()
+		makeSelectionFeedback()
     }
 
 	// MARK: UITableView datasource/delegate
@@ -158,7 +158,7 @@ public class CariocaMenu: NSObject, CariocaGestureManagerDelegate, UITableViewDe
 	public func numberOfSections(in tableView: UITableView) -> Int { return 1 }
 	///UITableView selection delegate, forwarded to CariocaDelegate
 	public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-		didUpdateSelectionIndex(indexPath.row)
+		didUpdateSelectionIndex(indexPath.row, selectionFeedback: true)
 		hideMenu()
 		didSelectItem(at: indexPath.row)
 	}
