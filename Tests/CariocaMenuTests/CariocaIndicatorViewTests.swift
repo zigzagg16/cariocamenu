@@ -50,16 +50,18 @@ class CariocaIndicatorViewTests: XCTestCase {
 		XCTAssertEqual(positions.end.to, -245.0)
 	}
 
-	func testPositionsCalculationiPhoneXLeft() {
+	func testPositionsCalculationiPhoneX() {
 		//Given
 		startInset = 44.0
 		endInset = 44.0
 		edge = .left
 		//When
-		let positions = calculatePositions()
+		let left = calculatePositions()
+		edge = .right
+		let right = calculatePositions()
 		//Then
-		print("💪🏼 iPhone X")
-		print(positions)
+		XCTAssertEqual(left.start, -49.0)
+		XCTAssertEqual(right.start, -39.0)
 	}
 
 	private func calculatePositions() -> IndicatorPositionConstants {

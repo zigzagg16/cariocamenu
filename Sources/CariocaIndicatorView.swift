@@ -151,7 +151,7 @@ public class CariocaIndicatorView: UIView {
 		let multiplier: CGFloat = edge == .left ? 1.0 : -1.0
 		let inverseMultiplier: CGFloat = multiplier * -1.0
 		//Start positions
-		let start = borderMargin * inverseMultiplier
+		let start = (borderMargin * inverseMultiplier) - startInset
 		let startBounceFrom = start + (bouncingValues.from * inverseMultiplier)
 		let startBounceTo = start + (bouncingValues.to * multiplier)
 		let startBounce: BouncingValues = (from: startBounceFrom, to: startBounceTo)
