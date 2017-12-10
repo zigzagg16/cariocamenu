@@ -53,10 +53,6 @@ protocol CariocaGestureManagerDelegate: class {
     ///Menu will open
     ///- Parameter edge: The opening edge of the menu
     func willOpenFromEdge(edge: UIRectEdge)
-    ///Shows the menu
-    func showMenu()
-    ///hides the menu
-    func hideMenu()
 	///The selection index was updated
 	///- Parameter index: The updated selection index
 	///- Parameter selectionFeedback: Should we make a selection feedback

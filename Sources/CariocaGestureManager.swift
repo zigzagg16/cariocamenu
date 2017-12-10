@@ -84,9 +84,6 @@ class CariocaGestureManager {
 			}
 			delegate?.didUpdateSelectionIndex(internalSelectedIndex, selectionFeedback: fromGesture)
 			originalScreeenEdgePanY = yLocation
-			if fromGesture {
-				delegate?.showMenu()
-			}
 		}
 		if state == .changed {
 			let topY = CariocaGestureManager.topYConstraint(yLocation: yLocation,
@@ -108,7 +105,6 @@ class CariocaGestureManager {
 		}
 		if state == .ended {
 			delegate?.didSelectItem(at: internalSelectedIndex)
-			delegate?.hideMenu()
 		}
 		if state == .failed { CariocaMenu.log("Failed Gesture") }
 		if state == .possible { CariocaMenu.log("Possible Gesture") }
