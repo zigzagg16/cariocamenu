@@ -33,7 +33,7 @@ class CariocaIndicatorViewTests: XCTestCase {
 		XCTAssertEqual(positions.startBounce.to, -162.5)
 		XCTAssertEqual(positions.end.from, 177.5)
 		XCTAssertEqual(positions.end.to, 157.5)
-//		XCTAssertEqual(positions.hidingConstant, 100.0)
+		XCTAssertEqual(positions.hidingConstant, 237.5)
     }
 
 	func testPositionsCalculationRight() {
@@ -49,9 +49,9 @@ class CariocaIndicatorViewTests: XCTestCase {
 		XCTAssertEqual(positions.startBounce.to, 162.5)
 		XCTAssertEqual(positions.end.from, -177.5)
 		XCTAssertEqual(positions.end.to, -157.5)
-//		XCTAssertEqual(positions.hidingConstant, -100.0)
+		XCTAssertEqual(positions.hidingConstant, -237.5)
 	}
-/*
+
 	func testPositionsCalculationiPhoneX() {
 		//Given
 		startInset = 44.0
@@ -62,20 +62,20 @@ class CariocaIndicatorViewTests: XCTestCase {
 		edge = .right
 		let right = calculatePositions()
 		//Then
-		XCTAssertEqual(left.start, 39.0)
-		XCTAssertEqual(left.startBounce.from, 68.0)
-		XCTAssertEqual(left.startBounce.to, 44.0)
-		XCTAssertEqual(left.end.from, 309.0)
-		XCTAssertEqual(left.end.to, 201.0)
-		XCTAssertEqual(left.hidingConstant, 100.0)
-		XCTAssertEqual(right.start, -39.0)
-		XCTAssertEqual(right.startBounce.from, 20.0)
-		XCTAssertEqual(right.startBounce.to, -44.0)
-		XCTAssertEqual(right.end.from, -309.0)
-		XCTAssertEqual(right.end.to, -201.0)
-		XCTAssertEqual(right.hidingConstant, -100.0)
+		XCTAssertEqual(left.start, -167.5)
+		XCTAssertEqual(left.startBounce.from, -226.5)
+		XCTAssertEqual(left.startBounce.to, -162.5)
+		XCTAssertEqual(left.end.from, 221.5)
+		XCTAssertEqual(left.end.to, 113.5)
+		XCTAssertEqual(left.hidingConstant, 237.5)
+		XCTAssertEqual(right.start, 167.5)
+		XCTAssertEqual(right.startBounce.from, 226.5)
+		XCTAssertEqual(right.startBounce.to, 162.5)
+		XCTAssertEqual(right.end.from, -221.5)
+		XCTAssertEqual(right.end.to, -113.5)
+		XCTAssertEqual(right.hidingConstant, -237.5)
 	}
-	*/
+
 	private func calculatePositions() -> IndicatorPositionConstants {
 		return CariocaIndicatorView.positionConstants(hostWidth: hostWidth,
 													  indicatorWidth: indicatorWidth,

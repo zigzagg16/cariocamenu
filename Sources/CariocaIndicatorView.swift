@@ -90,11 +90,8 @@ public class CariocaIndicatorView: UIView {
 		let endBounceTo: CGFloat = (hostMidWidth - indicWidth - borderMargin - endInset) * inverseMultiplier
 		let endBounce: BouncingValues = (from: endBounceFrom, to: endBounceTo)
 		///Hiding constant
-		let hidingConstant = (indicatorWidth * 2.0) * multiplier
-		var startValue = start * multiplier
-//		startValue = endBounce.from
-//		print(startValue)
-		return IndicatorPositionConstants(start: startValue,
+		let hidingConstant = (hostMidWidth + indicatorWidth) * inverseMultiplier
+		return IndicatorPositionConstants(start: start * multiplier,
 										  startBounce: startBounce,
 										  end: endBounce,
 										  hidingConstant: hidingConstant)
