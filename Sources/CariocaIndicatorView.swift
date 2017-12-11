@@ -40,7 +40,13 @@ public class CariocaIndicatorView: UIView {
 	private let config: CariocaIndicator
 	///The constraints applied to the iconview. Can be updated later with custom configuration
 	private var iconConstraints: [NSLayoutConstraint] = []
-
+	private enum AnimationState {
+		case onHold
+		case showing
+		case restoring
+	}
+	///Status of the indicator animations. Avoid double animations issues
+	private var state: AnimationState = .onHold
 	///Initialise an IndicatorView
 	///- Parameter edge: The inital edge. Will be updated every time the user changes of edge.
 	///- Parameter indicator: The indicator custom configuration
@@ -224,7 +230,8 @@ public class CariocaIndicatorView: UIView {
 	///- Parameter hostView: The menu's hostView, to calculate the positions
 	///- Parameter isTraversingView: Should the indicator traverse the hostView, and stick to the opposite edge ?
 	func show(edge: UIRectEdge, hostView: UIView, isTraversingView: Bool) {
-		guard let superView = self.superview else { return }
+		guard let superView = self.superview, state != .showing else { return }
+		self.state = .showing
 		self.edge = edge
 		self.setNeedsDisplay()
 		let positions = positionValues(hostView)
@@ -235,9 +242,10 @@ public class CariocaIndicatorView: UIView {
 
 		animation(superView, constraint: horizontalConstraint,
 				  constant: animationValueOne, timing: isTraversingView ? 0.3 : 0.15, options: [.curveEaseIn], finished: {
+					guard self.state != .restoring else { return /*second show animation cancelled, indicator is restoring*/ }
 					self.animation(superView, constraint: self.horizontalConstraint,
 								   constant: animationValueTwo, timing: 0.2, options: [.curveEaseOut], finished: {
-									if isTraversingView {}
+									self.state = .onHold
 					})
 		})
 	}
@@ -253,6 +261,8 @@ public class CariocaIndicatorView: UIView {
 				 initialPosition: CGFloat,
 				 firstStepDuration: Double,
 				 firstStepDone: @escaping (_ boomerang: Bool) -> Void) {
+		guard state != .restoring else { return }
+		self.state = .restoring
 		let hasBoomerang = boomerang == .vertical || boomerang == .verticalHorizontal
 		let positions = positionValues(hostView)
 		var positionOne: CGFloat, mustSwitchEdge = false //Will the indicator switch of edge ?
@@ -273,11 +283,13 @@ public class CariocaIndicatorView: UIView {
 						self.topConstraint.constant = self.verticalConstant(for: initialPosition,
 																			hostHeight: hostView.frame.height,
 																			height: self.frame.height)
+						self.state = .onHold
 						self.show(edge: edgeToShow, hostView: hostView, isTraversingView: false)
 					} else {
 						self.animation(self.superview!, constraint: self.horizontalConstraint,
 									   constant: positions.start, timing: timingAnim2, options: [.curveEaseOut], finished: {
 										firstStepDone(hasBoomerang)
+										self.state = .onHold
 						})
 					}
 		})
