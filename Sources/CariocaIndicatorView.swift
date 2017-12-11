@@ -87,7 +87,7 @@ public class CariocaIndicatorView: UIView {
 		let indicWidth = indicatorWidth / 2.0
 		let inverseMultiplier: CGFloat = multiplier * -1.0
 		//Start positions
-		let start = hostMidWidth - indicWidth + borderMargin
+		let start = hostMidWidth - indicWidth + borderMargin - startInset
 		let startBounceFrom = start + bouncingValues.from + startInset
 		let startBounceTo = start - bouncingValues.to
 		let startBounce: BouncingValues = (from: (startBounceFrom * multiplier), to: (startBounceTo * multiplier))
@@ -187,6 +187,7 @@ public class CariocaIndicatorView: UIView {
 		let insets = insetsValues(hostView.insets(),
 								  orientation: UIDevice.current.orientation,
 								  edge: edge)
+		print(insets)
 		return CariocaIndicatorView.positionConstants(hostWidth: hostView.frame.width,
 													  indicatorWidth: frame.width,
 													  edge: edge,
