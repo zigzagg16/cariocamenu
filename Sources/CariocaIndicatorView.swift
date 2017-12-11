@@ -20,9 +20,6 @@ struct IndicatorPositionConstants {
 	let startBounce: BouncingValues
 	///Ending position bouncing values
 	let end: BouncingValues
-	///The value of the secondary constraint's constant, when the indicator is showed.
-	///The secondary constant will be prioritary only when the menu is opened.
-	let secondConstant: CGFloat
 	///The value to hide the menu, when restoring the boomerang.
 	let hidingConstant: CGFloat
 }
@@ -35,19 +32,21 @@ public class CariocaIndicatorView: UIView {
 	private let originalEdge: UIRectEdge
 	///The indicator's top constraint
 	var topConstraint = NSLayoutConstraint()
-	///The indicator's leading/left constraint.
-	///Depending on the edge, the priority will be switched w/ trailingConstraint
-	private var leadingConstraint = NSLayoutConstraint()
-	///The indicator's trailing/right constraint.
-	///Depending on the edge, the priority will be switched w/ leadingConstraint
-	private var trailingConstraint = NSLayoutConstraint()
+	///The indicator's horizontal constraint.
+	private var horizontalConstraint = NSLayoutConstraint()
 	///The icon's view
 	var iconView: CariocaIconView
 	///The custom indicator configuration
 	private let config: CariocaIndicator
 	///The constraints applied to the iconview. Can be updated later with custom configuration
 	private var iconConstraints: [NSLayoutConstraint] = []
-
+	private enum AnimationState {
+		case onHold
+		case showing
+		case restoring
+	}
+	///Status of the indicator animations. Avoid double animations issues
+	private var state: AnimationState = .onHold
 	///Initialise an IndicatorView
 	///- Parameter edge: The inital edge. Will be updated every time the user changes of edge.
 	///- Parameter indicator: The indicator custom configuration
@@ -83,24 +82,24 @@ public class CariocaIndicatorView: UIView {
 								 bouncingValues: BouncingValues,
 								 startInset: CGFloat,
 								 endInset: CGFloat) -> IndicatorPositionConstants {
-		let multiplier: CGFloat = edge == .left ? 1.0 : -1.0
+		let multiplier: CGFloat = edge == .left ? -1.0 : 1.0
+		let hostMidWidth = hostWidth / 2.0
+		let indicWidth = indicatorWidth / 2.0
 		let inverseMultiplier: CGFloat = multiplier * -1.0
 		//Start positions
-		let start = (borderMargin - startInset) * inverseMultiplier
-		let startBounceFrom = start + (bouncingValues.from * inverseMultiplier) + startInset
-		let startBounceTo = start + (bouncingValues.to * multiplier)
-		let startBounce: BouncingValues = (from: startBounceFrom, to: startBounceTo)
+		let start = hostMidWidth - indicWidth + borderMargin - startInset
+		let startBounceFrom = start + bouncingValues.from + startInset
+		let startBounceTo = start - bouncingValues.to
+		let startBounce: BouncingValues = (from: (startBounceFrom * multiplier), to: (startBounceTo * multiplier))
 		//End positions
-		let endBounceFrom: CGFloat = (hostWidth - indicatorWidth + bouncingValues.from + endInset) * multiplier
-		let endBounceTo: CGFloat = (hostWidth - indicatorWidth - borderMargin - endInset) * multiplier
+		let endBounceFrom: CGFloat = (hostMidWidth - indicWidth + bouncingValues.from + endInset) * inverseMultiplier
+		let endBounceTo: CGFloat = (hostMidWidth - indicWidth - borderMargin - endInset) * inverseMultiplier
 		let endBounce: BouncingValues = (from: endBounceFrom, to: endBounceTo)
-		///Second constant value calculation
-		let secondConstant: CGFloat = (endInset + borderMargin) * inverseMultiplier
 		///Hiding constant
-		let hidingConstant = (indicatorWidth * 2.0) * multiplier
-		return IndicatorPositionConstants(start: start, startBounce: startBounce,
+		let hidingConstant = (hostMidWidth + indicatorWidth) * inverseMultiplier
+		return IndicatorPositionConstants(start: start * multiplier,
+										  startBounce: startBounce,
 										  end: endBounce,
-										  secondConstant: secondConstant,
 										  hidingConstant: hidingConstant)
 	}
 	//swiftlint:enable function_parameter_count
@@ -115,10 +114,7 @@ public class CariocaIndicatorView: UIView {
 		self.translatesAutoresizingMaskIntoConstraints = false
 		hostView.addSubview(self)
 		topConstraint = CariocaMenu.equalConstraint(self, toItem: tableView, attribute: .top)
-		leadingConstraint = makeHorizontalConstraint(hostView, .leading)
-		trailingConstraint = makeHorizontalConstraint(hostView, .trailing)
-		//This priority setting call will be overrided later, in show().
-		constraintPriorities(main: leadingConstraint, second: trailingConstraint)
+		horizontalConstraint = makeHorizontalConstraint(hostView, NSLayoutAttribute.centerX)
 		hostView.addConstraints([
 			NSLayoutConstraint(item: self,
 							   attribute: .width, relatedBy: .equal,
@@ -129,8 +125,7 @@ public class CariocaIndicatorView: UIView {
 							   toItem: nil, attribute: .notAnAttribute,
 							   multiplier: 1, constant: frame.size.height),
 			topConstraint,
-			leadingConstraint,
-			trailingConstraint
+			horizontalConstraint
 		])
 		topConstraint.constant = verticalConstant(for: position,
 												  hostHeight: hostView.frame.height,
@@ -186,20 +181,13 @@ public class CariocaIndicatorView: UIView {
 		setNeedsLayout()
 	}
 
-	///The main constraint, with the highest priority. Depends on the current edge.
-	private var mainConstraint: NSLayoutConstraint {
-		return edge == .left ? leadingConstraint : trailingConstraint
-	}
-	///The second constraint, with the lowest priority. Depends on the current edge.
-	private var secondConstraint: NSLayoutConstraint {
-		return edge == .left ? trailingConstraint : leadingConstraint
-	}
 	///Calls the positionConstants() with all internal parameters
 	///- Returns: IndicatorPositionConstants All the possible calculated positions
 	private func positionValues(_ hostView: UIView) -> IndicatorPositionConstants {
 		let insets = insetsValues(hostView.insets(),
 								  orientation: UIDevice.current.orientation,
 								  edge: edge)
+		print(insets)
 		return CariocaIndicatorView.positionConstants(hostWidth: hostView.frame.width,
 													  indicatorWidth: frame.width,
 													  edge: edge,
@@ -214,8 +202,7 @@ public class CariocaIndicatorView: UIView {
 	///- Parameter hostView: The menu's hostView
 	func repositionXAfterRotation(_ hostView: UIView) {
 		let positions = positionValues(hostView)
-		mainConstraint.constant = positions.start
-		secondConstraint.constant = positions.secondConstant
+		horizontalConstraint.constant = positions.start
 	}
 
 	///Calculates inset values, depending on orientation.
@@ -244,27 +231,22 @@ public class CariocaIndicatorView: UIView {
 	///- Parameter hostView: The menu's hostView, to calculate the positions
 	///- Parameter isTraversingView: Should the indicator traverse the hostView, and stick to the opposite edge ?
 	func show(edge: UIRectEdge, hostView: UIView, isTraversingView: Bool) {
-		guard let superView = self.superview else { return }
+		guard let superView = self.superview, state != .showing else { return }
+		self.state = .showing
 		self.edge = edge
 		self.setNeedsDisplay()
 		let positions = positionValues(hostView)
-		constraintPriorities(main: mainConstraint, second: secondConstraint)
-		mainConstraint.isActive = true
-		secondConstraint.isActive = true
-		mainConstraint.constant = positions.startBounce.from
+		horizontalConstraint.constant = positions.startBounce.from
 		superview?.layoutIfNeeded()
 		let animationValueOne = isTraversingView ? positions.end.from : positions.startBounce.to
 		let animationValueTwo = isTraversingView ? positions.end.to : positions.start
 
-		animation(superView, constraint: mainConstraint,
+		animation(superView, constraint: horizontalConstraint,
 				  constant: animationValueOne, timing: isTraversingView ? 0.3 : 0.15, options: [.curveEaseIn], finished: {
-					self.animation(superView, constraint: self.mainConstraint,
+					guard self.state != .restoring else { return /*second show animation cancelled, indicator is restoring*/ }
+					self.animation(superView, constraint: self.horizontalConstraint,
 								   constant: animationValueTwo, timing: 0.2, options: [.curveEaseOut], finished: {
-									if isTraversingView {
-									self.secondConstraint.constant = positions.secondConstant
-									self.constraintPriorities(main: self.secondConstraint,
-															  second: self.mainConstraint)
-									}
+									self.state = .onHold
 					})
 		})
 	}
@@ -280,26 +262,21 @@ public class CariocaIndicatorView: UIView {
 				 initialPosition: CGFloat,
 				 firstStepDuration: Double,
 				 firstStepDone: @escaping (_ boomerang: Bool) -> Void) {
+		guard state != .restoring else { return }
+		self.state = .restoring
 		let hasBoomerang = boomerang == .vertical || boomerang == .verticalHorizontal
 		let positions = positionValues(hostView)
 		var positionOne: CGFloat, mustSwitchEdge = false //Will the indicator switch of edge ?
 		var timingAnim1: Double = firstStepDuration * 0.7, timingAnim2: Double = firstStepDuration * 0.3
 		if hasBoomerang { //Boomerang logic
 			//the indicator must go out of the view
-			constraintPriorities(main: secondConstraint, second: mainConstraint)
-			mainConstraint.isActive = false
-			secondConstraint.isActive = true
 			positionOne = positions.hidingConstant
 			mustSwitchEdge = boomerang == .verticalHorizontal && originalEdge != edge
 			timingAnim1 = firstStepDuration * 1.25
 		} else {
-			constraintPriorities(main: mainConstraint, second: secondConstraint)
-			mainConstraint.isActive = true
-			secondConstraint.isActive = false
 			positionOne = positions.startBounce.from
 		}
-		let constraintToAnimate = hasBoomerang ? secondConstraint : mainConstraint
-		animation(superview!, constraint: constraintToAnimate,
+		animation(superview!, constraint: horizontalConstraint,
 				  constant: positionOne, timing: timingAnim1, options: [.curveEaseIn], finished: {
 					if hasBoomerang {
 						firstStepDone(hasBoomerang)
@@ -307,11 +284,13 @@ public class CariocaIndicatorView: UIView {
 						self.topConstraint.constant = self.verticalConstant(for: initialPosition,
 																			hostHeight: hostView.frame.height,
 																			height: self.frame.height)
+						self.state = .onHold
 						self.show(edge: edgeToShow, hostView: hostView, isTraversingView: false)
 					} else {
-						self.animation(self.superview!, constraint: constraintToAnimate,
+						self.animation(self.superview!, constraint: self.horizontalConstraint,
 									   constant: positions.start, timing: timingAnim2, options: [.curveEaseOut], finished: {
 										firstStepDone(hasBoomerang)
+										self.state = .onHold
 						})
 					}
 		})

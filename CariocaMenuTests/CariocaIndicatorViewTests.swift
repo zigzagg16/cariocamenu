@@ -12,7 +12,7 @@ import CariocaMenu
 
 class CariocaIndicatorViewTests: XCTestCase {
 
-	let hostWidth: CGFloat = 300.0
+	let hostWidth: CGFloat = 375.0
 	let indicatorWidth: CGFloat = 50.0
 	var edge: UIRectEdge = .left
 	var borderMargin: CGFloat = 5.0
@@ -28,13 +28,12 @@ class CariocaIndicatorViewTests: XCTestCase {
 		//When
 		let positions = calculatePositions()
         //Then
-		XCTAssertEqual(positions.start, -5.0)
-		XCTAssertEqual(positions.startBounce.from, -20.0)
-		XCTAssertEqual(positions.startBounce.to, 0.0)
-		XCTAssertEqual(positions.end.from, 265.0)
-		XCTAssertEqual(positions.end.to, 245.0)
-		XCTAssertEqual(positions.secondConstant, -5.0)
-		XCTAssertEqual(positions.hidingConstant, 100.0)
+		XCTAssertEqual(positions.start, -167.5)
+		XCTAssertEqual(positions.startBounce.from, -182.5)
+		XCTAssertEqual(positions.startBounce.to, -162.5)
+		XCTAssertEqual(positions.end.from, 177.5)
+		XCTAssertEqual(positions.end.to, 157.5)
+		XCTAssertEqual(positions.hidingConstant, 237.5)
     }
 
 	func testPositionsCalculationRight() {
@@ -45,13 +44,12 @@ class CariocaIndicatorViewTests: XCTestCase {
 		//When
 		let positions = calculatePositions()
 		//Then
-		XCTAssertEqual(positions.start, 5.0)
-		XCTAssertEqual(positions.startBounce.from, 20.0)
-		XCTAssertEqual(positions.startBounce.to, 0.0)
-		XCTAssertEqual(positions.end.from, -265.0)
-		XCTAssertEqual(positions.end.to, -245.0)
-		XCTAssertEqual(positions.secondConstant, 5.0)
-		XCTAssertEqual(positions.hidingConstant, -100.0)
+		XCTAssertEqual(positions.start, 167.5)
+		XCTAssertEqual(positions.startBounce.from, 182.5)
+		XCTAssertEqual(positions.startBounce.to, 162.5)
+		XCTAssertEqual(positions.end.from, -177.5)
+		XCTAssertEqual(positions.end.to, -157.5)
+		XCTAssertEqual(positions.hidingConstant, -237.5)
 	}
 
 	func testPositionsCalculationiPhoneX() {
@@ -64,20 +62,18 @@ class CariocaIndicatorViewTests: XCTestCase {
 		edge = .right
 		let right = calculatePositions()
 		//Then
-		XCTAssertEqual(left.start, 39.0)
-		XCTAssertEqual(left.startBounce.from, 68.0)
-		XCTAssertEqual(left.startBounce.to, 44.0)
-		XCTAssertEqual(left.end.from, 309.0)
-		XCTAssertEqual(left.end.to, 201.0)
-		XCTAssertEqual(left.secondConstant, -49.0)
-		XCTAssertEqual(left.hidingConstant, 100.0)
-		XCTAssertEqual(right.start, -39.0)
-		XCTAssertEqual(right.startBounce.from, 20.0)
-		XCTAssertEqual(right.startBounce.to, -44.0)
-		XCTAssertEqual(right.end.from, -309.0)
-		XCTAssertEqual(right.end.to, -201.0)
-		XCTAssertEqual(right.secondConstant, 49.0)
-		XCTAssertEqual(right.hidingConstant, -100.0)
+		XCTAssertEqual(left.start, -123.5)
+		XCTAssertEqual(left.startBounce.from, -182.5)
+		XCTAssertEqual(left.startBounce.to, -118.5)
+		XCTAssertEqual(left.end.from, 221.5)
+		XCTAssertEqual(left.end.to, 113.5)
+		XCTAssertEqual(left.hidingConstant, 237.5)
+		XCTAssertEqual(right.start, 123.5)
+		XCTAssertEqual(right.startBounce.from, 182.5)
+		XCTAssertEqual(right.startBounce.to, 118.5)
+		XCTAssertEqual(right.end.from, -221.5)
+		XCTAssertEqual(right.end.to, -113.5)
+		XCTAssertEqual(right.hidingConstant, -237.5)
 	}
 
 	private func calculatePositions() -> IndicatorPositionConstants {
