@@ -32,12 +32,13 @@ CariocaMenu is a **simple**, **elegant**, **fast** navigation menu for your **iO
 - [x] Customisable menu indicator
 - [x] Menu Item supports image & emoji/text
 - [x] Boomerang mode
-- [x] Full AutoLayout
+- [x] Supports rotation (Full AutoLayout)
+- [x] Supports iPhone X & the Notch !
 - [x] [Complete Technical Documentation](http://arn00s.github.io/cariocamenu/)
 
 ## 📝 Requirements
 
-- Autolayout
+- AutoLayout
 - iOS 9.0+
 - Swift 4.0 (Swift 3 compatible)
 
@@ -64,7 +65,7 @@ pod 'CariocaMenu'
 
 ### Carthage
 
-[Carthage](https://github.com/Carthage/Carthage) is a decentralized dependency manager that builds your dependencies and provides you with binary frameworks.
+[Carthage](https://github.com/Carthage/Carthage) is a decentralised dependency manager that builds your dependencies and provides you with binary frameworks.
 
 You can install Carthage with [Homebrew](http://brew.sh/) using the following command:
 
@@ -135,10 +136,8 @@ You're starting a new iOS app, and you want to innovate on the user experience.
 
 ### 🇧🇷 Why the name `CariocaMenu`?
 
-I didn't want to use the same naming convention that EVERYONE uses. I could have named it `ASSuperCoolMenu`, but it sucks.
-A `Carioca` is someone who lives in Rio de Janeiro. I lived there for two months, and this idea was born while I was there.
-
-* * *
+I didn't want to use the same naming convention that **EVERYONE** uses. I could have named it `ASSuperCoolMenu`, but it sucks.
+A `Carioca` is someone who lives in Rio de Janeiro 🇧🇷. I lived there for two months, and this idea was born while I was there.
 
 ## 🤙🏼 Contact
 

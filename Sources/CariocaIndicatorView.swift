@@ -79,13 +79,15 @@ public class CariocaIndicatorView: UIView {
 								 bouncingValues: BouncingValues,
 								 startInset: CGFloat,
 								 endInset: CGFloat) -> IndicatorPositionConstants {
-		let multiplier: CGFloat = edge == .left ? 1.0 : -1.0
+		let multiplier: CGFloat = edge == .left ? -1.0 : 1.0
+		let hostMidWidth = hostWidth / 2.0
+		let indicWidth = indicatorWidth / 2.0
 		let inverseMultiplier: CGFloat = multiplier * -1.0
 		//Start positions
-		let start = (borderMargin - startInset) * inverseMultiplier
-		let startBounceFrom = start + (bouncingValues.from * inverseMultiplier) + startInset
-		let startBounceTo = start + (bouncingValues.to * multiplier)
-		let startBounce: BouncingValues = (from: startBounceFrom, to: startBounceTo)
+		let start = hostMidWidth - indicWidth + borderMargin
+		let startBounceFrom = start + bouncingValues.from + startInset
+		let startBounceTo = start - bouncingValues.to
+		let startBounce: BouncingValues = (from: (startBounceFrom * multiplier), to: (startBounceTo * multiplier))
 		//End positions
 		let endBounceFrom: CGFloat = (hostWidth - indicatorWidth + bouncingValues.from + endInset) * multiplier
 		let endBounceTo: CGFloat = (hostWidth - indicatorWidth - borderMargin - endInset) * multiplier
@@ -94,7 +96,11 @@ public class CariocaIndicatorView: UIView {
 		let secondConstant: CGFloat = (endInset + borderMargin) * inverseMultiplier
 		///Hiding constant
 		let hidingConstant = (indicatorWidth * 2.0) * multiplier
-		return IndicatorPositionConstants(start: start, startBounce: startBounce,
+		var startValue = start * multiplier
+//		startValue = startBounce.to
+		print(startValue)
+		return IndicatorPositionConstants(start: startValue,
+										  startBounce: startBounce,
 										  end: endBounce,
 										  secondConstant: secondConstant,
 										  hidingConstant: hidingConstant)
