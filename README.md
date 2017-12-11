@@ -7,6 +7,9 @@
 ![iOS 8.0+](https://img.shields.io/badge/iOS-8.0%2B-blue.svg)
 ![Swift 4.0+](https://img.shields.io/badge/Swift-4.0%2B-orange.svg)
 [![License](https://img.shields.io/cocoapods/l/Hero.svg?style=flat)](https://github.com/arn00s/cariocamenu_refactor/blob/master/LICENSE?raw=true)
+[![CocoaPods](https://img.shields.io/cocoapods/dt/CariocaMenu.svg)]()
+[![Twitter URL](https://img.shields.io/twitter/url/https/github.com/arn00s/cariocamenu.svg?style=social)](https://twitter.com/intent/tweet?text=This%20menu%20is%20awesome:&url=https%3A%2F%2Fgithub.com%2Farn00s%2Fcariocamenu)
+
 
 ## ⚠️ Warning
 
@@ -14,7 +17,7 @@
 
 [**https://github.com/arn00s/cariocamenu**](https://github.com/arn00s/cariocamenu)
 
-## Quicklook
+## ⚡️ Quicklook
 
 The fastest zero-tap iOS menu
 
@@ -22,7 +25,7 @@ CariocaMenu is a **simple**, **elegant**, **fast** navigation menu for your **iO
 
 ![](https://raw.githubusercontent.com/arn00s/cariocamenu/master/cariocamenu.gif)
 
-## Features
+## 🏆 Features
 
 - [x] Accessible from a single swipe of the left/right screen edge
 - [x] Accessible with a tap on the indicator
@@ -32,13 +35,13 @@ CariocaMenu is a **simple**, **elegant**, **fast** navigation menu for your **iO
 - [x] Full AutoLayout
 - [x] [Complete Technical Documentation](http://arn00s.github.io/cariocamenu/)
 
-## Requirements
+## 📝 Requirements
 
 - Autolayout
 - iOS 9.0+
-- Swift 4.0
+- Swift 4.0 (Swift 3 compatible)
 
-## Communication
+## 📢 Communication
 
 - If you **need help**, use [Stack Overflow](http://stackoverflow.com/questions/tagged/CariocaMenu). (Tag 'CariocaMenu')
 - If you'd like to **ask a general question**, use [Stack Overflow](http://stackoverflow.com/questions/tagged/CariocaMenu).
@@ -47,7 +50,7 @@ CariocaMenu is a **simple**, **elegant**, **fast** navigation menu for your **iO
 - If you **want to contribute**, submit a pull request.
 - If you **use the control**, contact me to mention your app on this page.
 
-## Installation
+## 📲 Installation
 
 ### CocoaPods
 CariocaMenu is now available on [CocoaPods](http://cocoapods.org).
@@ -86,7 +89,7 @@ Just Drag&Drop all the files under `Sources/` into your project.
 
 ---
 
-## Usage
+## 💻 Usage
 
 ### Creating your menu
 
@@ -116,35 +119,40 @@ TOCOMPLETE
 TOCOMPLETE
 ```
 
-## TODO
+## 👨‍💻 TODO
 
 - Add a `live tutorial` to indicate users how to get the most of this menu
 
-## Known issues
+## ⚠️ Known issues
 
 Check the ([GitHub issues](https://github.com/arn00s/CariocaMenu/issues))
 
-## FAQ
+## 🤔 FAQ
 
-### Why should I use `CariocaMenu`?
+### 😍 Why should I use `CariocaMenu`?
 
 You're starting a new iOS app, and you want to innovate on the user experience.
 
-### Why the name `CariocaMenu`?
+### 🇧🇷 Why the name `CariocaMenu`?
 
 I didn't want to use the same naming convention that EVERYONE uses. I could have named it `ASSuperCoolMenu`, but it sucks.
 A `Carioca` is someone who lives in Rio de Janeiro. I lived there for two months, and this idea was born while I was there.
 
 * * *
 
-## Contact
+## 🤙🏼 Contact
 
 - [twitter](https://twitter.com/mmommommomo)
 
-### Creator
+## ❤️ Contributions
+This is an open source project, feel free to contribute!
+- Open an [issue](https://github.com/arn00s/cariocamenu/issues/new).
+- Propose your own fixes, suggestions and open a pull request with the changes.
 
-- [Arnaud Schloune](https://github.com/arn00s)
+See [all contributors](https://github.com/arn00s/cariocamenu/graphs/contributors)
 
-## License
+###### Project generated with [SwiftPlate](https://github.com/JohnSundell/SwiftPlate)
+
+## 📝 License
 
 CariocaMenu is released under the MIT license. See LICENSE for details.
