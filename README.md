@@ -4,7 +4,7 @@
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-Compatible-brightgreen.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![Version](https://img.shields.io/cocoapods/v/Hero.svg?style=flat)](http://cocoapods.org/pods/Hero)
-![iOS 8.0+](https://img.shields.io/badge/iOS-8.0%2B-blue.svg)
+![iOS 9.0+](https://img.shields.io/badge/iOS-9.0%2B-blue.svg)
 ![Swift 4.0+](https://img.shields.io/badge/Swift-4.0%2B-orange.svg)
 [![License](https://img.shields.io/cocoapods/l/Hero.svg?style=flat)](https://github.com/arn00s/cariocamenu_refactor/blob/master/LICENSE?raw=true)
 [![CocoaPods](https://img.shields.io/cocoapods/dt/CariocaMenu.svg)]()

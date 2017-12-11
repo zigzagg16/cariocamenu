@@ -1,6 +1,8 @@
 language: objective-c
 osx_image: xcode9
+xcode_project: CariocaMenu.xcodeproj
 script:
-  - xcodebuild -project CariocaMenu.xcodeproj -target CariocaMenu-iOS -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 7,OS=9'
-  - xcodebuild -project CariocaMenu.xcodeproj -target CariocaMenuDemo -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 7,OS=9'
+  - xcodebuild -target CariocaMenu-iOS -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 7,OS=9'
+  - xcodebuild -target CariocaMenuDemo -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 7,OS=9'
+  - xcodebuild -target CariocaMenu-iOS-Tests -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 7,OS=9'
 after_success:
