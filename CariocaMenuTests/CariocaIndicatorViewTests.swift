@@ -32,7 +32,7 @@ class CariocaIndicatorViewTests: XCTestCase {
 		XCTAssertEqual(positions.startBounce.from, -182.5)
 		XCTAssertEqual(positions.startBounce.to, -162.5)
 		XCTAssertEqual(positions.end.from, 177.5)
-//		XCTAssertEqual(positions.end.to, 245.0)
+		XCTAssertEqual(positions.end.to, 157.5)
 //		XCTAssertEqual(positions.hidingConstant, 100.0)
     }
 
@@ -48,7 +48,7 @@ class CariocaIndicatorViewTests: XCTestCase {
 		XCTAssertEqual(positions.startBounce.from, 182.5)
 		XCTAssertEqual(positions.startBounce.to, 162.5)
 		XCTAssertEqual(positions.end.from, -177.5)
-//		XCTAssertEqual(positions.end.to, -245.0)
+		XCTAssertEqual(positions.end.to, -157.5)
 //		XCTAssertEqual(positions.hidingConstant, -100.0)
 	}
 /*
