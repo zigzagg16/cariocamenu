@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "52D6D9851BEFF229002C0205"
-               BuildableName = "CariocaMenu-iOS Tests.xctest"
-               BlueprintName = "CariocaMenu-iOS Tests"
+               BlueprintIdentifier = "FA3F13F91FDEC1BB004814EC"
+               BuildableName = "CariocaMenuTests.xctest"
+               BlueprintName = "CariocaMenuTests"
                ReferencedContainer = "container:CariocaMenu.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -33,22 +33,13 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "52D6D9851BEFF229002C0205"
-               BuildableName = "CariocaMenu-iOS Tests.xctest"
-               BlueprintName = "CariocaMenu-iOS Tests"
+               BlueprintIdentifier = "FA3F13F91FDEC1BB004814EC"
+               BuildableName = "CariocaMenuTests.xctest"
+               BlueprintName = "CariocaMenuTests"
                ReferencedContainer = "container:CariocaMenu.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "52D6D9851BEFF229002C0205"
-            BuildableName = "CariocaMenu-iOS Tests.xctest"
-            BlueprintName = "CariocaMenu-iOS Tests"
-            ReferencedContainer = "container:CariocaMenu.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>
@@ -66,9 +57,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "52D6D9851BEFF229002C0205"
-            BuildableName = "CariocaMenu-iOS Tests.xctest"
-            BlueprintName = "CariocaMenu-iOS Tests"
+            BlueprintIdentifier = "FA3F13F91FDEC1BB004814EC"
+            BuildableName = "CariocaMenuTests.xctest"
+            BlueprintName = "CariocaMenuTests"
             ReferencedContainer = "container:CariocaMenu.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -81,6 +72,15 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "FA3F13F91FDEC1BB004814EC"
+            BuildableName = "CariocaMenuTests.xctest"
+            BlueprintName = "CariocaMenuTests"
+            ReferencedContainer = "container:CariocaMenu.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">
