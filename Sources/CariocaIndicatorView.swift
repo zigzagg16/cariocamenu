@@ -35,12 +35,8 @@ public class CariocaIndicatorView: UIView {
 	private let originalEdge: UIRectEdge
 	///The indicator's top constraint
 	var topConstraint = NSLayoutConstraint()
-	///The indicator's leading/left constraint.
-	///Depending on the edge, the priority will be switched w/ trailingConstraint
-	private var leadingConstraint = NSLayoutConstraint()
-	///The indicator's trailing/right constraint.
-	///Depending on the edge, the priority will be switched w/ leadingConstraint
-	private var trailingConstraint = NSLayoutConstraint()
+	///The indicator's horizontal constraint.
+	private var horizontalConstraint = NSLayoutConstraint()
 	///The icon's view
 	var iconView: CariocaIconView
 	///The custom indicator configuration
@@ -115,10 +111,7 @@ public class CariocaIndicatorView: UIView {
 		self.translatesAutoresizingMaskIntoConstraints = false
 		hostView.addSubview(self)
 		topConstraint = CariocaMenu.equalConstraint(self, toItem: tableView, attribute: .top)
-		leadingConstraint = makeHorizontalConstraint(hostView, .leading)
-		trailingConstraint = makeHorizontalConstraint(hostView, .trailing)
-		//This priority setting call will be overrided later, in show().
-		constraintPriorities(main: leadingConstraint, second: trailingConstraint)
+		horizontalConstraint = makeHorizontalConstraint(hostView, NSLayoutAttribute.centerX)
 		hostView.addConstraints([
 			NSLayoutConstraint(item: self,
 							   attribute: .width, relatedBy: .equal,
@@ -129,8 +122,7 @@ public class CariocaIndicatorView: UIView {
 							   toItem: nil, attribute: .notAnAttribute,
 							   multiplier: 1, constant: frame.size.height),
 			topConstraint,
-			leadingConstraint,
-			trailingConstraint
+			horizontalConstraint
 		])
 		topConstraint.constant = verticalConstant(for: position,
 												  hostHeight: hostView.frame.height,
@@ -186,14 +178,6 @@ public class CariocaIndicatorView: UIView {
 		setNeedsLayout()
 	}
 
-	///The main constraint, with the highest priority. Depends on the current edge.
-	private var mainConstraint: NSLayoutConstraint {
-		return edge == .left ? leadingConstraint : trailingConstraint
-	}
-	///The second constraint, with the lowest priority. Depends on the current edge.
-	private var secondConstraint: NSLayoutConstraint {
-		return edge == .left ? trailingConstraint : leadingConstraint
-	}
 	///Calls the positionConstants() with all internal parameters
 	///- Returns: IndicatorPositionConstants All the possible calculated positions
 	private func positionValues(_ hostView: UIView) -> IndicatorPositionConstants {
@@ -214,8 +198,7 @@ public class CariocaIndicatorView: UIView {
 	///- Parameter hostView: The menu's hostView
 	func repositionXAfterRotation(_ hostView: UIView) {
 		let positions = positionValues(hostView)
-		mainConstraint.constant = positions.start
-		secondConstraint.constant = positions.secondConstant
+		horizontalConstraint.constant = positions.start
 	}
 
 	///Calculates inset values, depending on orientation.
@@ -248,23 +231,16 @@ public class CariocaIndicatorView: UIView {
 		self.edge = edge
 		self.setNeedsDisplay()
 		let positions = positionValues(hostView)
-		constraintPriorities(main: mainConstraint, second: secondConstraint)
-		mainConstraint.isActive = true
-		secondConstraint.isActive = true
-		mainConstraint.constant = positions.startBounce.from
+		horizontalConstraint.constant = positions.startBounce.from
 		superview?.layoutIfNeeded()
 		let animationValueOne = isTraversingView ? positions.end.from : positions.startBounce.to
 		let animationValueTwo = isTraversingView ? positions.end.to : positions.start
 
-		animation(superView, constraint: mainConstraint,
+		animation(superView, constraint: horizontalConstraint,
 				  constant: animationValueOne, timing: isTraversingView ? 0.3 : 0.15, options: [.curveEaseIn], finished: {
-					self.animation(superView, constraint: self.mainConstraint,
+					self.animation(superView, constraint: self.horizontalConstraint,
 								   constant: animationValueTwo, timing: 0.2, options: [.curveEaseOut], finished: {
-									if isTraversingView {
-									self.secondConstraint.constant = positions.secondConstant
-									self.constraintPriorities(main: self.secondConstraint,
-															  second: self.mainConstraint)
-									}
+									if isTraversingView {}
 					})
 		})
 	}
@@ -286,20 +262,13 @@ public class CariocaIndicatorView: UIView {
 		var timingAnim1: Double = firstStepDuration * 0.7, timingAnim2: Double = firstStepDuration * 0.3
 		if hasBoomerang { //Boomerang logic
 			//the indicator must go out of the view
-			constraintPriorities(main: secondConstraint, second: mainConstraint)
-			mainConstraint.isActive = false
-			secondConstraint.isActive = true
 			positionOne = positions.hidingConstant
 			mustSwitchEdge = boomerang == .verticalHorizontal && originalEdge != edge
 			timingAnim1 = firstStepDuration * 1.25
 		} else {
-			constraintPriorities(main: mainConstraint, second: secondConstraint)
-			mainConstraint.isActive = true
-			secondConstraint.isActive = false
 			positionOne = positions.startBounce.from
 		}
-		let constraintToAnimate = hasBoomerang ? secondConstraint : mainConstraint
-		animation(superview!, constraint: constraintToAnimate,
+		animation(superview!, constraint: horizontalConstraint,
 				  constant: positionOne, timing: timingAnim1, options: [.curveEaseIn], finished: {
 					if hasBoomerang {
 						firstStepDone(hasBoomerang)
@@ -309,7 +278,7 @@ public class CariocaIndicatorView: UIView {
 																			height: self.frame.height)
 						self.show(edge: edgeToShow, hostView: hostView, isTraversingView: false)
 					} else {
-						self.animation(self.superview!, constraint: constraintToAnimate,
+						self.animation(self.superview!, constraint: self.horizontalConstraint,
 									   constant: positions.start, timing: timingAnim2, options: [.curveEaseOut], finished: {
 										firstStepDone(hasBoomerang)
 						})
