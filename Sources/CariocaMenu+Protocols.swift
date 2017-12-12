@@ -30,7 +30,7 @@ public protocol CariocaDataSource {
 	///The indicator's initial position, in %. Top : 0%, Center: 50%, Bottom: 100%.
 	var indicatorPosition: CGFloat { get }
 	///The indicator's Boomerang type.
-	var boomerang: BoomerangType { get }
+	var boomerang: BoomerangType { get set }
 }
 
 ///The menu's events delegate

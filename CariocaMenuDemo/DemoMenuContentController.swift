@@ -5,10 +5,14 @@ class DemoMenuContentController: UITableViewController, CariocaDataSource {
 	var indicatorPosition: CGFloat = 50.0
 	var isOffscreenAllowed: Bool = true
 	var blurStyle: UIBlurEffectStyle? = .dark
-	var boomerang: BoomerangType = .verticalHorizontal
-//	var boomerang: BoomerangType = .vertical
-//	var boomerang: BoomerangType = .none
-	var menuItems: [CariocaMenuItem] = []
+	var boomerang: BoomerangType = .none
+	var menuItems: [CariocaMenuItem] = [
+		CariocaMenuItem("Olá", .emoji("👋🏼")),
+		CariocaMenuItem("The idea", .icon(UIImage(named: "hamburger")!)),
+		CariocaMenuItem("Travel", .emoji("✈️")),
+		CariocaMenuItem("Settings", .emoji("🛠")),
+		CariocaMenuItem("About", .emoji("👨🏼‍💻"))
+	]
 	func heightForRow() -> CGFloat { return 60.0 }
 
     // MARK: - menu data source 

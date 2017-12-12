@@ -40,9 +40,13 @@ public class CariocaIndicatorView: UIView {
 	private let config: CariocaIndicator
 	///The constraints applied to the iconview. Can be updated later with custom configuration
 	private var iconConstraints: [NSLayoutConstraint] = []
+	///The indicator's possible animation states
 	private enum AnimationState {
+		///The indicator is on hold, the menu is closed
 		case onHold
+		///The indicator is performing showing animation
 		case showing
+		///The indicator is performing restoration animation
 		case restoring
 	}
 	///Status of the indicator animations. Avoid double animations issues
@@ -332,7 +336,5 @@ public class CariocaIndicatorView: UIView {
 	}
 
 	///:nodoc:
-	required public init?(coder aDecoder: NSCoder) {
-		fatalError("init(coder:) has not been implemented")
-	}
+	required public init?(coder aDecoder: NSCoder) { fatalError("init(coder:) has not been implemented") }
 }

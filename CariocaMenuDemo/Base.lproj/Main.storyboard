@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -14,10 +15,10 @@
         </array>
     </customFonts>
     <scenes>
-        <!--Demo View Controller-->
+        <!--Main View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="DemoViewController" customModule="CariocaMenuDemo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="MainViewController" customModule="CariocaMenuDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -26,6 +27,18 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="78o-CP-U3A">
+                                <rect key="frame" x="20" y="619" width="335" height="29"/>
+                                <segments>
+                                    <segment title="No boomerang"/>
+                                    <segment title="Y"/>
+                                    <segment title="X &amp; Y"/>
+                                </segments>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <action selector="didChangeBoomerangType:" destination="BYZ-38-t0r" eventType="valueChanged" id="VQt-32-COc"/>
+                                </connections>
+                            </segmentedControl>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gb1-ld-dav" customClass="CariocaIconView" customModule="CariocaMenuDemo" customModuleProvider="target">
                                 <rect key="frame" x="137.5" y="283.5" width="100" height="100"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -42,8 +55,12 @@
                             <constraint firstAttribute="trailing" secondItem="pxq-TG-T1U" secondAttribute="trailing" id="9I8-Zr-Pf1"/>
                             <constraint firstItem="pxq-TG-T1U" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Eax-Bv-xmm"/>
                             <constraint firstItem="pxq-TG-T1U" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="PS3-v3-Da7"/>
+                            <constraint firstItem="hGr-kW-QbE" firstAttribute="trailing" secondItem="78o-CP-U3A" secondAttribute="trailing" constant="20" id="bSR-b4-gev"/>
+                            <constraint firstItem="78o-CP-U3A" firstAttribute="leading" secondItem="hGr-kW-QbE" secondAttribute="leading" constant="20" id="fvY-um-PwL"/>
                             <constraint firstItem="Gb1-ld-dav" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="oa1-Ie-L9L"/>
+                            <constraint firstItem="hGr-kW-QbE" firstAttribute="bottom" secondItem="78o-CP-U3A" secondAttribute="bottom" constant="20" id="qau-ac-j9t"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="hGr-kW-QbE"/>
                     </view>
                     <connections>
                         <outlet property="gradientView" destination="pxq-TG-T1U" id="oNp-ob-SsD"/>

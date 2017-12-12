@@ -31,7 +31,6 @@
 		FA9E9A4C1FC4A38F00C57175 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA9E9A4A1FC4A38F00C57175 /* Main.storyboard */; };
 		FA9E9A4E1FC4A38F00C57175 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA9E9A4D1FC4A38F00C57175 /* Assets.xcassets */; };
 		FA9E9A511FC4A38F00C57175 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA9E9A4F1FC4A38F00C57175 /* LaunchScreen.storyboard */; };
-		FA9E9A5A1FC4A6D700C57175 /* DemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9E9A591FC4A6D700C57175 /* DemoViewController.swift */; };
 		FA9E9A5C1FC4A6E100C57175 /* DemoMenuContentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9E9A5B1FC4A6E000C57175 /* DemoMenuContentController.swift */; };
 		FA9E9A5E1FC4AA4900C57175 /* CariocaMenu+Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9E9A5D1FC4AA4900C57175 /* CariocaMenu+Protocols.swift */; };
 		FA9E9A601FC4AA4900C57175 /* CariocaMenu+Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9E9A5D1FC4AA4900C57175 /* CariocaMenu+Protocols.swift */; };
@@ -42,6 +41,7 @@
 		FA9E9A6A1FC4BDFA00C57175 /* CariocaMenuContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9E9A671FC4BDFA00C57175 /* CariocaMenuContainerView.swift */; };
 		FA9E9A6C1FC4D2F700C57175 /* CariocaMenu+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9E9A6B1FC4D2F700C57175 /* CariocaMenu+Utils.swift */; };
 		FA9E9A6E1FC4D2F700C57175 /* CariocaMenu+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9E9A6B1FC4D2F700C57175 /* CariocaMenu+Utils.swift */; };
+		FAC0723C1FE08EAB0011FF0C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC0723B1FE08EAB0011FF0C /* MainViewController.swift */; };
 		FAC52FFC1FD1C06C007FE0AD /* CariocaMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC52FFB1FD1C06C007FE0AD /* CariocaMenuItem.swift */; };
 		FAC52FFE1FD1C06C007FE0AD /* CariocaMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC52FFB1FD1C06C007FE0AD /* CariocaMenuItem.swift */; };
 		FAC89F061FC5522A00C988B6 /* CariocaGestureManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC89F051FC5522900C988B6 /* CariocaGestureManager.swift */; };
@@ -80,12 +80,12 @@
 		FA9E9A4D1FC4A38F00C57175 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FA9E9A501FC4A38F00C57175 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FA9E9A521FC4A38F00C57175 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FA9E9A591FC4A6D700C57175 /* DemoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoViewController.swift; sourceTree = "<group>"; };
 		FA9E9A5B1FC4A6E000C57175 /* DemoMenuContentController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoMenuContentController.swift; sourceTree = "<group>"; };
 		FA9E9A5D1FC4AA4900C57175 /* CariocaMenu+Protocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CariocaMenu+Protocols.swift"; sourceTree = "<group>"; };
 		FA9E9A631FC4B6C200C57175 /* CariocaMenu+Enums.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CariocaMenu+Enums.swift"; sourceTree = "<group>"; };
 		FA9E9A671FC4BDFA00C57175 /* CariocaMenuContainerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CariocaMenuContainerView.swift; sourceTree = "<group>"; };
 		FA9E9A6B1FC4D2F700C57175 /* CariocaMenu+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CariocaMenu+Utils.swift"; sourceTree = "<group>"; };
+		FAC0723B1FE08EAB0011FF0C /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		FAC52FFB1FD1C06C007FE0AD /* CariocaMenuItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CariocaMenuItem.swift; sourceTree = "<group>"; };
 		FAC89F051FC5522900C988B6 /* CariocaGestureManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CariocaGestureManager.swift; sourceTree = "<group>"; };
 		FAE376CC1FDC856200379953 /* CustomPolygonIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomPolygonIndicator.swift; sourceTree = "<group>"; };
@@ -205,7 +205,7 @@
 			children = (
 				FA9E9A461FC4A38F00C57175 /* AppDelegate.swift */,
 				FA9E9A5B1FC4A6E000C57175 /* DemoMenuContentController.swift */,
-				FA9E9A591FC4A6D700C57175 /* DemoViewController.swift */,
+				FAC0723B1FE08EAB0011FF0C /* MainViewController.swift */,
 				FAE376CC1FDC856200379953 /* CustomPolygonIndicator.swift */,
 				FA9E9A4A1FC4A38F00C57175 /* Main.storyboard */,
 				FA9E9A4D1FC4A38F00C57175 /* Assets.xcassets */,
@@ -421,6 +421,7 @@
 				FAC89F081FC5522A00C988B6 /* CariocaGestureManager.swift in Sources */,
 				FA150C191FD8163B001D1D39 /* CariocaIcon.swift in Sources */,
 				FA9E9A601FC4AA4900C57175 /* CariocaMenu+Protocols.swift in Sources */,
+				FAC0723C1FE08EAB0011FF0C /* MainViewController.swift in Sources */,
 				FA9E9A471FC4A38F00C57175 /* AppDelegate.swift in Sources */,
 				FA9E9A611FC4ACDB00C57175 /* CariocaMenu.swift in Sources */,
 				FA9E9A6E1FC4D2F700C57175 /* CariocaMenu+Utils.swift in Sources */,
@@ -428,7 +429,6 @@
 				FAFF054C1FD176AF002FAB75 /* CariocaIndicatorView.swift in Sources */,
 				FA89D5C71FDD577900404DE6 /* CariocaIndicatorConfiguration.swift in Sources */,
 				FAC52FFE1FD1C06C007FE0AD /* CariocaMenuItem.swift in Sources */,
-				FA9E9A5A1FC4A6D700C57175 /* DemoViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

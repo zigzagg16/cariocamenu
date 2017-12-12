@@ -1,14 +1,15 @@
 //
-//  ViewController.swift
+//  MainViewController.swift
 //  CariocaMenuDemo
 //
 
 import UIKit
 
-class DemoViewController: UIViewController {
+class MainViewController: UIViewController {
     var carioca: CariocaMenu?
 	@IBOutlet weak var iconView: CariocaIconView!
 	@IBOutlet weak var gradientView: ASGradientView!
+	var menuController: CariocaController?
 
 	override func viewDidLoad() {
 		setupGradient()
@@ -16,31 +17,22 @@ class DemoViewController: UIViewController {
 
     override func viewDidAppear(_ animated: Bool) {
 		iconView.label.font = UIFont.boldSystemFont(ofSize: 75)
-		iconView.display(icon: CariocaIcon.emoji("🤙🏼"))
+		iconView.display(icon: CariocaIcon.emoji("👋🏼"))
         initialiseCarioca()
     }
 
     func initialiseCarioca() {
-        if var menuController = self.storyboard?.instantiateViewController(withIdentifier: "DemoMenu")
+        if let controller = self.storyboard?.instantiateViewController(withIdentifier: "DemoMenu")
             as? CariocaController {
-			addChildViewController(menuController)
-			menuController.menuItems = [
-				CariocaMenuItem("Hello", .emoji("🤙🏼")),
-				CariocaMenuItem("About", .icon(UIImage(named: "hamburger")!)),
-				CariocaMenuItem("Settings", .emoji("🛠")),
-				CariocaMenuItem("Brasil", .emoji("🇧🇷")),
-				CariocaMenuItem("ZZZ", .emoji("Z"))
-			]
-			carioca = CariocaMenu(controller: menuController,
+			addChildViewController(controller)
+			carioca = CariocaMenu(controller: controller,
 								  hostView: self.view,
-//								  edges: [.right, .left],
-								  edges: [.left, .right],
-//								  edges: [.left],
+								  edges: [.right, .left], //[.left, .right], //[.left],
 								  delegate: self,
-								  indicator: CariocaCustomIndicatorView()
-//								  indicator: CustomPolygonIndicator()
+								  indicator: CariocaCustomIndicatorView() //CustomPolygonIndicator()
 								  )
 			carioca?.addInHostView()
+			menuController = controller
         }
     }
 	// MARK: Rotation management
@@ -68,9 +60,20 @@ class DemoViewController: UIViewController {
 
 		gradientView.animateGradient()
 	}
+
+	@IBAction func didChangeBoomerangType(_ sender: UISegmentedControl) {
+		switch sender.selectedSegmentIndex {
+		case 1:
+			menuController?.boomerang = .vertical
+		case 2:
+			menuController?.boomerang = .verticalHorizontal
+		default:
+			menuController?.boomerang = .none
+		}
+	}
 }
 
-extension DemoViewController: CariocaDelegate {
+extension MainViewController: CariocaDelegate {
 	func cariocamenu(_ menu: CariocaMenu, didSelect item: CariocaMenuItem, at index: Int) {
         CariocaMenu.log("didSelect \(item) at \(index)")
 		iconView.display(icon: item.icon)
