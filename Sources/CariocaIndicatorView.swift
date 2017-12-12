@@ -187,7 +187,6 @@ public class CariocaIndicatorView: UIView {
 		let insets = insetsValues(hostView.insets(),
 								  orientation: UIDevice.current.orientation,
 								  edge: edge)
-		print(insets)
 		return CariocaIndicatorView.positionConstants(hostWidth: hostView.frame.width,
 													  indicatorWidth: frame.width,
 													  edge: edge,
