@@ -1,8 +1,10 @@
-CariocaMenu
+Carioca Menu
 ===============
 
-[![Cocoapods Compatible](https://img.shields.io/cocoapods/v/CariocaMenu.svg)](https://img.shields.io/cocoapods/v/CariocaMenu.svg)
+[![CocoaPods Compatible](https://img.shields.io/cocoapods/v/CariocaMenu.svg)](https://img.shields.io/cocoapods/v/CariocaMenu.svg)
 [![Carthage Compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
+[![Awesome](https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg)](https://github.com/sindresorhus/awesome)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
 
 The fastest zero-tap iOS menu
 
@@ -18,13 +20,14 @@ CariocaMenu is a simple, elegant, fast, modern, innovative, ..., navigation menu
 - [x] Boomerang mode
 - [x] Full AutoLayout
 - [x] Easily customisable
-- [x] Complete Documentation
+- [x] [Complete Documentation](http://arn00s.github.io/cariocamenu/)
 
 ## Requirements
 
 - Autolayout
-- iOS 8.0+
-- Xcode 7.0
+- iOS 9.0+
+- Xcode 8.0
+- Swift 3.0 (Swift 2.3 available in swift_2.3 branch)
 
 ## Communication
 
@@ -33,6 +36,7 @@ CariocaMenu is a simple, elegant, fast, modern, innovative, ..., navigation menu
 - If you **found a bug**, open an issue.
 - If you **have a feature request**, open an issue.
 - If you **want to contribute**, submit a pull request.
+- If you **use the control**, contact me to mention your app on this page.
 
 ## Installation
 
@@ -114,6 +118,7 @@ menu.boomerang = .VerticalAndHorizontal
 
 ## TODO
 
+- Support rotation
 - Add a `live tutorial` to indicate users how to get the most of this menu
 - Unit tests / UIAutomation Tests
 - Check support for Objective-C projects
@@ -139,12 +144,12 @@ A `Carioca` is someone who lives in Rio de Janeiro. I lived there for two months
 
 ## Contact
 
-- LinkedIn ([Arnaud Schloune](https://lu.linkedin.com/in/arnaudschloune))
-- Twitter ([@arnaud_momo](https://twitter.com/arnaud_momo))
+- [LinkedIn](https://lu.linkedin.com/in/arnaudschloune)
+- [twitter](https://twitter.com/arnaud_momo)
 
 ### Creator
 
-- [Arnaud Schloune](http://github.com/arn00s) ([@arnaud_momo](https://twitter.com/arnaud_momo))
+- [Arnaud Schloune](http://github.com/arn00s)
 
 ## License
 

@@ -30,17 +30,17 @@ class MyMenuContentController: UITableViewController, CariocaMenuDataSource {
 
     // MARK: - Table view data source
     
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return menuNames.count
     }
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCellWithIdentifier(cellTypeIdentifier, forIndexPath: indexPath) as! MyMenuTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellTypeIdentifier, for: indexPath) as! MyMenuTableViewCell
         //set the title in the cell
         cell.titleLabel.text = menuNames[indexPath.row]
         
@@ -58,19 +58,19 @@ class MyMenuContentController: UITableViewController, CariocaMenuDataSource {
         return cell
     }
     
-    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 60.0
     }
     
-    override func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        let footerView = UIView(frame: CGRectMake(0, 0, tableView.frame.size.width, 0))
-        footerView.backgroundColor = UIColor.clearColor()
+    override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        let footerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: 0))
+        footerView.backgroundColor = UIColor.clear
         return footerView
     }
     
 //MARK: - Cell styles and selection/preselection
     
-    func unselectRowAtIndexPath(indexPath: NSIndexPath) -> Void {
+    func unselectRowAtIndexPath(_ indexPath: IndexPath) -> Void {
 //        CariocaMenu.Log("unselectRowAtIndexPath \(indexPath.row)")
         if (indexPath == cariocaMenu?.selectedIndexPath){
             getCellFor(indexPath).applyStyleSelected()
@@ -79,25 +79,25 @@ class MyMenuContentController: UITableViewController, CariocaMenuDataSource {
         }
     }
     
-    func preselectRowAtIndexPath(indexPath: NSIndexPath) -> Void {
+    func preselectRowAtIndexPath(_ indexPath: IndexPath) -> Void {
 //        CariocaMenu.Log("preselectRowAtIndexPath \(indexPath.row)")
         getCellFor(indexPath).applyStyleHighlighted()
     }
     
-    func setSelectedIndexPath(indexPath: NSIndexPath) -> Void {
+    func setSelectedIndexPath(_ indexPath: IndexPath) -> Void {
 //        CariocaMenu.Log("setSelectedIndexPath \(indexPath.row)")
         getCellFor(indexPath).applyStyleSelected()
     }
     
     //Called when the user releases the gesture on a menu item
-    func selectRowAtIndexPath(indexPath: NSIndexPath) -> Void {
+    func selectRowAtIndexPath(_ indexPath: IndexPath) -> Void {
 //        CariocaMenu.Log("selectRowAtIndexPath \(indexPath.row)")
-        self.tableView(self.tableView, didSelectRowAtIndexPath: indexPath)
+        self.tableView(self.tableView, didSelectRowAt: indexPath)
     }
     
 // MARK: - Table view delegate
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 //        CariocaMenu.Log("didSelectRowAtIndexPath \(indexPath.row)")
         //Transfer the event to the menu, so that he can manage the selection
         cariocaMenu?.didSelectRowAtIndexPath(indexPath, fromContentController:true)
@@ -105,8 +105,8 @@ class MyMenuContentController: UITableViewController, CariocaMenuDataSource {
     
     // MARK: - Get the Cell
     
-    private func getCellFor(indexPath:NSIndexPath)->MyMenuTableViewCell {
-        return self.tableView.cellForRowAtIndexPath(indexPath) as! MyMenuTableViewCell
+    fileprivate func getCellFor(_ indexPath:IndexPath)->MyMenuTableViewCell {
+        return self.tableView.cellForRow(at: indexPath) as! MyMenuTableViewCell
     }
     
     // MARK: - Data source protocol
@@ -116,18 +116,18 @@ class MyMenuContentController: UITableViewController, CariocaMenuDataSource {
     }
     
     func heightByMenuItem()->CGFloat {
-        return self.tableView(self.tableView, heightForRowAtIndexPath: NSIndexPath(forItem: 0, inSection: 0))
+        return self.tableView(self.tableView, heightForRowAt: IndexPath(item: 0, section: 0))
     }
     
     func numberOfMenuItems()->Int {
         return self.tableView(self.tableView, numberOfRowsInSection: 0)
     }
     
-    func iconForRowAtIndexPath(indexPath:NSIndexPath)->UIImage {
+    func iconForRowAtIndexPath(_ indexPath:IndexPath)->UIImage {
         return UIImage(named: "\(iconNames[indexPath.row])_indicator.png")!
     }
     
-    func setCellIdentifierForEdge(identifier:String)->Void {
+    func setCellIdentifierForEdge(_ identifier:String)->Void {
         cellTypeIdentifier = identifier
         self.tableView.reloadData()
     }

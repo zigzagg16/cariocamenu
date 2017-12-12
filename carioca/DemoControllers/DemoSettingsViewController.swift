@@ -13,24 +13,24 @@ class DemoSettingsViewController: UITableViewController{
         settingsNames.append("Boomerang")
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         self.tableView.reloadData()
     }
     
     // MARK: - Table view data source
     
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return settingsNames.count
     }
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cellTypeIdentifier = indexPath.row == 2 ? "cellSegment" : "cellSwitch"
-        let cell = tableView.dequeueReusableCellWithIdentifier(cellTypeIdentifier, forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellTypeIdentifier, for: indexPath)
         
         //set the title in the cell
         let title = cell.viewWithTag(10) as! UILabel
@@ -44,7 +44,7 @@ class DemoSettingsViewController: UITableViewController{
             //edges
         case 0:
             let switcher = cell.viewWithTag(30) as! UISwitch
-            switcher.addTarget(self, action: Selector("edgesSwitchChanged:"), forControlEvents: .ValueChanged)
+            switcher.addTarget(self, action: #selector(DemoSettingsViewController.edgesSwitchChanged(_:)), for: .valueChanged)
             switcher.setOn((menu?.isAlwaysOnScreen)!, animated: true)
             descriptionText = (menu?.isAlwaysOnScreen)! ? "The menu stays on screen." : "The menu is completely free !!"
             
@@ -53,7 +53,7 @@ class DemoSettingsViewController: UITableViewController{
             //dragging
         case 1:
             let switcher = cell.viewWithTag(30) as! UISwitch
-            switcher.addTarget(self, action: Selector("dragSwitchChanged:"), forControlEvents: .ValueChanged)
+            switcher.addTarget(self, action: #selector(DemoSettingsViewController.dragSwitchChanged(_:)), for: .valueChanged)
             switcher.setOn((menu?.isDraggableVertically)!, animated: true)
             descriptionText = (menu?.isDraggableVertically)! ? "The user can drag the indicators." : "No dragging of the indicators."
             
@@ -62,13 +62,13 @@ class DemoSettingsViewController: UITableViewController{
             //boomerang
         default:
             let segment = cell.viewWithTag(30) as! UISegmentedControl
-            segment.addTarget(self, action: Selector("boomerangSegmentChanged:"), forControlEvents: .ValueChanged)
+            segment.addTarget(self, action: #selector(DemoSettingsViewController.boomerangSegmentChanged(_:)), for: .valueChanged)
             
-            if menu?.boomerang == .Vertical {
+            if menu?.boomerang == .vertical {
                 segment.selectedSegmentIndex = 1
                 descriptionText = "The menu always comes back at it's initial Y position."
             }
-            else if menu?.boomerang == .VerticalAndHorizontal {
+            else if menu?.boomerang == .verticalAndHorizontal {
                 segment.selectedSegmentIndex = 2
                 descriptionText = "The menu always comes back in place 👍"
             }
@@ -85,48 +85,48 @@ class DemoSettingsViewController: UITableViewController{
         return cell
     }
     
-    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return indexPath.row == 2 ? 140 : 90.0
     }
     
-    override func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        let footerView = UIView(frame: CGRectMake(0, 0, tableView.frame.size.width, 0))
-        footerView.backgroundColor = UIColor.clearColor()
+    override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        let footerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: 0))
+        footerView.backgroundColor = UIColor.clear
         return footerView
     }
     
-    override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let view = UIView(frame: CGRectMake(0, 0, tableView.frame.size.width, 80))
-        view.backgroundColor = UIColor.clearColor()
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let view = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: 80))
+        view.backgroundColor = UIColor.clear
         return view
     }
 
-    func boomerangSegmentChanged(sender: UISegmentedControl) {
+    func boomerangSegmentChanged(_ sender: UISegmentedControl) {
         switch sender.selectedSegmentIndex {
         case 1:
-            menu?.boomerang = .Vertical
+            menu?.boomerang = .vertical
             break;
         case 2:
-            menu?.boomerang = .VerticalAndHorizontal
+            menu?.boomerang = .verticalAndHorizontal
         default:
-            menu?.boomerang = .None
+            menu?.boomerang = .none
             break;
         }
         
         self.tableView.reloadData()
     }
     
-    func edgesSwitchChanged(sender: UISwitch) {
+    func edgesSwitchChanged(_ sender: UISwitch) {
         menu?.isAlwaysOnScreen = (menu?.isAlwaysOnScreen == true) ? false : true
         self.tableView.reloadData()
     }
     
-    func dragSwitchChanged(sender: UISwitch) {
+    func dragSwitchChanged(_ sender: UISwitch) {
         menu?.isDraggableVertically = (menu?.isDraggableVertically == true) ? false : true
         self.tableView.reloadData()
     }
     
-    override func viewWillDisappear(animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
         menu = nil
     }
 }
