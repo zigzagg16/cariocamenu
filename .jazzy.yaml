@@ -1,0 +1,17 @@
+clean: true
+author: Arnaud Schloune
+author_url: https://twitter.com/mmommommomo
+github_url: https://github.com/mmommommomo/bliss
+github_file_prefix:
+module: carioca
+min_acl: private
+exclude: [
+  carioca/AppDelegate.swift,
+  carioca/carioca-Bridging-Header.h,
+  carioca/COSTouchVisualizerWindow.h,
+  carioca/COSTouchVisualizerWindow.m,
+  carioca/DemoControllers/*,
+  carioca/MyMenuContentController.swift,
+  carioca/MyMenuTableViewCell.swift
+]
+hide_documentation_coverage: false

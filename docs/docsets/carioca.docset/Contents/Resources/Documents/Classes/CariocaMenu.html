@@ -1,0 +1,1873 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>CariocaMenu Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Class/CariocaMenu" class="dashAnchor"></a>
+    <a title="CariocaMenu Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">carioca Docs</a> (80% documented)</p>
+        <p class="header-right"><a href="https://github.com/mmommommomo/bliss"><img src="../img/gh.png"/>View on GitHub</a></p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">carioca Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        CariocaMenu Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/CariocaMenu.html">CariocaMenu</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CariocaMenuIndicatorView.html">CariocaMenuIndicatorView</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Global Variables.html">Global Variables</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Global Variables.html#/s:7carioca34userDefaultsBoomerangHorizontalKeySSv">userDefaultsBoomerangHorizontalKey</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Global Variables.html#/s:7carioca32userDefaultsBoomerangVerticalKeySSv">userDefaultsBoomerangVerticalKey</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/CariocaMenuBoomerangType.html">CariocaMenuBoomerangType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/CariocaMenuEdge.html">CariocaMenuEdge</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/CariocaMenuIndicatorViewPosition.html">CariocaMenuIndicatorViewPosition</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/CariocaMenuDataSource.html">CariocaMenuDataSource</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/CariocaMenuDelegate.html">CariocaMenuDelegate</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>CariocaMenu</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight"><code><span class="n">open</span> <span class="kd">class</span> <span class="kt">CariocaMenu</span><span class="p">:</span> <span class="kt">NSObject</span><span class="p">,</span> <span class="kt">UIGestureRecognizerDelegate</span></code></pre>
+
+                </div>
+              </div>
+            <p>The CariocaMenu class</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@carioca@objc(cs)CariocaMenu(im)initWithDataSource:delegate:hostView:"></a>
+                    <a name="//apple_ref/swift/Method/init(dataSource:delegate:hostView:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@carioca@objc(cs)CariocaMenu(im)initWithDataSource:delegate:hostView:">init(dataSource:delegate:hostView:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Initializes an instance of a <code>CariocaMenu</code> object.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">dataSource</span><span class="p">:</span> <span class="kt"><a href="../Protocols/CariocaMenuDataSource.html">CariocaMenuDataSource</a></span><span class="p">,</span>
+            <span class="nv">delegate</span><span class="p">:</span> <span class="kt"><a href="../Protocols/CariocaMenuDelegate.html">CariocaMenuDelegate</a></span><span class="p">,</span>
+            <span class="nv">hostView</span><span class="p">:</span> <span class="kt">UIView</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>dataSource</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p><code><a href="../Protocols/CariocaMenuDataSource.html">CariocaMenuDataSource</a></code> The controller presenting your menu</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An initialized <code>CariocaMenu</code> object</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7carioca11CariocaMenuC13containerView33_331B94BB1AE4A23A936525FFD7FFCA66LLSo6UIViewCv"></a>
+                    <a name="//apple_ref/swift/Property/containerView" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7carioca11CariocaMenuC13containerView33_331B94BB1AE4A23A936525FFD7FFCA66LLSo6UIViewCv">containerView</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The main view of the menu.
+Will contain the blur effect view, and the menu view.
+Will match the hostView&rsquo;s frame with AutoLayout constraints.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">private</span> <span class="k">var</span> <span class="nv">containerView</span><span class="p">:</span> <span class="kt">UIView</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@carioca@objc(cs)CariocaMenu(py)hostView"></a>
+                    <a name="//apple_ref/swift/Property/hostView" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@carioca@objc(cs)CariocaMenu(py)hostView">hostView</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The view in which containerView will be added as a subview.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">hostView</span><span class="p">:</span> <span class="kt">UIView</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7carioca11CariocaMenuC8menuView33_331B94BB1AE4A23A936525FFD7FFCA66LLSo6UIViewCv"></a>
+                    <a name="//apple_ref/swift/Property/menuView" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7carioca11CariocaMenuC8menuView33_331B94BB1AE4A23A936525FFD7FFCA66LLSo6UIViewCv">menuView</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">private</span> <span class="k">var</span> <span class="nv">menuView</span><span class="p">:</span> <span class="kt">UIView</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7carioca11CariocaMenuC21menuTopEdgeConstraint33_331B94BB1AE4A23A936525FFD7FFCA66LLSo08NSLayoutG0CSgv"></a>
+                    <a name="//apple_ref/swift/Property/menuTopEdgeConstraint" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7carioca11CariocaMenuC21menuTopEdgeConstraint33_331B94BB1AE4A23A936525FFD7FFCA66LLSo08NSLayoutG0CSgv">menuTopEdgeConstraint</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">private</span> <span class="k">var</span> <span class="nv">menuTopEdgeConstraint</span><span class="p">:</span> <span class="kt">NSLayoutConstraint</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7carioca11CariocaMenuC13menuOriginalY33_331B94BB1AE4A23A936525FFD7FFCA66LL12CoreGraphics7CGFloatVv"></a>
+                    <a name="//apple_ref/swift/Property/menuOriginalY" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7carioca11CariocaMenuC13menuOriginalY33_331B94BB1AE4A23A936525FFD7FFCA66LL12CoreGraphics7CGFloatVv">menuOriginalY</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">private</span> <span class="k">var</span> <span class="nv">menuOriginalY</span><span class="p">:</span> <span class="kt">CGFloat</span> <span class="o">=</span> <span class="mf">0.0</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7carioca11CariocaMenuC12panOriginalY33_331B94BB1AE4A23A936525FFD7FFCA66LL12CoreGraphics7CGFloatVv"></a>
+                    <a name="//apple_ref/swift/Property/panOriginalY" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7carioca11CariocaMenuC12panOriginalY33_331B94BB1AE4A23A936525FFD7FFCA66LL12CoreGraphics7CGFloatVv">panOriginalY</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">private</span> <span class="k">var</span> <span class="nv">panOriginalY</span><span class="p">:</span> <span class="kt">CGFloat</span> <span class="o">=</span> <span class="mf">0.0</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7carioca11CariocaMenuC11sidePanLeft33_331B94BB1AE4A23A936525FFD7FFCA66LLSo012UIScreenEdgeE17GestureRecognizerCv"></a>
+                    <a name="//apple_ref/swift/Property/sidePanLeft" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7carioca11CariocaMenuC11sidePanLeft33_331B94BB1AE4A23A936525FFD7FFCA66LLSo012UIScreenEdgeE17GestureRecognizerCv">sidePanLeft</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">private</span> <span class="k">var</span> <span class="nv">sidePanLeft</span> <span class="o">=</span> <span class="kt">UIScreenEdgePanGestureRecognizer</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7carioca11CariocaMenuC12sidePanRight33_331B94BB1AE4A23A936525FFD7FFCA66LLSo012UIScreenEdgeE17GestureRecognizerCv"></a>
+                    <a name="//apple_ref/swift/Property/sidePanRight" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7carioca11CariocaMenuC12sidePanRight33_331B94BB1AE4A23A936525FFD7FFCA66LLSo012UIScreenEdgeE17GestureRecognizerCv">sidePanRight</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">private</span> <span class="k">var</span> <span class="nv">sidePanRight</span> <span class="o">=</span> <span class="kt">UIScreenEdgePanGestureRecognizer</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7carioca11CariocaMenuC20panGestureRecognizer33_331B94BB1AE4A23A936525FFD7FFCA66LLSo05UIPaneF0Cv"></a>
+                    <a name="//apple_ref/swift/Property/panGestureRecognizer" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7carioca11CariocaMenuC20panGestureRecognizer33_331B94BB1AE4A23A936525FFD7FFCA66LLSo05UIPaneF0Cv">panGestureRecognizer</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">private</span> <span class="k">var</span> <span class="nv">panGestureRecognizer</span> <span class="o">=</span> <span class="kt">UIPanGestureRecognizer</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7carioca11CariocaMenuC20longPressForDragLeft33_331B94BB1AE4A23A936525FFD7FFCA66LLSo06UILongE17GestureRecognizerCSgv"></a>
+                    <a name="//apple_ref/swift/Property/longPressForDragLeft" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7carioca11CariocaMenuC20longPressForDragLeft33_331B94BB1AE4A23A936525FFD7FFCA66LLSo06UILongE17GestureRecognizerCSgv">longPressForDragLeft</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">private</span> <span class="k">var</span> <span class="nv">longPressForDragLeft</span><span class="p">:</span> <span class="kt">UILongPressGestureRecognizer</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7carioca11CariocaMenuC21longPressForDragRight33_331B94BB1AE4A23A936525FFD7FFCA66LLSo06UILongE17GestureRecognizerCSgv"></a>
+                    <a name="//apple_ref/swift/Property/longPressForDragRight" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7carioca11CariocaMenuC21longPressForDragRight33_331B94BB1AE4A23A936525FFD7FFCA66LLSo06UILongE17GestureRecognizerCSgv">longPressForDragRight</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">private</span> <span class="k">var</span> <span class="nv">longPressForDragRight</span><span class="p">:</span> <span class="kt">UILongPressGestureRecognizer</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@carioca@objc(cs)CariocaMenu(py)dataSource"></a>
+                    <a name="//apple_ref/swift/Property/dataSource" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@carioca@objc(cs)CariocaMenu(py)dataSource">dataSource</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The datasource of the menu</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">dataSource</span><span class="p">:</span> <span class="kt"><a href="../Protocols/CariocaMenuDataSource.html">CariocaMenuDataSource</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@carioca@objc(cs)CariocaMenu(py)delegate"></a>
+                    <a name="//apple_ref/swift/Property/delegate" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@carioca@objc(cs)CariocaMenu(py)delegate">delegate</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The delegate of events</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="n">open</span> <span class="k">weak</span> <span class="k">var</span> <span class="nv">delegate</span><span class="p">:</span> <span class="kt"><a href="../Protocols/CariocaMenuDelegate.html">CariocaMenuDelegate</a></span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@carioca@objc(cs)CariocaMenu(py)boomerang"></a>
+                    <a name="//apple_ref/swift/Property/boomerang" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@carioca@objc(cs)CariocaMenu(py)boomerang">boomerang</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The type of boomerang for the menu. Default : None</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="n">open</span> <span class="k">var</span> <span class="nv">boomerang</span><span class="p">:</span> <span class="kt"><a href="../Enums/CariocaMenuBoomerangType.html">CariocaMenuBoomerangType</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@carioca@objc(cs)CariocaMenu(py)selectedIndexPath"></a>
+                    <a name="//apple_ref/swift/Property/selectedIndexPath" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@carioca@objc(cs)CariocaMenu(py)selectedIndexPath">selectedIndexPath</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The selected index of the menu</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="n">open</span> <span class="k">var</span> <span class="nv">selectedIndexPath</span><span class="p">:</span> <span class="kt">IndexPath</span> <span class="o">=</span> <span class="kt">IndexPath</span><span class="p">(</span><span class="nv">item</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="nv">section</span><span class="p">:</span> <span class="mi">0</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7carioca11CariocaMenuC20preSelectedIndexPath33_331B94BB1AE4A23A936525FFD7FFCA66LLSQy10Foundation0fG0VGv"></a>
+                    <a name="//apple_ref/swift/Property/preSelectedIndexPath" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7carioca11CariocaMenuC20preSelectedIndexPath33_331B94BB1AE4A23A936525FFD7FFCA66LLSQy10Foundation0fG0VGv">preSelectedIndexPath</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">private</span> <span class="k">var</span> <span class="nv">preSelectedIndexPath</span><span class="p">:</span> <span class="kt">IndexPath</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@carioca@objc(cs)CariocaMenu(py)openingEdge"></a>
+                    <a name="//apple_ref/swift/Property/openingEdge" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@carioca@objc(cs)CariocaMenu(py)openingEdge">openingEdge</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The edge on which the menu will open</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="n">open</span> <span class="k">var</span> <span class="nv">openingEdge</span><span class="p">:</span> <span class="kt"><a href="../Enums/CariocaMenuEdge.html">CariocaMenuEdge</a></span> <span class="o">=</span> <span class="o">.</span><span class="k">left</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7carioca11CariocaMenuC10menuHeight33_331B94BB1AE4A23A936525FFD7FFCA66LL12CoreGraphics7CGFloatVv"></a>
+                    <a name="//apple_ref/swift/Property/menuHeight" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7carioca11CariocaMenuC10menuHeight33_331B94BB1AE4A23A936525FFD7FFCA66LL12CoreGraphics7CGFloatVv">menuHeight</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">private</span> <span class="k">let</span> <span class="nv">menuHeight</span><span class="p">:</span> <span class="kt">CGFloat</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@carioca@objc(cs)CariocaMenu(py)leftIndicatorView"></a>
+                    <a name="//apple_ref/swift/Property/leftIndicatorView" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@carioca@objc(cs)CariocaMenu(py)leftIndicatorView">leftIndicatorView</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">leftIndicatorView</span><span class="p">:</span> <span class="kt"><a href="../Classes/CariocaMenuIndicatorView.html">CariocaMenuIndicatorView</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@carioca@objc(cs)CariocaMenu(py)rightIndicatorView"></a>
+                    <a name="//apple_ref/swift/Property/rightIndicatorView" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@carioca@objc(cs)CariocaMenu(py)rightIndicatorView">rightIndicatorView</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">rightIndicatorView</span><span class="p">:</span> <span class="kt"><a href="../Classes/CariocaMenuIndicatorView.html">CariocaMenuIndicatorView</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@carioca@objc(cs)CariocaMenu(py)indicatorOffset"></a>
+                    <a name="//apple_ref/swift/Property/indicatorOffset" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@carioca@objc(cs)CariocaMenu(py)indicatorOffset">indicatorOffset</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">indicatorOffset</span><span class="p">:</span> <span class="kt">CGFloat</span> <span class="o">=</span> <span class="mf">0.0</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@carioca@objc(cs)CariocaMenu(py)gestureHelperViewLeft"></a>
+                    <a name="//apple_ref/swift/Property/gestureHelperViewLeft" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@carioca@objc(cs)CariocaMenu(py)gestureHelperViewLeft">gestureHelperViewLeft</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">gestureHelperViewLeft</span><span class="p">:</span> <span class="kt">UIView</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@carioca@objc(cs)CariocaMenu(py)gestureHelperViewRight"></a>
+                    <a name="//apple_ref/swift/Property/gestureHelperViewRight" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@carioca@objc(cs)CariocaMenu(py)gestureHelperViewRight">gestureHelperViewRight</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">gestureHelperViewRight</span><span class="p">:</span> <span class="kt">UIView</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@carioca@objc(cs)CariocaMenu(py)isDraggableVertically"></a>
+                    <a name="//apple_ref/swift/Property/isDraggableVertically" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@carioca@objc(cs)CariocaMenu(py)isDraggableVertically">isDraggableVertically</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Allows the user to reposition the menu vertically. Should be called AFTER addIn View()</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">isDraggableVertically</span> <span class="o">=</span> <span class="kc">false</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@carioca@objc(cs)CariocaMenu(py)isAlwaysOnScreen"></a>
+                    <a name="//apple_ref/swift/Property/isAlwaysOnScreen" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@carioca@objc(cs)CariocaMenu(py)isAlwaysOnScreen">isAlwaysOnScreen</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>If true, the menu will always stay on screen. If false, it will depend on the user&rsquo;s gestures.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">isAlwaysOnScreen</span> <span class="o">=</span> <span class="kc">true</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Menu%20methods"></a>
+                <a name="//apple_ref/swift/Section/Menu methods" class="dashAnchor"></a>
+                <a href="#/Menu%20methods">
+                  <h3 class="section-name">Menu methods</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7carioca11CariocaMenuC9addInView33_331B94BB1AE4A23A936525FFD7FFCA66LLyyF"></a>
+                    <a name="//apple_ref/swift/Method/addInView()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7carioca11CariocaMenuC9addInView33_331B94BB1AE4A23A936525FFD7FFCA66LLyyF">addInView()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Adds the menu in the container view</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">private</span> <span class="kd">func</span> <span class="nf">addInView</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@carioca@objc(cs)CariocaMenu(im)longPressedForDrag:"></a>
+                    <a name="//apple_ref/swift/Method/longPressedForDrag(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@carioca@objc(cs)CariocaMenu(im)longPressedForDrag:">longPressedForDrag(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Manages the menu dragging vertically</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">longPressedForDrag</span><span class="p">(</span><span class="n">_</span> <span class="nv">gesture</span><span class="p">:</span> <span class="kt">UIGestureRecognizer</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>gesture</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The long press gesture</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@carioca@objc(cs)CariocaMenu(im)gestureTouched:"></a>
+                    <a name="//apple_ref/swift/Method/gestureTouched(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@carioca@objc(cs)CariocaMenu(im)gestureTouched:">gestureTouched(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Manages the menu position depending on the gesture (UIScreenEdgePanGestureRecognizer and UIPanGestureRecognizer)</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">gestureTouched</span><span class="p">(</span><span class="n">_</span> <span class="nv">gesture</span><span class="p">:</span> <span class="kt">UIGestureRecognizer</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>gesture</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The gesture (EdgePan or Pan)</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@carioca@objc(cs)CariocaMenu(im)didSelectRowAtIndexPath:fromContentController:"></a>
+                    <a name="//apple_ref/swift/Method/didSelectRowAtIndexPath(_:fromContentController:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@carioca@objc(cs)CariocaMenu(im)didSelectRowAtIndexPath:fromContentController:">didSelectRowAtIndexPath(_:fromContentController:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Calls the delegate actions for row selection</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="n">open</span> <span class="kd">func</span> <span class="nf">didSelectRowAtIndexPath</span><span class="p">(</span><span class="n">_</span> <span class="nv">indexPath</span><span class="p">:</span> <span class="kt">IndexPath</span><span class="p">,</span> <span class="nv">fromContentController</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>indexPath</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The selected index path</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>fromContentController</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Bool value precising the source of selection</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@carioca@objc(cs)CariocaMenu(im)gestureRecognizer:shouldRecognizeSimultaneouslyWithGestureRecognizer:"></a>
+                    <a name="//apple_ref/swift/Method/gestureRecognizer(_:shouldRecognizeSimultaneouslyWith:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@carioca@objc(cs)CariocaMenu(im)gestureRecognizer:shouldRecognizeSimultaneouslyWithGestureRecognizer:">gestureRecognizer(_:shouldRecognizeSimultaneouslyWith:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Gestures management</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="n">open</span> <span class="kd">func</span> <span class="nf">gestureRecognizer</span><span class="p">(</span><span class="n">_</span> <span class="nv">gestureRecognizer</span><span class="p">:</span> <span class="kt">UIGestureRecognizer</span><span class="p">,</span>
+                            <span class="n">shouldRecognizeSimultaneouslyWith</span> <span class="nv">otherGestureRecognizer</span><span class="p">:</span> <span class="kt">UIGestureRecognizer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@carioca@objc(cs)CariocaMenu(im)moveToTop"></a>
+                    <a name="//apple_ref/swift/Method/moveToTop()" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@carioca@objc(cs)CariocaMenu(im)moveToTop">moveToTop()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Makes sure the containerView is on top of the hostView</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="n">open</span> <span class="kd">func</span> <span class="nf">moveToTop</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7carioca11CariocaMenuC7addBlur33_331B94BB1AE4A23A936525FFD7FFCA66LLyyF"></a>
+                    <a name="//apple_ref/swift/Method/addBlur()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7carioca11CariocaMenuC7addBlur33_331B94BB1AE4A23A936525FFD7FFCA66LLyyF">addBlur()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Adds blur to the container view (real blur for iOS &gt; 7)</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">private</span> <span class="kd">func</span> <span class="nf">addBlur</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Menu%20visibility"></a>
+                <a name="//apple_ref/swift/Section/Menu visibility" class="dashAnchor"></a>
+                <a href="#/Menu%20visibility">
+                  <h3 class="section-name">Menu visibility</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@carioca@objc(cs)CariocaMenu(im)showMenu"></a>
+                    <a name="//apple_ref/swift/Method/showMenu()" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@carioca@objc(cs)CariocaMenu(im)showMenu">showMenu()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Shows the menu</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="n">open</span> <span class="kd">func</span> <span class="nf">showMenu</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@carioca@objc(cs)CariocaMenu(im)hideMenu"></a>
+                    <a name="//apple_ref/swift/Method/hideMenu()" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@carioca@objc(cs)CariocaMenu(im)hideMenu">hideMenu()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Hides the menu</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="n">open</span> <span class="kd">func</span> <span class="nf">hideMenu</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Indicators"></a>
+                <a name="//apple_ref/swift/Section/Indicators" class="dashAnchor"></a>
+                <a href="#/Indicators">
+                  <h3 class="section-name">Indicators</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@carioca@objc(cs)CariocaMenu(im)tappedOnIndicatorView:"></a>
+                    <a name="//apple_ref/swift/Method/tappedOnIndicatorView(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@carioca@objc(cs)CariocaMenu(im)tappedOnIndicatorView:">tappedOnIndicatorView(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Manages the tap on an indicator view</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">tappedOnIndicatorView</span><span class="p">(</span><span class="n">_</span> <span class="nv">tap</span><span class="p">:</span> <span class="kt">UIGestureRecognizer</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7carioca11CariocaMenuC05adaptC14YForIndicatorY33_331B94BB1AE4A23A936525FFD7FFCA66LLyAA0bcF4ViewC_Sb13afterDraggingtF"></a>
+                    <a name="//apple_ref/swift/Method/adaptMenuYForIndicatorY(_:afterDragging:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7carioca11CariocaMenuC05adaptC14YForIndicatorY33_331B94BB1AE4A23A936525FFD7FFCA66LLyAA0bcF4ViewC_Sb13afterDraggingtF">adaptMenuYForIndicatorY(_:afterDragging:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Adapts the menu Y position depending on the position of the indicator
+(takes care to not move the menu off screen)</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">private</span> <span class="kd">func</span> <span class="nf">adaptMenuYForIndicatorY</span><span class="p">(</span><span class="n">_</span> <span class="nv">indicator</span><span class="p">:</span> <span class="kt"><a href="../Classes/CariocaMenuIndicatorView.html">CariocaMenuIndicatorView</a></span><span class="p">,</span> <span class="nv">afterDragging</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>indicator</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The indicator to adapt</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>afterDragging</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Bool indicating if the new vertical value must be saved for the boomerangs</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@carioca@objc(cs)CariocaMenu(im)showIndicator:position:offset:"></a>
+                    <a name="//apple_ref/swift/Method/showIndicator(_:position:offset:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@carioca@objc(cs)CariocaMenu(im)showIndicator:position:offset:">showIndicator(_:position:offset:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Shows the indicator on a precise position</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="n">open</span> <span class="kd">func</span> <span class="nf">showIndicator</span><span class="p">(</span><span class="n">_</span> <span class="nv">edge</span><span class="p">:</span> <span class="kt"><a href="../Enums/CariocaMenuEdge.html">CariocaMenuEdge</a></span><span class="p">,</span> <span class="nv">position</span><span class="p">:</span> <span class="kt"><a href="../Enums/CariocaMenuIndicatorViewPosition.html">CariocaMenuIndicatorViewPosition</a></span><span class="p">,</span> <span class="nv">offset</span><span class="p">:</span> <span class="kt">CGFloat</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>edge</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Left or right edge</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>position</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Top, Center or Bottom</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>offset</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A random offset value. Should be negative when position is equal to <code>.Bottom</code></p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7carioca11CariocaMenuC020showIndicatorOnTopOfC033_331B94BB1AE4A23A936525FFD7FFCA66LLyAA0bC4EdgeOF"></a>
+                    <a name="//apple_ref/swift/Method/showIndicatorOnTopOfMenu(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7carioca11CariocaMenuC020showIndicatorOnTopOfC033_331B94BB1AE4A23A936525FFD7FFCA66LLyAA0bC4EdgeOF">showIndicatorOnTopOfMenu(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Shows the indicator on top of the selected menu indexPath</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">private</span> <span class="kd">func</span> <span class="nf">showIndicatorOnTopOfMenu</span><span class="p">(</span><span class="n">_</span> <span class="nv">edge</span><span class="p">:</span> <span class="kt"><a href="../Enums/CariocaMenuEdge.html">CariocaMenuEdge</a></span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7carioca11CariocaMenuC9indicator33_331B94BB1AE4A23A936525FFD7FFCA66LLAA0bC13IndicatorViewCAA0bC4EdgeO3for_tF"></a>
+                    <a name="//apple_ref/swift/Method/indicator(for:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7carioca11CariocaMenuC9indicator33_331B94BB1AE4A23A936525FFD7FFCA66LLAA0bC13IndicatorViewCAA0bC4EdgeO3for_tF">indicator(for:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns the right indicator for the asked edge</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">private</span> <span class="kd">func</span> <span class="nf">indicator</span><span class="p">(</span><span class="k">for</span> <span class="nv">edge</span><span class="p">:</span> <span class="kt"><a href="../Enums/CariocaMenuEdge.html">CariocaMenuEdge</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/CariocaMenuIndicatorView.html">CariocaMenuIndicatorView</a></span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>edge</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Left or Right edge</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p><code><a href="../Classes/CariocaMenuIndicatorView.html">CariocaMenuIndicatorView</a></code> The matching indicator</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@carioca@objc(cs)CariocaMenu(im)updateIndicatorsImage:"></a>
+                    <a name="//apple_ref/swift/Method/updateIndicatorsImage(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@carioca@objc(cs)CariocaMenu(im)updateIndicatorsImage:">updateIndicatorsImage(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Updates the image inside the indicator, to match the menu item</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">updateIndicatorsImage</span><span class="p">(</span><span class="n">_</span> <span class="nv">image</span><span class="p">:</span> <span class="kt">UIImage</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>image</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The UIImage to display in the indicator</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7carioca11CariocaMenuC28updateIndicatorsForIndexPath33_331B94BB1AE4A23A936525FFD7FFCA66LLy10Foundation0gH0VF"></a>
+                    <a name="//apple_ref/swift/Method/updateIndicatorsForIndexPath(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7carioca11CariocaMenuC28updateIndicatorsForIndexPath33_331B94BB1AE4A23A936525FFD7FFCA66LLy10Foundation0gH0VF">updateIndicatorsForIndexPath(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Updates the indicator position to match the position of a specific indexPath in the menu</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">private</span> <span class="kd">func</span> <span class="nf">updateIndicatorsForIndexPath</span><span class="p">(</span><span class="n">_</span> <span class="nv">indexPath</span><span class="p">:</span> <span class="kt">IndexPath</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>indexPath</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The concerned indexPath</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Edges"></a>
+                <a name="//apple_ref/swift/Section/Edges" class="dashAnchor"></a>
+                <a href="#/Edges">
+                  <h3 class="section-name">Edges</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@carioca@objc(cs)CariocaMenu(im)disableEdge:"></a>
+                    <a name="//apple_ref/swift/Method/disableEdge(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@carioca@objc(cs)CariocaMenu(im)disableEdge:">disableEdge(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Disables a specific edge for the menu (Both edges are active by default)</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="n">open</span> <span class="kd">func</span> <span class="nf">disableEdge</span><span class="p">(</span><span class="n">_</span> <span class="nv">edge</span><span class="p">:</span> <span class="kt"><a href="../Enums/CariocaMenuEdge.html">CariocaMenuEdge</a></span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>edge</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The edge to disable (Left or Right)</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Boomerangs"></a>
+                <a name="//apple_ref/swift/Section/Boomerangs" class="dashAnchor"></a>
+                <a href="#/Boomerangs">
+                  <h3 class="section-name">Boomerangs</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7carioca11CariocaMenuC25updateDraggableIndicators33_331B94BB1AE4A23A936525FFD7FFCA66LLyyF"></a>
+                    <a name="//apple_ref/swift/Method/updateDraggableIndicators()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7carioca11CariocaMenuC25updateDraggableIndicators33_331B94BB1AE4A23A936525FFD7FFCA66LLyyF">updateDraggableIndicators()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Enables/disables the indicator drag gesture</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">private</span> <span class="kd">func</span> <span class="nf">updateDraggableIndicators</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Constraints"></a>
+                <a name="//apple_ref/swift/Section/Constraints" class="dashAnchor"></a>
+                <a href="#/Constraints">
+                  <h3 class="section-name">Constraints</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@CM@carioca@objc(cs)CariocaMenu(cm)getEqualConstraint:toItem:attribute:"></a>
+                    <a name="//apple_ref/swift/Method/getEqualConstraint(_:toItem:attribute:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@CM@carioca@objc(cs)CariocaMenu(cm)getEqualConstraint:toItem:attribute:">getEqualConstraint(_:toItem:attribute:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Generates an Equal constraint</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">class</span> <span class="kd">func</span> <span class="nf">getEqualConstraint</span><span class="p">(</span><span class="n">_</span> <span class="nv">item</span><span class="p">:</span> <span class="kt">AnyObject</span><span class="p">,</span>
+                              <span class="nv">toItem</span><span class="p">:</span> <span class="kt">AnyObject</span><span class="p">,</span>
+                              <span class="nv">attribute</span><span class="p">:</span> <span class="kt">NSLayoutAttribute</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">NSLayoutConstraint</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p><code>NSlayoutConstraint</code> an equal constraint for the specified parameters</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@CM@carioca@objc(cs)CariocaMenu(cm)getBoomerangVerticalValue"></a>
+                    <a name="//apple_ref/swift/Method/getBoomerangVerticalValue()" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@CM@carioca@objc(cs)CariocaMenu(cm)getBoomerangVerticalValue">getBoomerangVerticalValue()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Gets the saved value for the vertical boomerang</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">class</span> <span class="kd">func</span> <span class="nf">getBoomerangVerticalValue</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">CGFloat</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p><code>CGFloat</code> The boomerang vertical value</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@CM@carioca@objc(cs)CariocaMenu(cm)getBoomerangHorizontalValue"></a>
+                    <a name="//apple_ref/swift/Method/getBoomerangHorizontalValue()" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@CM@carioca@objc(cs)CariocaMenu(cm)getBoomerangHorizontalValue">getBoomerangHorizontalValue()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Gets the saved value for the horizontal boomerang</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">class</span> <span class="kd">func</span> <span class="nf">getBoomerangHorizontalValue</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Enums/CariocaMenuEdge.html">CariocaMenuEdge</a></span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p><code><a href="../Enums/CariocaMenuEdge.html">CariocaMenuEdge</a></code> the boomerang matching edge</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@CM@carioca@objc(cs)CariocaMenu(cm)resetBoomerangValues"></a>
+                    <a name="//apple_ref/swift/Method/resetBoomerangValues()" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@CM@carioca@objc(cs)CariocaMenu(cm)resetBoomerangValues">resetBoomerangValues()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Resets the boomerang saved values</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">class</span> <span class="kd">func</span> <span class="nf">resetBoomerangValues</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Logs"></a>
+                <a name="//apple_ref/swift/Section/Logs" class="dashAnchor"></a>
+                <a href="#/Logs">
+                  <h3 class="section-name">Logs</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@CM@carioca@objc(cs)CariocaMenu(cm)log:"></a>
+                    <a name="//apple_ref/swift/Method/log(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@CM@carioca@objc(cs)CariocaMenu(cm)log:">log(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Logs a string in the console</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">class</span> <span class="kd">func</span> <span class="nf">log</span><span class="p">(</span><span class="n">_</span> <span class="nv">log</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>log</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>String to log</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Gesture%20helper%20views"></a>
+                <a name="//apple_ref/swift/Section/Gesture helper views" class="dashAnchor"></a>
+                <a href="#/Gesture%20helper%20views">
+                  <h3 class="section-name">Gesture helper views</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7carioca11CariocaMenuC21addGestureHelperViewsySayAA0bC4EdgeOG_12CoreGraphics7CGFloatV5widthtF"></a>
+                    <a name="//apple_ref/swift/Method/addGestureHelperViews(_:width:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7carioca11CariocaMenuC21addGestureHelperViewsySayAA0bC4EdgeOG_12CoreGraphics7CGFloatV5widthtF">addGestureHelperViews(_:width:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Adds Gesture helper views in the container view.
+Recommended when the whole view scrolls (<code>UIWebView</code>,<code>MKMapView</code>,&hellip;)</p>
+
+<ul>
+<li>edges: An array of <code><a href="../Enums/CariocaMenuEdge.html">CariocaMenuEdge</a></code> on which to show the helpers</li>
+<li>width: The width of the helper view. Maximum value should be <code>40</code>, but you&rsquo;re free to put what you want.</li>
+</ul>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="n">open</span> <span class="kd">func</span> <span class="nf">addGestureHelperViews</span><span class="p">(</span><span class="n">_</span> <span class="nv">edges</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Enums/CariocaMenuEdge.html">CariocaMenuEdge</a></span><span class="p">],</span> <span class="nv">width</span><span class="p">:</span> <span class="kt">CGFloat</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7carioca11CariocaMenuC24prepareGestureHelperView33_969DB5F6AE022DA65A8FA7A1DCD856F7LLSo6UIViewCSC17NSLayoutAttributeO_12CoreGraphics7CGFloatV5widthtF"></a>
+                    <a name="//apple_ref/swift/Method/prepareGestureHelperView(_:width:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7carioca11CariocaMenuC24prepareGestureHelperView33_969DB5F6AE022DA65A8FA7A1DCD856F7LLSo6UIViewCSC17NSLayoutAttributeO_12CoreGraphics7CGFloatV5widthtF">prepareGestureHelperView(_:width:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Generates a gesture helper view with autolayout constraints</p>
+
+<ul>
+<li>edgeAttribute: <code>.Leading</code> or <code>.Trailing</code></li>
+<li>width: The width of the helper view.</li>
+</ul>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">private</span> <span class="kd">func</span> <span class="nf">prepareGestureHelperView</span><span class="p">(</span><span class="n">_</span> <span class="nv">edgeAttribute</span><span class="p">:</span> <span class="kt">NSLayoutAttribute</span><span class="p">,</span> <span class="nv">width</span><span class="p">:</span> <span class="kt">CGFloat</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">UIView</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p><code>UIView</code> The helper view constrained to the hostView edge</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2017 <a class="link" href="https://twitter.com/mmommommomo" target="_blank" rel="external">Arnaud Schloune</a>. All rights reserved. (Last updated: 2017-11-21)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

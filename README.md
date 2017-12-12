@@ -1,16 +1,27 @@
-Carioca Menu
-===============
+# Carioca Menu
 
 [![CocoaPods Compatible](https://img.shields.io/cocoapods/v/CariocaMenu.svg)](https://img.shields.io/cocoapods/v/CariocaMenu.svg)
 [![Carthage Compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![Awesome](https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg)](https://github.com/sindresorhus/awesome)
+[![Travis CI](https://img.shields.io/travis/arn00s/cariocamenu.svg)](https://img.shields.io/travis/arn00s/cariocamenu.svg)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
+[![Version](https://img.shields.io/cocoapods/v/Hero.svg?style=flat)](http://cocoapods.org/pods/Hero)
+[![License](https://img.shields.io/cocoapods/l/Hero.svg?style=flat)](https://github.com/arn00s/cariocamenu/blob/master/LICENSE?raw=true)
+[![Twitter URL](https://img.shields.io/twitter/url/https/github.com/arn00s/cariocamenu.svg?style=social)](https://twitter.com/intent/tweet?text=This%20menu%20is%20awesome:&url=https%3A%2F%2Fgithub.com%2Farn00s%2Fcariocamenu)
+
+## 🗣 Big news
+
+⚠️ The code has recently been revisited, and is now much safer.
+
+👨🏼‍💻 I'm working on a [**complete refactor**](https://github.com/arn00s/cariocamenu/tree/develop), feel free to participate !
+
+## Quicklook
 
 The fastest zero-tap iOS menu
 
-![](https://raw.githubusercontent.com/arn00s/cariocamenu/master/cariocamenu.gif)
+CariocaMenu is a **simple**, **elegant**, **fast**, modern, innovative navigation menu for your **iOS** app.
 
-CariocaMenu is a simple, elegant, fast, modern, innovative, ..., navigation menu for your iOS app.
+![](https://raw.githubusercontent.com/arn00s/cariocamenu/master/cariocamenu.gif)
 
 ## Features
 
@@ -20,14 +31,14 @@ CariocaMenu is a simple, elegant, fast, modern, innovative, ..., navigation menu
 - [x] Boomerang mode
 - [x] Full AutoLayout
 - [x] Easily customisable
-- [x] [Complete Documentation](http://arn00s.github.io/cariocamenu/)
+- [x] [Documentation](http://arn00s.github.io/cariocamenu/)
 
 ## Requirements
 
 - Autolayout
 - iOS 9.0+
 - Xcode 8.0
-- Swift 3.0 (Swift 2.3 available in swift_2.3 branch)
+- Swift 3.0
 
 ## Communication
 
@@ -41,7 +52,7 @@ CariocaMenu is a simple, elegant, fast, modern, innovative, ..., navigation menu
 ## Installation
 
 ### CocoaPods
-CariocaMenu is now available on [CocoaPods](http://cocoapods.org). 
+CariocaMenu is now available on [CocoaPods](http://cocoapods.org).
 Simply add the following to your project Podfile, and you'll be good to go.
 
 ```ruby
@@ -88,7 +99,7 @@ import CariocaMenu
 
 //Initialise the tableviewcontroller of the menu
 let menuCtrl = self.storyboard?.instantiateViewControllerWithIdentifier("MyMenu") as! MyMenuContentController
-        
+
 //Set the tableviewcontroller for the menu
 menu = CariocaMenu(menuController: menuCtrl)
 
@@ -118,6 +129,7 @@ menu.boomerang = .VerticalAndHorizontal
 
 ## TODO
 
+- [**complete refactor**](https://github.com/arn00s/cariocamenu_refactor/tree/develop)
 - Support rotation
 - Add a `live tutorial` to indicate users how to get the most of this menu
 - Unit tests / UIAutomation Tests
@@ -129,28 +141,28 @@ menu.boomerang = .VerticalAndHorizontal
 
 Check the ([GitHub issues](https://github.com/arn00s/CariocaMenu/issues))
 
-## FAQ
+## 🤔 FAQ
 
-### Why should I use `CariocaMenu`?
+### 😍 Why should I use `CariocaMenu`?
 
 You're starting a new iOS app, and you want to innovate on the user experience.
 
-### Why the name `CariocaMenu`?
+### 🇧🇷 Why the name `CariocaMenu`?
 
-I didn't want to use the same naming convention that EVERYONE uses. I could have named it `ASSuperCoolMenu`, but it sucks.
-A `Carioca` is someone who lives in Rio de Janeiro. I lived there for two months, and I had this menu idea while walking on the beach 😁
+I didn't want to use the same naming convention that **EVERYONE** uses. I could have named it `ASSuperCoolMenu`, but it sucks.
+A `Carioca` is someone who lives in Rio de Janeiro 🇧🇷. I lived there for two months, and this idea was born while I was there.
 
-* * *
+## 🤙🏼 Contact
 
-## Contact
+- [twitter](https://twitter.com/mmommommomo)
 
-- [LinkedIn](https://lu.linkedin.com/in/arnaudschloune)
-- [twitter](https://twitter.com/arnaud_momo)
+## ❤️ Contributions
+This is an open source project, feel free to contribute!
+- Open an [issue](https://github.com/arn00s/cariocamenu/issues/new).
+- Propose your own fixes, suggestions and open a pull request with the changes.
 
-### Creator
+See [all contributors](https://github.com/arn00s/cariocamenu/graphs/contributors)
 
-- [Arnaud Schloune](http://github.com/arn00s)
-
-## License
+## 📝 License
 
 CariocaMenu is released under the MIT license. See LICENSE for details.

@@ -1,7 +1,6 @@
-
 import UIKit
 
-class DemoAboutViewController: UIViewController{
+class DemoAboutViewController: UIViewController {
 
     @IBAction func actionTwitter(_ sender: AnyObject) {
         url("https://twitter.com/arnaud_momo")
@@ -12,8 +11,8 @@ class DemoAboutViewController: UIViewController{
     @IBAction func actionGithub(_ sender: AnyObject) {
         url("https://github.com/arn00s/cariocamenu")
     }
-    
-    func url(_ urlString:String){
-        UIApplication.shared.openURL(URL(string: urlString)!)
+    func url(_ urlString: String) {
+        guard let url = URL(string: urlString) else { print("Could not open \(urlString)");return }
+        UIApplication.shared.openURL(url)
     }
 }

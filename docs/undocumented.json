@@ -1,0 +1,152 @@
+{
+  "warnings": [
+    {
+      "file": "/Users/momo/Git/cariocamenu/carioca/Library/CariocaMenu.swift",
+      "line": 28,
+      "symbol": "userDefaultsBoomerangVerticalKey",
+      "symbol_kind": "source.lang.swift.decl.var.global",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/momo/Git/cariocamenu/carioca/Library/CariocaMenu.swift",
+      "line": 29,
+      "symbol": "userDefaultsBoomerangHorizontalKey",
+      "symbol_kind": "source.lang.swift.decl.var.global",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/momo/Git/cariocamenu/carioca/Library/CariocaMenu.swift",
+      "line": 65,
+      "symbol": "CariocaMenu.menuView",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/momo/Git/cariocamenu/carioca/Library/CariocaMenu.swift",
+      "line": 68,
+      "symbol": "CariocaMenu.menuTopEdgeConstraint",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/momo/Git/cariocamenu/carioca/Library/CariocaMenu.swift",
+      "line": 69,
+      "symbol": "CariocaMenu.menuOriginalY",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/momo/Git/cariocamenu/carioca/Library/CariocaMenu.swift",
+      "line": 70,
+      "symbol": "CariocaMenu.panOriginalY",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/momo/Git/cariocamenu/carioca/Library/CariocaMenu.swift",
+      "line": 71,
+      "symbol": "CariocaMenu.sidePanLeft",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/momo/Git/cariocamenu/carioca/Library/CariocaMenu.swift",
+      "line": 72,
+      "symbol": "CariocaMenu.sidePanRight",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/momo/Git/cariocamenu/carioca/Library/CariocaMenu.swift",
+      "line": 73,
+      "symbol": "CariocaMenu.panGestureRecognizer",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/momo/Git/cariocamenu/carioca/Library/CariocaMenu.swift",
+      "line": 74,
+      "symbol": "CariocaMenu.longPressForDragLeft",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/momo/Git/cariocamenu/carioca/Library/CariocaMenu.swift",
+      "line": 75,
+      "symbol": "CariocaMenu.longPressForDragRight",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/momo/Git/cariocamenu/carioca/Library/CariocaMenu.swift",
+      "line": 84,
+      "symbol": "CariocaMenu.preSelectedIndexPath",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/momo/Git/cariocamenu/carioca/Library/CariocaMenu.swift",
+      "line": 87,
+      "symbol": "CariocaMenu.menuHeight",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/momo/Git/cariocamenu/carioca/Library/CariocaMenu.swift",
+      "line": 88,
+      "symbol": "CariocaMenu.leftIndicatorView",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/momo/Git/cariocamenu/carioca/Library/CariocaMenu.swift",
+      "line": 89,
+      "symbol": "CariocaMenu.rightIndicatorView",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/momo/Git/cariocamenu/carioca/Library/CariocaMenu.swift",
+      "line": 90,
+      "symbol": "CariocaMenu.indicatorOffset",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/momo/Git/cariocamenu/carioca/Library/CariocaMenu.swift",
+      "line": 91,
+      "symbol": "CariocaMenu.gestureHelperViewLeft",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/momo/Git/cariocamenu/carioca/Library/CariocaMenu.swift",
+      "line": 92,
+      "symbol": "CariocaMenu.gestureHelperViewRight",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/momo/Git/cariocamenu/carioca/Library/CariocaMenuIndicatorView.swift",
+      "line": 11,
+      "symbol": "CariocaMenuIndicatorView.canPress()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/momo/Git/cariocamenu/carioca/Library/CariocaMenuIndicatorView.swift",
+      "line": 38,
+      "symbol": "CariocaMenuIndicatorView.init(coder:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/momo/Git/cariocamenu/carioca/Library/CariocaMenuIndicatorView.swift",
+      "line": 146,
+      "symbol": "CariocaMenuIndicatorView.addImageViewContraints(imageEdge:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    }
+  ],
+  "source_directory": "/Users/momo/Git/cariocamenu"
+}

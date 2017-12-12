@@ -1,6 +1,5 @@
-
 import UIKit
 
-class DemoIntroViewController: UIViewController{
+class DemoIntroViewController: UIViewController {
 
 }

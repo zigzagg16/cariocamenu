@@ -20,6 +20,8 @@
 		FA29F5911BA5A38300D01F47 /* DemoWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA29F5901BA5A38300D01F47 /* DemoWebViewController.swift */; };
 		FA29F5941BA6905C00D01F47 /* whiteGradientBottom.png in Resources */ = {isa = PBXBuildFile; fileRef = FA29F5921BA6905C00D01F47 /* whiteGradientBottom.png */; };
 		FA29F5951BA6905C00D01F47 /* whiteGradientTop.png in Resources */ = {isa = PBXBuildFile; fileRef = FA29F5931BA6905C00D01F47 /* whiteGradientTop.png */; };
+		FA5550E21E71E61000FE265A /* cariocaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5550E11E71E61000FE265A /* cariocaTests.swift */; };
+		FA5550F01E71F3A200FE265A /* cariocaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5550EF1E71F3A200FE265A /* cariocaUITests.swift */; };
 		FA68F8A41BB694DF0061A2D6 /* about_indicator.png in Resources */ = {isa = PBXBuildFile; fileRef = FA68F8991BB694DF0061A2D6 /* about_indicator.png */; };
 		FA68F8A51BB694DF0061A2D6 /* hamburger_indicator.png in Resources */ = {isa = PBXBuildFile; fileRef = FA68F89A1BB694DF0061A2D6 /* hamburger_indicator.png */; };
 		FA68F8A61BB694DF0061A2D6 /* hello_indicator.png in Resources */ = {isa = PBXBuildFile; fileRef = FA68F89B1BB694DF0061A2D6 /* hello_indicator.png */; };
@@ -33,16 +35,51 @@
 		FA68F8AF1BB6956B0061A2D6 /* DemoAboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA68F8AE1BB6956B0061A2D6 /* DemoAboutViewController.swift */; };
 		FA68F8B11BB7EF3F0061A2D6 /* icon-small.png in Resources */ = {isa = PBXBuildFile; fileRef = FA68F8B01BB7EF3F0061A2D6 /* icon-small.png */; };
 		FA68F8B31BB7F0630061A2D6 /* arnaud.schloune.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FA68F8B21BB7F0630061A2D6 /* arnaud.schloune.jpg */; };
+		FA6DABFD1FAF317F0021F5E8 /* CariocaMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0210B21B6387C4005693F0 /* CariocaMenu.swift */; };
+		FA6DABFE1FAF31800021F5E8 /* CariocaMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0210B21B6387C4005693F0 /* CariocaMenu.swift */; };
+		FA6DAC001FAF31880021F5E8 /* CariocaMenu+Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6DABFF1FAF31880021F5E8 /* CariocaMenu+Protocols.swift */; };
+		FA6DAC011FAF31880021F5E8 /* CariocaMenu+Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6DABFF1FAF31880021F5E8 /* CariocaMenu+Protocols.swift */; };
+		FA6DAC021FAF31880021F5E8 /* CariocaMenu+Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6DABFF1FAF31880021F5E8 /* CariocaMenu+Protocols.swift */; };
+		FA6DAC031FAF31880021F5E8 /* CariocaMenu+Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6DABFF1FAF31880021F5E8 /* CariocaMenu+Protocols.swift */; };
+		FA6DAC051FAF321D0021F5E8 /* CariocaMenuIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6DAC041FAF321D0021F5E8 /* CariocaMenuIndicatorView.swift */; };
+		FA6DAC061FAF321D0021F5E8 /* CariocaMenuIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6DAC041FAF321D0021F5E8 /* CariocaMenuIndicatorView.swift */; };
+		FA6DAC071FAF321D0021F5E8 /* CariocaMenuIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6DAC041FAF321D0021F5E8 /* CariocaMenuIndicatorView.swift */; };
+		FA6DAC081FAF321D0021F5E8 /* CariocaMenuIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6DAC041FAF321D0021F5E8 /* CariocaMenuIndicatorView.swift */; };
+		FA6DAC0F1FAFC4F30021F5E8 /* CariocaMenu+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6DAC0E1FAFC4F30021F5E8 /* CariocaMenu+Utils.swift */; };
+		FA6DAC101FAFC4F30021F5E8 /* CariocaMenu+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6DAC0E1FAFC4F30021F5E8 /* CariocaMenu+Utils.swift */; };
+		FA6DAC111FAFC4F30021F5E8 /* CariocaMenu+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6DAC0E1FAFC4F30021F5E8 /* CariocaMenu+Utils.swift */; };
+		FA6DAC121FAFC4F30021F5E8 /* CariocaMenu+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6DAC0E1FAFC4F30021F5E8 /* CariocaMenu+Utils.swift */; };
+		FA6DAC1E1FAFC6DA0021F5E8 /* CariocaMenuEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6DAC1D1FAFC6D90021F5E8 /* CariocaMenuEnums.swift */; };
+		FA6DAC1F1FAFC6DA0021F5E8 /* CariocaMenuEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6DAC1D1FAFC6D90021F5E8 /* CariocaMenuEnums.swift */; };
+		FA6DAC201FAFC6DA0021F5E8 /* CariocaMenuEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6DAC1D1FAFC6D90021F5E8 /* CariocaMenuEnums.swift */; };
+		FA6DAC211FAFC6DA0021F5E8 /* CariocaMenuEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6DAC1D1FAFC6D90021F5E8 /* CariocaMenuEnums.swift */; };
+		FA792B7A1FC4605D0095A66D /* CariocaMenu+GestureHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA792B791FC4605D0095A66D /* CariocaMenu+GestureHelpers.swift */; };
+		FA792B7B1FC4605D0095A66D /* CariocaMenu+GestureHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA792B791FC4605D0095A66D /* CariocaMenu+GestureHelpers.swift */; };
+		FA792B7C1FC460620095A66D /* CariocaMenu+GestureHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA792B791FC4605D0095A66D /* CariocaMenu+GestureHelpers.swift */; };
+		FA792B7D1FC460620095A66D /* CariocaMenu+GestureHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA792B791FC4605D0095A66D /* CariocaMenu+GestureHelpers.swift */; };
 		FAAAAA1C1C09F9C700CB2F14 /* cariocaframework.h in Headers */ = {isa = PBXBuildFile; fileRef = FAAAAA1B1C09F9C700CB2F14 /* cariocaframework.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FAAAAA201C09F9C700CB2F14 /* cariocaframework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAAAAA191C09F9C700CB2F14 /* cariocaframework.framework */; };
 		FAAAAA211C09F9C700CB2F14 /* cariocaframework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FAAAAA191C09F9C700CB2F14 /* cariocaframework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FAAAAA5A1C0A00BA00CB2F14 /* CariocaMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0210B21B6387C4005693F0 /* CariocaMenu.swift */; };
 		FAC48D221BB513F70072AC0A /* DemoSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC48D211BB513F70072AC0A /* DemoSettingsViewController.swift */; };
 		FAC48D241BB51BD70072AC0A /* DemoMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC48D231BB51BD70072AC0A /* DemoMapViewController.swift */; };
-		FAC48D261BB51CEC0072AC0A /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAC48D251BB51CEC0072AC0A /* MapKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		FA5550E41E71E61000FE265A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FA02107E1B638333005693F0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FA0210851B638333005693F0;
+			remoteInfo = carioca;
+		};
+		FA5550F21E71F3A200FE265A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FA02107E1B638333005693F0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FA0210851B638333005693F0;
+			remoteInfo = carioca;
+		};
 		FAAAAA1E1C09F9C700CB2F14 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = FA02107E1B638333005693F0 /* Project object */;
@@ -73,8 +110,6 @@
 		FA0210901B638333005693F0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FA0210921B638333005693F0 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		FA0210951B638333005693F0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		FA0210A01B638333005693F0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FA0210A11B638333005693F0 /* cariocaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cariocaTests.swift; sourceTree = "<group>"; };
 		FA0210B21B6387C4005693F0 /* CariocaMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CariocaMenu.swift; sourceTree = "<group>"; };
 		FA108FFC1BA46D8F00D37078 /* MyMenuContentController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyMenuContentController.swift; sourceTree = "<group>"; };
 		FA108FFE1BA46E6800D37078 /* MyMenuTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyMenuTableViewCell.swift; sourceTree = "<group>"; };
@@ -86,6 +121,12 @@
 		FA29F5901BA5A38300D01F47 /* DemoWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoWebViewController.swift; sourceTree = "<group>"; };
 		FA29F5921BA6905C00D01F47 /* whiteGradientBottom.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = whiteGradientBottom.png; sourceTree = "<group>"; };
 		FA29F5931BA6905C00D01F47 /* whiteGradientTop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = whiteGradientTop.png; sourceTree = "<group>"; };
+		FA5550DF1E71E61000FE265A /* cariocaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = cariocaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA5550E11E71E61000FE265A /* cariocaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cariocaTests.swift; sourceTree = "<group>"; };
+		FA5550E31E71E61000FE265A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FA5550ED1E71F3A200FE265A /* cariocaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = cariocaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA5550EF1E71F3A200FE265A /* cariocaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cariocaUITests.swift; sourceTree = "<group>"; };
+		FA5550F11E71F3A200FE265A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FA68F8991BB694DF0061A2D6 /* about_indicator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = about_indicator.png; sourceTree = "<group>"; };
 		FA68F89A1BB694DF0061A2D6 /* hamburger_indicator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hamburger_indicator.png; sourceTree = "<group>"; };
 		FA68F89B1BB694DF0061A2D6 /* hello_indicator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hello_indicator.png; sourceTree = "<group>"; };
@@ -99,18 +140,16 @@
 		FA68F8AE1BB6956B0061A2D6 /* DemoAboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoAboutViewController.swift; sourceTree = "<group>"; };
 		FA68F8B01BB7EF3F0061A2D6 /* icon-small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-small.png"; sourceTree = "<group>"; };
 		FA68F8B21BB7F0630061A2D6 /* arnaud.schloune.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = arnaud.schloune.jpg; sourceTree = "<group>"; };
-		FAAAA9E51C09F6AD00CB2F14 /* cariocamenu.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = cariocamenu.h; sourceTree = "<group>"; };
-		FAAAA9E71C09F6AD00CB2F14 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FAAAA9F31C09F6AD00CB2F14 /* cariocamenuTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cariocamenuTests.swift; sourceTree = "<group>"; };
-		FAAAA9F51C09F6AD00CB2F14 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FAAAAA091C09F97800CB2F14 /* cariocamenu-framwork.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "cariocamenu-framwork.h"; sourceTree = "<group>"; };
-		FAAAAA0B1C09F97800CB2F14 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FA6DABFF1FAF31880021F5E8 /* CariocaMenu+Protocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CariocaMenu+Protocols.swift"; sourceTree = "<group>"; };
+		FA6DAC041FAF321D0021F5E8 /* CariocaMenuIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CariocaMenuIndicatorView.swift; sourceTree = "<group>"; };
+		FA6DAC0E1FAFC4F30021F5E8 /* CariocaMenu+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CariocaMenu+Utils.swift"; sourceTree = "<group>"; };
+		FA6DAC1D1FAFC6D90021F5E8 /* CariocaMenuEnums.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CariocaMenuEnums.swift; sourceTree = "<group>"; };
+		FA792B791FC4605D0095A66D /* CariocaMenu+GestureHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CariocaMenu+GestureHelpers.swift"; sourceTree = "<group>"; };
 		FAAAAA191C09F9C700CB2F14 /* cariocaframework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = cariocaframework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAAAAA1B1C09F9C700CB2F14 /* cariocaframework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = cariocaframework.h; sourceTree = "<group>"; };
 		FAAAAA1D1C09F9C700CB2F14 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FAC48D211BB513F70072AC0A /* DemoSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoSettingsViewController.swift; sourceTree = "<group>"; };
 		FAC48D231BB51BD70072AC0A /* DemoMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoMapViewController.swift; sourceTree = "<group>"; };
-		FAC48D251BB51CEC0072AC0A /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,7 +158,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				FAAAAA201C09F9C700CB2F14 /* cariocaframework.framework in Frameworks */,
-				FAC48D261BB51CEC0072AC0A /* MapKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FA5550DC1E71E61000FE265A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FA5550EA1E71F3A200FE265A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -136,13 +188,10 @@
 		FA02107D1B638333005693F0 = {
 			isa = PBXGroup;
 			children = (
-				FAC48D251BB51CEC0072AC0A /* MapKit.framework */,
 				FA0210881B638333005693F0 /* carioca */,
-				FA02109E1B638333005693F0 /* cariocaTests */,
-				FAAAA9E41C09F6AD00CB2F14 /* cariocamenu */,
-				FAAAA9F21C09F6AD00CB2F14 /* cariocamenuTests */,
-				FAAAAA081C09F97800CB2F14 /* cariocamenu-framwork */,
 				FAAAAA1A1C09F9C700CB2F14 /* cariocaframework */,
+				FA5550E01E71E61000FE265A /* cariocaTests */,
+				FA5550EE1E71F3A200FE265A /* cariocaUITests */,
 				FA0210871B638333005693F0 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -152,6 +201,8 @@
 			children = (
 				FA0210861B638333005693F0 /* carioca.app */,
 				FAAAAA191C09F9C700CB2F14 /* cariocaframework.framework */,
+				FA5550DF1E71E61000FE265A /* cariocaTests.xctest */,
+				FA5550ED1E71F3A200FE265A /* cariocaUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -184,27 +235,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		FA02109E1B638333005693F0 /* cariocaTests */ = {
-			isa = PBXGroup;
-			children = (
-				FA0210A11B638333005693F0 /* cariocaTests.swift */,
-				FA02109F1B638333005693F0 /* Supporting Files */,
-			);
-			path = cariocaTests;
-			sourceTree = "<group>";
-		};
-		FA02109F1B638333005693F0 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				FA0210A01B638333005693F0 /* Info.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
 		FA0210B11B6387C4005693F0 /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				FA6DABFF1FAF31880021F5E8 /* CariocaMenu+Protocols.swift */,
 				FA0210B21B6387C4005693F0 /* CariocaMenu.swift */,
+				FA792B791FC4605D0095A66D /* CariocaMenu+GestureHelpers.swift */,
+				FA6DAC041FAF321D0021F5E8 /* CariocaMenuIndicatorView.swift */,
+				FA6DAC0E1FAFC4F30021F5E8 /* CariocaMenu+Utils.swift */,
+				FA6DAC1D1FAFC6D90021F5E8 /* CariocaMenuEnums.swift */,
 			);
 			path = Library;
 			sourceTree = "<group>";
@@ -259,6 +298,24 @@
 			path = demoContent;
 			sourceTree = "<group>";
 		};
+		FA5550E01E71E61000FE265A /* cariocaTests */ = {
+			isa = PBXGroup;
+			children = (
+				FA5550E11E71E61000FE265A /* cariocaTests.swift */,
+				FA5550E31E71E61000FE265A /* Info.plist */,
+			);
+			path = cariocaTests;
+			sourceTree = "<group>";
+		};
+		FA5550EE1E71F3A200FE265A /* cariocaUITests */ = {
+			isa = PBXGroup;
+			children = (
+				FA5550EF1E71F3A200FE265A /* cariocaUITests.swift */,
+				FA5550F11E71F3A200FE265A /* Info.plist */,
+			);
+			path = cariocaUITests;
+			sourceTree = "<group>";
+		};
 		FA68F8981BB694DF0061A2D6 /* indicator */ = {
 			isa = PBXGroup;
 			children = (
@@ -281,33 +338,6 @@
 				FA68F8A31BB694DF0061A2D6 /* settings_menu.png */,
 			);
 			path = menu;
-			sourceTree = "<group>";
-		};
-		FAAAA9E41C09F6AD00CB2F14 /* cariocamenu */ = {
-			isa = PBXGroup;
-			children = (
-				FAAAA9E51C09F6AD00CB2F14 /* cariocamenu.h */,
-				FAAAA9E71C09F6AD00CB2F14 /* Info.plist */,
-			);
-			path = cariocamenu;
-			sourceTree = "<group>";
-		};
-		FAAAA9F21C09F6AD00CB2F14 /* cariocamenuTests */ = {
-			isa = PBXGroup;
-			children = (
-				FAAAA9F31C09F6AD00CB2F14 /* cariocamenuTests.swift */,
-				FAAAA9F51C09F6AD00CB2F14 /* Info.plist */,
-			);
-			path = cariocamenuTests;
-			sourceTree = "<group>";
-		};
-		FAAAAA081C09F97800CB2F14 /* cariocamenu-framwork */ = {
-			isa = PBXGroup;
-			children = (
-				FAAAAA091C09F97800CB2F14 /* cariocamenu-framwork.h */,
-				FAAAAA0B1C09F97800CB2F14 /* Info.plist */,
-			);
-			path = "cariocamenu-framwork";
 			sourceTree = "<group>";
 		};
 		FAAAAA1A1C09F9C700CB2F14 /* cariocaframework */ = {
@@ -341,6 +371,7 @@
 				FA0210831B638333005693F0 /* Frameworks */,
 				FA0210841B638333005693F0 /* Resources */,
 				FAAAA9FF1C09F6AD00CB2F14 /* Embed Frameworks */,
+				FA6DABFC1FAF05BF0021F5E8 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -351,6 +382,42 @@
 			productName = carioca;
 			productReference = FA0210861B638333005693F0 /* carioca.app */;
 			productType = "com.apple.product-type.application";
+		};
+		FA5550DE1E71E61000FE265A /* cariocaTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FA5550E61E71E61000FE265A /* Build configuration list for PBXNativeTarget "cariocaTests" */;
+			buildPhases = (
+				FA5550DB1E71E61000FE265A /* Sources */,
+				FA5550DC1E71E61000FE265A /* Frameworks */,
+				FA5550DD1E71E61000FE265A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FA5550E51E71E61000FE265A /* PBXTargetDependency */,
+			);
+			name = cariocaTests;
+			productName = cariocaTests;
+			productReference = FA5550DF1E71E61000FE265A /* cariocaTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		FA5550EC1E71F3A200FE265A /* cariocaUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FA5550F41E71F3A200FE265A /* Build configuration list for PBXNativeTarget "cariocaUITests" */;
+			buildPhases = (
+				FA5550E91E71F3A200FE265A /* Sources */,
+				FA5550EA1E71F3A200FE265A /* Frameworks */,
+				FA5550EB1E71F3A200FE265A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FA5550F31E71F3A200FE265A /* PBXTargetDependency */,
+			);
+			name = cariocaUITests;
+			productName = cariocaUITests;
+			productReference = FA5550ED1E71F3A200FE265A /* cariocaUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 		FAAAAA181C09F9C700CB2F14 /* cariocaframework */ = {
 			isa = PBXNativeTarget;
@@ -377,18 +444,31 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftMigration = 0700;
-				LastSwiftUpdateCheck = 0710;
-				LastUpgradeCheck = 0820;
+				LastSwiftUpdateCheck = 0820;
+				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = "Arnaud Schloune";
 				TargetAttributes = {
 					FA0210851B638333005693F0 = {
 						CreatedOnToolsVersion = 6.4;
+						DevelopmentTeam = NYMPRW2HUE;
 						LastSwiftMigration = 0820;
 						SystemCapabilities = {
 							com.apple.Maps.iOS = {
 								enabled = 1;
 							};
 						};
+					};
+					FA5550DE1E71E61000FE265A = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = HN4L38K7AC;
+						ProvisioningStyle = Automatic;
+						TestTargetID = FA0210851B638333005693F0;
+					};
+					FA5550EC1E71F3A200FE265A = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = HN4L38K7AC;
+						ProvisioningStyle = Automatic;
+						TestTargetID = FA0210851B638333005693F0;
 					};
 					FAAAAA181C09F9C700CB2F14 = {
 						CreatedOnToolsVersion = 7.1;
@@ -411,6 +491,8 @@
 			targets = (
 				FA0210851B638333005693F0 /* carioca */,
 				FAAAAA181C09F9C700CB2F14 /* cariocaframework */,
+				FA5550DE1E71E61000FE265A /* cariocaTests */,
+				FA5550EC1E71F3A200FE265A /* cariocaUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -440,6 +522,20 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		FA5550DD1E71E61000FE265A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FA5550EB1E71F3A200FE265A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FAAAAA171C09F9C700CB2F14 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -448,6 +544,22 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		FA6DABFC1FAF05BF0021F5E8 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		FA0210821B638333005693F0 /* Sources */ = {
@@ -459,12 +571,45 @@
 				FA109A6B1BA7EA4600D4688A /* COSTouchVisualizerWindow.m in Sources */,
 				FA29F5911BA5A38300D01F47 /* DemoWebViewController.swift in Sources */,
 				FA02108C1B638333005693F0 /* AppDelegate.swift in Sources */,
+				FA6DAC001FAF31880021F5E8 /* CariocaMenu+Protocols.swift in Sources */,
 				FA29F58C1BA588F700D01F47 /* DemoIntroViewController.swift in Sources */,
+				FA6DAC051FAF321D0021F5E8 /* CariocaMenuIndicatorView.swift in Sources */,
+				FA6DAC0F1FAFC4F30021F5E8 /* CariocaMenu+Utils.swift in Sources */,
 				FA0210B41B6387C4005693F0 /* CariocaMenu.swift in Sources */,
+				FA6DAC1E1FAFC6DA0021F5E8 /* CariocaMenuEnums.swift in Sources */,
 				FA68F8AF1BB6956B0061A2D6 /* DemoAboutViewController.swift in Sources */,
 				FA108FFD1BA46D8F00D37078 /* MyMenuContentController.swift in Sources */,
 				FA108FFF1BA46E6800D37078 /* MyMenuTableViewCell.swift in Sources */,
+				FA792B7A1FC4605D0095A66D /* CariocaMenu+GestureHelpers.swift in Sources */,
 				FA29F58A1BA5814200D01F47 /* DemoViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FA5550DB1E71E61000FE265A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FA6DAC071FAF321D0021F5E8 /* CariocaMenuIndicatorView.swift in Sources */,
+				FA792B7C1FC460620095A66D /* CariocaMenu+GestureHelpers.swift in Sources */,
+				FA5550E21E71E61000FE265A /* cariocaTests.swift in Sources */,
+				FA6DAC111FAFC4F30021F5E8 /* CariocaMenu+Utils.swift in Sources */,
+				FA6DABFD1FAF317F0021F5E8 /* CariocaMenu.swift in Sources */,
+				FA6DAC201FAFC6DA0021F5E8 /* CariocaMenuEnums.swift in Sources */,
+				FA6DAC021FAF31880021F5E8 /* CariocaMenu+Protocols.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FA5550E91E71F3A200FE265A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FA6DAC081FAF321D0021F5E8 /* CariocaMenuIndicatorView.swift in Sources */,
+				FA792B7D1FC460620095A66D /* CariocaMenu+GestureHelpers.swift in Sources */,
+				FA5550F01E71F3A200FE265A /* cariocaUITests.swift in Sources */,
+				FA6DAC121FAFC4F30021F5E8 /* CariocaMenu+Utils.swift in Sources */,
+				FA6DABFE1FAF31800021F5E8 /* CariocaMenu.swift in Sources */,
+				FA6DAC211FAFC6DA0021F5E8 /* CariocaMenuEnums.swift in Sources */,
+				FA6DAC031FAF31880021F5E8 /* CariocaMenu+Protocols.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -472,13 +617,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA6DAC1F1FAFC6DA0021F5E8 /* CariocaMenuEnums.swift in Sources */,
+				FA6DAC061FAF321D0021F5E8 /* CariocaMenuIndicatorView.swift in Sources */,
 				FAAAAA5A1C0A00BA00CB2F14 /* CariocaMenu.swift in Sources */,
+				FA6DAC011FAF31880021F5E8 /* CariocaMenu+Protocols.swift in Sources */,
+				FA792B7B1FC4605D0095A66D /* CariocaMenu+GestureHelpers.swift in Sources */,
+				FA6DAC101FAFC4F30021F5E8 /* CariocaMenu+Utils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		FA5550E51E71E61000FE265A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FA0210851B638333005693F0 /* carioca */;
+			targetProxy = FA5550E41E71E61000FE265A /* PBXContainerItemProxy */;
+		};
+		FA5550F31E71F3A200FE265A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FA0210851B638333005693F0 /* carioca */;
+			targetProxy = FA5550F21E71F3A200FE265A /* PBXContainerItemProxy */;
+		};
 		FAAAAA1F1C09F9C700CB2F14 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = FAAAAA181C09F9C700CB2F14 /* cariocaframework */;
@@ -514,14 +674,20 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -564,14 +730,20 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -607,6 +779,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = NYMPRW2HUE;
 				INFOPLIST_FILE = carioca/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.cariocamenu;
@@ -627,6 +800,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = NYMPRW2HUE;
 				INFOPLIST_FILE = carioca/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.cariocamenu;
@@ -635,6 +809,76 @@
 				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "carioca/carioca-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		FA5550E71E71E61000FE265A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = HN4L38K7AC;
+				INFOPLIST_FILE = cariocaTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = edreams.cariocaTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/carioca.app/carioca";
+			};
+			name = Debug;
+		};
+		FA5550E81E71E61000FE265A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				DEVELOPMENT_TEAM = HN4L38K7AC;
+				INFOPLIST_FILE = cariocaTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = edreams.cariocaTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/carioca.app/carioca";
+			};
+			name = Release;
+		};
+		FA5550F51E71F3A200FE265A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = HN4L38K7AC;
+				INFOPLIST_FILE = cariocaUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = edreams.cariocaUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = carioca;
+			};
+			name = Debug;
+		};
+		FA5550F61E71F3A200FE265A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				DEVELOPMENT_TEAM = HN4L38K7AC;
+				INFOPLIST_FILE = cariocaUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = edreams.cariocaUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = carioca;
 			};
 			name = Release;
 		};
@@ -702,6 +946,24 @@
 			buildConfigurations = (
 				FA0210A61B638333005693F0 /* Debug */,
 				FA0210A71B638333005693F0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FA5550E61E71E61000FE265A /* Build configuration list for PBXNativeTarget "cariocaTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FA5550E71E71E61000FE265A /* Debug */,
+				FA5550E81E71E61000FE265A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FA5550F41E71F3A200FE265A /* Build configuration list for PBXNativeTarget "cariocaUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FA5550F51E71F3A200FE265A /* Debug */,
+				FA5550F61E71F3A200FE265A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
