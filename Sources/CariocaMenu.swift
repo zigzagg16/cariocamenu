@@ -81,11 +81,11 @@ public class CariocaMenu: NSObject, CariocaGestureManagerDelegate, UITableViewDe
 	func hostViewDidRotate() {
 		let yScreenMiddle = hostView.frame.height / 2.0
 		gestureManager.panned(yLocation: yScreenMiddle,
-							  edge: gestureManager.openingEdge,
+							  edge: indicator.edge,
 							  state: .began,
 							  fromGesture: false)
 		gestureManager.panned(yLocation: yScreenMiddle,
-							  edge: gestureManager.openingEdge,
+							  edge: indicator.edge,
 							  state: .changed)
 		indicator.repositionXAfterRotation(hostView)
 	}
@@ -94,8 +94,8 @@ public class CariocaMenu: NSObject, CariocaGestureManagerDelegate, UITableViewDe
 	///- Parameter gesture: UITapGestureRecognizer
 	@objc func tappedIndicatorView(_ gesture: UITapGestureRecognizer) {
 		let yLocation  = gesture.location(in: hostView).y
-		gestureManager.panned(yLocation: yLocation, edge: gestureManager.openingEdge, state: .began)
-		gestureManager.panned(yLocation: yLocation, edge: gestureManager.openingEdge, state: .changed)
+		gestureManager.panned(yLocation: yLocation, edge: indicator.edge, state: .began)
+		gestureManager.panned(yLocation: yLocation, edge: indicator.edge, state: .changed)
 	}
 
     // MARK: Events delegate/forwarding
@@ -170,7 +170,7 @@ public class CariocaMenu: NSObject, CariocaGestureManagerDelegate, UITableViewDe
 	}
 	///Cell for row. Forwarded to the controller, with the extra edge parameter.
 	public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		return controller.tableView(tableView, cellForRowAt: indexPath, withEdge: gestureManager.openingEdge)
+		return controller.tableView(tableView, cellForRowAt: indexPath, withEdge: indicator.edge)
 	}
 	///Number of sections. Cannot be updated for now, as the menu's tableView only supports 1 section
 	public func numberOfSections(in tableView: UITableView) -> Int { return 1 }

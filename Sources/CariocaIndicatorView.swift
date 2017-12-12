@@ -230,7 +230,7 @@ public class CariocaIndicatorView: UIView {
 	///- Parameter hostView: The menu's hostView, to calculate the positions
 	///- Parameter isTraversingView: Should the indicator traverse the hostView, and stick to the opposite edge ?
 	func show(edge: UIRectEdge, hostView: UIView, isTraversingView: Bool) {
-		guard let superView = self.superview, state != .showing else { return }
+		guard let superView = self.superview else { return }
 		self.state = .showing
 		self.edge = edge
 		self.setNeedsDisplay()

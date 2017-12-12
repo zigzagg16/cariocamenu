@@ -17,8 +17,6 @@ class CariocaGestureManager {
     let controller: CariocaController
     ///The edges of the menu
     let edges: [UIRectEdge]
-    ///The menu's opening edge
-    var openingEdge: UIRectEdge
     ///The edge gestures
     let edgePanGestures: [UIScreenEdgePanGestureRecognizer] = []
     ///The events delegate
@@ -45,7 +43,6 @@ class CariocaGestureManager {
         self.hostView = hostView
         self.controller = controller
         self.edges = edges
-        self.openingEdge = edges.first!
         self.container = container
 		self.internalSelectedIndex = selectedIndex
         makeEdgePanGestures()
@@ -78,7 +75,6 @@ class CariocaGestureManager {
 		let frameHeight = hostView.frame.height
 		let yRange: ClosedRange<CGFloat> = 20.0...frameHeight - container.menuHeight
 		if state == .began {
-			openingEdge = edge
 			if fromGesture {
 				delegate?.willOpenFromEdge(edge: edge)
 			}
