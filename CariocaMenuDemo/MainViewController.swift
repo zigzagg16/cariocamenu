@@ -10,12 +10,14 @@ class MainViewController: UIViewController {
 	@IBOutlet weak var iconView: CariocaIconView!
 	@IBOutlet weak var gradientView: ASGradientView!
 	var menuController: CariocaController?
+	var demoView: DemoController?
 
 	override func viewDidLoad() {
 		setupGradient()
 	}
 
     override func viewDidAppear(_ animated: Bool) {
+		iconView.isHidden = true
 		iconView.label.font = UIFont.boldSystemFont(ofSize: 75)
 		iconView.display(icon: CariocaIcon.emoji("👋🏼"))
         initialiseCarioca()
@@ -33,6 +35,7 @@ class MainViewController: UIViewController {
 								  )
 			carioca?.addInHostView()
 			menuController = controller
+			displayDemo(DemoHomeViewController.fromStoryboard())
         }
     }
 	// MARK: Rotation management
@@ -41,6 +44,18 @@ class MainViewController: UIViewController {
 			self?.carioca?.hostViewDidRotate()
 		})
 	}
+
+	func displayDemo(_ controller: DemoController) {
+		if let existingDemo = demoView {
+			existingDemo.remove()
+			demoView = nil
+		}
+		demoView = controller
+		demoView?.menuController = menuController!
+		demoView?.add(in: self)
+		carioca?.bringToFront()
+	}
+
 	// MARK: Gradient setup
 	func setupGradient() {
 		gradientView.colors = [
@@ -57,19 +72,7 @@ class MainViewController: UIViewController {
 			(start: UIColor(red: 0.95, green: 0.61, blue: 0.17, alpha: 1.00),
 			 end: UIColor(red: 0.95, green: 0.61, blue: 0.17, alpha: 1.00))
 		]
-
 		gradientView.animateGradient()
-	}
-
-	@IBAction func didChangeBoomerangType(_ sender: UISegmentedControl) {
-		switch sender.selectedSegmentIndex {
-		case 1:
-			menuController?.boomerang = .vertical
-		case 2:
-			menuController?.boomerang = .verticalHorizontal
-		default:
-			menuController?.boomerang = .none
-		}
 	}
 }
 
@@ -77,6 +80,12 @@ extension MainViewController: CariocaDelegate {
 	func cariocamenu(_ menu: CariocaMenu, didSelect item: CariocaMenuItem, at index: Int) {
         CariocaMenu.log("didSelect \(item) at \(index)")
 		iconView.display(icon: item.icon)
+		switch index {
+		case 3: //settings
+			displayDemo(DemoSettingsViewController.fromStoryboard())
+		default:
+			displayDemo(DemoHomeViewController.fromStoryboard())
+		}
     }
 
     func cariocamenu(_ menu: CariocaMenu, willOpenFromEdge edge: UIRectEdge) {

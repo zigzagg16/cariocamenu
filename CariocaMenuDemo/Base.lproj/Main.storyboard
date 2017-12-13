@@ -27,18 +27,6 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="78o-CP-U3A">
-                                <rect key="frame" x="20" y="619" width="335" height="29"/>
-                                <segments>
-                                    <segment title="No boomerang"/>
-                                    <segment title="Y"/>
-                                    <segment title="X &amp; Y"/>
-                                </segments>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <connections>
-                                    <action selector="didChangeBoomerangType:" destination="BYZ-38-t0r" eventType="valueChanged" id="VQt-32-COc"/>
-                                </connections>
-                            </segmentedControl>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gb1-ld-dav" customClass="CariocaIconView" customModule="CariocaMenuDemo" customModuleProvider="target">
                                 <rect key="frame" x="137.5" y="283.5" width="100" height="100"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -55,10 +43,7 @@
                             <constraint firstAttribute="trailing" secondItem="pxq-TG-T1U" secondAttribute="trailing" id="9I8-Zr-Pf1"/>
                             <constraint firstItem="pxq-TG-T1U" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Eax-Bv-xmm"/>
                             <constraint firstItem="pxq-TG-T1U" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="PS3-v3-Da7"/>
-                            <constraint firstItem="hGr-kW-QbE" firstAttribute="trailing" secondItem="78o-CP-U3A" secondAttribute="trailing" constant="20" id="bSR-b4-gev"/>
-                            <constraint firstItem="78o-CP-U3A" firstAttribute="leading" secondItem="hGr-kW-QbE" secondAttribute="leading" constant="20" id="fvY-um-PwL"/>
                             <constraint firstItem="Gb1-ld-dav" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="oa1-Ie-L9L"/>
-                            <constraint firstItem="hGr-kW-QbE" firstAttribute="bottom" secondItem="78o-CP-U3A" secondAttribute="bottom" constant="20" id="qau-ac-j9t"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="hGr-kW-QbE"/>
                     </view>
@@ -129,6 +114,60 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gSH-lj-Z1y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1004" y="132.68365817091455"/>
+        </scene>
+        <!--Demo Home View Controller-->
+        <scene sceneID="Uav-MM-zyv">
+            <objects>
+                <viewController storyboardIdentifier="DemoHomeViewController" id="O03-d1-3J4" customClass="DemoHomeViewController" customModule="CariocaMenuDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5om-he-J2m">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="Rrl-9a-Vxb"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ShC-ml-HSa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1684" y="133"/>
+        </scene>
+        <!--Demo Settings View Controller-->
+        <scene sceneID="2rJ-4h-JAw">
+            <objects>
+                <viewController storyboardIdentifier="DemoSettingsViewController" id="EVW-Mf-H5t" customClass="DemoSettingsViewController" customModule="CariocaMenuDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dLz-oB-nJy">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Tbz-eL-GPK">
+                                <rect key="frame" x="20" y="619" width="335" height="29"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <segments>
+                                    <segment title="No boomerang"/>
+                                    <segment title="Y"/>
+                                    <segment title="X &amp; Y"/>
+                                </segments>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <action selector="didChangeBoomerangType:" destination="EVW-Mf-H5t" eventType="valueChanged" id="N3d-E9-QSB"/>
+                                    <action selector="didChangeBoomerangType:" destination="BYZ-38-t0r" eventType="valueChanged" id="R5g-CY-g9y"/>
+                                </connections>
+                            </segmentedControl>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="qZO-ie-kE8" firstAttribute="bottom" secondItem="Tbz-eL-GPK" secondAttribute="bottom" constant="20" id="Oo2-NZ-xSw"/>
+                            <constraint firstItem="Tbz-eL-GPK" firstAttribute="leading" secondItem="qZO-ie-kE8" secondAttribute="leading" constant="20" id="Y3K-gA-jSu"/>
+                            <constraint firstAttribute="trailing" secondItem="Tbz-eL-GPK" secondAttribute="trailing" constant="20" id="wRD-xd-gkS"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="qZO-ie-kE8"/>
+                    </view>
+                    <connections>
+                        <outlet property="boomerangType" destination="Tbz-eL-GPK" id="JGk-cw-nkr"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IXD-8y-uCL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2351" y="133"/>
         </scene>
     </scenes>
 </document>
