@@ -33,7 +33,7 @@ extension CariocaMenu {
     class func log(_ log: String) { print("[🇧🇷 CariocaMenu] \(log)") }
 }
 
-extension UIView {
+public extension UIView {
 	///Generates 4 NSLayoutConstraints
 	///- Parameter superview: The superview to which the view will stick
 	///- Returns: [NSLayoutConstraint]: The 4 constraints in CSS Style order (Top, Right, Bottom, Left)
