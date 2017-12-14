@@ -14,8 +14,8 @@ public enum BoomerangType: Int {
     case none = 0
 	///The indicator will return always on the original edge.
 	case horizontal = 1
-    ///The indicators will always come back at the same Y value. It may switch from Edge if the user wants.
+    ///The indicator will return always on the original Y position. It may switch from Edge.
     case vertical = 2
-    ///The indicators will always come back at the exact same place
-    case verticalHorizontal = 3
+    ///The indicator will always come back to it's original position
+    case originalPosition = 3
 }

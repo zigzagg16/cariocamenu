@@ -19,13 +19,6 @@ class DemoSettingsViewController: UIViewController, DemoController {
 	}
 
 	@IBAction func didChangeBoomerangType(_ sender: UISegmentedControl) {
-		switch sender.selectedSegmentIndex {
-		case 1:
-			menuController?.boomerang = .vertical
-		case 2:
-			menuController?.boomerang = .verticalHorizontal
-		default:
-			menuController?.boomerang = .none
-		}
+		menuController?.boomerang = BoomerangType(rawValue: sender.selectedSegmentIndex) ?? .none
 	}
 }

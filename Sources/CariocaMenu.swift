@@ -160,8 +160,8 @@ public class CariocaMenu: NSObject, CariocaGestureManagerDelegate, UITableViewDe
 		indicator.restore(hostView: hostView, boomerang: controller.boomerang,
 						  initialPosition: controller.indicatorPosition,
 						  firstStepDuration: 0.5,
-						  firstStepDone: { boomerang in
-							if boomerang {
+						  firstStepDone: {
+							if self.controller.boomerang == .originalPosition || self.controller.boomerang == .vertical {
 								//Set the container on top to avoid incorrect calculations.
 								self.container.topConstraint.constant = 0.0
 								self.hostView.setNeedsLayout()
