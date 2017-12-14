@@ -9,8 +9,8 @@ class DemoMenuContentController: UITableViewController, CariocaDataSource {
 	var menuItems: [CariocaMenuItem] = [
 		CariocaMenuItem("Olá", .emoji("👋🏼")),
 		CariocaMenuItem("The idea", .icon(UIImage(named: "hamburger")!)),
-		CariocaMenuItem("Travel", .emoji("✈️")),
 		CariocaMenuItem("Settings", .emoji("🛠")),
+		CariocaMenuItem("Travel", .emoji("✈️")),
 		CariocaMenuItem("About", .emoji("👨🏼‍💻"))
 	]
 	func heightForRow() -> CGFloat { return 60.0 }

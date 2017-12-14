@@ -25,6 +25,9 @@
 		FA3F14101FDEC207004814EC /* CariocaMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC52FFB1FD1C06C007FE0AD /* CariocaMenuItem.swift */; };
 		FA52DE531FDF231F00EBE8E1 /* CariocaGestureManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA52DE511FDF231E00EBE8E1 /* CariocaGestureManagerTests.swift */; };
 		FA52DE541FDF231F00EBE8E1 /* CariocaIndicatorViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA52DE521FDF231E00EBE8E1 /* CariocaIndicatorViewTests.swift */; };
+		FA6223991FE30FA500F3034B /* DemoAboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6223961FE30FA500F3034B /* DemoAboutViewController.swift */; };
+		FA62239A1FE30FA500F3034B /* DemoTravelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6223971FE30FA500F3034B /* DemoTravelViewController.swift */; };
+		FA62239B1FE30FA500F3034B /* DemoIdeaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6223981FE30FA500F3034B /* DemoIdeaViewController.swift */; };
 		FA89D5C51FDD577900404DE6 /* CariocaIndicatorConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA89D5C41FDD577900404DE6 /* CariocaIndicatorConfiguration.swift */; };
 		FA89D5C71FDD577900404DE6 /* CariocaIndicatorConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA89D5C41FDD577900404DE6 /* CariocaIndicatorConfiguration.swift */; };
 		FA9E9A471FC4A38F00C57175 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9E9A461FC4A38F00C57175 /* AppDelegate.swift */; };
@@ -77,6 +80,9 @@
 		FA3F13FE1FDEC1BB004814EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FA52DE511FDF231E00EBE8E1 /* CariocaGestureManagerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CariocaGestureManagerTests.swift; sourceTree = "<group>"; };
 		FA52DE521FDF231E00EBE8E1 /* CariocaIndicatorViewTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CariocaIndicatorViewTests.swift; sourceTree = "<group>"; };
+		FA6223961FE30FA500F3034B /* DemoAboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoAboutViewController.swift; sourceTree = "<group>"; };
+		FA6223971FE30FA500F3034B /* DemoTravelViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoTravelViewController.swift; sourceTree = "<group>"; };
+		FA6223981FE30FA500F3034B /* DemoIdeaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoIdeaViewController.swift; sourceTree = "<group>"; };
 		FA89D5C41FDD577900404DE6 /* CariocaIndicatorConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CariocaIndicatorConfiguration.swift; sourceTree = "<group>"; };
 		FA9E9A441FC4A38F00C57175 /* CariocaMenuDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CariocaMenuDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA9E9A461FC4A38F00C57175 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -231,7 +237,10 @@
 			children = (
 				FAA698891FE16DE1008FC0E1 /* DemoController.swift */,
 				FAA698831FE138F0008FC0E1 /* DemoHomeViewController.swift */,
+				FA6223981FE30FA500F3034B /* DemoIdeaViewController.swift */,
 				FAA6988B1FE17F71008FC0E1 /* DemoSettingsViewController copy.swift */,
+				FA6223971FE30FA500F3034B /* DemoTravelViewController.swift */,
+				FA6223961FE30FA500F3034B /* DemoAboutViewController.swift */,
 			);
 			path = DemoControllers;
 			sourceTree = "<group>";
@@ -434,9 +443,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA62239B1FE30FA500F3034B /* DemoIdeaViewController.swift in Sources */,
 				FA9E9A5C1FC4A6E100C57175 /* DemoMenuContentController.swift in Sources */,
+				FA62239A1FE30FA500F3034B /* DemoTravelViewController.swift in Sources */,
 				FAE376CD1FDC856200379953 /* CustomPolygonIndicator.swift in Sources */,
 				FAA6988C1FE17F71008FC0E1 /* DemoSettingsViewController copy.swift in Sources */,
+				FA6223991FE30FA500F3034B /* DemoAboutViewController.swift in Sources */,
 				FA1C2A421FDC683E001326CD /* ASGradientView.swift in Sources */,
 				FA9E9A6A1FC4BDFA00C57175 /* CariocaMenuContainerView.swift in Sources */,
 				FAA698851FE138F0008FC0E1 /* DemoHomeViewController.swift in Sources */,
