@@ -264,17 +264,17 @@ public class CariocaIndicatorView: UIView {
 				 boomerang: BoomerangType,
 				 initialPosition: CGFloat,
 				 firstStepDuration: Double,
-				 firstStepDone: @escaping (_ boomerang: Bool) -> Void) {
+				 firstStepDone: @escaping () -> Void) {
 		guard state != .restoring else { return }
 		self.state = .restoring
-		let hasBoomerang = boomerang == .vertical || boomerang == .verticalHorizontal
+		let hasBoomerang = boomerang != .none
 		let positions = positionValues(hostView)
 		var positionOne: CGFloat, mustSwitchEdge = false //Will the indicator switch of edge ?
 		var timingAnim1: Double = firstStepDuration * 0.7, timingAnim2: Double = firstStepDuration * 0.3
 		if hasBoomerang { //Boomerang logic
 			//the indicator must go out of the view
 			positionOne = positions.hidingConstant
-			mustSwitchEdge = boomerang == .verticalHorizontal && originalEdge != edge
+			mustSwitchEdge = (boomerang == .horizontal || boomerang == .originalPosition) && originalEdge != edge
 			timingAnim1 = firstStepDuration * 1.25
 		} else {
 			positionOne = positions.startBounce.from
@@ -282,17 +282,19 @@ public class CariocaIndicatorView: UIView {
 		animation(superview!, constraint: horizontalConstraint,
 				  constant: positionOne, timing: timingAnim1, options: [.curveEaseIn], finished: {
 					if hasBoomerang {
-						firstStepDone(hasBoomerang)
+						firstStepDone()
 						let edgeToShow = mustSwitchEdge ? self.edge.opposite() : self.edge
-						self.topConstraint.constant = self.verticalConstant(for: initialPosition,
-																			hostHeight: hostView.frame.height,
-																			height: self.frame.height)
+						if boomerang == .originalPosition || boomerang == .vertical {
+							self.topConstraint.constant = self.verticalConstant(for: initialPosition,
+																				hostHeight: hostView.frame.height,
+																				height: self.frame.height)
+						}
 						self.state = .onHold
 						self.show(edge: edgeToShow, hostView: hostView, isTraversingView: false)
 					} else {
 						self.animation(self.superview!, constraint: self.horizontalConstraint,
 									   constant: positions.start, timing: timingAnim2, options: [.curveEaseOut], finished: {
-										firstStepDone(hasBoomerang)
+										firstStepDone()
 										self.state = .onHold
 						})
 					}

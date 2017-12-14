@@ -5,7 +5,7 @@ class DemoMenuContentController: UITableViewController, CariocaDataSource {
 	var indicatorPosition: CGFloat = 50.0
 	var isOffscreenAllowed: Bool = true
 	var blurStyle: UIBlurEffectStyle? = .dark
-	var boomerang: BoomerangType = .none
+	var boomerang: BoomerangType = .horizontal
 	var menuItems: [CariocaMenuItem] = [
 		CariocaMenuItem("Olá", .emoji("👋🏼")),
 		CariocaMenuItem("The idea", .icon(UIImage(named: "hamburger")!)),
