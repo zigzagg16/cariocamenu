@@ -18,8 +18,10 @@ extension DemoController where Self: UIViewController {
 
 	func add(in parentViewController: UIViewController) {
 		parentViewController.addChildViewController(self)
+		self.view.backgroundColor = .clear
 		parentViewController.view.addSubview(self.view)
 		parentViewController.view.addConstraints(self.view.makeAnchorConstraints(to: parentViewController.view))
+		parentViewController.view.setNeedsLayout()
 	}
 
 	/// Removes the current view controller from the parent view controller

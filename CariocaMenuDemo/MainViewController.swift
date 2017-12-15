@@ -81,8 +81,14 @@ extension MainViewController: CariocaDelegate {
         CariocaMenu.log("didSelect \(item) at \(index)")
 		iconView.display(icon: item.icon)
 		switch index {
-		case 3: //settings
+		case 1:
+			displayDemo(DemoIdeaViewController.fromStoryboard())
+		case 2:
 			displayDemo(DemoSettingsViewController.fromStoryboard())
+		case 3:
+			displayDemo(DemoTravelViewController.fromStoryboard())
+		case 4:
+			displayDemo(DemoAboutViewController.fromStoryboard())
 		default:
 			displayDemo(DemoHomeViewController.fromStoryboard())
 		}
