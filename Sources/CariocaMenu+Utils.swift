@@ -43,6 +43,35 @@ public extension UIView {
 				self.leftAnchor.constraint(equalTo: superview.leftAnchor),
 				self.bottomAnchor.constraint(equalTo: superview.bottomAnchor)]
 	}
+
+	///Adds Gesture helper views in the container view.
+	///Recommended when the whole view scrolls (`UIWebView`,`MKMapView`,...)
+	///- Parameter edges: An array of `UIRectEdge` on which to show the helpers
+	///- Parameter width: The width of the helper view. Recommended maximum value: `40.0`
+	public func addCariocaGestureHelpers(_ edges: [UIRectEdge], width: CGFloat = 40.0) {
+
+		edges.forEach { edge in
+			let view = UIView(frame: CGRect(x: 0, y: 0, width: width, height: 100))
+			view.backgroundColor = UIColor.red
+			view.translatesAutoresizingMaskIntoConstraints = false
+			self.addSubview(view)
+			let edgeAttribute: NSLayoutAttribute = edge == .left ? .leading : .trailing
+			self.addConstraints([
+				self.topAnchor.constraint(equalTo: view.topAnchor),
+				self.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+				NSLayoutConstraint(item: view, attribute: .width,
+								   relatedBy: .equal,
+								   toItem: nil, attribute: .notAnAttribute,
+								   multiplier: 1, constant: width),
+				NSLayoutConstraint(item: view, attribute: edgeAttribute,
+								   relatedBy: .equal,
+								   toItem: self, attribute: edgeAttribute,
+								   multiplier: 1, constant: 0.0)
+			])
+			self.bringSubview(toFront: view)
+		}
+		self.setNeedsLayout()
+	}
 }
 
 extension UIView {
