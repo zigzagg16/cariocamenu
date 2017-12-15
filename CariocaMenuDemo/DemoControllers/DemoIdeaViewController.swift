@@ -17,8 +17,10 @@ class DemoIdeaViewController: UIViewController, DemoController, UIWebViewDelegat
 	override func viewDidLoad() {
 		webview.delegate = self
 		loader.hidesWhenStopped = true
+		loader.stopAnimating()
 	}
 	override func viewDidAppear(_ animated: Bool) {
+		//TODO: execute after small delay ?
 		loadURL()
 	}
 	func loadURL() {
@@ -30,17 +32,14 @@ class DemoIdeaViewController: UIViewController, DemoController, UIWebViewDelegat
 	}
 	func webViewDidStartLoad(_ webView: UIWebView) {
 		loader.startAnimating()
-		loader.isHidden = false
 	}
 	func webViewDidFinishLoad(_ webView: UIWebView) {
 		webview.scrollView.isScrollEnabled = true
 		loader.stopAnimating()
-		loader.isHidden = true
 	}
 	func webView(_ webView: UIWebView, didFailLoadWithError error: Error) {
 		webview.scrollView.isScrollEnabled = false
 		loader.stopAnimating()
-		loader.isHidden = true
 		webview.isHidden = true
 		errorMessage.isHidden = false
 		tryAgain.isHidden = false

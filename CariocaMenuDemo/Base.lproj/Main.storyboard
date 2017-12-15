@@ -213,26 +213,28 @@ Every feedback is welcome 😎
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="dHX-aO-unT">
-                                <rect key="frame" x="177.5" y="323.5" width="20" height="20"/>
-                            </activityIndicatorView>
                             <webView contentMode="scaleToFill" allowsInlineMediaPlayback="NO" mediaPlaybackRequiresUserAction="NO" mediaPlaybackAllowsAirPlay="NO" keyboardDisplayRequiresUserAction="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uzl-1Z-Sau">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <dataDetectorType key="dataDetectorTypes"/>
                             </webView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="dHX-aO-unT">
+                                <rect key="frame" x="177" y="323" width="20" height="20"/>
+                            </activityIndicatorView>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="77g-8h-uL5">
-                                <rect key="frame" x="30" y="315.5" width="315" height="36"/>
+                                <rect key="frame" x="30" y="275.5" width="315" height="36"/>
                                 <string key="text">Sorry, I could not load the URL.
 Check your internet connection.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <color key="textColor" red="1" green="0.41752573120000003" blue="0.49151466090000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D4V-va-bU0">
-                                <rect key="frame" x="30" y="371.5" width="315" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <state key="normal" title="Try again"/>
+                                <rect key="frame" x="30" y="341.5" width="315" height="30"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Try again">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.20302148980000001" green="0.69811177629999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -245,9 +247,9 @@ Check your internet connection.</string>
                             <constraint firstAttribute="trailing" secondItem="77g-8h-uL5" secondAttribute="trailing" constant="30" id="iNP-Ou-xu3"/>
                             <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="D4V-va-bU0" secondAttribute="trailing" constant="30" id="lAN-qC-0sC"/>
                             <constraint firstItem="D4V-va-bU0" firstAttribute="leading" secondItem="Pla-UQ-SWr" secondAttribute="leading" constant="30" id="lr8-Q0-Ynt"/>
-                            <constraint firstItem="77g-8h-uL5" firstAttribute="centerY" secondItem="Pla-UQ-SWr" secondAttribute="centerY" id="mDk-hU-P50"/>
+                            <constraint firstItem="77g-8h-uL5" firstAttribute="centerY" secondItem="Pla-UQ-SWr" secondAttribute="centerY" constant="-40" id="mDk-hU-P50"/>
                             <constraint firstItem="uzl-1Z-Sau" firstAttribute="bottom" secondItem="wKS-aF-6jh" secondAttribute="bottom" id="oFk-SN-HmM"/>
-                            <constraint firstItem="D4V-va-bU0" firstAttribute="top" secondItem="77g-8h-uL5" secondAttribute="bottom" constant="20" id="uEi-05-2To"/>
+                            <constraint firstItem="D4V-va-bU0" firstAttribute="top" secondItem="77g-8h-uL5" secondAttribute="bottom" constant="30" id="uEi-05-2To"/>
                             <constraint firstItem="dHX-aO-unT" firstAttribute="centerY" secondItem="Pla-UQ-SWr" secondAttribute="centerY" id="ypE-JT-KtY"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="wKS-aF-6jh"/>
@@ -342,12 +344,20 @@ Check your internet connection.</string>
                                     <constraint firstAttribute="bottom" secondItem="0rH-fN-gga" secondAttribute="bottom" id="xhU-qf-e3g"/>
                                 </constraints>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="🛠 Settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RQs-DM-diY">
+                                <rect key="frame" x="113" y="220" width="148" height="33.5"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.20302148980000001" green="0.69811177629999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="NLU-EZ-I47" firstAttribute="top" secondItem="RQs-DM-diY" secondAttribute="bottom" constant="20" id="BvD-FT-Vdi"/>
                             <constraint firstItem="pfr-k1-ZXN" firstAttribute="top" secondItem="NLU-EZ-I47" secondAttribute="bottom" id="G6O-Me-6AA"/>
                             <constraint firstItem="pfr-k1-ZXN" firstAttribute="trailing" secondItem="UQD-EL-Nwe" secondAttribute="trailing" id="QWp-2m-3oA"/>
                             <constraint firstItem="pfr-k1-ZXN" firstAttribute="leading" secondItem="UQD-EL-Nwe" secondAttribute="leading" id="WFm-5Y-4Dz"/>
+                            <constraint firstItem="RQs-DM-diY" firstAttribute="centerX" secondItem="lzE-8H-6H3" secondAttribute="centerX" id="gu1-ih-83J"/>
                             <constraint firstItem="NLU-EZ-I47" firstAttribute="leading" secondItem="UQD-EL-Nwe" secondAttribute="leading" id="lSE-Lt-yxh"/>
                             <constraint firstItem="pfr-k1-ZXN" firstAttribute="height" secondItem="NLU-EZ-I47" secondAttribute="height" id="nPs-st-Vjv"/>
                             <constraint firstItem="UQD-EL-Nwe" firstAttribute="trailing" secondItem="NLU-EZ-I47" secondAttribute="trailing" id="oMR-4C-GRC"/>
@@ -362,7 +372,7 @@ Check your internet connection.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TzH-EG-HEC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2350" y="813"/>
+            <point key="canvasLocation" x="2349.5999999999999" y="812.74362818590714"/>
         </scene>
         <!--Demo About View Controller-->
         <scene sceneID="gNR-hr-69e">
