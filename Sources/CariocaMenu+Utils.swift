@@ -48,11 +48,11 @@ public extension UIView {
 	///Recommended when the whole view scrolls (`UIWebView`,`MKMapView`,...)
 	///- Parameter edges: An array of `UIRectEdge` on which to show the helpers
 	///- Parameter width: The width of the helper view. Recommended maximum value: `40.0`
-	public func addCariocaGestureHelpers(_ edges: [UIRectEdge], width: CGFloat = 40.0) {
+	func addCariocaGestureHelpers(_ edges: [UIRectEdge], width: CGFloat = 40.0) {
 
 		edges.forEach { edge in
 			let view = UIView(frame: CGRect(x: 0, y: 0, width: width, height: 100))
-			view.backgroundColor = UIColor.red
+			view.backgroundColor = .clear
 			view.translatesAutoresizingMaskIntoConstraints = false
 			self.addSubview(view)
 			let edgeAttribute: NSLayoutAttribute = edge == .left ? .leading : .trailing

@@ -198,6 +198,7 @@ Every feedback is welcome 😎
                             <constraint firstItem="a3a-M4-1A7" firstAttribute="top" secondItem="dLz-oB-nJy" secondAttribute="top" id="dUZ-80-LZS"/>
                             <constraint firstItem="a3a-M4-1A7" firstAttribute="leading" secondItem="dLz-oB-nJy" secondAttribute="leading" id="jQ9-sh-BxU"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="y3W-1Z-QUn"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IXD-8y-uCL" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -212,24 +213,55 @@ Every feedback is welcome 😎
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="💡IDEA" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lgt-zS-XDa">
-                                <rect key="frame" x="104" y="303.5" width="167" height="60"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="50"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="dHX-aO-unT">
+                                <rect key="frame" x="177.5" y="323.5" width="20" height="20"/>
+                            </activityIndicatorView>
+                            <webView contentMode="scaleToFill" allowsInlineMediaPlayback="NO" mediaPlaybackRequiresUserAction="NO" mediaPlaybackAllowsAirPlay="NO" keyboardDisplayRequiresUserAction="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uzl-1Z-Sau">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <dataDetectorType key="dataDetectorTypes"/>
+                            </webView>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="77g-8h-uL5">
+                                <rect key="frame" x="30" y="315.5" width="315" height="36"/>
+                                <string key="text">Sorry, I could not load the URL.
+Check your internet connection.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" red="1" green="0.41752573120000003" blue="0.49151466090000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D4V-va-bU0">
+                                <rect key="frame" x="30" y="371.5" width="315" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <state key="normal" title="Try again"/>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.20302148980000001" green="0.69811177629999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="Lgt-zS-XDa" firstAttribute="centerX" secondItem="Pla-UQ-SWr" secondAttribute="centerX" id="8sP-36-ctW"/>
-                            <constraint firstItem="Lgt-zS-XDa" firstAttribute="centerY" secondItem="Pla-UQ-SWr" secondAttribute="centerY" id="dIi-ST-Mnh"/>
+                            <constraint firstItem="uzl-1Z-Sau" firstAttribute="leading" secondItem="wKS-aF-6jh" secondAttribute="leading" id="AP6-7f-15g"/>
+                            <constraint firstItem="dHX-aO-unT" firstAttribute="centerX" secondItem="Pla-UQ-SWr" secondAttribute="centerX" id="SjH-Xp-oen"/>
+                            <constraint firstItem="77g-8h-uL5" firstAttribute="leading" secondItem="wKS-aF-6jh" secondAttribute="leading" constant="30" id="UzM-GS-2sw"/>
+                            <constraint firstItem="uzl-1Z-Sau" firstAttribute="top" secondItem="wKS-aF-6jh" secondAttribute="top" constant="-20" id="Zba-ks-2HS"/>
+                            <constraint firstItem="uzl-1Z-Sau" firstAttribute="trailing" secondItem="wKS-aF-6jh" secondAttribute="trailing" id="eYv-br-6Ld"/>
+                            <constraint firstAttribute="trailing" secondItem="77g-8h-uL5" secondAttribute="trailing" constant="30" id="iNP-Ou-xu3"/>
+                            <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="D4V-va-bU0" secondAttribute="trailing" constant="30" id="lAN-qC-0sC"/>
+                            <constraint firstItem="D4V-va-bU0" firstAttribute="leading" secondItem="Pla-UQ-SWr" secondAttribute="leading" constant="30" id="lr8-Q0-Ynt"/>
+                            <constraint firstItem="77g-8h-uL5" firstAttribute="centerY" secondItem="Pla-UQ-SWr" secondAttribute="centerY" id="mDk-hU-P50"/>
+                            <constraint firstItem="uzl-1Z-Sau" firstAttribute="bottom" secondItem="wKS-aF-6jh" secondAttribute="bottom" id="oFk-SN-HmM"/>
+                            <constraint firstItem="D4V-va-bU0" firstAttribute="top" secondItem="77g-8h-uL5" secondAttribute="bottom" constant="20" id="uEi-05-2To"/>
+                            <constraint firstItem="dHX-aO-unT" firstAttribute="centerY" secondItem="Pla-UQ-SWr" secondAttribute="centerY" id="ypE-JT-KtY"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="wKS-aF-6jh"/>
                     </view>
+                    <connections>
+                        <outlet property="errorMessage" destination="77g-8h-uL5" id="n5o-xF-Qt8"/>
+                        <outlet property="loader" destination="dHX-aO-unT" id="LJc-Z7-VPs"/>
+                        <outlet property="tryAgain" destination="D4V-va-bU0" id="vyk-S2-bxv"/>
+                        <outlet property="webview" destination="uzl-1Z-Sau" id="NbO-a7-8EJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hun-IZ-MLq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1684" y="813"/>
+            <point key="canvasLocation" x="1684" y="812.74362818590714"/>
         </scene>
         <!--Demo Settings View Controller-->
         <scene sceneID="H3e-zi-1WK">
