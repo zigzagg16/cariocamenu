@@ -3,7 +3,7 @@ Pod::Spec.new do |s|
   s.version      = "2.0"
   s.summary      = "The fastest zero-tap navigation menu."
   s.description  = <<-DESC
-    The fastest zero-tap navigation menu.
+    CariocaMenu is a new kind of navigation menu for iOS apps. Everything is based on gestures, making the navigation super easy and fast, from any left/right edge of the screen.
   DESC
   s.homepage     = "https://github.com/arn00s/cariocamenu"
   s.license      = { :type => "MIT", :file => "LICENSE" }

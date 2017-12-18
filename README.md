@@ -1,6 +1,5 @@
 # CariocaMenu
 
-[![Travis CI](https://img.shields.io/travis/arn00s/cariocamenu.svg)](https://img.shields.io/travis/arn00s/cariocamenu.svg)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-Compatible-brightgreen.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![Version](https://img.shields.io/cocoapods/v/Hero.svg?style=flat)](http://cocoapods.org/pods/Hero)
@@ -33,7 +32,7 @@ CariocaMenu is a **simple**, **elegant**, **fast** navigation menu for your **iO
 
 - AutoLayout
 - iOS 9.0+
-- Swift 4.0 (Swift 3 compatible)
+- Swift 4.0
 
 ## 📢 Communication
 
@@ -73,7 +72,7 @@ To integrate CariocaMenu into your Xcode project using Carthage, specify it in y
 github "arn00s/cariocamenu"
 ```
 
-Run `carthage` to build the framework and drag the built `TOCOMPLETE` into your Xcode project.
+Run `carthage` to build the framework and drag the built `CariocaMenu.framework` into your Xcode project.
 
 ### Manually
 
@@ -85,36 +84,67 @@ Just Drag&Drop all the files under `Sources/` into your project.
 
 ## 💻 Usage
 
+### Preparing your menu controller
+
+To create and display your menu, you'll need to create a custom **CariocaController** (UITableViewController & CariocaDataSource)
+
+This will define your menu settings & appearance. Check **DemoMenuContentController.swift** for code sample.
+
 ### Creating your menu
 
+For the complete code, check **MainViewController.swift**.
 ```swift
-TOCOMPLETE
+if let controller = self.storyboard?.instantiateViewController(withIdentifier: "DemoMenu")
+    as? CariocaController {
+      addChildViewController(controller)
+      carioca = CariocaMenu(controller: controller,
+                            hostView: self.view,
+                            edges: [.right, .left],
+                            delegate: self,
+                            indicator: CariocaCustomIndicatorView()
+                            )
+      carioca.addInHostView()
+}
 ```
 
-### Adding it to a view
+### Managing rotation
+
+To be able to manage the rotation of the menu, you'll need to forward the rotation event to your menu instance.
 
 ```swift
-TOCOMPLETE
+	override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+		coordinator.animateAlongsideTransition(in: self.view, animation: nil, completion: { [weak self] _ in
+			self?.carioca?.hostViewDidRotate()
+		})
+	}
+```
+
+### Creating your custom indicator
+
+Here's the simplest custom indicator. Feel free to check the **CariocaIndicatorConfiguration** extension for more customisation possibilities.
+
+```swift
+class CariocaCustomIndicatorView: UIView, CariocaIndicatorConfiguration {
+  ///This will use the basic shape, and change the color to black.
+	var color: UIColor = UIColor.black
+}
 ```
 
 ### Boomerang
 
 A boomerang always comes back to it's original place.
 By default, the boomerang is set to `none`. It means that the menu will stay where the user let it.
-The two other boomerang options are :
 
-- `vertical` : Will always come back at the same vertical position, but on the edge the user has chosen.
-```swift
-TOCOMPLETE
-```
+The other boomerang options are :
 
-- `verticalHorizontal` : Will always come back at the same position (vertical + same screen edge)
-```swift
-TOCOMPLETE
-```
+- `horizontal` : The indicator will return always on the original edge.
+- `vertical` : The indicator will return always on the original Y position. It may switch from Edge.
+- `originalPosition` : The indicator will always come back to it's original position
 
 ## 👨‍💻 TODO
 
+- Add a check for the edges at the initialisation. (Only .left & .right are allowed)
+- Add UI Tests
 - Add a `live tutorial` to indicate users how to get the most of this menu
 
 ## ⚠️ Known issues
