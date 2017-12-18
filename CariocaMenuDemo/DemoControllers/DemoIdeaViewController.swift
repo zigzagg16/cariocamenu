@@ -8,8 +8,6 @@ class DemoIdeaViewController: UIViewController, DemoController, UIWebViewDelegat
 
 	var menuController: CariocaController?
 
-	var gradientColors: [(start: UIColor, end: UIColor)] = []
-
 	override func viewWillAppear(_ animated: Bool) {
 		self.view.addCariocaGestureHelpers([.left, .right])
 	}
@@ -20,8 +18,9 @@ class DemoIdeaViewController: UIViewController, DemoController, UIWebViewDelegat
 		loader.stopAnimating()
 	}
 	override func viewDidAppear(_ animated: Bool) {
-		//TODO: execute after small delay ?
-		loadURL()
+		DispatchQueue.main.asyncAfter(deadline: .now() + 1.0, execute: {
+			self.loadURL()
+		})
 	}
 	func loadURL() {
 		guard let url = URL(string: "https://medium.com/search?q=Hamburger%20menu") else { return }
@@ -47,4 +46,5 @@ class DemoIdeaViewController: UIViewController, DemoController, UIWebViewDelegat
 	@IBAction func tryAgainAction(_ sender: AnyObject) {
 		loadURL()
 	}
+	override var preferredStatusBarStyle: UIStatusBarStyle { return .default }
 }

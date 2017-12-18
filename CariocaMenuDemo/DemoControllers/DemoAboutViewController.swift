@@ -4,17 +4,17 @@ class DemoAboutViewController: UIViewController, DemoController {
 
 	var menuController: CariocaController?
 
-	var gradientColors: [(start: UIColor, end: UIColor)] = []
+	override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
 
 	@IBAction func actionTwitter(_ sender: UIButton) {
-		url("https://twitter.com/mmommommomo")
+		openURL("http://bit.ly/2CWvb89")
 	}
 
 	@IBAction func actionGithub(_ sender: UIButton) {
-		url("https://github.com/arn00s/")
+		openURL("http://bit.ly/2AVql9B")
 	}
 
-	func url(_ urlString: String) {
+	func openURL(_ urlString: String) {
 		guard let url = URL(string: urlString) else { print("Could not open \(urlString)");return }
 		UIApplication.shared.openURL(url)
 	}

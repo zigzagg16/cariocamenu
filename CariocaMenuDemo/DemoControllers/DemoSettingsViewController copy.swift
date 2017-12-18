@@ -6,14 +6,7 @@ class DemoSettingsViewController: UIViewController, DemoController {
 	@IBOutlet weak var offScreenSwitch: UISwitch!
 	@IBOutlet weak var boomerangType: UISegmentedControl!
 
-	var gradientColors: [(start: UIColor, end: UIColor)] = [
-		//turquoise, green sear
-		(start: UIColor(red: 0.17, green: 0.73, blue: 0.61, alpha: 1.00),
-		 end: UIColor(red: 0.14, green: 0.62, blue: 0.52, alpha: 1.00)),
-		//emerald, nephritis
-		(start: UIColor(red: 0.23, green: 0.79, blue: 0.45, alpha: 1.00),
-		 end: UIColor(red: 0.20, green: 0.67, blue: 0.39, alpha: 1.00))
-	]
+	override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
 
 	override func viewWillAppear(_ animated: Bool) {
 		boomerangType.selectedSegmentIndex = menuController?.boomerang.rawValue ?? 0
