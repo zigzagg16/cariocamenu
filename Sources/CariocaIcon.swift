@@ -61,7 +61,7 @@ public class CariocaIconView: UIView {
 	///Displays an icon in the view. Only the required subview (label/imageview/?) will be displayed.
 	///Other views will be hidden, not removed.
 	///- Parameter icon: The icon to display
-	func display(icon: CariocaIcon) {
+	public func display(icon: CariocaIcon) {
 		///:nodoc:
 		func hide(_ labelHidden: Bool, _ imageHidden: Bool) {
 			imageView.isHidden = imageHidden

@@ -12,9 +12,9 @@ import UIKit
 ///Carioca Menu Item
 public class CariocaMenuItem {
 	///The item's title
-	let title: String
+	public let title: String
 	///The item'sicon
-	let icon: CariocaIcon
+	public let icon: CariocaIcon
 
 	///Initialise a menu item
 	///- Parameter title: The item's title
