@@ -8,8 +8,6 @@ class DemoIdeaViewController: UIViewController, DemoController, UIWebViewDelegat
 
 	var menuController: CariocaController?
 
-	var gradientColors: [(start: UIColor, end: UIColor)] = []
-
 	override func viewWillAppear(_ animated: Bool) {
 		self.view.addCariocaGestureHelpers([.left, .right])
 	}
@@ -48,4 +46,5 @@ class DemoIdeaViewController: UIViewController, DemoController, UIWebViewDelegat
 	@IBAction func tryAgainAction(_ sender: AnyObject) {
 		loadURL()
 	}
+	override var preferredStatusBarStyle: UIStatusBarStyle { return .default }
 }

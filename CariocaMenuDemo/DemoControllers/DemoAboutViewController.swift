@@ -4,7 +4,7 @@ class DemoAboutViewController: UIViewController, DemoController {
 
 	var menuController: CariocaController?
 
-	var gradientColors: [(start: UIColor, end: UIColor)] = []
+	override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
 
 	@IBAction func actionTwitter(_ sender: UIButton) {
 		openURL("http://bit.ly/2CWvb89")

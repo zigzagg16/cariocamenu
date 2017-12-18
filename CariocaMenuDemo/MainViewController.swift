@@ -76,7 +76,10 @@ class MainViewController: UIViewController {
 	}
 
 	override var preferredStatusBarStyle: UIStatusBarStyle {
-		return UIStatusBarStyle.lightContent
+		guard let demoController = demoView as? UIViewController else {
+			return UIStatusBarStyle.lightContent
+		}
+		return demoController.preferredStatusBarStyle
 	}
 }
 
