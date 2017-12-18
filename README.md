@@ -52,7 +52,7 @@ Simply add the following to your project Podfile, and you'll be good to go.
 ```ruby
 use_frameworks!
 
-pod 'CariocaMenu'
+pod 'CariocaMenu', '~> 2.0'
 ```
 
 ### Carthage

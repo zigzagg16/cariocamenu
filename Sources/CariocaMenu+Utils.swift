@@ -30,7 +30,7 @@ extension CariocaMenu {
     }
     ///Logs a string in the console
     ///- Parameter log: The log message
-    class func log(_ log: String) { print("[🇧🇷 CariocaMenu] \(log)") }
+    public class func log(_ log: String) { print("[🇧🇷 CariocaMenu] \(log)") }
 }
 
 public extension UIView {
