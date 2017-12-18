@@ -1,0 +1,1444 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>CariocaIndicatorView Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Class/CariocaIndicatorView" class="dashAnchor"></a>
+    <a title="CariocaIndicatorView Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">CariocaMenu Docs</a> (100% documented)</p>
+        <p class="header-right"><a href="https://github.com/arn00s/cariocamenu"><img src="../img/gh.png"/>View on GitHub</a></p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">CariocaMenu Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        CariocaIndicatorView Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/CariocaGestureManager.html">CariocaGestureManager</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CariocaIconView.html">CariocaIconView</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CariocaIndicatorView.html">CariocaIndicatorView</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CariocaIndicatorView/AnimationState.html">– AnimationState</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CariocaMenu.html">CariocaMenu</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CariocaMenuContainerView.html">CariocaMenuContainerView</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CariocaMenuItem.html">CariocaMenuItem</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/BoomerangType.html">BoomerangType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/CariocaIcon.html">CariocaIcon</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Extensions.html">Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Extensions/Selector.html">Selector</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/UIRectEdge.html">UIRectEdge</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/UIView.html">UIView</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/CariocaDataSource.html">CariocaDataSource</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/CariocaDelegate.html">CariocaDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/CariocaGestureManagerDelegate.html">CariocaGestureManagerDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/CariocaIndicatorConfiguration.html">CariocaIndicatorConfiguration</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Structs.html">Structures</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Structs/IndicatorPositionConstants.html">IndicatorPositionConstants</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Typealiases.html">Type Aliases</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:11CariocaMenu14BouncingValuesa">BouncingValues</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Typealiases.html#/s:11CariocaMenu0A9Indicatora">CariocaIndicator</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>CariocaIndicatorView</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">CariocaIndicatorView</span><span class="p">:</span> <span class="kt">UIView</span></code></pre>
+
+                </div>
+              </div>
+            <p>The menu&rsquo;s indicator</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11CariocaMenu0A13IndicatorViewC4edgeSC10UIRectEdgeVv"></a>
+                    <a name="//apple_ref/swift/Property/edge" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11CariocaMenu0A13IndicatorViewC4edgeSC10UIRectEdgeVv">edge</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The edge of the indicator.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">edge</span><span class="p">:</span> <span class="kt">UIRectEdge</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11CariocaMenu0A13IndicatorViewC12originalEdge33_58A56C9E93CA87505807845180B115ABLLSC06UIRectF0Vv"></a>
+                    <a name="//apple_ref/swift/Property/originalEdge" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11CariocaMenu0A13IndicatorViewC12originalEdge33_58A56C9E93CA87505807845180B115ABLLSC06UIRectF0Vv">originalEdge</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The original edge. Used when boomerang is not .none</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">private</span> <span class="k">let</span> <span class="nv">originalEdge</span><span class="p">:</span> <span class="kt">UIRectEdge</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11CariocaMenu0A13IndicatorViewC13topConstraintSo08NSLayoutF0Cv"></a>
+                    <a name="//apple_ref/swift/Property/topConstraint" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11CariocaMenu0A13IndicatorViewC13topConstraintSo08NSLayoutF0Cv">topConstraint</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The indicator&rsquo;s top constraint</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">topConstraint</span> <span class="o">=</span> <span class="kt">NSLayoutConstraint</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11CariocaMenu0A13IndicatorViewC20horizontalConstraint33_58A56C9E93CA87505807845180B115ABLLSo08NSLayoutF0Cv"></a>
+                    <a name="//apple_ref/swift/Property/horizontalConstraint" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11CariocaMenu0A13IndicatorViewC20horizontalConstraint33_58A56C9E93CA87505807845180B115ABLLSo08NSLayoutF0Cv">horizontalConstraint</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The indicator&rsquo;s horizontal constraint.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">private</span> <span class="k">var</span> <span class="nv">horizontalConstraint</span> <span class="o">=</span> <span class="kt">NSLayoutConstraint</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11CariocaMenu0A13IndicatorViewC04iconD0AA0a4IconD0Cv"></a>
+                    <a name="//apple_ref/swift/Property/iconView" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11CariocaMenu0A13IndicatorViewC04iconD0AA0a4IconD0Cv">iconView</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The icon&rsquo;s view</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">iconView</span><span class="p">:</span> <span class="kt"><a href="../Classes/CariocaIconView.html">CariocaIconView</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11CariocaMenu0A13IndicatorViewC6config33_58A56C9E93CA87505807845180B115ABLLAA0aC13Configuration_So6UIViewCXcv"></a>
+                    <a name="//apple_ref/swift/Property/config" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11CariocaMenu0A13IndicatorViewC6config33_58A56C9E93CA87505807845180B115ABLLAA0aC13Configuration_So6UIViewCXcv">config</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The custom indicator configuration</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">private</span> <span class="k">let</span> <span class="nv">config</span><span class="p">:</span> <span class="kt"><a href="../Typealiases.html#/s:11CariocaMenu0A9Indicatora">CariocaIndicator</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11CariocaMenu0A13IndicatorViewC15iconConstraints33_58A56C9E93CA87505807845180B115ABLLSaySo18NSLayoutConstraintCGv"></a>
+                    <a name="//apple_ref/swift/Property/iconConstraints" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11CariocaMenu0A13IndicatorViewC15iconConstraints33_58A56C9E93CA87505807845180B115ABLLSaySo18NSLayoutConstraintCGv">iconConstraints</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The constraints applied to the iconview. Can be updated later with custom configuration</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">private</span> <span class="k">var</span> <span class="nv">iconConstraints</span><span class="p">:</span> <span class="p">[</span><span class="kt">NSLayoutConstraint</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11CariocaMenu0A13IndicatorViewC14AnimationState33_58A56C9E93CA87505807845180B115ABLLO"></a>
+                    <a name="//apple_ref/swift/Enum/AnimationState" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11CariocaMenu0A13IndicatorViewC14AnimationState33_58A56C9E93CA87505807845180B115ABLLO">AnimationState</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The indicator&rsquo;s possible animation states</p>
+
+                        <a href="../Classes/CariocaIndicatorView/AnimationState.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">private</span> <span class="kd">enum</span> <span class="kt">AnimationState</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11CariocaMenu0A13IndicatorViewC5state33_58A56C9E93CA87505807845180B115ABLLAC14AnimationStateAELLOv"></a>
+                    <a name="//apple_ref/swift/Property/state" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11CariocaMenu0A13IndicatorViewC5state33_58A56C9E93CA87505807845180B115ABLLAC14AnimationStateAELLOv">state</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Status of the indicator animations. Avoid double animations issues</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">private</span> <span class="k">var</span> <span class="nv">state</span><span class="p">:</span> <span class="kt"><a href="../Classes/CariocaIndicatorView/AnimationState.html">AnimationState</a></span> <span class="o">=</span> <span class="o">.</span><span class="n">onHold</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11CariocaMenu0A13IndicatorViewCACSC10UIRectEdgeV4edge_AA0aC13Configuration_So6UIViewCXc9indicatortcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(edge:indicator:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11CariocaMenu0A13IndicatorViewCACSC10UIRectEdgeV4edge_AA0aC13Configuration_So6UIViewCXc9indicatortcfc">init(edge:indicator:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Initialise an IndicatorView</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="nf">init</span><span class="p">(</span><span class="nv">edge</span><span class="p">:</span> <span class="kt">UIRectEdge</span><span class="p">,</span> <span class="nv">indicator</span><span class="p">:</span> <span class="kt"><a href="../Typealiases.html#/s:11CariocaMenu0A9Indicatora">CariocaIndicator</a></span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>edge</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The inital edge. Will be updated every time the user changes of edge.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>indicator</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The indicator custom configuration</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11CariocaMenu0A13IndicatorViewC17positionConstantsAA0c8PositionF0V12CoreGraphics7CGFloatV9hostWidth_AI09indicatorL0SC10UIRectEdgeV4edgeAI12borderMarginAI4from_AI2tot14bouncingValuesAI10startInsetAI03endX0tFZ"></a>
+                    <a name="//apple_ref/swift/Method/positionConstants(hostWidth:indicatorWidth:edge:borderMargin:bouncingValues:startInset:endInset:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11CariocaMenu0A13IndicatorViewC17positionConstantsAA0c8PositionF0V12CoreGraphics7CGFloatV9hostWidth_AI09indicatorL0SC10UIRectEdgeV4edgeAI12borderMarginAI4from_AI2tot14bouncingValuesAI10startInsetAI03endX0tFZ">positionConstants(hostWidth:indicatorWidth:edge:borderMargin:bouncingValues:startInset:endInset:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Calculates the indicator&rsquo;s position for animation</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">class</span> <span class="kd">func</span> <span class="nf">positionConstants</span><span class="p">(</span><span class="nv">hostWidth</span><span class="p">:</span> <span class="kt">CGFloat</span><span class="p">,</span>
+							 <span class="nv">indicatorWidth</span><span class="p">:</span> <span class="kt">CGFloat</span><span class="p">,</span>
+							 <span class="nv">edge</span><span class="p">:</span> <span class="kt">UIRectEdge</span><span class="p">,</span>
+							 <span class="nv">borderMargin</span><span class="p">:</span> <span class="kt">CGFloat</span><span class="p">,</span>
+							 <span class="nv">bouncingValues</span><span class="p">:</span> <span class="kt"><a href="../Typealiases.html#/s:11CariocaMenu14BouncingValuesa">BouncingValues</a></span><span class="p">,</span>
+							 <span class="nv">startInset</span><span class="p">:</span> <span class="kt">CGFloat</span><span class="p">,</span>
+							 <span class="nv">endInset</span><span class="p">:</span> <span class="kt">CGFloat</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/IndicatorPositionConstants.html">IndicatorPositionConstants</a></span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>hostWidth</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The hostView&rsquo;s width</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>indicatorWidth</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The indicator&rsquo;s size</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>edge</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The original edge</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>borderMargin</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The border magins</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>bouncingValues</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The values to make the bouncing effect in animations</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>startInset</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The view&rsquo;s starting inset, if applies (iPhone X safe area)</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>endInset</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The view&rsquo;s starting inset, if applies (iPhone X safe area)</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>IndicatorPositionConstants All the possible calculated positions</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11CariocaMenu0A13IndicatorViewC5addInySo6UIViewC_So07UITableD0C05tableD012CoreGraphics7CGFloatV8positiontF"></a>
+                    <a name="//apple_ref/swift/Method/addIn(_:tableView:position:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11CariocaMenu0A13IndicatorViewC5addInySo6UIViewC_So07UITableD0C05tableD012CoreGraphics7CGFloatV8positiontF">addIn(_:tableView:position:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Adds the indicator in the hostView</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">addIn</span><span class="p">(</span><span class="n">_</span> <span class="nv">hostView</span><span class="p">:</span> <span class="kt">UIView</span><span class="p">,</span>
+		   <span class="nv">tableView</span><span class="p">:</span> <span class="kt">UITableView</span><span class="p">,</span>
+		   <span class="nv">position</span><span class="p">:</span> <span class="kt">CGFloat</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>hostView</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the menu&rsquo;s hostView</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>tableView</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the menu&rsquo;s tableView</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>position</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the indicator initial position in %</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11CariocaMenu0A13IndicatorViewC16verticalConstant33_58A56C9E93CA87505807845180B115ABLL12CoreGraphics7CGFloatVAH3for_AH10hostHeightAH6heighttF"></a>
+                    <a name="//apple_ref/swift/Method/verticalConstant(for:hostHeight:height:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11CariocaMenu0A13IndicatorViewC16verticalConstant33_58A56C9E93CA87505807845180B115ABLL12CoreGraphics7CGFloatVAH3for_AH10hostHeightAH6heighttF">verticalConstant(for:hostHeight:height:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Calculates the Y constraint based on percentage.
+A margin of 50% of the indicator view is applied for security.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">private</span> <span class="kd">func</span> <span class="nf">verticalConstant</span><span class="p">(</span><span class="k">for</span> <span class="nv">percentage</span><span class="p">:</span> <span class="kt">CGFloat</span><span class="p">,</span>
+							  <span class="nv">hostHeight</span><span class="p">:</span> <span class="kt">CGFloat</span><span class="p">,</span>
+							  <span class="nv">height</span><span class="p">:</span> <span class="kt">CGFloat</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">CGFloat</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>percentage</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The desired position percentage</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>hostHeight</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The host&rsquo;s height</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>height</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The indicator&rsquo;s height</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>CGFloat: The constant calculated Y value</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11CariocaMenu0A13IndicatorViewC24makeHorizontalConstraint33_58A56C9E93CA87505807845180B115ABLLSo08NSLayoutG0CSo6UIViewC_SC0N9AttributeOtF"></a>
+                    <a name="//apple_ref/swift/Method/makeHorizontalConstraint(_:_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11CariocaMenu0A13IndicatorViewC24makeHorizontalConstraint33_58A56C9E93CA87505807845180B115ABLLSo08NSLayoutG0CSo6UIViewC_SC0N9AttributeOtF">makeHorizontalConstraint(_:_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Create the horizontal constraint</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">private</span> <span class="kd">func</span> <span class="nf">makeHorizontalConstraint</span><span class="p">(</span><span class="n">_</span> <span class="nv">hostView</span><span class="p">:</span> <span class="kt">UIView</span><span class="p">,</span>
+									  <span class="n">_</span> <span class="nv">attribute</span><span class="p">:</span> <span class="kt">NSLayoutAttribute</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">NSLayoutConstraint</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>hostView</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The menu&rsquo;s hostView</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>attribute</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The layoutAttribute for the constraint</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>priority</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The constraint&rsquo;s priority</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>NSLayoutConstraint the horizontal constraint</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@CariocaMenu@objc(cs)CariocaIndicatorView(im)drawRect:"></a>
+                    <a name="//apple_ref/swift/Method/draw(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@CariocaMenu@objc(cs)CariocaIndicatorView(im)drawRect:">draw(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Draws the shape, depending on the edge.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">override</span> <span class="kd">public</span> <span class="kd">func</span> <span class="nf">draw</span><span class="p">(</span><span class="n">_</span> <span class="nv">frame</span><span class="p">:</span> <span class="kt">CGRect</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>frame</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The IndicatorView&rsquo;s frame</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11CariocaMenu0A13IndicatorViewC22applyMarginConstraints33_58A56C9E93CA87505807845180B115ABLLy12CoreGraphics7CGFloatV3top_AH5rightAH6bottomAH4leftt7margins_tF"></a>
+                    <a name="//apple_ref/swift/Method/applyMarginConstraints(margins:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11CariocaMenu0A13IndicatorViewC22applyMarginConstraints33_58A56C9E93CA87505807845180B115ABLLy12CoreGraphics7CGFloatV3top_AH5rightAH6bottomAH4leftt7margins_tF">applyMarginConstraints(margins:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Applies the margins to the iconView</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">private</span> <span class="kd">func</span> <span class="nf">applyMarginConstraints</span><span class="p">(</span><span class="nv">margins</span><span class="p">:</span> <span class="p">(</span><span class="nv">top</span><span class="p">:</span> <span class="kt">CGFloat</span><span class="p">,</span> <span class="nv">right</span><span class="p">:</span> <span class="kt">CGFloat</span><span class="p">,</span> <span class="nv">bottom</span><span class="p">:</span> <span class="kt">CGFloat</span><span class="p">,</span> <span class="nv">left</span><span class="p">:</span> <span class="kt">CGFloat</span><span class="p">))</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>margins</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Tuple of margins in CSS Style (Top, Right, Bottom, left)</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11CariocaMenu0A13IndicatorViewC14positionValues33_58A56C9E93CA87505807845180B115ABLLAA0C17PositionConstantsVSo6UIViewCF"></a>
+                    <a name="//apple_ref/swift/Method/positionValues(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11CariocaMenu0A13IndicatorViewC14positionValues33_58A56C9E93CA87505807845180B115ABLLAA0C17PositionConstantsVSo6UIViewCF">positionValues(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Calls the positionConstants() with all internal parameters</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">private</span> <span class="kd">func</span> <span class="nf">positionValues</span><span class="p">(</span><span class="n">_</span> <span class="nv">hostView</span><span class="p">:</span> <span class="kt">UIView</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/IndicatorPositionConstants.html">IndicatorPositionConstants</a></span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>IndicatorPositionConstants All the possible calculated positions</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11CariocaMenu0A13IndicatorViewC24repositionXAfterRotationySo6UIViewCF"></a>
+                    <a name="//apple_ref/swift/Method/repositionXAfterRotation(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11CariocaMenu0A13IndicatorViewC24repositionXAfterRotationySo6UIViewCF">repositionXAfterRotation(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>When the hostView has rotated, re-apply the constraints.
+This should have an effect only on iPhone X, because of the view edges.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">repositionXAfterRotation</span><span class="p">(</span><span class="n">_</span> <span class="nv">hostView</span><span class="p">:</span> <span class="kt">UIView</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>hostView</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The menu&rsquo;s hostView</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11CariocaMenu0A13IndicatorViewC12insetsValues12CoreGraphics7CGFloatV5start_AG3endtSC12UIEdgeInsetsV_SC19UIDeviceOrientationO11orientationSC10UIRectEdgeV4edgetF"></a>
+                    <a name="//apple_ref/swift/Method/insetsValues(_:orientation:edge:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11CariocaMenu0A13IndicatorViewC12insetsValues12CoreGraphics7CGFloatV5start_AG3endtSC12UIEdgeInsetsV_SC19UIDeviceOrientationO11orientationSC10UIRectEdgeV4edgetF">insetsValues(_:orientation:edge:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Calculates inset values, depending on orientation.
+The goal is to only have the inset on the indicator when the edge of the indicator is on the side of the notch.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">insetsValues</span><span class="p">(</span><span class="n">_</span> <span class="nv">insets</span><span class="p">:</span> <span class="kt">UIEdgeInsets</span><span class="p">,</span>
+				  <span class="nv">orientation</span><span class="p">:</span> <span class="kt">UIDeviceOrientation</span><span class="p">,</span>
+				  <span class="nv">edge</span><span class="p">:</span> <span class="kt">UIRectEdge</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">(</span><span class="nv">start</span><span class="p">:</span> <span class="kt">CGFloat</span><span class="p">,</span> <span class="nv">end</span><span class="p">:</span> <span class="kt">CGFloat</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>insets</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The original insets</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>orientation</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The screen orientation</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>edge</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The screen edge</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>Start end End insets for the indicator.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11CariocaMenu0A13IndicatorViewC4showySC10UIRectEdgeV4edge_So6UIViewC04hostD0Sb012isTraversingD0tF"></a>
+                    <a name="//apple_ref/swift/Method/show(edge:hostView:isTraversingView:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11CariocaMenu0A13IndicatorViewC4showySC10UIRectEdgeV4edge_So6UIViewC04hostD0Sb012isTraversingD0tF">show(edge:hostView:isTraversingView:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Show the indicator on a specific edge, by animating the horizontal position</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">show</span><span class="p">(</span><span class="nv">edge</span><span class="p">:</span> <span class="kt">UIRectEdge</span><span class="p">,</span> <span class="nv">hostView</span><span class="p">:</span> <span class="kt">UIView</span><span class="p">,</span> <span class="nv">isTraversingView</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>edge</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The screen edge</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>hostView</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The menu&rsquo;s hostView, to calculate the positions</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>isTraversingView</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Should the indicator traverse the hostView, and stick to the opposite edge ?</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11CariocaMenu0A13IndicatorViewC7restoreySo6UIViewC04hostD0_AA13BoomerangTypeO9boomerang12CoreGraphics7CGFloatV15initialPositionSd17firstStepDurationyyc0pQ4DonetF"></a>
+                    <a name="//apple_ref/swift/Method/restore(hostView:boomerang:initialPosition:firstStepDuration:firstStepDone:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11CariocaMenu0A13IndicatorViewC7restoreySo6UIViewC04hostD0_AA13BoomerangTypeO9boomerang12CoreGraphics7CGFloatV15initialPositionSd17firstStepDurationyyc0pQ4DonetF">restore(hostView:boomerang:initialPosition:firstStepDuration:firstStepDone:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Retore the indicator on it&rsquo;s original edge position</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">restore</span><span class="p">(</span><span class="nv">hostView</span><span class="p">:</span> <span class="kt">UIView</span><span class="p">,</span>
+			 <span class="nv">boomerang</span><span class="p">:</span> <span class="kt"><a href="../Enums/BoomerangType.html">BoomerangType</a></span><span class="p">,</span>
+			 <span class="nv">initialPosition</span><span class="p">:</span> <span class="kt">CGFloat</span><span class="p">,</span>
+			 <span class="nv">firstStepDuration</span><span class="p">:</span> <span class="kt">Double</span><span class="p">,</span>
+			 <span class="nv">firstStepDone</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>hostView</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The menu&rsquo;s hostView, to calculate the positions</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>boomerang</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The boomerang type to restore the indicator</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>initialPosition</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The indicator initial position</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>firstStepDuration</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Should equal the time to hide the menu. First animation is 70%, second 30%.
+In boomerang mode, first animation is 125% of that value.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>firstStepDone</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Called when the first animation is complete, with or without boomerang.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11CariocaMenu0A13IndicatorViewC9animationySo6UIViewC_So18NSLayoutConstraintC10constraint12CoreGraphics7CGFloatV8constantSd6timingSC0F16AnimationOptionsV7optionsyyc8finishedtF"></a>
+                    <a name="//apple_ref/swift/Method/animation(_:constraint:constant:timing:options:finished:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11CariocaMenu0A13IndicatorViewC9animationySo6UIViewC_So18NSLayoutConstraintC10constraint12CoreGraphics7CGFloatV8constantSd6timingSC0F16AnimationOptionsV7optionsyyc8finishedtF">animation(_:constraint:constant:timing:options:finished:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Animate a constraint</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">internal</span> <span class="kd">func</span> <span class="nf">animation</span><span class="p">(</span><span class="n">_</span> <span class="nv">view</span><span class="p">:</span> <span class="kt">UIView</span><span class="p">,</span> <span class="nv">constraint</span><span class="p">:</span> <span class="kt">NSLayoutConstraint</span><span class="p">,</span>
+						<span class="nv">constant</span><span class="p">:</span> <span class="kt">CGFloat</span><span class="p">,</span> <span class="nv">timing</span><span class="p">:</span> <span class="kt">Double</span><span class="p">,</span>
+						<span class="nv">options</span><span class="p">:</span> <span class="kt">UIViewAnimationOptions</span><span class="p">,</span>
+						<span class="nv">finished</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>view</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The view to layoutIfNeeded</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>constraint</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The constraint to animate</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>constant</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The new constant value</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>timing</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The animation duration</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>options</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The animation options</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>finished</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Completion closure, when animation finished</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11CariocaMenu0A13IndicatorViewC20constraintPrioritiesySo18NSLayoutConstraintC4main_AF6secondtF"></a>
+                    <a name="//apple_ref/swift/Method/constraintPriorities(main:second:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11CariocaMenu0A13IndicatorViewC20constraintPrioritiesySo18NSLayoutConstraintC4main_AF6secondtF">constraintPriorities(main:second:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Utility to inverse 2 constraint priorities</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">internal</span> <span class="kd">func</span> <span class="nf">constraintPriorities</span><span class="p">(</span><span class="nv">main</span><span class="p">:</span> <span class="kt">NSLayoutConstraint</span><span class="p">,</span>
+								   <span class="nv">second</span><span class="p">:</span> <span class="kt">NSLayoutConstraint</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>main</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The highest priority will be applied to that constraint.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>second</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The lowest priority will be applied to that constraint.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11CariocaMenu0A13IndicatorViewC6moveToySi5index_12CoreGraphics7CGFloatV12heightForRowtF"></a>
+                    <a name="//apple_ref/swift/Method/moveTo(index:heightForRow:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11CariocaMenu0A13IndicatorViewC6moveToySi5index_12CoreGraphics7CGFloatV12heightForRowtF">moveTo(index:heightForRow:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Move the indicator to a specific index, by updating the top constraint value</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">moveTo</span><span class="p">(</span><span class="nv">index</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">heightForRow</span><span class="p">:</span> <span class="kt">CGFloat</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>index</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The selection index of the menu, where the indicator will appear</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>heightForRow</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The height of each menu item</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2017 <a class="link" href="https://twitter.com/mmommommomo" target="_blank" rel="external">Arnaud Schloune</a>. All rights reserved. (Last updated: 2017-12-18)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

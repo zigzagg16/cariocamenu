@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>CariocaMenu  Reference</title>
+    <link rel="stylesheet" type="text/css" href="css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="js/jquery.min.js" defer></script>
+    <script src="js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a title="CariocaMenu  Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="index.html">CariocaMenu Docs</a> (100% documented)</p>
+        <p class="header-right"><a href="https://github.com/arn00s/cariocamenu"><img src="img/gh.png"/>View on GitHub</a></p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="index.html">CariocaMenu Reference</a>
+        <img id="carat" src="img/carat.png" />
+        CariocaMenu  Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Classes/CariocaGestureManager.html">CariocaGestureManager</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/CariocaIconView.html">CariocaIconView</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/CariocaIndicatorView.html">CariocaIndicatorView</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/CariocaIndicatorView/AnimationState.html">– AnimationState</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/CariocaMenu.html">CariocaMenu</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/CariocaMenuContainerView.html">CariocaMenuContainerView</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/CariocaMenuItem.html">CariocaMenuItem</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Enums.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Enums/BoomerangType.html">BoomerangType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/CariocaIcon.html">CariocaIcon</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Extensions.html">Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Extensions/Selector.html">Selector</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Extensions/UIRectEdge.html">UIRectEdge</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Extensions/UIView.html">UIView</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Protocols/CariocaDataSource.html">CariocaDataSource</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Protocols/CariocaDelegate.html">CariocaDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Protocols/CariocaGestureManagerDelegate.html">CariocaGestureManagerDelegate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Protocols/CariocaIndicatorConfiguration.html">CariocaIndicatorConfiguration</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Structs.html">Structures</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Structs/IndicatorPositionConstants.html">IndicatorPositionConstants</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Typealiases.html">Type Aliases</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Typealiases.html#/s:11CariocaMenu14BouncingValuesa">BouncingValues</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Typealiases.html#/s:11CariocaMenu0A9Indicatora">CariocaIndicator</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            
+            <p><img src="docs/readme_header.jpg" alt=""></p>
+
+<p><a href="http://makeapullrequest.com"><img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg" alt="PRs Welcome"></a>
+<a href="https://github.com/Carthage/Carthage"><img src="https://img.shields.io/badge/Carthage-Compatible-brightgreen.svg?style=flat" alt="Carthage compatible"></a>
+<a href="http://cocoapods.org/pods/Hero"><img src="https://img.shields.io/cocoapods/v/Hero.svg?style=flat" alt="Version"></a>
+<img src="https://img.shields.io/badge/iOS-9.0%2B-blue.svg" alt="iOS 9.0+">
+<img src="https://img.shields.io/badge/Swift-4.0%2B-orange.svg" alt="Swift 4.0+">
+<a href="https://github.com/arn00s/cariocamenu/blob/master/LICENSE?raw=true"><img src="https://img.shields.io/cocoapods/l/Hero.svg?style=flat" alt="License"></a>
+<a href=""><img src="https://img.shields.io/cocoapods/dt/CariocaMenu.svg" alt="CocoaPods"></a>
+<a href="https://twitter.com/intent/tweet?text=This%20menu%20is%20awesome:&amp;url=https%3A%2F%2Fgithub.com%2Farn00s%2Fcariocamenu"><img src="https://img.shields.io/twitter/url/https/github.com/arn00s/cariocamenu.svg?style=social" alt="Twitter URL"></a></p>
+<h2 id='quicklook' class='heading'>⚡️ Quicklook</h2>
+
+<p>The fastest zero-tap iOS menu</p>
+
+<p>CariocaMenu is a <strong>simple</strong>, <strong>elegant</strong>, <strong>fast</strong> navigation menu for your <strong>iOS</strong> apps.</p>
+
+<p><img src="https://raw.githubusercontent.com/arn00s/cariocamenu/master/cariocamenu.gif" alt=""></p>
+<h2 id='features' class='heading'>🏆 Features</h2>
+
+<ul>
+<li>[x] Accessible from a single swipe of the left/right screen edge</li>
+<li>[x] Accessible with a tap on the indicator</li>
+<li>[x] Customisable menu indicator</li>
+<li>[x] Menu Item supports image &amp; emoji/text</li>
+<li>[x] Boomerang mode</li>
+<li>[x] Supports rotation (Full AutoLayout)</li>
+<li>[x] Supports iPhone X &amp; the Notch !</li>
+<li>[x] <a href="http://arn00s.github.io/cariocamenu/">Complete Technical Documentation</a></li>
+</ul>
+<h2 id='requirements' class='heading'>📝 Requirements</h2>
+
+<ul>
+<li>AutoLayout</li>
+<li>iOS 9.0+</li>
+<li>Swift 4.0</li>
+</ul>
+<h2 id='communication' class='heading'>📢 Communication</h2>
+
+<ul>
+<li>If you <strong>need help</strong>, use <a href="http://stackoverflow.com/questions/tagged/CariocaMenu">Stack Overflow</a>. (Tag &lsquo;CariocaMenu&rsquo;)</li>
+<li>If you&rsquo;d like to <strong>ask a general question</strong>, use <a href="http://stackoverflow.com/questions/tagged/CariocaMenu">Stack Overflow</a>.</li>
+<li>If you <strong>found a bug</strong>, open an issue.</li>
+<li>If you <strong>have a feature request</strong>, open an issue.</li>
+<li>If you <strong>want to contribute</strong>, submit a pull request.</li>
+<li>If you <strong>use the control</strong>, contact me to mention your app on this page.</li>
+</ul>
+<h2 id='installation' class='heading'>📲 Installation</h2>
+<h3 id='cocoapods' class='heading'>CocoaPods</h3>
+
+<p>CariocaMenu is now available on <a href="http://cocoapods.org">CocoaPods</a>.
+Simply add the following to your project Podfile, and you&rsquo;ll be good to go.</p>
+<pre class="highlight ruby"><code><span class="n">use_frameworks!</span>
+
+<span class="n">pod</span> <span class="s1">'CariocaMenu'</span>
+</code></pre>
+<h3 id='carthage' class='heading'>Carthage</h3>
+
+<p><a href="https://github.com/Carthage/Carthage">Carthage</a> is a decentralised dependency manager that builds your dependencies and provides you with binary frameworks.</p>
+
+<p>You can install Carthage with <a href="http://brew.sh/">Homebrew</a> using the following command:</p>
+<pre class="highlight shell"><code><span class="gp">$ </span>brew update
+<span class="gp">$ </span>brew install carthage
+</code></pre>
+
+<p>To integrate CariocaMenu into your Xcode project using Carthage, specify it in your <code>Cartfile</code>:</p>
+<pre class="highlight plaintext"><code>github "arn00s/cariocamenu"
+</code></pre>
+
+<p>Run <code>carthage</code> to build the framework and drag the built <code>CariocaMenu.framework</code> into your Xcode project.</p>
+<h3 id='manually' class='heading'>Manually</h3>
+
+<p>If you prefer, you can integrate CariocaMenu into your project manually.</p>
+
+<p>Just Drag&amp;Drop all the files under <code>Sources/</code> into your project.</p>
+
+<hr>
+<h2 id='usage' class='heading'>💻 Usage</h2>
+<h3 id='preparing-your-menu-controller' class='heading'>Preparing your menu controller</h3>
+
+<p>To create and display your menu, you&rsquo;ll need to create a custom <strong>CariocaController</strong> (UITableViewController &amp; CariocaDataSource)</p>
+
+<p>This will define your menu settings &amp; appearance. Check <strong>DemoMenuContentController.swift</strong> for code sample.</p>
+<h3 id='creating-your-menu' class='heading'>Creating your menu</h3>
+
+<p>For the complete code, check <strong>MainViewController.swift</strong>.</p>
+<pre class="highlight swift"><code><span class="k">if</span> <span class="k">let</span> <span class="nv">controller</span> <span class="o">=</span> <span class="k">self</span><span class="o">.</span><span class="n">storyboard</span><span class="p">?</span><span class="o">.</span><span class="nf">instantiateViewController</span><span class="p">(</span><span class="nv">withIdentifier</span><span class="p">:</span> <span class="s">"DemoMenu"</span><span class="p">)</span>
+    <span class="k">as?</span> <span class="kt">CariocaController</span> <span class="p">{</span>
+      <span class="nf">addChildViewController</span><span class="p">(</span><span class="n">controller</span><span class="p">)</span>
+      <span class="n">carioca</span> <span class="o">=</span> <span class="kt">CariocaMenu</span><span class="p">(</span><span class="nv">controller</span><span class="p">:</span> <span class="n">controller</span><span class="p">,</span>
+                            <span class="nv">hostView</span><span class="p">:</span> <span class="k">self</span><span class="o">.</span><span class="n">view</span><span class="p">,</span>
+                            <span class="nv">edges</span><span class="p">:</span> <span class="p">[</span><span class="o">.</span><span class="k">right</span><span class="p">,</span> <span class="o">.</span><span class="k">left</span><span class="p">],</span>
+                            <span class="nv">delegate</span><span class="p">:</span> <span class="k">self</span><span class="p">,</span>
+                            <span class="nv">indicator</span><span class="p">:</span> <span class="kt">CariocaCustomIndicatorView</span><span class="p">()</span>
+                            <span class="p">)</span>
+      <span class="n">carioca</span><span class="o">.</span><span class="nf">addInHostView</span><span class="p">()</span>
+<span class="p">}</span>
+</code></pre>
+<h3 id='managing-rotation' class='heading'>Managing rotation</h3>
+
+<p>To be able to manage the rotation of the menu, you&rsquo;ll need to forward the rotation event to your menu instance.</p>
+<pre class="highlight swift"><code>    <span class="k">override</span> <span class="kd">func</span> <span class="nf">viewWillTransition</span><span class="p">(</span><span class="n">to</span> <span class="nv">size</span><span class="p">:</span> <span class="kt">CGSize</span><span class="p">,</span> <span class="n">with</span> <span class="nv">coordinator</span><span class="p">:</span> <span class="kt">UIViewControllerTransitionCoordinator</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">coordinator</span><span class="o">.</span><span class="nf">animateAlongsideTransition</span><span class="p">(</span><span class="nv">in</span><span class="p">:</span> <span class="k">self</span><span class="o">.</span><span class="n">view</span><span class="p">,</span> <span class="nv">animation</span><span class="p">:</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">{</span> <span class="p">[</span><span class="k">weak</span> <span class="k">self</span><span class="p">]</span> <span class="n">_</span> <span class="k">in</span>
+            <span class="k">self</span><span class="p">?</span><span class="o">.</span><span class="n">carioca</span><span class="p">?</span><span class="o">.</span><span class="nf">hostViewDidRotate</span><span class="p">()</span>
+        <span class="p">})</span>
+    <span class="p">}</span>
+</code></pre>
+<h3 id='creating-your-custom-indicator' class='heading'>Creating your custom indicator</h3>
+
+<p>Here&rsquo;s the simplest custom indicator. Feel free to check the <strong>CariocaIndicatorConfiguration</strong> extension for more customisation possibilities.</p>
+<pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">CariocaCustomIndicatorView</span><span class="p">:</span> <span class="kt">UIView</span><span class="p">,</span> <span class="kt">CariocaIndicatorConfiguration</span> <span class="p">{</span>
+  <span class="c1">///This will use the basic shape, and change the color to black.</span>
+    <span class="k">var</span> <span class="nv">color</span><span class="p">:</span> <span class="kt">UIColor</span> <span class="o">=</span> <span class="kt">UIColor</span><span class="o">.</span><span class="n">black</span>
+<span class="p">}</span>
+</code></pre>
+<h3 id='boomerang' class='heading'>Boomerang</h3>
+
+<p>A boomerang always comes back to it&rsquo;s original place.
+By default, the boomerang is set to <code>none</code>. It means that the menu will stay where the user let it.</p>
+
+<p>The other boomerang options are :</p>
+
+<ul>
+<li><code>horizontal</code> : The indicator will return always on the original edge.</li>
+<li><code>vertical</code> : The indicator will return always on the original Y position. It may switch from Edge.</li>
+<li><code>originalPosition</code> : The indicator will always come back to it&rsquo;s original position</li>
+</ul>
+<h2 id='todo' class='heading'>👨‍💻 TODO</h2>
+
+<ul>
+<li>Add a check for the edges at the initialisation. (Only .left &amp; .right are allowed)</li>
+<li>Add UI Tests</li>
+<li>Add a <code>live tutorial</code> to indicate users how to get the most of this menu</li>
+</ul>
+<h2 id='known-issues' class='heading'>⚠️ Known issues</h2>
+
+<p>Check the (<a href="https://github.com/arn00s/CariocaMenu/issues">GitHub issues</a>)</p>
+<h2 id='faq' class='heading'>🤔 FAQ</h2>
+<h3 id='why-should-i-use-code-cariocamenu-code' class='heading'>😍 Why should I use <code><a href="Classes/CariocaMenu.html">CariocaMenu</a></code>?</h3>
+
+<p>You&rsquo;re starting a new iOS app, and you want to innovate on the user experience.</p>
+<h3 id='why-the-name-code-cariocamenu-code' class='heading'>🇧🇷 Why the name <code><a href="Classes/CariocaMenu.html">CariocaMenu</a></code>?</h3>
+
+<p>I didn&rsquo;t want to use the same naming convention that <strong>EVERYONE</strong> uses. I could have named it <code>ASSuperCoolMenu</code>, but it sucks.
+A <code>Carioca</code> is someone who lives in Rio de Janeiro 🇧🇷. I lived there for two months, and this idea was born while I was there.</p>
+<h2 id='contact' class='heading'>🤙🏼 Contact</h2>
+
+<ul>
+<li><a href="https://twitter.com/mmommommomo">twitter</a></li>
+</ul>
+<h2 id='contributions' class='heading'>❤️ Contributions</h2>
+
+<p>This is an open source project, feel free to contribute!</p>
+
+<ul>
+<li>Open an <a href="https://github.com/arn00s/cariocamenu/issues/new">issue</a>.</li>
+<li>Propose your own fixes, suggestions and open a pull request with the changes.</li>
+</ul>
+
+<p>See <a href="https://github.com/arn00s/cariocamenu/graphs/contributors">all contributors</a></p>
+<h6 id='project-generated-with-a-href-https-github-com-johnsundell-swiftplate-swiftplate-a' class='heading'>Project generated with <a href="https://github.com/JohnSundell/SwiftPlate">SwiftPlate</a></h6>
+<h2 id='license' class='heading'>📝 License</h2>
+
+<p>CariocaMenu is released under the MIT license. See LICENSE for details.</p>
+
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2017 <a class="link" href="https://twitter.com/mmommommomo" target="_blank" rel="external">Arnaud Schloune</a>. All rights reserved. (Last updated: 2017-12-18)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>
