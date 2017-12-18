@@ -35,13 +35,13 @@ public class CariocaMenu: NSObject, CariocaGestureManagerDelegate, UITableViewDe
     ///- Parameter delegate: The menu's event delegate
 	///- Parameter selectedIndex: The menu's default selected index
 	///- Parameter indicator: The custom indicator view
-    init(controller: CariocaController,
-         hostView: UIView,
-         edges: [UIRectEdge],
-         delegate: CariocaDelegate,
-		 selectedIndex: Int = 0,
-		 indicator: CariocaIndicator) {
-        self.controller = controller
+    public init(controller: CariocaController,
+				hostView: UIView,
+				edges: [UIRectEdge],
+				delegate: CariocaDelegate,
+				selectedIndex: Int = 0,
+				indicator: CariocaIndicator) {
+		self.controller = controller
         self.hostView = hostView
         self.edges = edges
         self.container = CariocaMenuContainerView(frame: hostView.frame,
@@ -62,7 +62,7 @@ public class CariocaMenu: NSObject, CariocaGestureManagerDelegate, UITableViewDe
     }
 
     ///Adds the menu's container view in the host view
-    func addInHostView() {
+    public func addInHostView() {
         hostView.addSubview(container)
 		if let blurStyle = controller.blurStyle {
 			container.addBlurView(style: blurStyle)
@@ -108,19 +108,19 @@ public class CariocaMenu: NSObject, CariocaGestureManagerDelegate, UITableViewDe
 
     ///Menu will open. Forwards call to openFromEdge
     ///- Parameter edge: The opening edge of the menu
-    func willOpenFromEdge(edge: UIRectEdge) {
+    internal func willOpenFromEdge(edge: UIRectEdge) {
 		delegate?.cariocamenu(self, willOpenFromEdge: edge)
 		controller.tableView.reloadData()
 		showMenu()
 		indicator.show(edge: edge, hostView: hostView, isTraversingView: true)
 	}
 	///Show the menu
-    func showMenu() {
+    internal func showMenu() {
         container.isHidden = false
     }
 	///Hide the menu
 	///- Parameter duration: The fading duration, optional. If not set, the menu is immediately hidden.
-	func hideMenu(_ duration: Double? = nil) {
+	internal func hideMenu(_ duration: Double? = nil) {
 		guard let duration = duration else {
 			container.isHidden = true
 			return
@@ -135,7 +135,7 @@ public class CariocaMenu: NSObject, CariocaGestureManagerDelegate, UITableViewDe
 	///The selection index was updated, while user panning in the view
 	///- Parameter index: The updated selection index
 	///- Parameter selectionFeedback: Should we make a selection feedback?
-	func didUpdateSelectionIndex(_ index: Int, selectionFeedback: Bool) {
+	internal func didUpdateSelectionIndex(_ index: Int, selectionFeedback: Bool) {
 		indicator.moveTo(index: index, heightForRow: controller.heightForRow())
 		let item = controller.menuItems[index]
 		indicator.iconView.display(icon: item.icon)
@@ -152,7 +152,7 @@ public class CariocaMenu: NSObject, CariocaGestureManagerDelegate, UITableViewDe
 	}
 	///The user did select a menu item
 	///- Parameter index: The selected index
-    func didSelectItem(at index: Int) {
+    internal func didSelectItem(at index: Int) {
 		self.selectedIndex = index
 		self.delegate?.cariocamenu(self, didSelect: self.controller.menuItems[index], at: index)
 		self.makeSelectionFeedback()

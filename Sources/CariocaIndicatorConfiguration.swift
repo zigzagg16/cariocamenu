@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 ///The indicator configuration
-typealias CariocaIndicator = UIView & CariocaIndicatorConfiguration
+public typealias CariocaIndicator = UIView & CariocaIndicatorConfiguration
 
 ///Required parameters to create a custom indicator view
 public protocol CariocaIndicatorConfiguration {

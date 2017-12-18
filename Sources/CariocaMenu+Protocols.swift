@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-typealias CariocaController = UITableViewController & CariocaDataSource
+public typealias CariocaController = UITableViewController & CariocaDataSource
 
 ///DataSource protocol for filling up the menu
 public protocol CariocaDataSource {

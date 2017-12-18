@@ -19,7 +19,7 @@ public class CariocaMenuItem {
 	///Initialise a menu item
 	///- Parameter title: The item's title
 	///- Parameter indicatorIcon: The icon displayed in the menu indicator
-	init(_ title: String, _ icon: CariocaIcon) {
+	public init(_ title: String, _ icon: CariocaIcon) {
 		self.title = title
 		self.icon = icon
 	}
