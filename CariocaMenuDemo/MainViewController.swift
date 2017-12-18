@@ -74,6 +74,10 @@ class MainViewController: UIViewController {
 		]
 		gradientView.animateGradient()
 	}
+
+	override var preferredStatusBarStyle: UIStatusBarStyle {
+		return UIStatusBarStyle.lightContent
+	}
 }
 
 extension MainViewController: CariocaDelegate {

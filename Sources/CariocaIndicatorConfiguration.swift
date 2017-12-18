@@ -37,7 +37,7 @@ extension CariocaIndicatorConfiguration {
 	///Default size
 	var size: CGSize { return CGSize(width: 50, height: 40) }
 	///Default border margin
-	var borderMargin: CGFloat { return 5.0 }
+	var borderMargin: CGFloat { return 7.5 }
 	///Default color
 	var color: UIColor { return UIColor(red: 0.23, green: 0.60, blue: 0.85, alpha: 1.00) }
 	///Default bouncing values
