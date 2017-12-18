@@ -27,29 +27,18 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gb1-ld-dav" customClass="CariocaIconView" customModule="CariocaMenuDemo" customModuleProvider="target">
-                                <rect key="frame" x="137.5" y="283.5" width="100" height="100"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="100" id="31o-0g-5cR"/>
-                                    <constraint firstAttribute="height" constant="100" id="Q7w-7M-F8V"/>
-                                </constraints>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="pxq-TG-T1U" secondAttribute="bottom" id="5ko-3r-hl5"/>
-                            <constraint firstItem="Gb1-ld-dav" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="6H1-rC-G6S"/>
                             <constraint firstAttribute="trailing" secondItem="pxq-TG-T1U" secondAttribute="trailing" id="9I8-Zr-Pf1"/>
                             <constraint firstItem="pxq-TG-T1U" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Eax-Bv-xmm"/>
                             <constraint firstItem="pxq-TG-T1U" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="PS3-v3-Da7"/>
-                            <constraint firstItem="Gb1-ld-dav" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="oa1-Ie-L9L"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="hGr-kW-QbE"/>
                     </view>
                     <connections>
                         <outlet property="gradientView" destination="pxq-TG-T1U" id="oNp-ob-SsD"/>
-                        <outlet property="iconView" destination="Gb1-ld-dav" id="NKn-1T-cB1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -129,31 +118,40 @@
                                     <constraint firstAttribute="width" constant="240" id="lmo-Fl-lQe"/>
                                     <constraint firstAttribute="height" constant="195" id="nJv-0x-Q4v"/>
                                 </constraints>
-                                <string key="text">The fastest, "zero-tap" menu.
+                                <string key="text">CariocaMenu, the fastest, "zero-tap" navigation menu.
 
-This is a sample app to show the features of "Carioca Menu".
+This sample app shows the features of "Carioca Menu".
 
 You're all invited to contribute to the project, share your ideas, report bugs, .... 
-Every feedback is welcome 😎
+Every feedback is welcome !
 </string>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Carioca Menu" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qtf-qR-i46">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="👋🏼 Welcome !" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qtf-qR-i46">
                                 <rect key="frame" x="0.0" y="202" width="375" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="24" id="ZL5-QC-F3t"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="carioca_logo" translatesAutoresizingMaskIntoConstraints="NO" id="RaU-0D-yu2">
+                                <rect key="frame" x="152" y="112" width="70" height="70"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="70" id="MLS-Sl-kEY"/>
+                                    <constraint firstAttribute="height" constant="70" id="bzv-NB-zfm"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.20302148975128054" green="0.69811177630798182" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="RaU-0D-yu2" firstAttribute="centerX" secondItem="5om-he-J2m" secondAttribute="centerX" id="3cx-6Y-btQ"/>
                             <constraint firstItem="XUY-hw-is0" firstAttribute="centerY" secondItem="5om-he-J2m" secondAttribute="centerY" id="5o3-2j-enD"/>
                             <constraint firstItem="Qtf-qR-i46" firstAttribute="leading" secondItem="Rrl-9a-Vxb" secondAttribute="leading" id="7Eo-kf-aND"/>
+                            <constraint firstItem="Qtf-qR-i46" firstAttribute="top" secondItem="RaU-0D-yu2" secondAttribute="bottom" constant="20" id="e9m-0N-PJp"/>
                             <constraint firstItem="Rrl-9a-Vxb" firstAttribute="trailing" secondItem="Qtf-qR-i46" secondAttribute="trailing" id="huX-53-ZUA"/>
                             <constraint firstItem="XUY-hw-is0" firstAttribute="centerX" secondItem="5om-he-J2m" secondAttribute="centerX" id="rZW-bP-RsR"/>
                             <constraint firstItem="XUY-hw-is0" firstAttribute="top" secondItem="Qtf-qR-i46" secondAttribute="bottom" constant="10" id="xWw-v2-vD2"/>
@@ -251,6 +249,7 @@ Check your internet connection.</string>
                             <constraint firstItem="D4V-va-bU0" firstAttribute="top" secondItem="77g-8h-uL5" secondAttribute="bottom" constant="30" id="uEi-05-2To"/>
                             <constraint firstItem="dHX-aO-unT" firstAttribute="centerY" secondItem="Pla-UQ-SWr" secondAttribute="centerY" id="ypE-JT-KtY"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="qsd-aL-QLb"/>
                     </view>
                     <connections>
                         <outlet property="errorMessage" destination="77g-8h-uL5" id="n5o-xF-Qt8"/>
@@ -399,12 +398,12 @@ Check your internet connection.</string>
                                             <constraint firstAttribute="bottom" secondItem="mec-NV-ocC" secondAttribute="bottom" id="vEg-ej-SC1"/>
                                         </constraints>
                                     </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hi !" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FB0-ih-erH">
-                                        <rect key="frame" x="173.5" y="220" width="27.5" height="24"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Olá 🤙🏼" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FB0-ih-erH">
+                                        <rect key="frame" x="146.5" y="220" width="82.5" height="24"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="24" id="cZf-sZ-aXo"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -490,6 +489,7 @@ iOS developer &amp; designer based in Barcelona, Spain.</string>
         </scene>
     </scenes>
     <resources>
+        <image name="carioca_logo" width="70" height="70"/>
         <image name="mmommommomo" width="140" height="140"/>
     </resources>
 </document>

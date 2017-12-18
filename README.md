@@ -112,11 +112,11 @@ if let controller = self.storyboard?.instantiateViewController(withIdentifier: "
 To be able to manage the rotation of the menu, you'll need to forward the rotation event to your menu instance.
 
 ```swift
-	override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-		coordinator.animateAlongsideTransition(in: self.view, animation: nil, completion: { [weak self] _ in
-			self?.carioca?.hostViewDidRotate()
-		})
-	}
+override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+  coordinator.animateAlongsideTransition(in: self.view, animation: nil, completion: { [weak self] _ in
+    self?.carioca?.hostViewDidRotate()
+  })
+}
 ```
 
 ### Creating your custom indicator
@@ -126,7 +126,7 @@ Here's the simplest custom indicator. Feel free to check the **CariocaIndicatorC
 ```swift
 class CariocaCustomIndicatorView: UIView, CariocaIndicatorConfiguration {
   ///This will use the basic shape, and change the color to black.
-	var color: UIColor = UIColor.black
+  var color: UIColor = UIColor.black
 }
 ```
 

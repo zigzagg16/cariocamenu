@@ -84,7 +84,7 @@ public class CariocaMenu: NSObject, CariocaGestureManagerDelegate, UITableViewDe
 
 	///Called from the hostview, if a rotation has been detected.
 	///Moves the indicator at 50% of the hostView.
-	func hostViewDidRotate() {
+	public func hostViewDidRotate() {
 		let yScreenMiddle = hostView.frame.height / 2.0
 		gestureManager.panned(yLocation: yScreenMiddle,
 							  edge: indicator.edge,

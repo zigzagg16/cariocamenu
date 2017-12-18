@@ -220,18 +220,18 @@ Simply add the following to your project Podfile, and you&rsquo;ll be good to go
 <h3 id='managing-rotation' class='heading'>Managing rotation</h3>
 
 <p>To be able to manage the rotation of the menu, you&rsquo;ll need to forward the rotation event to your menu instance.</p>
-<pre class="highlight swift"><code>    <span class="k">override</span> <span class="kd">func</span> <span class="nf">viewWillTransition</span><span class="p">(</span><span class="n">to</span> <span class="nv">size</span><span class="p">:</span> <span class="kt">CGSize</span><span class="p">,</span> <span class="n">with</span> <span class="nv">coordinator</span><span class="p">:</span> <span class="kt">UIViewControllerTransitionCoordinator</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">coordinator</span><span class="o">.</span><span class="nf">animateAlongsideTransition</span><span class="p">(</span><span class="nv">in</span><span class="p">:</span> <span class="k">self</span><span class="o">.</span><span class="n">view</span><span class="p">,</span> <span class="nv">animation</span><span class="p">:</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">{</span> <span class="p">[</span><span class="k">weak</span> <span class="k">self</span><span class="p">]</span> <span class="n">_</span> <span class="k">in</span>
-            <span class="k">self</span><span class="p">?</span><span class="o">.</span><span class="n">carioca</span><span class="p">?</span><span class="o">.</span><span class="nf">hostViewDidRotate</span><span class="p">()</span>
-        <span class="p">})</span>
-    <span class="p">}</span>
+<pre class="highlight swift"><code><span class="k">override</span> <span class="kd">func</span> <span class="nf">viewWillTransition</span><span class="p">(</span><span class="n">to</span> <span class="nv">size</span><span class="p">:</span> <span class="kt">CGSize</span><span class="p">,</span> <span class="n">with</span> <span class="nv">coordinator</span><span class="p">:</span> <span class="kt">UIViewControllerTransitionCoordinator</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">coordinator</span><span class="o">.</span><span class="nf">animateAlongsideTransition</span><span class="p">(</span><span class="nv">in</span><span class="p">:</span> <span class="k">self</span><span class="o">.</span><span class="n">view</span><span class="p">,</span> <span class="nv">animation</span><span class="p">:</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="p">{</span> <span class="p">[</span><span class="k">weak</span> <span class="k">self</span><span class="p">]</span> <span class="n">_</span> <span class="k">in</span>
+    <span class="k">self</span><span class="p">?</span><span class="o">.</span><span class="n">carioca</span><span class="p">?</span><span class="o">.</span><span class="nf">hostViewDidRotate</span><span class="p">()</span>
+  <span class="p">})</span>
+<span class="p">}</span>
 </code></pre>
 <h3 id='creating-your-custom-indicator' class='heading'>Creating your custom indicator</h3>
 
 <p>Here&rsquo;s the simplest custom indicator. Feel free to check the <strong>CariocaIndicatorConfiguration</strong> extension for more customisation possibilities.</p>
 <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">CariocaCustomIndicatorView</span><span class="p">:</span> <span class="kt">UIView</span><span class="p">,</span> <span class="kt">CariocaIndicatorConfiguration</span> <span class="p">{</span>
   <span class="c1">///This will use the basic shape, and change the color to black.</span>
-    <span class="k">var</span> <span class="nv">color</span><span class="p">:</span> <span class="kt">UIColor</span> <span class="o">=</span> <span class="kt">UIColor</span><span class="o">.</span><span class="n">black</span>
+  <span class="k">var</span> <span class="nv">color</span><span class="p">:</span> <span class="kt">UIColor</span> <span class="o">=</span> <span class="kt">UIColor</span><span class="o">.</span><span class="n">black</span>
 <span class="p">}</span>
 </code></pre>
 <h3 id='boomerang' class='heading'>Boomerang</h3>

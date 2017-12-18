@@ -7,7 +7,6 @@ import UIKit
 
 class MainViewController: UIViewController {
     var carioca: CariocaMenu?
-	@IBOutlet weak var iconView: CariocaIconView!
 	@IBOutlet weak var gradientView: ASGradientView!
 	var menuController: CariocaController?
 	var demoView: DemoController?
@@ -17,9 +16,6 @@ class MainViewController: UIViewController {
 	}
 
     override func viewDidAppear(_ animated: Bool) {
-		iconView.isHidden = true
-		iconView.label.font = UIFont.boldSystemFont(ofSize: 75)
-		iconView.display(icon: CariocaIcon.emoji("👋🏼"))
         initialiseCarioca()
     }
 
@@ -86,16 +82,15 @@ class MainViewController: UIViewController {
 extension MainViewController: CariocaDelegate {
 	func cariocamenu(_ menu: CariocaMenu, didSelect item: CariocaMenuItem, at index: Int) {
         CariocaMenu.log("didSelect \(item) at \(index)")
-		iconView.display(icon: item.icon)
 		switch index {
 		case 1:
-			displayDemo(DemoIdeaViewController.fromStoryboard())
-		case 2:
 			displayDemo(DemoSettingsViewController.fromStoryboard())
+		case 2:
+			displayDemo(DemoAboutViewController.fromStoryboard())
 		case 3:
 			displayDemo(DemoTravelViewController.fromStoryboard())
 		case 4:
-			displayDemo(DemoAboutViewController.fromStoryboard())
+			displayDemo(DemoIdeaViewController.fromStoryboard())
 		default:
 			displayDemo(DemoHomeViewController.fromStoryboard())
 		}
