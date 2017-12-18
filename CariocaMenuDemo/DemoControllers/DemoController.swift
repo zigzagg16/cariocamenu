@@ -21,7 +21,7 @@ extension DemoController where Self: UIViewController {
 		self.view.backgroundColor = .clear
 		parentViewController.view.addSubview(self.view)
 		parentViewController.view.addConstraints(self.view.makeAnchorConstraints(to: parentViewController.view))
-		parentViewController.view.setNeedsLayout()
+		parentViewController.view.layoutIfNeeded()
 	}
 
 	/// Removes the current view controller from the parent view controller

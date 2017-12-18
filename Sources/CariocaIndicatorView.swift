@@ -315,8 +315,7 @@ public class CariocaIndicatorView: UIView {
 							finished: @escaping () -> Void) {
 		constraint.constant = constant
 		UIView.animate(withDuration: timing, delay: 0.0, options: options, animations: {
-			//TODO: Use constraint transformation ?
-//			view.layoutIfNeeded()
+			view.layoutIfNeeded()
 		}, completion: { _ in finished() })
 	}
 	// swiftlint:enable function_parameter_count

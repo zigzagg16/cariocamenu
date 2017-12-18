@@ -20,8 +20,9 @@ class DemoIdeaViewController: UIViewController, DemoController, UIWebViewDelegat
 		loader.stopAnimating()
 	}
 	override func viewDidAppear(_ animated: Bool) {
-		//TODO: execute after small delay ?
-		loadURL()
+		DispatchQueue.main.asyncAfter(deadline: .now() + 1.0, execute: {
+			self.loadURL()
+		})
 	}
 	func loadURL() {
 		guard let url = URL(string: "https://medium.com/search?q=Hamburger%20menu") else { return }
