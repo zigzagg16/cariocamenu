@@ -10,7 +10,7 @@ import UIKit
 protocol DemoController: class {
 	func add(in parentViewController: UIViewController)
 	func remove()
-	weak var menuController: CariocaController? { get set }
+	var menuController: CariocaController? { get set }
 }
 
 extension DemoController where Self: UIViewController {

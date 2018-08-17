@@ -8,8 +8,8 @@ import UIKit
 class MainViewController: UIViewController {
     var carioca: CariocaMenu?
 	@IBOutlet weak var gradientView: ASGradientView!
-	var menuController: CariocaController?
-	var demoView: DemoController?
+	weak var menuController: CariocaController?
+	weak var demoView: DemoController?
 
 	override func viewDidLoad() {
 		setupGradient()

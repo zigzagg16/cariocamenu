@@ -2,7 +2,7 @@ import UIKit
 
 class DemoAboutViewController: UIViewController, DemoController {
 
-	var menuController: CariocaController?
+	weak var menuController: CariocaController?
 
 	override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
 
