@@ -1,19 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.13.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.9"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="HelveticaNeue.ttc">
-            <string>HelveticaNeue-Bold</string>
-        </array>
-    </customFonts>
     <scenes>
         <!--Main View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -113,7 +108,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XUY-hw-is0">
-                                <rect key="frame" x="67" y="236" width="240" height="195.5"/>
+                                <rect key="frame" x="67.5" y="236" width="240" height="195"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="240" id="lmo-Fl-lQe"/>
                                     <constraint firstAttribute="height" constant="195" id="nJv-0x-Q4v"/>
@@ -139,7 +134,7 @@ Every feedback is welcome !
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="carioca_logo" translatesAutoresizingMaskIntoConstraints="NO" id="RaU-0D-yu2">
-                                <rect key="frame" x="152" y="112" width="70" height="70"/>
+                                <rect key="frame" x="152.5" y="112" width="70" height="70"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="70" id="MLS-Sl-kEY"/>
                                     <constraint firstAttribute="height" constant="70" id="bzv-NB-zfm"/>
@@ -198,6 +193,9 @@ Every feedback is welcome !
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="y3W-1Z-QUn"/>
                     </view>
+                    <connections>
+                        <outlet property="mapView" destination="YES-lF-zC9" id="SiS-5R-2v5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IXD-8y-uCL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -211,13 +209,16 @@ Every feedback is welcome !
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <webView contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" allowsInlineMediaPlayback="NO" mediaPlaybackRequiresUserAction="NO" mediaPlaybackAllowsAirPlay="NO" keyboardDisplayRequiresUserAction="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uzl-1Z-Sau">
+                            <wkWebView contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qPw-BV-lJC">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <dataDetectorType key="dataDetectorTypes"/>
-                            </webView>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="dHX-aO-unT">
-                                <rect key="frame" x="177" y="323" width="20" height="20"/>
+                                <rect key="frame" x="177.5" y="323.5" width="20" height="20"/>
                             </activityIndicatorView>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="clip" numberOfLines="4" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="77g-8h-uL5">
                                 <rect key="frame" x="78" y="275.5" width="219.5" height="36"/>
@@ -237,25 +238,24 @@ Check your internet connection.</string>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="uzl-1Z-Sau" firstAttribute="leading" secondItem="Pla-UQ-SWr" secondAttribute="leading" id="AP6-7f-15g"/>
+                            <constraint firstAttribute="bottom" secondItem="qPw-BV-lJC" secondAttribute="bottom" id="1Zn-CJ-4sT"/>
+                            <constraint firstAttribute="top" secondItem="qPw-BV-lJC" secondAttribute="top" id="Enn-re-m0Y"/>
                             <constraint firstItem="77g-8h-uL5" firstAttribute="centerX" secondItem="Pla-UQ-SWr" secondAttribute="centerX" id="S5h-Q2-LtQ"/>
                             <constraint firstItem="dHX-aO-unT" firstAttribute="centerX" secondItem="Pla-UQ-SWr" secondAttribute="centerX" id="SjH-Xp-oen"/>
-                            <constraint firstItem="uzl-1Z-Sau" firstAttribute="top" secondItem="Pla-UQ-SWr" secondAttribute="top" id="Zba-ks-2HS"/>
-                            <constraint firstItem="uzl-1Z-Sau" firstAttribute="trailing" secondItem="Pla-UQ-SWr" secondAttribute="trailing" id="eYv-br-6Ld"/>
+                            <constraint firstAttribute="trailing" secondItem="qPw-BV-lJC" secondAttribute="trailing" id="eWv-RP-oQE"/>
                             <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="D4V-va-bU0" secondAttribute="trailing" constant="30" id="lAN-qC-0sC"/>
                             <constraint firstItem="D4V-va-bU0" firstAttribute="leading" secondItem="Pla-UQ-SWr" secondAttribute="leading" constant="30" id="lr8-Q0-Ynt"/>
                             <constraint firstItem="77g-8h-uL5" firstAttribute="centerY" secondItem="Pla-UQ-SWr" secondAttribute="centerY" constant="-40" id="mDk-hU-P50"/>
-                            <constraint firstItem="uzl-1Z-Sau" firstAttribute="bottom" secondItem="Pla-UQ-SWr" secondAttribute="bottom" id="oFk-SN-HmM"/>
+                            <constraint firstItem="qPw-BV-lJC" firstAttribute="leading" secondItem="Pla-UQ-SWr" secondAttribute="leading" id="re2-Bd-6rb"/>
                             <constraint firstItem="D4V-va-bU0" firstAttribute="top" secondItem="77g-8h-uL5" secondAttribute="bottom" constant="30" id="uEi-05-2To"/>
                             <constraint firstItem="dHX-aO-unT" firstAttribute="centerY" secondItem="Pla-UQ-SWr" secondAttribute="centerY" id="ypE-JT-KtY"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="qsd-aL-QLb"/>
                     </view>
                     <connections>
                         <outlet property="errorMessage" destination="77g-8h-uL5" id="n5o-xF-Qt8"/>
                         <outlet property="loader" destination="dHX-aO-unT" id="LJc-Z7-VPs"/>
                         <outlet property="tryAgain" destination="D4V-va-bU0" id="vyk-S2-bxv"/>
-                        <outlet property="webview" destination="uzl-1Z-Sau" id="NbO-a7-8EJ"/>
+                        <outlet property="webview" destination="qPw-BV-lJC" id="YRa-6m-vTa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hun-IZ-MLq" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -342,7 +342,7 @@ Check your internet connection.</string>
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="🛠 Settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RQs-DM-diY">
-                                <rect key="frame" x="113" y="220" width="148" height="33.5"/>
+                                <rect key="frame" x="113.5" y="220" width="148" height="33.5"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>

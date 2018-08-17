@@ -2,7 +2,7 @@ import UIKit
 
 class DemoSettingsViewController: UIViewController, DemoController {
 
-	var menuController: CariocaController?
+	weak var menuController: CariocaController?
 	@IBOutlet weak var offScreenSwitch: UISwitch!
 	@IBOutlet weak var boomerangType: UISegmentedControl!
 
