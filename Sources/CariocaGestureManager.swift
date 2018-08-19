@@ -81,7 +81,9 @@ class CariocaGestureManager {
 		}
 		if state == .changed {
             let frameHeight = hostView.frame.height
-            let yRange: ClosedRange<CGFloat> = 20.0...frameHeight - container.menuHeight
+            let rangeUpperBound = container.menuHeight > frameHeight ?
+                frameHeight : (frameHeight - container.menuHeight)
+            let yRange: ClosedRange<CGFloat> = 20.0...rangeUpperBound
 			let topY = CariocaGestureManager.topYConstraint(yLocation: yLocation,
 															originalScreeenEdgePanY: originalScreeenEdgePanY,
 															menuHeight: container.menuHeight,
