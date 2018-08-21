@@ -16,6 +16,6 @@ class DemoAboutViewController: UIViewController, DemoController {
 
 	func openURL(_ urlString: String) {
 		guard let url = URL(string: urlString) else { print("Could not open \(urlString)");return }
-		UIApplication.shared.openURL(url)
+        UIApplication.shared.open(url, options: [:], completionHandler: nil)
 	}
 }
