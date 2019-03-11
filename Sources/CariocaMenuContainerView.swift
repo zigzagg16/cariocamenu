@@ -37,13 +37,13 @@ public class CariocaMenuContainerView: UIView {
 
 	///Adds the blur view as a subview
 	///- Parameter style: The blur effect style
-	func addBlurView(style: UIBlurEffectStyle) {
+	func addBlurView(style: UIBlurEffect.Style) {
 		let visualEffectView = UIVisualEffectView(effect: UIBlurEffect(style: style))
 			as UIVisualEffectView
 		visualEffectView.frame = self.frame
 		visualEffectView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
 		addSubview(visualEffectView)
-		sendSubview(toBack: visualEffectView)
+		sendSubviewToBack(visualEffectView)
 	}
 
     ///:nodoc:

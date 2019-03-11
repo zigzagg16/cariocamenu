@@ -22,7 +22,7 @@ class MainViewController: UIViewController {
     func initialiseCarioca() {
         if let controller = self.storyboard?.instantiateViewController(withIdentifier: "DemoMenu")
             as? CariocaController {
-			addChildViewController(controller)
+			addChild(controller)
 			carioca = CariocaMenu(controller: controller,
 								  hostView: self.view,
 								  edges: [.right, .left], //[.left, .right], //[.left],

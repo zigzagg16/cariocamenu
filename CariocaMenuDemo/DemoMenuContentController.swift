@@ -7,7 +7,7 @@ class DemoMenuContentController: UITableViewController, CariocaDataSource {
 	///Can we move the menu out of the screen ?
 	var isOffscreenAllowed: Bool = true
 	///The blur effect, optional
-	var blurStyle: UIBlurEffectStyle? = .dark
+	var blurStyle: UIBlurEffect.Style? = .dark
 	///The boomerang type
 	var boomerang: BoomerangType = .none
 	///The menu items displayed

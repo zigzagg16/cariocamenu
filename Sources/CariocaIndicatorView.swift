@@ -110,7 +110,7 @@ public class CariocaIndicatorView: UIView {
 		self.translatesAutoresizingMaskIntoConstraints = false
 		hostView.addSubview(self)
 		topConstraint = CariocaMenu.equalConstraint(self, toItem: tableView, attribute: .top)
-		horizontalConstraint = makeHorizontalConstraint(hostView, NSLayoutAttribute.centerX)
+		horizontalConstraint = makeHorizontalConstraint(hostView, NSLayoutConstraint.Attribute.centerX)
 		hostView.addConstraints([
 			NSLayoutConstraint(item: self,
 							   attribute: .width, relatedBy: .equal,
@@ -151,7 +151,7 @@ public class CariocaIndicatorView: UIView {
 	///- Parameter priority: The constraint's priority
 	///- Returns: NSLayoutConstraint the horizontal constraint
 	private func makeHorizontalConstraint(_ hostView: UIView,
-										  _ attribute: NSLayoutAttribute) -> NSLayoutConstraint {
+										  _ attribute: NSLayoutConstraint.Attribute) -> NSLayoutConstraint {
 		return NSLayoutConstraint(item: self,
 								  attribute: attribute, relatedBy: .equal,
 								  toItem: hostView, attribute: attribute,
@@ -303,7 +303,7 @@ public class CariocaIndicatorView: UIView {
 	///- Parameter finished: Completion closure, when animation finished
 	internal func animation(_ view: UIView, constraint: NSLayoutConstraint,
 							constant: CGFloat, timing: Double,
-							options: UIViewAnimationOptions,
+							options: UIView.AnimationOptions,
 							finished: @escaping () -> Void) {
 		constraint.constant = constant
 		UIView.animate(withDuration: timing, delay: 0.0, options: options, animations: {

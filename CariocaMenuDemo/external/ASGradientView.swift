@@ -54,8 +54,8 @@ class ASGradientView: UIView, CAAnimationDelegate {
         animation.toValue               = toColors
         animation.duration              = animationDuration
         animation.isRemovedOnCompletion   = true
-        animation.fillMode              = kCAFillModeForwards
-        animation.timingFunction        = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn)
+        animation.fillMode              = CAMediaTimingFillMode.forwards
+        animation.timingFunction        = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeIn)
         animation.delegate              = self
 
         // Add the animation to our layer

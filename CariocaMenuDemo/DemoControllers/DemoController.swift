@@ -9,7 +9,7 @@ protocol DemoController: class {
 extension DemoController where Self: UIViewController {
 
 	func add(in parentViewController: UIViewController) {
-		parentViewController.addChildViewController(self)
+		parentViewController.addChild(self)
 		self.view.backgroundColor = .clear
 		parentViewController.view.addSubview(self.view)
 		parentViewController.view.addConstraints(self.view.makeAnchorConstraints(to: parentViewController.view))
@@ -19,7 +19,7 @@ extension DemoController where Self: UIViewController {
 
 	/// Removes the current view controller from the parent view controller
 	func remove() {
-		self.removeFromParentViewController()
+		self.removeFromParent()
 		self.view.removeFromSuperview()
 	}
 }

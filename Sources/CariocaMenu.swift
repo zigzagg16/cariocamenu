@@ -71,8 +71,8 @@ public class CariocaMenu: NSObject, CariocaGestureManagerDelegate, UITableViewDe
 
 	///Bring the indicator on top of all views
 	public func bringToFront() {
-		hostView.bringSubview(toFront: container)
-		hostView.bringSubview(toFront: indicator)
+		hostView.bringSubviewToFront(container)
+		hostView.bringSubviewToFront(indicator)
 	}
 
 	///Called from the hostview, if a rotation has been detected.
