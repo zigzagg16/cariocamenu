@@ -23,7 +23,7 @@ public class CariocaMenuContainerView: UIView {
         topConstraint = CariocaMenu.equalConstraint(dataSource.view, toItem: self, attribute: .top)
         self.addConstraints([
             topConstraint,
-            NSLayoutConstraint(item: dataSource.view,
+            NSLayoutConstraint(item: dataSource.view as Any,
                                attribute: .height,
                                relatedBy: .equal,
                                toItem: nil,
