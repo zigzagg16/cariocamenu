@@ -1,11 +1,3 @@
-//
-//  CariocaMenu+Protocols.swift
-//  CariocaMenu
-//
-//  Created by Arnaud Schloune on 21/11/2017.
-//  Copyright © 2017 CariocaMenu. All rights reserved.
-//
-
 import Foundation
 import UIKit
 
@@ -23,7 +15,7 @@ public protocol CariocaDataSource {
 				   cellForRowAt indexPath: IndexPath,
 				   withEdge edge: UIRectEdge) -> UITableViewCell
 	///The blur style, optional
-	var blurStyle: UIBlurEffectStyle? { get }
+	var blurStyle: UIBlurEffect.Style? { get }
 	///Can the menu go offscreen with user's gesture ? (true)
 	///Or should it always stay fully visible ? (false)
 	var isOffscreenAllowed: Bool { get set }

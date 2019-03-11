@@ -1,11 +1,3 @@
-//
-//  CariocaMenuContainerView.swift
-//  CariocaMenu
-//
-//  Created by Arnaud Schloune on 21/11/2017.
-//  Copyright © 2017 CariocaMenu. All rights reserved.
-//
-
 import Foundation
 import UIKit
 
@@ -31,7 +23,7 @@ public class CariocaMenuContainerView: UIView {
         topConstraint = CariocaMenu.equalConstraint(dataSource.view, toItem: self, attribute: .top)
         self.addConstraints([
             topConstraint,
-            NSLayoutConstraint(item: dataSource.view,
+            NSLayoutConstraint(item: dataSource.view as Any,
                                attribute: .height,
                                relatedBy: .equal,
                                toItem: nil,
@@ -45,13 +37,13 @@ public class CariocaMenuContainerView: UIView {
 
 	///Adds the blur view as a subview
 	///- Parameter style: The blur effect style
-	func addBlurView(style: UIBlurEffectStyle) {
+	func addBlurView(style: UIBlurEffect.Style) {
 		let visualEffectView = UIVisualEffectView(effect: UIBlurEffect(style: style))
 			as UIVisualEffectView
 		visualEffectView.frame = self.frame
 		visualEffectView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
 		addSubview(visualEffectView)
-		sendSubview(toBack: visualEffectView)
+		sendSubviewToBack(visualEffectView)
 	}
 
     ///:nodoc:

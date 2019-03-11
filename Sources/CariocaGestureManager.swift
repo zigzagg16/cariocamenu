@@ -1,11 +1,3 @@
-//
-//  CariocaGestureManager.swift
-//  CariocaMenu
-//
-//  Created by Arnaud Schloune on 21/11/2017.
-//  Copyright © 2017 CariocaMenu. All rights reserved.
-//
-
 import Foundation
 import UIKit
 
@@ -71,7 +63,7 @@ class CariocaGestureManager {
 	///- Parameter state: The gesture state
 	///- Parameter state: The gesture state
 	///- Parameter fromGesture: When called from rotation event, some method calls are optionl. Default: true
-	func panned(yLocation: CGFloat, edge: UIRectEdge, state: UIGestureRecognizerState, fromGesture: Bool = true) {
+	func panned(yLocation: CGFloat, edge: UIRectEdge, state: UIGestureRecognizer.State, fromGesture: Bool = true) {
 		if state == .began {
 			if fromGesture {
 				delegate?.willOpenFromEdge(edge: edge)

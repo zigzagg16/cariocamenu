@@ -1,13 +1,6 @@
-//
-//  CariocaMenu.swift
-//  CariocaMenu
-//
-//  Created by Arnaud Schloune on 21/11/2017.
-//  Copyright © 2017 CariocaMenu. All rights reserved.
-//
-
 import Foundation
 import UIKit
+
 ///🇧🇷 Carioca Menu 🇧🇷
 public class CariocaMenu: NSObject, CariocaGestureManagerDelegate, UITableViewDelegate, UITableViewDataSource {
     ///The menu's content controller
@@ -78,8 +71,8 @@ public class CariocaMenu: NSObject, CariocaGestureManagerDelegate, UITableViewDe
 
 	///Bring the indicator on top of all views
 	public func bringToFront() {
-		hostView.bringSubview(toFront: container)
-		hostView.bringSubview(toFront: indicator)
+		hostView.bringSubviewToFront(container)
+		hostView.bringSubviewToFront(indicator)
 	}
 
 	///Called from the hostview, if a rotation has been detected.

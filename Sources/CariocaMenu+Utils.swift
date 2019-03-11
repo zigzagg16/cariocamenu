@@ -1,11 +1,3 @@
-//
-//  CariocaMenu+Utils.swift
-//  CariocaMenu
-//
-//  Created by Arnaud Schloune on 21/11/2017.
-//  Copyright © 2017 CariocaMenu. All rights reserved.
-//
-
 import Foundation
 import UIKit
 
@@ -18,7 +10,7 @@ extension CariocaMenu {
     ///- Returns: NSLayoutConstraint: The prepared constraint
     class func equalConstraint(_ item: AnyObject,
                                toItem: AnyObject,
-                               attribute: NSLayoutAttribute,
+                               attribute: NSLayoutConstraint.Attribute,
                                constant: CGFloat = 0.0) -> NSLayoutConstraint {
         return NSLayoutConstraint(item: item,
                                   attribute: attribute,
@@ -55,7 +47,7 @@ public extension UIView {
 			view.backgroundColor = .clear
 			view.translatesAutoresizingMaskIntoConstraints = false
 			self.addSubview(view)
-			let edgeAttribute: NSLayoutAttribute = edge == .left ? .leading : .trailing
+			let edgeAttribute: NSLayoutConstraint.Attribute = edge == .left ? .leading : .trailing
 			self.addConstraints([
 				self.topAnchor.constraint(equalTo: view.topAnchor),
 				self.bottomAnchor.constraint(equalTo: view.bottomAnchor),
@@ -68,7 +60,7 @@ public extension UIView {
 								   toItem: self, attribute: edgeAttribute,
 								   multiplier: 1, constant: 0.0)
 			])
-			self.bringSubview(toFront: view)
+			self.bringSubviewToFront(view)
 		}
 		self.setNeedsLayout()
 	}

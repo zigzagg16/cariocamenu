@@ -1,11 +1,3 @@
-//
-//  CariocaMenuTests.swift
-//  CariocaMenuTests
-//
-//  Created by Arnaud Schloune on 11/12/2017.
-//  Copyright © 2017 CariocaMenu. All rights reserved.
-//
-
 import XCTest
 
 class CariocaMenuTests: XCTestCase {
