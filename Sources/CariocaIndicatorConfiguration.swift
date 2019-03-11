@@ -27,12 +27,12 @@ public protocol CariocaIndicatorConfiguration {
 	///The custom shape of the view
 	func shape(for edge: UIRectEdge, frame: CGRect) -> UIBezierPath
 	///The margins for the icon, depending on the edge
-	func iconMargins(for edge: UIRectEdge) -> (top: CGFloat, right: CGFloat, bottom: CGFloat, left: CGFloat)
+	func iconMargins(for edge: UIRectEdge) -> UIEdgeInsets
 }
 public extension CariocaIndicatorConfiguration {
 	///Default margins are 0,0,0,0
-	func iconMargins(for edge: UIRectEdge) -> (top: CGFloat, right: CGFloat, bottom: CGFloat, left: CGFloat) {
-		return (top: 0.0, right: 0.0, bottom: 0.0, left: 0.0)
+	func iconMargins(for edge: UIRectEdge) -> UIEdgeInsets {
+		return UIEdgeInsets()
 	}
 	///Default size
 	var size: CGSize { return CGSize(width: 50, height: 40) }

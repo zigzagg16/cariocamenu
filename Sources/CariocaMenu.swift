@@ -63,11 +63,10 @@ public class CariocaMenu: NSObject, CariocaGestureManagerDelegate, UITableViewDe
 
     ///Adds the menu's container view in the host view
     public func addInHostView() {
-        hostView.addSubview(container)
 		if let blurStyle = controller.blurStyle {
 			container.addBlurView(style: blurStyle)
 		}
-        hostView.addConstraints(container.makeAnchorConstraints(to: hostView))
+		container.fill(in: hostView)
 		indicator.addIn(hostView, tableView: controller.tableView, position: controller.indicatorPosition)
 		indicator.iconView.display(icon: controller.menuItems.first!.icon)
 		indicator.show(edge: edges.first!, hostView: hostView, isTraversingView: false)

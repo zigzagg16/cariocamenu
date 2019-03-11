@@ -36,12 +36,24 @@ extension CariocaMenu {
 public extension UIView {
 	///Generates 4 NSLayoutConstraints
 	///- Parameter superview: The superview to which the view will stick
-	///- Returns: [NSLayoutConstraint]: The 4 constraints in CSS Style order (Top, Right, Bottom, Left)
-	func makeAnchorConstraints(to superview: UIView) -> [NSLayoutConstraint] {
-		return [self.topAnchor.constraint(equalTo: superview.topAnchor),
-				self.rightAnchor.constraint(equalTo: superview.rightAnchor),
-				self.leftAnchor.constraint(equalTo: superview.leftAnchor),
-				self.bottomAnchor.constraint(equalTo: superview.bottomAnchor)]
+	///- Returns: EdgeConstraints
+	func makeAnchorConstraints(to superview: UIView) -> EdgeConstraints {
+		return EdgeConstraints(
+			top: self.topAnchor.constraint(equalTo: superview.topAnchor),
+			left: self.leftAnchor.constraint(equalTo: superview.leftAnchor),
+			bottom: superview.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+			right: superview.rightAnchor.constraint(equalTo: self.rightAnchor)
+		)
+	}
+
+	@discardableResult
+	func fill(in superview: UIView) -> EdgeConstraints {
+		let edges = makeAnchorConstraints(to: superview)
+		if self.superview != superview {
+			superview.addSubview(self)
+		}
+		superview.addConstraints(edges.toArray())
+		return edges
 	}
 
 	///Adds Gesture helper views in the container view.
