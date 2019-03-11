@@ -1,13 +1,6 @@
-//
-//  CariocaMenu.swift
-//  CariocaMenu
-//
-//  Created by Arnaud Schloune on 21/11/2017.
-//  Copyright © 2017 CariocaMenu. All rights reserved.
-//
-
 import Foundation
 import UIKit
+
 ///🇧🇷 Carioca Menu 🇧🇷
 public class CariocaMenu: NSObject, CariocaGestureManagerDelegate, UITableViewDelegate, UITableViewDataSource {
     ///The menu's content controller

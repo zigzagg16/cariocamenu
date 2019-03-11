@@ -1,10 +1,3 @@
-//
-//  DemoController.swift
-//  CariocaMenuDemo
-//
-//  Created by Arnaud  on 12/12/2017
-//
-
 import UIKit
 
 protocol DemoController: class {

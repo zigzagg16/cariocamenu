@@ -1,11 +1,3 @@
-//
-//  CariocaIndicatorViewTests.swift
-//  CariocaMenu
-//
-//  Created by Arnaud Schloune on 26/11/2017.
-//  Copyright © 2017 CariocaMenu. All rights reserved.
-//
-
 import Foundation
 import XCTest
 import CariocaMenu

@@ -1,20 +1,14 @@
-//
-//  CariocaIcon.swift
-//  CariocaMenu
-//
-//  Created by Arnaud Schloune on 06/12/2017.
-//  Copyright © 2017 CariocaMenu. All rights reserved.
-//
-
 import Foundation
 import UIKit
 
 ///The indicator various icon options
 public enum CariocaIcon {
 	///Emoji, but in reality it can be whatever string that fits in the view
-	case emoji(String)
+    //swiftlint:disble:next identifier_name
+    case emoji(String)
 	///Image icon
-	case icon(UIImage)
+    //swiftlint:disble:next identifier_name
+    case icon(_: UIImage)
 	///No icon
 	case none
 }
