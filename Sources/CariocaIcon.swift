@@ -43,10 +43,8 @@ public class CariocaIconView: UIView {
 		clipsToBounds = true
 		label.translatesAutoresizingMaskIntoConstraints = false
 		imageView.translatesAutoresizingMaskIntoConstraints = false
-		addSubview(label)
-		addConstraints(label.makeAnchorConstraints(to: self))
-		addSubview(imageView)
-		addConstraints(imageView.makeAnchorConstraints(to: self))
+		label.fill(in: self)
+		imageView.fill(in: self)
 		label.font = font
 		label.textAlignment = .center
 		label.textColor = .white
