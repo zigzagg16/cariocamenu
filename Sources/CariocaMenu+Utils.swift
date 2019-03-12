@@ -38,6 +38,9 @@ public extension UIView {
 		)
 	}
 
+	///Adding self to superview if needed, creates and applies EdgeConstraints without insets
+	///- Parameter superview: The superview to which the view will stick
+	///- Returns: instance of EdgeConstraints
 	@discardableResult
 	func fill(in superview: UIView) -> EdgeConstraints {
 		let edges = makeAnchorConstraints(to: superview)
