@@ -1,17 +1,18 @@
 import Foundation
 import UIKit
 
+//swiftlint:disble identifier_name
 ///The indicator various icon options
 public enum CariocaIcon {
-	///Emoji, but in reality it can be whatever string that fits in the view
-    //swiftlint:disble:next identifier_name
+    ///Emoji, but in reality it can be whatever string that fits in the view
     case emoji(String)
-	///Image icon
-    //swiftlint:disble:next identifier_name
+    ///Image icon
     case icon(_: UIImage)
 	///No icon
 	case none
 }
+//swiftlint:enable identifier_name
+
 ///Displays a CariocaIcon, whatever the type of icon
 public class CariocaIconView: UIView {
 	///The label to display emoji
