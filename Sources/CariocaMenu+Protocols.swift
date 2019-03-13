@@ -1,6 +1,7 @@
 import Foundation
 import UIKit
 
+///Menu Controler type
 public typealias CariocaController = UITableViewController & CariocaDataSource
 
 ///DataSource protocol for filling up the menu
