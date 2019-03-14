@@ -1,8 +1,3 @@
-//
-// Created by Alex Katsz on 2019-03-11.
-// Copyright (c) 2019 CariocaMenu. All rights reserved.
-//
-
 import UIKit
 
 ///Structure to hold four edge constraints between view and its superview
