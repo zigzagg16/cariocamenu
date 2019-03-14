@@ -31,7 +31,7 @@ public class CariocaIndicatorView: UIView {
 	///The custom indicator configuration
 	private let config: CariocaIndicator
 	///The constraints applied to the iconview. Can be updated later with custom configuration
-	private var iconConstraints: [NSLayoutConstraint] = []
+	private var iconConstraints: EdgeConstraints!
 	///The indicator's possible animation states
 	private enum AnimationState {
 		///The indicator is on hold, the menu is closed
@@ -55,9 +55,7 @@ public class CariocaIndicatorView: UIView {
 		let frame = CGRect(x: 0, y: 0, width: indicator.size.width, height: indicator.size.height)
 		super.init(frame: frame)
 		self.backgroundColor = .clear
-		self.addSubview(iconView)
-		iconConstraints = iconView.makeAnchorConstraints(to: self)
-		self.addConstraints(iconConstraints)
+		iconConstraints = iconView.fill(in: self)
 		iconView.font = config.font
 	}
 
@@ -161,20 +159,11 @@ public class CariocaIndicatorView: UIView {
 	///Draws the shape, depending on the edge.
 	///- Parameter frame: The IndicatorView's frame
 	override public func draw(_ frame: CGRect) {
-		applyMarginConstraints(margins: config.iconMargins(for: edge))
+		iconConstraints.apply(edgeInsets: config.iconMargins(for: edge))
+		setNeedsLayout()
 		let ovalPath = config.shape(for: edge, frame: frame)
 		config.color.setFill()
 		ovalPath.fill()
-	}
-
-	///Applies the margins to the iconView
-	///- Parameter margins: Tuple of margins in CSS Style (Top, Right, Bottom, left)
-	private func applyMarginConstraints(margins: (top: CGFloat, right: CGFloat, bottom: CGFloat, left: CGFloat)) {
-		iconConstraints[0].constant = margins.top
-		iconConstraints[1].constant = margins.right
-		iconConstraints[2].constant = margins.bottom
-		iconConstraints[3].constant = margins.left
-		setNeedsLayout()
 	}
 
 	///Calls the positionConstants() with all internal parameters

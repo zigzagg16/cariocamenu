@@ -11,8 +11,7 @@ extension DemoController where Self: UIViewController {
 	func add(in parentViewController: UIViewController) {
 		parentViewController.addChild(self)
 		self.view.backgroundColor = .clear
-		parentViewController.view.addSubview(self.view)
-		parentViewController.view.addConstraints(self.view.makeAnchorConstraints(to: parentViewController.view))
+		self.view.fill(in: parentViewController.view)
 		parentViewController.view.layoutIfNeeded()
 		setNeedsStatusBarAppearanceUpdate()
 	}
