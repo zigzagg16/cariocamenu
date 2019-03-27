@@ -4,7 +4,7 @@
 [![Carthage compatible](https://img.shields.io/badge/Carthage-Compatible-brightgreen.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![Version](https://img.shields.io/cocoapods/v/Hero.svg?style=flat)](http://cocoapods.org/pods/Hero)
 ![iOS 9.0+](https://img.shields.io/badge/iOS-9.0%2B-blue.svg)
-![Swift 4.0+](https://img.shields.io/badge/Swift-4.0%2B-orange.svg)
+![Swift 5.0+](https://img.shields.io/badge/Swift-5.0%2B-orange.svg)
 [![License](https://img.shields.io/cocoapods/l/Hero.svg?style=flat)](https://github.com/arn00s/cariocamenu/blob/master/LICENSE?raw=true)
 [![CocoaPods](https://img.shields.io/cocoapods/dt/CariocaMenu.svg)]()
 [![Twitter URL](https://img.shields.io/twitter/url/https/github.com/arn00s/cariocamenu.svg?style=social)](https://twitter.com/intent/tweet?text=This%20menu%20is%20awesome:&url=https%3A%2F%2Fgithub.com%2Farn00s%2Fcariocamenu)
@@ -32,7 +32,7 @@ CariocaMenu is a **simple**, **elegant**, **fast** navigation menu for your **iO
 
 - AutoLayout
 - iOS 9.0+
-- Swift 4.0
+- Swift 5.0
 
 ## 📢 Communication
 
@@ -52,7 +52,7 @@ Simply add the following to your project Podfile, and you'll be good to go.
 ```ruby
 use_frameworks!
 
-pod 'CariocaMenu', '~> 2.0.1'
+pod 'CariocaMenu', '~> 2.1'
 ```
 
 ### Carthage
