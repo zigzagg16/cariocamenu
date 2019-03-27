@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>UIView Extension Reference</title>
+    <title>EdgeConstraints Structure Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -10,8 +10,8 @@
     
   </head>
   <body>
-    <a name="//apple_ref/swift/Extension/UIView" class="dashAnchor"></a>
-    <a title="UIView Extension Reference"></a>
+    <a name="//apple_ref/swift/Struct/EdgeConstraints" class="dashAnchor"></a>
+    <a title="EdgeConstraints Structure Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="../index.html">CariocaMenu Docs</a> (100% documented)</p>
@@ -22,7 +22,7 @@
       <p id="breadcrumbs">
         <a href="../index.html">CariocaMenu Reference</a>
         <img id="carat" src="../img/carat.png" />
-        UIView Extension Reference
+        EdgeConstraints Structure Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -126,14 +126,15 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>UIView</h1>
+            <h1>EdgeConstraints</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">UIView</span> <span class="p">:</span> <span class="kt">UIResponder</span><span class="p">,</span> <span class="kt">NSCoding</span><span class="p">,</span> <span class="kt">UIAppearance</span><span class="p">,</span> <span class="kt">UIAppearanceContainer</span><span class="p">,</span> <span class="kt">UIDynamicItem</span><span class="p">,</span> <span class="kt">UITraitEnvironment</span><span class="p">,</span> <span class="kt">UICoordinateSpace</span><span class="p">,</span> <span class="kt">UIFocusItem</span><span class="p">,</span> <span class="kt">UIFocusItemContainer</span><span class="p">,</span> <span class="kt">CALayerDelegate</span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">EdgeConstraints</span></code></pre>
 
                 </div>
               </div>
-            
+            <p>Structure to hold four edge constraints between view and its superview</p>
+
           </section>
           <section class="section task-group-section">
             <div class="task-group">
@@ -141,9 +142,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:So6UIViewC11CariocaMenuE21makeAnchorConstraints2toAC04EdgeF0VAB_tF"></a>
-                    <a name="//apple_ref/swift/Method/makeAnchorConstraints(to:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:So6UIViewC11CariocaMenuE21makeAnchorConstraints2toAC04EdgeF0VAB_tF">makeAnchorConstraints(to:)</a>
+                    <a name="/s:11CariocaMenu15EdgeConstraintsV3topSo18NSLayoutConstraintCvp"></a>
+                    <a name="//apple_ref/swift/Property/top" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11CariocaMenu15EdgeConstraintsV3topSo18NSLayoutConstraintCvp">top</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -151,14 +152,153 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Generates 4 NSLayoutConstraints</p>
+                        <p>The top edge constraint.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">makeAnchorConstraints</span><span class="p">(</span><span class="n">to</span> <span class="nv">superview</span><span class="p">:</span> <span class="kt">UIView</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/EdgeConstraints.html">EdgeConstraints</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">let</span> <span class="nv">top</span><span class="p">:</span> <span class="kt">NSLayoutConstraint</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11CariocaMenu15EdgeConstraintsV4leftSo18NSLayoutConstraintCvp"></a>
+                    <a name="//apple_ref/swift/Property/left" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11CariocaMenu15EdgeConstraintsV4leftSo18NSLayoutConstraintCvp">left</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The left edge constraint.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">let</span> <span class="nv">left</span><span class="p">:</span> <span class="kt">NSLayoutConstraint</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11CariocaMenu15EdgeConstraintsV6bottomSo18NSLayoutConstraintCvp"></a>
+                    <a name="//apple_ref/swift/Property/bottom" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11CariocaMenu15EdgeConstraintsV6bottomSo18NSLayoutConstraintCvp">bottom</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The bottom edge constraint.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">let</span> <span class="nv">bottom</span><span class="p">:</span> <span class="kt">NSLayoutConstraint</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11CariocaMenu15EdgeConstraintsV5rightSo18NSLayoutConstraintCvp"></a>
+                    <a name="//apple_ref/swift/Property/right" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11CariocaMenu15EdgeConstraintsV5rightSo18NSLayoutConstraintCvp">right</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The right edge constraint.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">let</span> <span class="nv">right</span><span class="p">:</span> <span class="kt">NSLayoutConstraint</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11CariocaMenu15EdgeConstraintsV7toArraySaySo18NSLayoutConstraintCGyF"></a>
+                    <a name="//apple_ref/swift/Method/toArray()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11CariocaMenu15EdgeConstraintsV7toArraySaySo18NSLayoutConstraintCGyF">toArray()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns an array representation</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">toArray</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt">NSLayoutConstraint</span><span class="p">]</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>all four constraint in array representation</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:11CariocaMenu15EdgeConstraintsV5apply10edgeInsetsySo06UIEdgeG0V_tF"></a>
+                    <a name="//apple_ref/swift/Method/apply(edgeInsets:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11CariocaMenu15EdgeConstraintsV5apply10edgeInsetsySo06UIEdgeG0V_tF">apply(edgeInsets:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Modifies <code>constant</code> of held constraints with specified insets</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">apply</span><span class="p">(</span><span class="n">edgeInsets</span> <span class="nv">insets</span><span class="p">:</span> <span class="kt">UIEdgeInsets</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -169,169 +309,17 @@
                             <tr>
                               <td>
                                 <code>
-                                <em>superview</em>
+                                <em>edgeInsets</em>
                                 </code>
                               </td>
                               <td>
                                 <div>
-                                  <p>The superview to which the view will stick</p>
+                                  <p>Desired insets between view and it&rsquo;s superview to be applied.</p>
                                 </div>
                               </td>
                             </tr>
                           </tbody>
                         </table>
-                      </div>
-                      <div>
-                        <h4>Return Value</h4>
-                        <p>EdgeConstraints</p>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:So6UIViewC11CariocaMenuE4fill2inAC15EdgeConstraintsVAB_tF"></a>
-                    <a name="//apple_ref/swift/Method/fill(in:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:So6UIViewC11CariocaMenuE4fill2inAC15EdgeConstraintsVAB_tF">fill(in:)</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Adding self to superview if needed, creates and applies EdgeConstraints without insets</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@discardableResult</span>
-<span class="kd">func</span> <span class="nf">fill</span><span class="p">(</span><span class="k">in</span> <span class="nv">superview</span><span class="p">:</span> <span class="kt">UIView</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/EdgeConstraints.html">EdgeConstraints</a></span></code></pre>
-
-                        </div>
-                      </div>
-                      <div>
-                        <h4>Parameters</h4>
-                        <table class="graybox">
-                          <tbody>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>superview</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The superview to which the view will stick</p>
-                                </div>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                      <div>
-                        <h4>Return Value</h4>
-                        <p>instance of EdgeConstraints</p>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:So6UIViewC11CariocaMenuE03addB14GestureHelpers_5widthySaySo10UIRectEdgeVG_12CoreGraphics7CGFloatVtF"></a>
-                    <a name="//apple_ref/swift/Method/addCariocaGestureHelpers(_:width:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:So6UIViewC11CariocaMenuE03addB14GestureHelpers_5widthySaySo10UIRectEdgeVG_12CoreGraphics7CGFloatVtF">addCariocaGestureHelpers(_:width:)</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Adds Gesture helper views in the container view.
-Recommended when the whole view scrolls (<code>UIWebView</code>,<code>MKMapView</code>,&hellip;)</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">addCariocaGestureHelpers</span><span class="p">(</span><span class="n">_</span> <span class="nv">edges</span><span class="p">:</span> <span class="p">[</span><span class="kt">UIRectEdge</span><span class="p">],</span> <span class="nv">width</span><span class="p">:</span> <span class="kt">CGFloat</span> <span class="o">=</span> <span class="mf">40.0</span><span class="p">)</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div>
-                        <h4>Parameters</h4>
-                        <table class="graybox">
-                          <tbody>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>edges</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>An array of <code>UIRectEdge</code> on which to show the helpers</p>
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>width</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The width of the helper view. Recommended maximum value: <code>40.0</code></p>
-                                </div>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:So6UIViewC11CariocaMenuE6insetsSo12UIEdgeInsetsVyF"></a>
-                    <a name="//apple_ref/swift/Method/insets()" class="dashAnchor"></a>
-                    <a class="token" href="#/s:So6UIViewC11CariocaMenuE6insetsSo12UIEdgeInsetsVyF">insets()</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Safe way to get the insets of the view, depending on iOS version.
-On iOS 11.0 and higher, returns the safeAreaInsets</p>
-
-<p>For &lt; iOS 11.0, returns insets of StatusBar&rsquo;s height, 0, 0, 0</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">insets</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">UIEdgeInsets</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div>
-                        <h4>Return Value</h4>
-                        <p>UIEdgeInsets: The view&rsquo;s insets</p>
                       </div>
                     </section>
                   </div>
