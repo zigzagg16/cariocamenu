@@ -1,8 +1,3 @@
-//
-//  MainViewController.swift
-//  CariocaMenuDemo
-//
-
 import UIKit
 
 class MainViewController: UIViewController {

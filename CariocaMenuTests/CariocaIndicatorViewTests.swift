@@ -1,6 +1,5 @@
 import Foundation
 import XCTest
-import CariocaMenu
 
 class CariocaIndicatorViewTests: XCTestCase {
 
