@@ -1,8 +1,3 @@
-//
-//  CustomPolygonIndicator.swift
-//  CariocaMenuDemo
-//
-
 import UIKit
 
 class CustomPolygonIndicator: UIView, CariocaIndicatorConfiguration {

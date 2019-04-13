@@ -37,14 +37,23 @@ public class CariocaMenuContainerView: UIView {
 
 	///Adds the blur view as a subview
 	///- Parameter style: The blur effect style
-	func addBlurView(style: UIBlurEffect.Style) {
+    func addBlurView(style: UIBlurEffect.Style, backgroundColor: UIColor) {
 		let visualEffectView = UIVisualEffectView(effect: UIBlurEffect(style: style))
 			as UIVisualEffectView
-		visualEffectView.frame = self.frame
-		visualEffectView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-		addSubview(visualEffectView)
-		sendSubviewToBack(visualEffectView)
+        addView(visualEffectView, backgroundColor)
 	}
+
+    func addBackground(_ backgroundColor: UIColor) {
+        addView(UIView(frame: self.frame), backgroundColor)
+    }
+
+    private func addView(_ view: UIView, _ backgroundColor: UIColor) {
+        view.frame = self.frame
+        view.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+        view.backgroundColor = backgroundColor
+        addSubview(view)
+        sendSubviewToBack(view)
+    }
 
     ///:nodoc:
     required public init?(coder aDecoder: NSCoder) { fatalError("init(coder:) has not been implemented") }
