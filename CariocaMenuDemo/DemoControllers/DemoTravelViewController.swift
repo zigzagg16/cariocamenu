@@ -1,11 +1,11 @@
-import UIKit
 import MapKit
+import UIKit
 
 class DemoTravelViewController: UIViewController, DemoController {
-	weak var menuController: CariocaController?
+    weak var menuController: CariocaController?
     @IBOutlet weak var mapView: MKMapView!
 
-	override var preferredStatusBarStyle: UIStatusBarStyle { return .default }
+    override var preferredStatusBarStyle: UIStatusBarStyle { return .default }
 
     override func viewDidLoad() {
         setupMap()
@@ -24,12 +24,12 @@ class DemoTravelViewController: UIViewController, DemoController {
         mapView.mapType = .hybrid
         mapView.removeFromSuperview()
         mapView = nil
-        self.menuController = nil
+        menuController = nil
     }
 
-	override func viewWillAppear(_ animated: Bool) {
-		self.view.addCariocaGestureHelpers([.left, .right], width: 30.0)
-	}
+    override func viewWillAppear(_: Bool) {
+        view.addCariocaGestureHelpers([.left, .right], width: 30.0)
+    }
 
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)

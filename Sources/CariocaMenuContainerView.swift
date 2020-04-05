@@ -1,27 +1,27 @@
 import Foundation
 import UIKit
 
-///The menu's container view
+/// The menu's container view
 public class CariocaMenuContainerView: UIView {
-    ///The top constraint. Used to move the menu's Y position
+    /// The top constraint. Used to move the menu's Y position
     var topConstraint: NSLayoutConstraint
-    ///The menu's height
+    /// The menu's height
     let menuHeight: CGFloat
 
-    ///Initialises the containerview
-    ///- Parameter frame: The hostView frame
-    ///- Parameter dataSource: The menu's dataSource
+    /// Initialises the containerview
+    /// - Parameter frame: The hostView frame
+    /// - Parameter dataSource: The menu's dataSource
     init(frame: CGRect, dataSource: CariocaController) {
         topConstraint = NSLayoutConstraint()
         menuHeight = dataSource.heightForRow() * CGFloat(dataSource.menuItems.count)
         super.init(frame: frame)
-        self.translatesAutoresizingMaskIntoConstraints = false
+        translatesAutoresizingMaskIntoConstraints = false
         addSubview(dataSource.view)
         dataSource.tableView.isScrollEnabled = false
-        //Autolayout constraints for the menu
+        // Autolayout constraints for the menu
         dataSource.view.translatesAutoresizingMaskIntoConstraints = false
         topConstraint = CariocaMenu.equalConstraint(dataSource.view, toItem: self, attribute: .top)
-        self.addConstraints([
+        addConstraints([
             topConstraint,
             NSLayoutConstraint(item: dataSource.view as Any,
                                attribute: .height,
@@ -35,26 +35,26 @@ public class CariocaMenuContainerView: UIView {
         ])
     }
 
-	///Adds the blur view as a subview
-	///- Parameter style: The blur effect style
+    /// Adds the blur view as a subview
+    /// - Parameter style: The blur effect style
     func addBlurView(style: UIBlurEffect.Style, backgroundColor: UIColor) {
-		let visualEffectView = UIVisualEffectView(effect: UIBlurEffect(style: style))
-			as UIVisualEffectView
+        let visualEffectView = UIVisualEffectView(effect: UIBlurEffect(style: style))
+            as UIVisualEffectView
         addView(visualEffectView, backgroundColor)
-	}
+    }
 
     func addBackground(_ backgroundColor: UIColor) {
-        addView(UIView(frame: self.frame), backgroundColor)
+        addView(UIView(frame: frame), backgroundColor)
     }
 
     private func addView(_ view: UIView, _ backgroundColor: UIColor) {
-        view.frame = self.frame
+        view.frame = frame
         view.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         view.backgroundColor = backgroundColor
         addSubview(view)
         sendSubviewToBack(view)
     }
 
-    ///:nodoc:
-    required public init?(coder aDecoder: NSCoder) { fatalError("init(coder:) has not been implemented") }
+    /// :nodoc:
+    public required init?(coder _: NSCoder) { fatalError("init(coder:) has not been implemented") }
 }

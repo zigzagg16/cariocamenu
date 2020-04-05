@@ -1,8 +1,7 @@
 import UIKit
 
 class DemoHomeViewController: UIViewController, DemoController {
+    weak var menuController: CariocaController?
 
-	weak var menuController: CariocaController?
-
-	override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
+    override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
 }

@@ -1,0 +1,16 @@
+# https://github.com/nicklockwood/SwiftFormat#rules
+# https://github.com/nicklockwood/SwiftFormat/blob/master/CHANGELOG.md
+# https://github.com/nicklockwood/SwiftFormat/blob/master/Rules.md
+
+# Swift version
+--swiftversion 5.0
+
+--header strip
+
+# Excluded folders
+--exclude Pods
+--exclude Components/.build/
+
+# Disabled rules
+--disable strongOutlets
+--disable trailingCommas
