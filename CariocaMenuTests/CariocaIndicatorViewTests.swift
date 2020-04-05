@@ -1,3 +1,4 @@
+import CariocaMenu
 import Foundation
 import XCTest
 
