@@ -8,6 +8,8 @@ class DemoMenuContentController: UITableViewController, CariocaDataSource {
 	var isOffscreenAllowed: Bool = true
 	///The blur effect, optional
 	var blurStyle: UIBlurEffect.Style? = .dark
+    ///The menu's background color
+    var backgroundColor: UIColor = .black
 	///The boomerang type
 	var boomerang: BoomerangType = .none
 	///The menu items displayed
