@@ -76,11 +76,12 @@ class CariocaGestureManager {
             let rangeUpperBound = container.menuHeight > frameHeight ?
                 frameHeight : (frameHeight - container.menuHeight)
             let yRange: ClosedRange<CGFloat> = 20.0 ... rangeUpperBound
+            let selectedIndex = delegate?.selectedIndex ?? internalSelectedIndex
             let topY = CariocaGestureManager.topYConstraint(yLocation: yLocation,
                                                             originalScreeenEdgePanY: originalScreeenEdgePanY,
                                                             menuHeight: container.menuHeight,
                                                             heightForRow: controller.heightForRow(),
-                                                            selectedIndex: delegate?.selectedIndex ?? internalSelectedIndex,
+                                                            selectedIndex: selectedIndex,
                                                             yRange: yRange,
                                                             isOffscreenAllowed: controller.isOffscreenAllowed)
             container.topConstraint.constant = topY

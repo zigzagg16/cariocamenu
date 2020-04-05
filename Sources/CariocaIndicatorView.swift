@@ -34,11 +34,11 @@ public class CariocaIndicatorView: UIView {
     private var iconConstraints: EdgeConstraints!
     /// The indicator's possible animation states
     private enum AnimationState {
-		/// The indicator is on hold, the menu is closed
+        /// The indicator is on hold, the menu is closed
         case onHold
-		/// The indicator is performing showing animation
+        /// The indicator is performing showing animation
         case showing
-		/// The indicator is performing restoration animation
+        /// The indicator is performing restoration animation
         case restoring
     }
 
@@ -228,8 +228,14 @@ public class CariocaIndicatorView: UIView {
         let animationValueTwo = isTraversingView ? positions.end.to : positions.start
 
         animation(superView, constraint: horizontalConstraint,
-                  constant: animationValueOne, timing: isTraversingView ? 0.3 : 0.15, options: [.curveEaseIn], finished: {
-                      guard self.state != .restoring else { return /* second show animation cancelled, indicator is restoring */ }
+                  constant: animationValueOne,
+                  timing: isTraversingView ? 0.3 : 0.15,
+                  options: [.curveEaseIn],
+                  finished: {
+                      guard self.state != .restoring else {
+                          /// second show animation cancelled, indicator is restoring
+                          return
+                      }
                       self.animation(superView, constraint: self.horizontalConstraint,
                                      constant: animationValueTwo, timing: 0.2, options: [.curveEaseOut], finished: {
                                          self.state = .onHold
@@ -276,8 +282,12 @@ public class CariocaIndicatorView: UIView {
                           self.state = .onHold
                           self.show(edge: edgeToShow, hostView: hostView, isTraversingView: false)
                       } else {
-                          self.animation(self.superview!, constraint: self.horizontalConstraint,
-                                         constant: positions.start, timing: timingAnim2, options: [.curveEaseOut], finished: {
+                          self.animation(self.superview!,
+                                         constraint: self.horizontalConstraint,
+                                         constant: positions.start,
+                                         timing: timingAnim2,
+                                         options: [.curveEaseOut],
+                                         finished: {
                                              firstStepDone()
                                              self.state = .onHold
                           })

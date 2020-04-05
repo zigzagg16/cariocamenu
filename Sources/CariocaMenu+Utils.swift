@@ -30,7 +30,7 @@ public extension UIView {
     /// Generates 4 NSLayoutConstraints
     /// - Parameter superview: The superview to which the view will stick
     /// - Returns: EdgeConstraints
-    func makeAnchorConstraints(to superview: UIView) -> EdgeConstraints {
+    private func makeAnchorConstraints(to superview: UIView) -> EdgeConstraints {
         return EdgeConstraints(
             top: topAnchor.constraint(equalTo: superview.topAnchor),
             left: leftAnchor.constraint(equalTo: superview.leftAnchor),

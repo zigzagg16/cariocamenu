@@ -1,4 +1,4 @@
-import CariocaMenu
+@testable import CariocaMenu
 import Foundation
 import XCTest
 

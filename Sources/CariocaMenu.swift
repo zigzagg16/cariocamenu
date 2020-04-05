@@ -159,13 +159,19 @@ public class CariocaMenu: NSObject, CariocaGestureManagerDelegate, UITableViewDe
         indicator.restore(hostView: hostView, boomerang: controller.boomerang,
                           initialPosition: controller.indicatorPosition,
                           firstStepDuration: 0.5,
-                          firstStepDone: {
-                              if self.controller.boomerang == .originalPosition || self.controller.boomerang == .vertical {
-                                  // Set the container on top to avoid incorrect calculations.
-                                  self.container.topConstraint.constant = 0.0
-                                  self.hostView.setNeedsLayout()
-                              }
+                          firstStepDone: { [weak self] in
+                              guard let self = self else { return }
+                              self.firstStepDone()
         })
+    }
+
+    /// :nodoc:
+    private func firstStepDone() {
+        if controller.boomerang == .originalPosition || controller.boomerang == .vertical {
+            // Set the container on top to avoid incorrect calculations.
+            container.topConstraint.constant = 0.0
+            hostView.setNeedsLayout()
+        }
     }
 
     // MARK: UITableView datasource/delegate
